@@ -1,0 +1,43 @@
+# Dependencies
+node_modules/
+.venv/
+venv/
+
+# Environment
+.env
+.env.local
+.env.*.local
+backend/.env
+frontend/.env.local
+
+# Build
+frontend/.next/
+frontend/out/
+__pycache__/
+*.py[cod]
+*.egg-info/
+dist/
+build/
+
+# IDE & OS
+.DS_Store
+.idea/
+.vscode/
+*.swp
+
+# Python
+.pytest_cache/
+.mypy_cache/
+.ruff_cache/
+
+# Logs
+*.log
+
+# 분석 산출물 (analysis/*/data, analysis/*/charts)
+# 스크립트(*.py)·매핑 JSON·.gitkeep 은 커밋, 수집 데이터·차트는 제외
+backend/analysis/economic/data/*.csv
+backend/analysis/economic/charts/*.png
+backend/analysis/commercial/data/*.csv
+backend/analysis/commercial/charts/*.png
+backend/analysis/finance/data/*.csv
+backend/analysis/finance/charts/*.png

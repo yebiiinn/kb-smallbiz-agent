@@ -1,0 +1,26 @@
+[
+  {
+    "type": "financial_product",
+    "name": "KB 소상공인 신용대출",
+    "reason": "사업자등록 및 매출 확인 시 신속 심사, 운영자금·시설자금 용도",
+    "link": "https://www.kbstar.com"
+  },
+  {
+    "type": "financial_product",
+    "name": "KB 사장님든든 신용대출",
+    "reason": "개인사업자·법인소상공인 대상, 중도상환 수수료 우대",
+    "link": "https://www.kbstar.com"
+  },
+  {
+    "type": "financial_product",
+    "name": "KB 창업기업 특례보증 연계대출",
+    "reason": "창업 3년 이내, 신용보증재단 보증서 연계",
+    "link": "https://www.kbstar.com"
+  },
+  {
+    "type": "financial_product",
+    "name": "KB 마이너스통장 (기업)",
+    "reason": "단기 운전자금·비수기 현금흐름 관리에 유리",
+    "link": "https://www.kbstar.com"
+  }
+]

@@ -1,0 +1,47 @@
+[
+  {
+    "id": "policy-001",
+    "name": "소상공인 정책자금 (일반경영안정)",
+    "description": "운영 자금·시설 개선 등 일반 경영 안정을 위한 저리 대출",
+    "eligibility": "사업자등록 6개월 이상, 신용·연체 요건 충족",
+    "max_amount": "7,000만원",
+    "stage": "operation",
+    "link": "https://www.semas.or.kr"
+  },
+  {
+    "id": "policy-002",
+    "name": "소상공인 특별경영안정자금",
+    "description": "경기 침체·매출 감소 등 경영 애로 소상공인 지원",
+    "eligibility": "매출 감소 또는 임대료·인건비 부담 증가 소상공인",
+    "max_amount": "5,000만원",
+    "stage": "operation",
+    "link": "https://www.semas.or.kr"
+  },
+  {
+    "id": "policy-003",
+    "name": "창업 초기자금 (혁신창업사업화)",
+    "description": "예비·초기 창업자 대상 사업화 자금 지원",
+    "eligibility": "창업 3년 이내, 사업계획서 및 평가 통과",
+    "max_amount": "1억원",
+    "stage": "startup",
+    "link": "https://www.k-startup.go.kr"
+  },
+  {
+    "id": "policy-004",
+    "name": "소상공인 스마트상점 기술보급",
+    "description": "키오스크·배달앱·CRM 등 디지털 전환 지원",
+    "eligibility": "소상공인, 업종별 공고 요건 충족",
+    "max_amount": "최대 400만원 (보조)",
+    "stage": "operation",
+    "link": "https://www.sbiz.or.kr"
+  },
+  {
+    "id": "policy-005",
+    "name": "청년전용창업자금",
+    "description": "39세 이하 청년 창업자 대상 정책자금",
+    "eligibility": "만 39세 이하, 창업 3년 이내",
+    "max_amount": "5,000만원",
+    "stage": "startup",
+    "link": "https://www.semas.or.kr"
+  }
+]

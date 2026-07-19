@@ -1,0 +1,54 @@
+{
+  "fetched_at": null,
+  "products": [
+    {
+      "name": "KB소상공인 보증서대출(온택트)",
+      "description": "사업장에서 모바일로 간편하게",
+      "channel": "인터넷, 스타기업뱅킹",
+      "category": "소상공인"
+    },
+    {
+      "name": "KB소상공인 신용대출",
+      "description": "바쁜 개인사업자를 위한 비대면 신용대출",
+      "channel": "인터넷, 스타기업뱅킹",
+      "category": "소상공인"
+    },
+    {
+      "name": "KB사장님+ 마이너스통장",
+      "description": "사장님, 필요한만큼 사용하고 언제든 상환하세요",
+      "channel": "인터넷, 스타기업뱅킹",
+      "category": "소상공인"
+    },
+    {
+      "name": "햇살론 119",
+      "description": "서민금융진흥원과 협약보증을 통한 영세개인사업자의 추가사업자금을 지원",
+      "channel": "영업점",
+      "category": "소상공인"
+    },
+    {
+      "name": "KB 소상공인 119plus 장기분할상환 대출",
+      "description": "일시적 자금사정 악화 등으로 상환에 어려움이 예상되는 소상공인 채무조정 지원",
+      "channel": "영업점",
+      "category": "소상공인"
+    },
+    {
+      "name": "KB 소상공인 119plus 만기연장 대출",
+      "description": "일시적 자금사정 악화 등으로 상환에 어려움이 예상되는 소상공인 채무조정 지원",
+      "channel": "영업점",
+      "category": "소상공인"
+    },
+    {
+      "name": "KB소상공인보증서대출(모바일우대보증)",
+      "description": "경기도 소재 소상공인을 위한 비대면 전용 보증서대출",
+      "channel": "스타기업뱅킹, 영업점",
+      "category": "소상공인"
+    },
+    {
+      "name": "KB셀러론",
+      "description": "온라인셀러를 위한 쉽고 빠른 선정산",
+      "channel": "인터넷, 스타기업뱅킹",
+      "category": "소상공인"
+    }
+  ],
+  "source": "seed"
+}

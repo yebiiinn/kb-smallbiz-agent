@@ -1,0 +1,26 @@
+{
+  "fetched_at": null,
+  "product_name": "소상공인 정책자금대출",
+  "loan_limit": "최대 7천만원",
+  "interest_rate": {
+    "min": 3.24,
+    "max": 4.04,
+    "base": 3.44,
+    "spread": 0.6,
+    "quarter": "2026년 2분기",
+    "preferential_max": 0.8
+  },
+  "repayment": "2년 거치 3년 원금균등분할상환",
+  "mid_repay_fee": "면제",
+  "guarantee_fee": "최저 0.5% ~ 최고 2.0%",
+  "event": {
+    "title": "보증료 50% 지원",
+    "benefit": "1인당 최대 30만원",
+    "period_start": "2026-07-06",
+    "period_end": "2026-07-31"
+  },
+  "application_time": "대출신청 09:00~21:00 / 대출실행 매주 화·목 09:00~16:00",
+  "contact": "1644-0360",
+  "url": "https://zloan.kbstar.com/quics?page=C112618&CooperCD=A000115",
+  "source": "seed"
+}

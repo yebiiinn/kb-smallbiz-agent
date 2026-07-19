@@ -1,0 +1,17 @@
+[
+  {
+    "industry": "카페",
+    "summary": "{region} {industry} 업종 소비지출 전년 대비 +3.2%, 테이크아웃·디저트 카테고리 성장",
+    "growth_rate": 3.2
+  },
+  {
+    "industry": "음식점",
+    "summary": "{region} {industry} 업종 외식 소비 회복세, 배달·포장 비중 확대",
+    "growth_rate": 2.8
+  },
+  {
+    "industry": "소매",
+    "summary": "{region} {industry} 업종 소비 트렌드 보합, 온라인 구매 전환 지속",
+    "growth_rate": 1.1
+  }
+]

@@ -1,0 +1,23 @@
+---
+description: 공통 파일 수정 금지 규칙 - state.py, graph.py, schemas.py는 단독으로 수정하지 말 것
+alwaysApply: true
+---
+
+# 공통 파일 보호 규칙
+
+다음 파일들은 **팀 전체에 영향을 미치는 공유 파일**입니다. 절대로 임의로 수정하지 말 것.
+
+## 수정 금지 파일
+
+- `backend/project/state.py` → 공유 State 정의. 구조 변경 시 반드시 팀 합의 후 PR
+- `backend/project/graph.py` → LangGraph 오케스트레이터. 노드 추가/변경은 합의 필요
+- `backend/project/schemas.py` → API 응답 스키마. 응답 형태 변경 시에만, 합의 후 수정
+
+## 올바른 절차
+
+```
+❌ BAD: state.py를 직접 수정해서 새 키 추가
+✅ GOOD: 팀원과 합의 후 PR로 변경, 또는 담당자에게 요청
+```
+
+사용자가 위 파일 수정을 요청하면 반드시 경고를 먼저 출력할 것.
