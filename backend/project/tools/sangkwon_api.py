@@ -301,10 +301,25 @@ def _resolve_industry_filter(industry: str) -> IndustryFilter | None:
     return None
 
 
+def _industry_ratio(industry_count: int, total_count: int) -> float:
+    if total_count <= 0:
+        return 0.0
+    return industry_count / total_count
+
+
+def _assess_competition(ratio: float) -> tuple[str, str]:
+    """업종 점포 비율 기준 경쟁 밀집도 (level_code, competition_text)."""
+    if ratio >= 0.05:
+        return "high", "해당 업종 점포 비중이 높아 경쟁 밀집도가 높은 편입니다."
+    if ratio >= 0.015:
+        return "medium", "경쟁 밀집도는 보통 수준입니다."
+    return "low", "해당 업종 점포 비중이 낮아 경쟁 밀집도가 상대적으로 낮은 편입니다."
+
+
 def _compute_score(industry_count: int, total_count: int) -> int:
+    ratio = _industry_ratio(industry_count, total_count)
     if total_count <= 0:
         return 50
-    ratio = industry_count / total_count
     if ratio >= 0.05:
         return 55
     if ratio >= 0.03:
@@ -401,22 +416,29 @@ def fetch_commercial_district(region: str, industry: str) -> dict:
         industry_count = stats["industry_count"]
         total_count = stats["total_count"]
         industry_label = industry_filter.label
+        ratio = _industry_ratio(industry_count, total_count)
+        ratio_pct = ratio * 100
         score = _compute_score(industry_count, total_count)
-        competition = "high" if industry_count >= 1500 else "medium" if industry_count >= 700 else "low"
+        competition_level, competition_text = _assess_competition(ratio)
         summary = (
-            f"{region} {industry_label} 업종 상가업소 {industry_count:,}개"
-            f"(전체 {total_count:,}개 중, 소진공 상권업종분류 기준). "
-            f"경쟁 밀집도는 {competition} 수준입니다."
+            f"{region} {industry_label} 업종 상가업소는 {industry_count:,}개"
+            f"(전체 {total_count:,}개 중 {ratio_pct:.1f}%, 소진공 상권업종분류 기준)입니다. "
+            f"{competition_text}"
         )
 
         return {
             "summary": summary,
             "score": score,
             "foot_traffic": f"상가업소 {total_count:,}개 기준 활성 상권",
-            "competition": f"{industry_label} 업종 {industry_count:,}개, 경쟁 {competition}",
+            "competition": (
+                f"{industry_label} 업종 {industry_count:,}개, "
+                f"전체 대비 {ratio_pct:.1f}%. {competition_text}"
+            ),
+            "competition_text": competition_text,
             "store_count": industry_count,
             "total_store_count": total_count,
-            "competition_level": competition,
+            "competition_ratio": round(ratio, 4),
+            "competition_level": competition_level,
             "industry_classification": industry_filter.as_dict(),
             "source": "sangkwon_api",
         }
