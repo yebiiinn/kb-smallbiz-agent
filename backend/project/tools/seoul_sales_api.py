@@ -215,6 +215,7 @@ def fetch_estimated_sales(region: str, industry: str) -> dict:
 
         return {
             "monthly_sales": monthly_sales,
+            "total_sales_amount": latest_amount,
             "sales_trend": sales_trend,
             "summary": summary,
             "quarter": quarter_label,
