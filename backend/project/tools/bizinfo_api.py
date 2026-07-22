@@ -125,7 +125,7 @@ def get_support_programs(
     params: dict[str, Any] = {
         "crtfcKey":  settings.bizinfo_api_key,
         "dataType":  "json",
-        "searchCnt": search_cnt,
+        "pageUnit":  search_cnt,   # API 실제 파라미터명 (searchCnt X)
         "pageIndex": page_index,
     }
     if search_lclas_id:
@@ -145,9 +145,11 @@ def get_support_programs(
 def _extract_items(data: dict[str, Any]) -> list[dict[str, Any]]:
     """API 응답에서 공고 항목 리스트를 안전하게 추출한다.
 
-    방어 처리:
-    - jsonArray.item 키가 없으면 빈 리스트 반환.
+    방어 처리 (실제 API 응답 형식 대응):
+    - jsonArray 가 list 이면 그대로 반환 (실제 API 형식).
+    - jsonArray 가 dict 이고 item 키를 가지면 item 반환 (레거시 형식).
     - item 이 단일 dict 이면 리스트로 감싸서 반환.
+    - 없거나 비어있으면 빈 리스트 반환.
 
     Args:
         data: API 응답 전체 dict.
@@ -155,10 +157,15 @@ def _extract_items(data: dict[str, Any]) -> list[dict[str, Any]]:
     Returns:
         공고 항목 list.
     """
-    json_array = data.get("jsonArray", {})
+    json_array = data.get("jsonArray")
     if not json_array:
         return []
 
+    # 실제 API 응답: {"jsonArray": [...]} — 리스트 직접 반환
+    if isinstance(json_array, list):
+        return json_array
+
+    # 레거시 형식: {"jsonArray": {"item": [...]}}
     raw = json_array.get("item")
     if raw is None:
         return []
