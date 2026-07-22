@@ -119,25 +119,71 @@ def _fetch_kosis_values(indicator_names: list[str]) -> dict[str, float | None]:
     return result
 
 
+# ── 헬퍼: 기준금리 방향성 자동 감지 ──────────────────────────────────────────
+
+def _fetch_rate_direction() -> str:
+    """ECOS API에서 최근 2개월 기준금리를 비교해 방향성 반환.
+
+    Returns
+    -------
+    "인상" | "인하" | "동결"
+    금리가 얼마든 코드 수정 없이 자동 판단. API 조회 실패 시 "동결" 반환.
+    """
+    cfg = _MAPPING.get("ecos_indicators", {}).get("기준금리", {})
+    if not cfg:
+        return "동결"
+
+    today = datetime.today()
+    end = today.strftime("%Y%m")
+    start = (today - timedelta(days=65)).strftime("%Y%m")  # 최근 2개월 확보
+
+    series = ecos_api.fetch_indicator_series(
+        stat_code=cfg["stat_code"],
+        item_code=cfg["item_code"],
+        item_code2=cfg.get("item_code2", ""),
+        cycle="M",
+        start=start,
+        end=end,
+    )
+
+    if not series or len(series) < 2:
+        return "동결"
+
+    current = series[-1]["value"]
+    previous = series[-2]["value"]
+
+    if current > previous:
+        return "인상"
+    elif current < previous:
+        return "인하"
+    else:
+        return "동결"
+
+
 # ── 헬퍼: 거시 시나리오 판별 ─────────────────────────────────────────────────
 
 def _detect_scenarios(
     ecos_values: dict[str, float | None],
     kosis_values: dict[str, float | None],
+    rate_direction: str,
 ) -> list[str]:
     """현재 지표값으로 macro_interpretation 키 목록을 반환.
 
-    임계값 기준:
-    - 기준금리 ≤ 2.75%  → 기준금리_하락_시
+    기준금리 방향성은 절댓값 임계치 대신 _fetch_rate_direction() 비교 결과를 사용.
+    나머지 지표는 경제적 통념에 근거한 임계치 적용.
     - 현재경기판단CSI ≥ 100 → 소비심리_개선_시
-    - 실업률 > 4.0%     → 실업률_상승_시
-    - 원달러환율 > 1350  → 환율_상승_시
+    - 실업률 > 4.0%         → 실업률_상승_시
+    - 원달러환율 > 1350      → 환율_상승_시
     """
     scenarios: list[str] = []
 
-    rate = ecos_values.get("기준금리")
-    if rate is not None and rate <= 2.75:
-        scenarios.append("기준금리_하락_시")
+    # 기준금리: 절댓값이 아니라 전월 대비 방향으로 판단
+    if rate_direction == "인상":
+        scenarios.append("기준금리_인상_시")
+    elif rate_direction == "인하":
+        scenarios.append("기준금리_인하_시")
+    else:
+        scenarios.append("기준금리_동결_시")
 
     csi = ecos_values.get("현재경기판단CSI")
     if csi is not None and csi >= 100:
@@ -423,7 +469,8 @@ def economic_node(state: AgentState) -> dict:
     kosis_values = _fetch_kosis_values(kosis_targets)
 
     # 4. 거시 시나리오 판별
-    active_scenarios = _detect_scenarios(ecos_values, kosis_values)
+    rate_direction = _fetch_rate_direction()
+    active_scenarios = _detect_scenarios(ecos_values, kosis_values, rate_direction)
 
     # 5. 원시 요약 문장 생성 (LLM fallback 용)
     raw_indicator = _build_indicator_summary(
@@ -470,6 +517,7 @@ def economic_node(state: AgentState) -> dict:
             "raw": {
                 "ecos": ecos_values,
                 "kosis": kosis_values,
+                "rate_direction": rate_direction,
                 "raw_indicator": raw_indicator,
                 "agent_signal": corr_cfg.get("agent_signal", ""),
                 "industry_summary": corr_cfg.get("summary", ""),
