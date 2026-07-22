@@ -23,7 +23,7 @@ from project.tools import ecos_api, kosis_api
 
 # ── indicator_mapping.json 1회 로딩 ────────────────────────────────────────────
 _MAPPING_PATH = (
-    Path(__file__).resolve().parent.parent / "data" / "indicator_mapping.json"
+    Path(__file__).resolve().parent.parent / "data" / "economic" / "indicator_mapping.json"
 )
 
 
