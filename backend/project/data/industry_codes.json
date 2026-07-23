@@ -1,1471 +1,1495 @@
 [
   {
     "lcls_cd": "G2",
-    "lcls_nm": "소매",
+    "lcls_nm": "소매업",
     "mcls_cd": "G202",
-    "mcls_nm": "자동차 부품 소매",
+    "mcls_nm": "자동차 부품 및 내장품 소매업",
     "scls_cd": "G20201",
     "scls_nm": "타이어 소매업"
   },
   {
     "lcls_cd": "G2",
-    "lcls_nm": "소매",
+    "lcls_nm": "소매업",
     "mcls_cd": "G202",
-    "mcls_nm": "자동차 부품 소매",
+    "mcls_nm": "자동차 부품 및 내장품 소매업",
     "scls_cd": "G20202",
     "scls_nm": "자동차 부품 소매업"
   },
   {
     "lcls_cd": "G2",
-    "lcls_nm": "소매",
+    "lcls_nm": "소매업",
     "mcls_cd": "G203",
-    "mcls_nm": "모터사이클 소매",
+    "mcls_nm": "모터사이클 및 부품 소매업",
     "scls_cd": "G20301",
     "scls_nm": "모터사이클 및 부품 소매업"
   },
   {
     "lcls_cd": "G2",
-    "lcls_nm": "소매",
+    "lcls_nm": "소매업",
     "mcls_cd": "G204",
-    "mcls_nm": "종합 소매",
+    "mcls_nm": "종합 소매업",
     "scls_cd": "G20404",
     "scls_nm": "슈퍼마켓"
   },
   {
     "lcls_cd": "G2",
-    "lcls_nm": "소매",
+    "lcls_nm": "소매업",
     "mcls_cd": "G204",
-    "mcls_nm": "종합 소매",
+    "mcls_nm": "종합 소매업",
     "scls_cd": "G20405",
     "scls_nm": "편의점"
   },
   {
     "lcls_cd": "G2",
-    "lcls_nm": "소매",
+    "lcls_nm": "소매업",
     "mcls_cd": "G204",
-    "mcls_nm": "종합 소매",
+    "mcls_nm": "종합 소매업",
     "scls_cd": "G20499",
     "scls_nm": "그 외 기타 종합 소매업"
   },
   {
     "lcls_cd": "G2",
-    "lcls_nm": "소매",
+    "lcls_nm": "소매업",
     "mcls_cd": "G205",
-    "mcls_nm": "식료품 소매",
+    "mcls_nm": "식료품 소매업",
     "scls_cd": "G20501",
     "scls_nm": "곡물/곡분 소매업"
   },
   {
     "lcls_cd": "G2",
-    "lcls_nm": "소매",
+    "lcls_nm": "소매업",
     "mcls_cd": "G205",
-    "mcls_nm": "식료품 소매",
+    "mcls_nm": "식료품 소매업",
     "scls_cd": "G20502",
     "scls_nm": "가축 사료 소매업"
   },
   {
     "lcls_cd": "G2",
-    "lcls_nm": "소매",
+    "lcls_nm": "소매업",
     "mcls_cd": "G205",
-    "mcls_nm": "식료품 소매",
+    "mcls_nm": "식료품 소매업",
     "scls_cd": "G20503",
     "scls_nm": "정육점"
   },
   {
     "lcls_cd": "G2",
-    "lcls_nm": "소매",
+    "lcls_nm": "소매업",
     "mcls_cd": "G205",
-    "mcls_nm": "식료품 소매",
+    "mcls_nm": "식료품 소매업",
     "scls_cd": "G20504",
     "scls_nm": "건어물/젓갈 소매업"
   },
   {
     "lcls_cd": "G2",
-    "lcls_nm": "소매",
+    "lcls_nm": "소매업",
     "mcls_cd": "G205",
-    "mcls_nm": "식료품 소매",
+    "mcls_nm": "식료품 소매업",
     "scls_cd": "G20505",
     "scls_nm": "수산물 소매업"
   },
   {
     "lcls_cd": "G2",
-    "lcls_nm": "소매",
+    "lcls_nm": "소매업",
     "mcls_cd": "G205",
-    "mcls_nm": "식료품 소매",
+    "mcls_nm": "식료품 소매업",
     "scls_cd": "G20506",
     "scls_nm": "채소/과일 소매업"
   },
   {
     "lcls_cd": "G2",
-    "lcls_nm": "소매",
+    "lcls_nm": "소매업",
     "mcls_cd": "G205",
-    "mcls_nm": "식료품 소매",
+    "mcls_nm": "식료품 소매업",
     "scls_cd": "G20507",
     "scls_nm": "아이스크림 할인점"
   },
   {
     "lcls_cd": "G2",
-    "lcls_nm": "소매",
+    "lcls_nm": "소매업",
     "mcls_cd": "G205",
-    "mcls_nm": "식료품 소매",
+    "mcls_nm": "식료품 소매업",
     "scls_cd": "G20508",
     "scls_nm": "건강보조식품 소매업"
   },
   {
     "lcls_cd": "G2",
-    "lcls_nm": "소매",
+    "lcls_nm": "소매업",
     "mcls_cd": "G205",
-    "mcls_nm": "식료품 소매",
+    "mcls_nm": "식료품 소매업",
     "scls_cd": "G20509",
     "scls_nm": "반찬/식료품 소매업"
   },
   {
     "lcls_cd": "G2",
-    "lcls_nm": "소매",
+    "lcls_nm": "소매업",
     "mcls_cd": "G206",
-    "mcls_nm": "음료 소매",
+    "mcls_nm": "음료 소매업",
+    "scls_cd": "G20601",
+    "scls_nm": "얼음 소매업"
+  },
+  {
+    "lcls_cd": "G2",
+    "lcls_nm": "소매업",
+    "mcls_cd": "G206",
+    "mcls_nm": "음료 소매업",
     "scls_cd": "G20602",
     "scls_nm": "주류 소매업"
   },
   {
     "lcls_cd": "G2",
-    "lcls_nm": "소매",
+    "lcls_nm": "소매업",
     "mcls_cd": "G206",
-    "mcls_nm": "음료 소매",
+    "mcls_nm": "음료 소매업",
     "scls_cd": "G20603",
     "scls_nm": "생수/음료 소매업"
   },
   {
     "lcls_cd": "G2",
-    "lcls_nm": "소매",
+    "lcls_nm": "소매업",
     "mcls_cd": "G206",
-    "mcls_nm": "음료 소매",
+    "mcls_nm": "음료 소매업",
     "scls_cd": "G20604",
     "scls_nm": "우유 소매업"
   },
   {
     "lcls_cd": "G2",
-    "lcls_nm": "소매",
+    "lcls_nm": "소매업",
     "mcls_cd": "G207",
-    "mcls_nm": "담배 소매",
+    "mcls_nm": "담배 소매업",
     "scls_cd": "G20701",
     "scls_nm": "담배/전자담배 소매업"
   },
   {
     "lcls_cd": "G2",
-    "lcls_nm": "소매",
+    "lcls_nm": "소매업",
     "mcls_cd": "G208",
-    "mcls_nm": "가전·통신 소매",
+    "mcls_nm": "가전제품 및 정보 통신장비 소매업",
     "scls_cd": "G20801",
     "scls_nm": "컴퓨터/소프트웨어 소매업"
   },
   {
     "lcls_cd": "G2",
-    "lcls_nm": "소매",
+    "lcls_nm": "소매업",
     "mcls_cd": "G208",
-    "mcls_nm": "가전·통신 소매",
+    "mcls_nm": "가전제품 및 정보 통신장비 소매업",
     "scls_cd": "G20802",
     "scls_nm": "핸드폰 소매업"
   },
   {
     "lcls_cd": "G2",
-    "lcls_nm": "소매",
+    "lcls_nm": "소매업",
     "mcls_cd": "G208",
-    "mcls_nm": "가전·통신 소매",
+    "mcls_nm": "가전제품 및 정보 통신장비 소매업",
     "scls_cd": "G20803",
     "scls_nm": "가전제품 소매업"
   },
   {
     "lcls_cd": "G2",
-    "lcls_nm": "소매",
+    "lcls_nm": "소매업",
     "mcls_cd": "G209",
-    "mcls_nm": "섬유·의복·신발 소매",
+    "mcls_nm": "섬유, 의복, 신발 및 가죽제품 소매업",
     "scls_cd": "G20901",
     "scls_nm": "남성 의류 소매업"
   },
   {
     "lcls_cd": "G2",
-    "lcls_nm": "소매",
+    "lcls_nm": "소매업",
     "mcls_cd": "G209",
-    "mcls_nm": "섬유·의복·신발 소매",
+    "mcls_nm": "섬유, 의복, 신발 및 가죽제품 소매업",
     "scls_cd": "G20902",
     "scls_nm": "여성 의류 소매업"
   },
   {
     "lcls_cd": "G2",
-    "lcls_nm": "소매",
+    "lcls_nm": "소매업",
     "mcls_cd": "G209",
-    "mcls_nm": "섬유·의복·신발 소매",
+    "mcls_nm": "섬유, 의복, 신발 및 가죽제품 소매업",
     "scls_cd": "G20903",
     "scls_nm": "유아용 의류 소매업"
   },
   {
     "lcls_cd": "G2",
-    "lcls_nm": "소매",
+    "lcls_nm": "소매업",
     "mcls_cd": "G209",
-    "mcls_nm": "섬유·의복·신발 소매",
+    "mcls_nm": "섬유, 의복, 신발 및 가죽제품 소매업",
     "scls_cd": "G20904",
     "scls_nm": "한복 소매업"
   },
   {
     "lcls_cd": "G2",
-    "lcls_nm": "소매",
+    "lcls_nm": "소매업",
     "mcls_cd": "G209",
-    "mcls_nm": "섬유·의복·신발 소매",
+    "mcls_nm": "섬유, 의복, 신발 및 가죽제품 소매업",
     "scls_cd": "G20905",
     "scls_nm": "기타 의류 소매업"
   },
   {
     "lcls_cd": "G2",
-    "lcls_nm": "소매",
+    "lcls_nm": "소매업",
     "mcls_cd": "G209",
-    "mcls_nm": "섬유·의복·신발 소매",
+    "mcls_nm": "섬유, 의복, 신발 및 가죽제품 소매업",
     "scls_cd": "G20906",
     "scls_nm": "침구류/커튼 소매업"
   },
   {
     "lcls_cd": "G2",
-    "lcls_nm": "소매",
+    "lcls_nm": "소매업",
     "mcls_cd": "G209",
-    "mcls_nm": "섬유·의복·신발 소매",
+    "mcls_nm": "섬유, 의복, 신발 및 가죽제품 소매업",
     "scls_cd": "G20907",
     "scls_nm": "액세서리/잡화 소매업"
   },
   {
     "lcls_cd": "G2",
-    "lcls_nm": "소매",
+    "lcls_nm": "소매업",
     "mcls_cd": "G209",
-    "mcls_nm": "섬유·의복·신발 소매",
+    "mcls_nm": "섬유, 의복, 신발 및 가죽제품 소매업",
     "scls_cd": "G20908",
     "scls_nm": "가발 소매업"
   },
   {
     "lcls_cd": "G2",
-    "lcls_nm": "소매",
+    "lcls_nm": "소매업",
     "mcls_cd": "G209",
-    "mcls_nm": "섬유·의복·신발 소매",
+    "mcls_nm": "섬유, 의복, 신발 및 가죽제품 소매업",
     "scls_cd": "G20909",
     "scls_nm": "실/섬유제품 소매업"
   },
   {
     "lcls_cd": "G2",
-    "lcls_nm": "소매",
+    "lcls_nm": "소매업",
     "mcls_cd": "G209",
-    "mcls_nm": "섬유·의복·신발 소매",
+    "mcls_nm": "섬유, 의복, 신발 및 가죽제품 소매업",
     "scls_cd": "G20910",
     "scls_nm": "신발 소매업"
   },
   {
     "lcls_cd": "G2",
-    "lcls_nm": "소매",
+    "lcls_nm": "소매업",
     "mcls_cd": "G209",
-    "mcls_nm": "섬유·의복·신발 소매",
+    "mcls_nm": "섬유, 의복, 신발 및 가죽제품 소매업",
     "scls_cd": "G20911",
     "scls_nm": "가방 소매업"
   },
   {
     "lcls_cd": "G2",
-    "lcls_nm": "소매",
+    "lcls_nm": "소매업",
     "mcls_cd": "G210",
-    "mcls_nm": "철물·건설자재 소매",
+    "mcls_nm": "철물, 공구, 창호 및 건설자재 소매업",
     "scls_cd": "G21001",
     "scls_nm": "철물/공구 소매업"
   },
   {
     "lcls_cd": "G2",
-    "lcls_nm": "소매",
+    "lcls_nm": "소매업",
     "mcls_cd": "G210",
-    "mcls_nm": "철물·건설자재 소매",
+    "mcls_nm": "철물, 공구, 창호 및 건설자재 소매업",
     "scls_cd": "G21002",
     "scls_nm": "벽지/장판/마루 소매업"
   },
   {
     "lcls_cd": "G2",
-    "lcls_nm": "소매",
+    "lcls_nm": "소매업",
     "mcls_cd": "G210",
-    "mcls_nm": "철물·건설자재 소매",
+    "mcls_nm": "철물, 공구, 창호 및 건설자재 소매업",
     "scls_cd": "G21003",
     "scls_nm": "건설/건축자재 소매업"
   },
   {
     "lcls_cd": "G2",
-    "lcls_nm": "소매",
+    "lcls_nm": "소매업",
     "mcls_cd": "G210",
-    "mcls_nm": "철물·건설자재 소매",
+    "mcls_nm": "철물, 공구, 창호 및 건설자재 소매업",
     "scls_cd": "G21099",
     "scls_nm": "기타 건설/건축자재 소매업"
   },
   {
     "lcls_cd": "G2",
-    "lcls_nm": "소매",
+    "lcls_nm": "소매업",
     "mcls_cd": "G211",
-    "mcls_nm": "가구 소매",
+    "mcls_nm": "가구 소매업",
     "scls_cd": "G21101",
     "scls_nm": "가구 소매업"
   },
   {
     "lcls_cd": "G2",
-    "lcls_nm": "소매",
+    "lcls_nm": "소매업",
     "mcls_cd": "G212",
-    "mcls_nm": "기타 생활용품 소매",
+    "mcls_nm": "기타 생활용품 소매업",
     "scls_cd": "G21201",
     "scls_nm": "전기용품/조명장치 소매업"
   },
   {
     "lcls_cd": "G2",
-    "lcls_nm": "소매",
+    "lcls_nm": "소매업",
     "mcls_cd": "G212",
-    "mcls_nm": "기타 생활용품 소매",
+    "mcls_nm": "기타 생활용품 소매업",
     "scls_cd": "G21202",
     "scls_nm": "주방/가정용품 소매업"
   },
   {
     "lcls_cd": "G2",
-    "lcls_nm": "소매",
+    "lcls_nm": "소매업",
     "mcls_cd": "G212",
-    "mcls_nm": "기타 생활용품 소매",
+    "mcls_nm": "기타 생활용품 소매업",
     "scls_cd": "G21203",
     "scls_nm": "악기 소매업"
   },
   {
     "lcls_cd": "G2",
-    "lcls_nm": "소매",
+    "lcls_nm": "소매업",
     "mcls_cd": "G213",
-    "mcls_nm": "오락용품 소매",
+    "mcls_nm": "문화, 오락 및 여가 용품 소매업",
     "scls_cd": "G21301",
     "scls_nm": "서점"
   },
   {
     "lcls_cd": "G2",
-    "lcls_nm": "소매",
+    "lcls_nm": "소매업",
     "mcls_cd": "G213",
-    "mcls_nm": "오락용품 소매",
+    "mcls_nm": "문화, 오락 및 여가 용품 소매업",
     "scls_cd": "G21302",
     "scls_nm": "문구/회화용품 소매업"
   },
   {
     "lcls_cd": "G2",
-    "lcls_nm": "소매",
+    "lcls_nm": "소매업",
     "mcls_cd": "G213",
-    "mcls_nm": "오락용품 소매",
+    "mcls_nm": "문화, 오락 및 여가 용품 소매업",
     "scls_cd": "G21303",
     "scls_nm": "음반/비디오물 소매업"
   },
   {
     "lcls_cd": "G2",
-    "lcls_nm": "소매",
+    "lcls_nm": "소매업",
     "mcls_cd": "G213",
-    "mcls_nm": "오락용품 소매",
+    "mcls_nm": "문화, 오락 및 여가 용품 소매업",
     "scls_cd": "G21304",
     "scls_nm": "운동용품 소매업"
   },
   {
     "lcls_cd": "G2",
-    "lcls_nm": "소매",
+    "lcls_nm": "소매업",
     "mcls_cd": "G213",
-    "mcls_nm": "오락용품 소매",
+    "mcls_nm": "문화, 오락 및 여가 용품 소매업",
     "scls_cd": "G21305",
     "scls_nm": "자전거 소매업"
   },
   {
     "lcls_cd": "G2",
-    "lcls_nm": "소매",
+    "lcls_nm": "소매업",
     "mcls_cd": "G213",
-    "mcls_nm": "오락용품 소매",
+    "mcls_nm": "문화, 오락 및 여가 용품 소매업",
     "scls_cd": "G21306",
     "scls_nm": "장난감 소매업"
   },
   {
     "lcls_cd": "G2",
-    "lcls_nm": "소매",
+    "lcls_nm": "소매업",
     "mcls_cd": "G214",
-    "mcls_nm": "연료 소매",
+    "mcls_nm": "연료소매업",
     "scls_cd": "G21401",
     "scls_nm": "주유소"
   },
   {
     "lcls_cd": "G2",
-    "lcls_nm": "소매",
+    "lcls_nm": "소매업",
     "mcls_cd": "G214",
-    "mcls_nm": "연료 소매",
+    "mcls_nm": "연료소매업",
     "scls_cd": "G21402",
     "scls_nm": "가스 충전소"
   },
   {
     "lcls_cd": "G2",
-    "lcls_nm": "소매",
+    "lcls_nm": "소매업",
     "mcls_cd": "G214",
-    "mcls_nm": "연료 소매",
+    "mcls_nm": "연료소매업",
     "scls_cd": "G21403",
     "scls_nm": "가정용 연료 소매업"
   },
   {
     "lcls_cd": "G2",
-    "lcls_nm": "소매",
+    "lcls_nm": "소매업",
     "mcls_cd": "G215",
-    "mcls_nm": "의약·화장품 소매",
+    "mcls_nm": "의약품, 의료용 기구, 화장품 및 방향제 소매업",
     "scls_cd": "G21501",
     "scls_nm": "약국"
   },
   {
     "lcls_cd": "G2",
-    "lcls_nm": "소매",
+    "lcls_nm": "소매업",
     "mcls_cd": "G215",
-    "mcls_nm": "의약·화장품 소매",
+    "mcls_nm": "의약품, 의료용 기구, 화장품 및 방향제 소매업",
     "scls_cd": "G21502",
     "scls_nm": "의료기기 소매업"
   },
   {
     "lcls_cd": "G2",
-    "lcls_nm": "소매",
+    "lcls_nm": "소매업",
     "mcls_cd": "G215",
-    "mcls_nm": "의약·화장품 소매",
+    "mcls_nm": "의약품, 의료용 기구, 화장품 및 방향제 소매업",
     "scls_cd": "G21503",
     "scls_nm": "화장품 소매업"
   },
   {
     "lcls_cd": "G2",
-    "lcls_nm": "소매",
+    "lcls_nm": "소매업",
     "mcls_cd": "G216",
-    "mcls_nm": "안경·정밀기기 소매",
+    "mcls_nm": "사무용 기기, 안경, 사진장비 및 정밀기기 소매업",
     "scls_cd": "G21601",
     "scls_nm": "사무기기 소매업"
   },
   {
     "lcls_cd": "G2",
-    "lcls_nm": "소매",
+    "lcls_nm": "소매업",
     "mcls_cd": "G216",
-    "mcls_nm": "안경·정밀기기 소매",
+    "mcls_nm": "사무용 기기, 안경, 사진장비 및 정밀기기 소매업",
     "scls_cd": "G21602",
     "scls_nm": "안경렌즈 소매업"
   },
   {
     "lcls_cd": "G2",
-    "lcls_nm": "소매",
+    "lcls_nm": "소매업",
     "mcls_cd": "G216",
-    "mcls_nm": "안경·정밀기기 소매",
+    "mcls_nm": "사무용 기기, 안경, 사진장비 및 정밀기기 소매업",
     "scls_cd": "G21603",
     "scls_nm": "사진기/기타 광학기기 소매업"
   },
   {
     "lcls_cd": "G2",
-    "lcls_nm": "소매",
+    "lcls_nm": "소매업",
     "mcls_cd": "G217",
-    "mcls_nm": "시계·귀금속 소매",
+    "mcls_nm": "시계 및 귀금속 소매업",
     "scls_cd": "G21701",
     "scls_nm": "시계/귀금속 소매업"
   },
   {
     "lcls_cd": "G2",
-    "lcls_nm": "소매",
+    "lcls_nm": "소매업",
     "mcls_cd": "G218",
-    "mcls_nm": "장식품 소매",
+    "mcls_nm": "예술품, 기념품 및 장식용품 소매업",
     "scls_cd": "G21801",
     "scls_nm": "예술품 소매업"
   },
   {
     "lcls_cd": "G2",
-    "lcls_nm": "소매",
+    "lcls_nm": "소매업",
     "mcls_cd": "G218",
-    "mcls_nm": "장식품 소매",
+    "mcls_nm": "예술품, 기념품 및 장식용품 소매업",
     "scls_cd": "G21802",
     "scls_nm": "기념품점"
   },
   {
     "lcls_cd": "G2",
-    "lcls_nm": "소매",
+    "lcls_nm": "소매업",
     "mcls_cd": "G219",
-    "mcls_nm": "식물 소매",
+    "mcls_nm": "화초 및 식물 소매업",
     "scls_cd": "G21901",
     "scls_nm": "꽃집"
   },
   {
     "lcls_cd": "G2",
-    "lcls_nm": "소매",
+    "lcls_nm": "소매업",
     "mcls_cd": "G220",
-    "mcls_nm": "애완동물·용품 소매",
+    "mcls_nm": "애완용 동물 및 관련용품 소매업",
     "scls_cd": "G22001",
     "scls_nm": "애완동물/애완용품 소매업"
   },
   {
     "lcls_cd": "G2",
-    "lcls_nm": "소매",
+    "lcls_nm": "소매업",
     "mcls_cd": "G221",
-    "mcls_nm": "기타 상품 소매",
+    "mcls_nm": "기타 상품 전문 소매업",
     "scls_cd": "G22199",
     "scls_nm": "그 외 기타 상품 전문 소매업"
   },
   {
     "lcls_cd": "G2",
-    "lcls_nm": "소매",
+    "lcls_nm": "소매업",
     "mcls_cd": "G222",
-    "mcls_nm": "중고 상품 소매",
+    "mcls_nm": "중고 상품 소매업",
     "scls_cd": "G22201",
     "scls_nm": "중고 상품 소매업"
   },
   {
     "lcls_cd": "I1",
-    "lcls_nm": "숙박",
+    "lcls_nm": "숙박업",
     "mcls_cd": "I101",
-    "mcls_nm": "일반 숙박",
+    "mcls_nm": "일반 및 생활 숙박시설 운영업",
     "scls_cd": "I10101",
     "scls_nm": "호텔/리조트"
   },
   {
     "lcls_cd": "I1",
-    "lcls_nm": "숙박",
+    "lcls_nm": "숙박업",
     "mcls_cd": "I101",
-    "mcls_nm": "일반 숙박",
+    "mcls_nm": "일반 및 생활 숙박시설 운영업",
     "scls_cd": "I10102",
     "scls_nm": "여관/모텔"
   },
   {
     "lcls_cd": "I1",
-    "lcls_nm": "숙박",
+    "lcls_nm": "숙박업",
     "mcls_cd": "I101",
-    "mcls_nm": "일반 숙박",
+    "mcls_nm": "일반 및 생활 숙박시설 운영업",
     "scls_cd": "I10103",
     "scls_nm": "펜션"
   },
   {
     "lcls_cd": "I1",
-    "lcls_nm": "숙박",
+    "lcls_nm": "숙박업",
     "mcls_cd": "I101",
-    "mcls_nm": "일반 숙박",
+    "mcls_nm": "일반 및 생활 숙박시설 운영업",
     "scls_cd": "I10104",
     "scls_nm": "캠핑/글램핑"
   },
   {
     "lcls_cd": "I1",
-    "lcls_nm": "숙박",
+    "lcls_nm": "숙박업",
     "mcls_cd": "I102",
-    "mcls_nm": "기타 숙박",
+    "mcls_nm": "기타 숙박업",
     "scls_cd": "I10201",
     "scls_nm": "기숙사/고시원"
   },
   {
     "lcls_cd": "I1",
-    "lcls_nm": "숙박",
+    "lcls_nm": "숙박업",
     "mcls_cd": "I102",
-    "mcls_nm": "기타 숙박",
+    "mcls_nm": "기타 숙박업",
     "scls_cd": "I10299",
     "scls_nm": "그 외 기타 숙박업"
   },
   {
     "lcls_cd": "I2",
-    "lcls_nm": "음식",
+    "lcls_nm": "음식점업",
     "mcls_cd": "I201",
-    "mcls_nm": "한식",
+    "mcls_nm": "한식 음식점업",
     "scls_cd": "I20101",
     "scls_nm": "백반/한정식"
   },
   {
     "lcls_cd": "I2",
-    "lcls_nm": "음식",
+    "lcls_nm": "음식점업",
     "mcls_cd": "I201",
-    "mcls_nm": "한식",
+    "mcls_nm": "한식 음식점업",
     "scls_cd": "I20102",
     "scls_nm": "국/탕/찌개류"
   },
   {
     "lcls_cd": "I2",
-    "lcls_nm": "음식",
+    "lcls_nm": "음식점업",
     "mcls_cd": "I201",
-    "mcls_nm": "한식",
+    "mcls_nm": "한식 음식점업",
     "scls_cd": "I20103",
     "scls_nm": "족발/보쌈"
   },
   {
     "lcls_cd": "I2",
-    "lcls_nm": "음식",
+    "lcls_nm": "음식점업",
     "mcls_cd": "I201",
-    "mcls_nm": "한식",
+    "mcls_nm": "한식 음식점업",
     "scls_cd": "I20104",
     "scls_nm": "전/부침개"
   },
   {
     "lcls_cd": "I2",
-    "lcls_nm": "음식",
+    "lcls_nm": "음식점업",
     "mcls_cd": "I201",
-    "mcls_nm": "한식",
+    "mcls_nm": "한식 음식점업",
     "scls_cd": "I20105",
     "scls_nm": "국수/칼국수"
   },
   {
     "lcls_cd": "I2",
-    "lcls_nm": "음식",
+    "lcls_nm": "음식점업",
     "mcls_cd": "I201",
-    "mcls_nm": "한식",
+    "mcls_nm": "한식 음식점업",
     "scls_cd": "I20106",
     "scls_nm": "냉면/밀면"
   },
   {
     "lcls_cd": "I2",
-    "lcls_nm": "음식",
+    "lcls_nm": "음식점업",
     "mcls_cd": "I201",
-    "mcls_nm": "한식",
+    "mcls_nm": "한식 음식점업",
     "scls_cd": "I20107",
     "scls_nm": "돼지고기 구이/찜"
   },
   {
     "lcls_cd": "I2",
-    "lcls_nm": "음식",
+    "lcls_nm": "음식점업",
     "mcls_cd": "I201",
-    "mcls_nm": "한식",
+    "mcls_nm": "한식 음식점업",
     "scls_cd": "I20108",
     "scls_nm": "소고기 구이/찜"
   },
   {
     "lcls_cd": "I2",
-    "lcls_nm": "음식",
+    "lcls_nm": "음식점업",
     "mcls_cd": "I201",
-    "mcls_nm": "한식",
+    "mcls_nm": "한식 음식점업",
     "scls_cd": "I20109",
     "scls_nm": "곱창 전골/구이"
   },
   {
     "lcls_cd": "I2",
-    "lcls_nm": "음식",
+    "lcls_nm": "음식점업",
     "mcls_cd": "I201",
-    "mcls_nm": "한식",
+    "mcls_nm": "한식 음식점업",
     "scls_cd": "I20110",
     "scls_nm": "닭/오리고기 구이/찜"
   },
   {
     "lcls_cd": "I2",
-    "lcls_nm": "음식",
+    "lcls_nm": "음식점업",
     "mcls_cd": "I201",
-    "mcls_nm": "한식",
+    "mcls_nm": "한식 음식점업",
     "scls_cd": "I20111",
     "scls_nm": "횟집"
   },
   {
     "lcls_cd": "I2",
-    "lcls_nm": "음식",
+    "lcls_nm": "음식점업",
     "mcls_cd": "I201",
-    "mcls_nm": "한식",
+    "mcls_nm": "한식 음식점업",
     "scls_cd": "I20112",
     "scls_nm": "해산물 구이/찜"
   },
   {
     "lcls_cd": "I2",
-    "lcls_nm": "음식",
+    "lcls_nm": "음식점업",
     "mcls_cd": "I201",
-    "mcls_nm": "한식",
+    "mcls_nm": "한식 음식점업",
     "scls_cd": "I20113",
     "scls_nm": "복 요리 전문"
   },
   {
     "lcls_cd": "I2",
-    "lcls_nm": "음식",
+    "lcls_nm": "음식점업",
     "mcls_cd": "I201",
-    "mcls_nm": "한식",
+    "mcls_nm": "한식 음식점업",
     "scls_cd": "I20199",
     "scls_nm": "기타 한식 음식점"
   },
   {
     "lcls_cd": "I2",
-    "lcls_nm": "음식",
+    "lcls_nm": "음식점업",
     "mcls_cd": "I202",
-    "mcls_nm": "중식",
+    "mcls_nm": "중식 음식점업",
     "scls_cd": "I20201",
     "scls_nm": "중국집"
   },
   {
     "lcls_cd": "I2",
-    "lcls_nm": "음식",
+    "lcls_nm": "음식점업",
     "mcls_cd": "I202",
-    "mcls_nm": "중식",
+    "mcls_nm": "중식 음식점업",
     "scls_cd": "I20202",
     "scls_nm": "마라탕/훠궈"
   },
   {
     "lcls_cd": "I2",
-    "lcls_nm": "음식",
+    "lcls_nm": "음식점업",
     "mcls_cd": "I203",
-    "mcls_nm": "일식",
+    "mcls_nm": "일식 음식점업",
     "scls_cd": "I20301",
     "scls_nm": "일식 회/초밥"
   },
   {
     "lcls_cd": "I2",
-    "lcls_nm": "음식",
+    "lcls_nm": "음식점업",
     "mcls_cd": "I203",
-    "mcls_nm": "일식",
+    "mcls_nm": "일식 음식점업",
     "scls_cd": "I20302",
     "scls_nm": "일식 카레/돈가스/덮밥"
   },
   {
     "lcls_cd": "I2",
-    "lcls_nm": "음식",
+    "lcls_nm": "음식점업",
     "mcls_cd": "I203",
-    "mcls_nm": "일식",
+    "mcls_nm": "일식 음식점업",
     "scls_cd": "I20303",
     "scls_nm": "일식 면 요리"
   },
   {
     "lcls_cd": "I2",
-    "lcls_nm": "음식",
+    "lcls_nm": "음식점업",
     "mcls_cd": "I203",
-    "mcls_nm": "일식",
+    "mcls_nm": "일식 음식점업",
     "scls_cd": "I20399",
     "scls_nm": "기타 일식 음식점"
   },
   {
     "lcls_cd": "I2",
-    "lcls_nm": "음식",
+    "lcls_nm": "음식점업",
     "mcls_cd": "I204",
-    "mcls_nm": "서양식",
+    "mcls_nm": "서양식 음식점업",
     "scls_cd": "I20401",
     "scls_nm": "경양식"
   },
   {
     "lcls_cd": "I2",
-    "lcls_nm": "음식",
+    "lcls_nm": "음식점업",
     "mcls_cd": "I204",
-    "mcls_nm": "서양식",
+    "mcls_nm": "서양식 음식점업",
     "scls_cd": "I20402",
     "scls_nm": "파스타/스테이크"
   },
   {
     "lcls_cd": "I2",
-    "lcls_nm": "음식",
+    "lcls_nm": "음식점업",
     "mcls_cd": "I204",
-    "mcls_nm": "서양식",
+    "mcls_nm": "서양식 음식점업",
     "scls_cd": "I20403",
     "scls_nm": "패밀리레스토랑"
   },
   {
     "lcls_cd": "I2",
-    "lcls_nm": "음식",
+    "lcls_nm": "음식점업",
     "mcls_cd": "I204",
-    "mcls_nm": "서양식",
+    "mcls_nm": "서양식 음식점업",
     "scls_cd": "I20499",
     "scls_nm": "기타 서양식 음식점"
   },
   {
     "lcls_cd": "I2",
-    "lcls_nm": "음식",
+    "lcls_nm": "음식점업",
     "mcls_cd": "I205",
-    "mcls_nm": "동남아시아",
+    "mcls_nm": "동남아시아 음식점업",
     "scls_cd": "I20501",
     "scls_nm": "베트남식 전문"
   },
   {
     "lcls_cd": "I2",
-    "lcls_nm": "음식",
+    "lcls_nm": "음식점업",
     "mcls_cd": "I205",
-    "mcls_nm": "동남아시아",
+    "mcls_nm": "동남아시아 음식점업",
     "scls_cd": "I20599",
     "scls_nm": "기타 동남아식 전문"
   },
   {
     "lcls_cd": "I2",
-    "lcls_nm": "음식",
+    "lcls_nm": "음식점업",
+    "mcls_cd": "I206",
+    "mcls_nm": "기타 외국식 음식점업",
+    "scls_cd": "I20601",
+    "scls_nm": "분류 안된 외국식 음식점"
+  },
+  {
+    "lcls_cd": "I2",
+    "lcls_nm": "음식점업",
     "mcls_cd": "I207",
-    "mcls_nm": "구내식당·뷔페",
+    "mcls_nm": "구내식당 및 뷔페",
     "scls_cd": "I20701",
     "scls_nm": "구내식당"
   },
   {
     "lcls_cd": "I2",
-    "lcls_nm": "음식",
+    "lcls_nm": "음식점업",
     "mcls_cd": "I207",
-    "mcls_nm": "구내식당·뷔페",
+    "mcls_nm": "구내식당 및 뷔페",
     "scls_cd": "I20702",
     "scls_nm": "뷔페"
   },
   {
     "lcls_cd": "I2",
-    "lcls_nm": "음식",
+    "lcls_nm": "음식점업",
     "mcls_cd": "I210",
-    "mcls_nm": "기타 간이",
+    "mcls_nm": "기타 간이 음식점업",
     "scls_cd": "I21001",
     "scls_nm": "빵/도넛"
   },
   {
     "lcls_cd": "I2",
-    "lcls_nm": "음식",
+    "lcls_nm": "음식점업",
     "mcls_cd": "I210",
-    "mcls_nm": "기타 간이",
+    "mcls_nm": "기타 간이 음식점업",
     "scls_cd": "I21002",
     "scls_nm": "떡/한과"
   },
   {
     "lcls_cd": "I2",
-    "lcls_nm": "음식",
+    "lcls_nm": "음식점업",
     "mcls_cd": "I210",
-    "mcls_nm": "기타 간이",
+    "mcls_nm": "기타 간이 음식점업",
     "scls_cd": "I21003",
     "scls_nm": "피자"
   },
   {
     "lcls_cd": "I2",
-    "lcls_nm": "음식",
+    "lcls_nm": "음식점업",
     "mcls_cd": "I210",
-    "mcls_nm": "기타 간이",
+    "mcls_nm": "기타 간이 음식점업",
     "scls_cd": "I21004",
     "scls_nm": "버거"
   },
   {
     "lcls_cd": "I2",
-    "lcls_nm": "음식",
+    "lcls_nm": "음식점업",
     "mcls_cd": "I210",
-    "mcls_nm": "기타 간이",
+    "mcls_nm": "기타 간이 음식점업",
     "scls_cd": "I21005",
     "scls_nm": "토스트/샌드위치/샐러드"
   },
   {
     "lcls_cd": "I2",
-    "lcls_nm": "음식",
+    "lcls_nm": "음식점업",
     "mcls_cd": "I210",
-    "mcls_nm": "기타 간이",
+    "mcls_nm": "기타 간이 음식점업",
     "scls_cd": "I21006",
     "scls_nm": "치킨"
   },
   {
     "lcls_cd": "I2",
-    "lcls_nm": "음식",
+    "lcls_nm": "음식점업",
     "mcls_cd": "I210",
-    "mcls_nm": "기타 간이",
+    "mcls_nm": "기타 간이 음식점업",
     "scls_cd": "I21007",
     "scls_nm": "김밥/만두/분식"
   },
   {
     "lcls_cd": "I2",
-    "lcls_nm": "음식",
+    "lcls_nm": "음식점업",
     "mcls_cd": "I210",
-    "mcls_nm": "기타 간이",
+    "mcls_nm": "기타 간이 음식점업",
     "scls_cd": "I21008",
     "scls_nm": "아이스크림/빙수"
   },
   {
     "lcls_cd": "I2",
-    "lcls_nm": "음식",
+    "lcls_nm": "음식점업",
     "mcls_cd": "I210",
-    "mcls_nm": "기타 간이",
+    "mcls_nm": "기타 간이 음식점업",
     "scls_cd": "I21099",
     "scls_nm": "그 외 기타 간이 음식점"
   },
   {
     "lcls_cd": "I2",
-    "lcls_nm": "음식",
+    "lcls_nm": "음식점업",
     "mcls_cd": "I211",
-    "mcls_nm": "주점",
+    "mcls_nm": "주점업",
     "scls_cd": "I21101",
     "scls_nm": "일반 유흥 주점"
   },
   {
     "lcls_cd": "I2",
-    "lcls_nm": "음식",
+    "lcls_nm": "음식점업",
     "mcls_cd": "I211",
-    "mcls_nm": "주점",
+    "mcls_nm": "주점업",
     "scls_cd": "I21102",
     "scls_nm": "무도 유흥 주점"
   },
   {
     "lcls_cd": "I2",
-    "lcls_nm": "음식",
+    "lcls_nm": "음식점업",
     "mcls_cd": "I211",
-    "mcls_nm": "주점",
+    "mcls_nm": "주점업",
     "scls_cd": "I21103",
     "scls_nm": "생맥주 전문"
   },
   {
     "lcls_cd": "I2",
-    "lcls_nm": "음식",
+    "lcls_nm": "음식점업",
     "mcls_cd": "I211",
-    "mcls_nm": "주점",
+    "mcls_nm": "주점업",
     "scls_cd": "I21104",
     "scls_nm": "요리 주점"
   },
   {
     "lcls_cd": "I2",
-    "lcls_nm": "음식",
+    "lcls_nm": "음식점업",
     "mcls_cd": "I212",
-    "mcls_nm": "비알코올 ",
+    "mcls_nm": "비알코올 음료점업",
     "scls_cd": "I21201",
     "scls_nm": "카페"
   },
   {
     "lcls_cd": "L1",
-    "lcls_nm": "부동산",
+    "lcls_nm": "부동산업",
     "mcls_cd": "L102",
-    "mcls_nm": "부동산 서비스",
+    "mcls_nm": "부동산관련 서비스업",
     "scls_cd": "L10203",
     "scls_nm": "부동산 중개/대리업"
   },
   {
     "lcls_cd": "M1",
-    "lcls_nm": "과학·기술",
+    "lcls_nm": "전문, 과학 및 기술 서비스업",
     "mcls_cd": "M103",
-    "mcls_nm": "법무관련 ",
+    "mcls_nm": "법무관련 서비스업",
     "scls_cd": "M10301",
     "scls_nm": "변호사"
   },
   {
     "lcls_cd": "M1",
-    "lcls_nm": "과학·기술",
+    "lcls_nm": "전문, 과학 및 기술 서비스업",
     "mcls_cd": "M103",
-    "mcls_nm": "법무관련 ",
+    "mcls_nm": "법무관련 서비스업",
     "scls_cd": "M10302",
     "scls_nm": "변리사"
   },
   {
     "lcls_cd": "M1",
-    "lcls_nm": "과학·기술",
+    "lcls_nm": "전문, 과학 및 기술 서비스업",
     "mcls_cd": "M103",
-    "mcls_nm": "법무관련 ",
+    "mcls_nm": "법무관련 서비스업",
     "scls_cd": "M10303",
     "scls_nm": "법무사"
   },
   {
     "lcls_cd": "M1",
-    "lcls_nm": "과학·기술",
+    "lcls_nm": "전문, 과학 및 기술 서비스업",
     "mcls_cd": "M103",
-    "mcls_nm": "법무관련 ",
+    "mcls_nm": "법무관련 서비스업",
     "scls_cd": "M10306",
     "scls_nm": "행정사"
   },
   {
     "lcls_cd": "M1",
-    "lcls_nm": "과학·기술",
+    "lcls_nm": "전문, 과학 및 기술 서비스업",
     "mcls_cd": "M103",
-    "mcls_nm": "법무관련 ",
+    "mcls_nm": "법무관련 서비스업",
     "scls_cd": "M10307",
     "scls_nm": "공인노무사"
   },
   {
     "lcls_cd": "M1",
-    "lcls_nm": "과학·기술",
+    "lcls_nm": "전문, 과학 및 기술 서비스업",
     "mcls_cd": "M103",
-    "mcls_nm": "법무관련 ",
+    "mcls_nm": "법무관련 서비스업",
     "scls_cd": "M10399",
     "scls_nm": "기타 법무관련 서비스업"
   },
   {
     "lcls_cd": "M1",
-    "lcls_nm": "과학·기술",
+    "lcls_nm": "전문, 과학 및 기술 서비스업",
     "mcls_cd": "M104",
-    "mcls_nm": "회계·세무",
+    "mcls_nm": "회계 및 세무관련 서비스업",
     "scls_cd": "M10401",
     "scls_nm": "공인회계사"
   },
   {
     "lcls_cd": "M1",
-    "lcls_nm": "과학·기술",
+    "lcls_nm": "전문, 과학 및 기술 서비스업",
     "mcls_cd": "M104",
-    "mcls_nm": "회계·세무",
+    "mcls_nm": "회계 및 세무관련 서비스업",
     "scls_cd": "M10402",
     "scls_nm": "세무사"
   },
   {
     "lcls_cd": "M1",
-    "lcls_nm": "과학·기술",
+    "lcls_nm": "전문, 과학 및 기술 서비스업",
+    "mcls_cd": "M104",
+    "mcls_nm": "회계 및 세무관련 서비스업",
+    "scls_cd": "M10499",
+    "scls_nm": "기타 회계 관련 서비스업"
+  },
+  {
+    "lcls_cd": "M1",
+    "lcls_nm": "전문, 과학 및 기술 서비스업",
     "mcls_cd": "M105",
-    "mcls_nm": "광고",
+    "mcls_nm": "광고업",
     "scls_cd": "M10501",
     "scls_nm": "광고 대행업"
   },
   {
     "lcls_cd": "M1",
-    "lcls_nm": "과학·기술",
+    "lcls_nm": "전문, 과학 및 기술 서비스업",
     "mcls_cd": "M105",
-    "mcls_nm": "광고",
+    "mcls_nm": "광고업",
     "scls_cd": "M10502",
     "scls_nm": "옥외/전시 광고 대행업"
   },
   {
     "lcls_cd": "M1",
-    "lcls_nm": "과학·기술",
+    "lcls_nm": "전문, 과학 및 기술 서비스업",
     "mcls_cd": "M105",
-    "mcls_nm": "광고",
+    "mcls_nm": "광고업",
     "scls_cd": "M10503",
     "scls_nm": "광고 매체 판매업"
   },
   {
     "lcls_cd": "M1",
-    "lcls_nm": "과학·기술",
+    "lcls_nm": "전문, 과학 및 기술 서비스업",
     "mcls_cd": "M105",
-    "mcls_nm": "광고",
+    "mcls_nm": "광고업",
     "scls_cd": "M10504",
     "scls_nm": "광고물 설계/제작업"
   },
   {
     "lcls_cd": "M1",
-    "lcls_nm": "과학·기술",
+    "lcls_nm": "전문, 과학 및 기술 서비스업",
     "mcls_cd": "M105",
-    "mcls_nm": "광고",
+    "mcls_nm": "광고업",
     "scls_cd": "M10599",
     "scls_nm": "기타 광고 관련 서비스업"
   },
   {
     "lcls_cd": "M1",
-    "lcls_nm": "과학·기술",
+    "lcls_nm": "전문, 과학 및 기술 서비스업",
     "mcls_cd": "M106",
-    "mcls_nm": "시장 조사",
+    "mcls_nm": "시장 조사 및 여론 조사업",
     "scls_cd": "M10601",
     "scls_nm": "시장 조사 및 여론 조사업"
   },
   {
     "lcls_cd": "M1",
-    "lcls_nm": "과학·기술",
+    "lcls_nm": "전문, 과학 및 기술 서비스업",
     "mcls_cd": "M107",
-    "mcls_nm": "본사·경영 컨설팅",
+    "mcls_nm": "회사 본부 및 경영 컨설팅 서비스업",
     "scls_cd": "M10703",
     "scls_nm": "경영 컨설팅업"
   },
   {
     "lcls_cd": "M1",
-    "lcls_nm": "과학·기술",
+    "lcls_nm": "전문, 과학 및 기술 서비스업",
     "mcls_cd": "M109",
-    "mcls_nm": "기술 서비스",
+    "mcls_nm": "건축 기술, 엔지니어링 및 관련 기술 서비스업",
     "scls_cd": "M10901",
     "scls_nm": "건축 설계 및 관련 서비스업"
   },
   {
     "lcls_cd": "M1",
-    "lcls_nm": "과학·기술",
+    "lcls_nm": "전문, 과학 및 기술 서비스업",
     "mcls_cd": "M109",
-    "mcls_nm": "기술 서비스",
+    "mcls_nm": "건축 기술, 엔지니어링 및 관련 기술 서비스업",
     "scls_cd": "M10902",
     "scls_nm": "도시 계획 및 조경 설계 서비스업"
   },
   {
     "lcls_cd": "M1",
-    "lcls_nm": "과학·기술",
+    "lcls_nm": "전문, 과학 및 기술 서비스업",
     "mcls_cd": "M109",
-    "mcls_nm": "기술 서비스",
+    "mcls_nm": "건축 기술, 엔지니어링 및 관련 기술 서비스업",
     "scls_cd": "M10903",
     "scls_nm": "건물 및 토목 엔지니어링 서비스업"
   },
   {
     "lcls_cd": "M1",
-    "lcls_nm": "과학·기술",
+    "lcls_nm": "전문, 과학 및 기술 서비스업",
     "mcls_cd": "M109",
-    "mcls_nm": "기술 서비스",
+    "mcls_nm": "건축 기술, 엔지니어링 및 관련 기술 서비스업",
     "scls_cd": "M10904",
     "scls_nm": "환경 관련 엔지니어링 서비스업"
   },
   {
     "lcls_cd": "M1",
-    "lcls_nm": "과학·기술",
+    "lcls_nm": "전문, 과학 및 기술 서비스업",
     "mcls_cd": "M109",
-    "mcls_nm": "기술 서비스",
+    "mcls_nm": "건축 기술, 엔지니어링 및 관련 기술 서비스업",
     "scls_cd": "M10999",
     "scls_nm": "기타 엔지니어링 서비스업"
   },
   {
     "lcls_cd": "M1",
-    "lcls_nm": "과학·기술",
+    "lcls_nm": "전문, 과학 및 기술 서비스업",
     "mcls_cd": "M111",
-    "mcls_nm": "수의",
+    "mcls_nm": "수의업",
     "scls_cd": "M11101",
     "scls_nm": "동물병원"
   },
   {
     "lcls_cd": "M1",
-    "lcls_nm": "과학·기술",
+    "lcls_nm": "전문, 과학 및 기술 서비스업",
     "mcls_cd": "M112",
-    "mcls_nm": "전문 디자인",
+    "mcls_nm": "전문 디자인업",
     "scls_cd": "M11201",
     "scls_nm": "인테리어 디자인업"
   },
   {
     "lcls_cd": "M1",
-    "lcls_nm": "과학·기술",
+    "lcls_nm": "전문, 과학 및 기술 서비스업",
     "mcls_cd": "M112",
-    "mcls_nm": "전문 디자인",
+    "mcls_nm": "전문 디자인업",
     "scls_cd": "M11202",
     "scls_nm": "제품 디자인업"
   },
   {
     "lcls_cd": "M1",
-    "lcls_nm": "과학·기술",
+    "lcls_nm": "전문, 과학 및 기술 서비스업",
     "mcls_cd": "M112",
-    "mcls_nm": "전문 디자인",
+    "mcls_nm": "전문 디자인업",
     "scls_cd": "M11203",
     "scls_nm": "시각 디자인업"
   },
   {
     "lcls_cd": "M1",
-    "lcls_nm": "과학·기술",
+    "lcls_nm": "전문, 과학 및 기술 서비스업",
     "mcls_cd": "M112",
-    "mcls_nm": "전문 디자인",
+    "mcls_nm": "전문 디자인업",
     "scls_cd": "M11204",
     "scls_nm": "패션/섬유/기타 전문 디자인업"
   },
   {
     "lcls_cd": "M1",
-    "lcls_nm": "과학·기술",
+    "lcls_nm": "전문, 과학 및 기술 서비스업",
     "mcls_cd": "M113",
-    "mcls_nm": "사진 촬영",
+    "mcls_nm": "사진 촬영 및 처리업",
     "scls_cd": "M11301",
     "scls_nm": "사진촬영업"
   },
   {
     "lcls_cd": "M1",
-    "lcls_nm": "과학·기술",
+    "lcls_nm": "전문, 과학 및 기술 서비스업",
     "mcls_cd": "M114",
-    "mcls_nm": "인쇄·제품제작",
+    "mcls_nm": "인쇄 및 제품 제작업",
     "scls_cd": "M11401",
     "scls_nm": "명함/간판/광고물 제작"
   },
   {
     "lcls_cd": "M1",
-    "lcls_nm": "과학·기술",
+    "lcls_nm": "전문, 과학 및 기술 서비스업",
     "mcls_cd": "M115",
-    "mcls_nm": "기타 전문 과학",
+    "mcls_nm": "그 외 기타 전문, 과학 및 기술 서비스업",
     "scls_cd": "M11502",
     "scls_nm": "번역/통역 서비스업"
   },
   {
     "lcls_cd": "M1",
-    "lcls_nm": "과학·기술",
+    "lcls_nm": "전문, 과학 및 기술 서비스업",
     "mcls_cd": "M115",
-    "mcls_nm": "기타 전문 과학",
+    "mcls_nm": "그 외 기타 전문, 과학 및 기술 서비스업",
     "scls_cd": "M11504",
     "scls_nm": "사업/무형 재산권 중개업"
   },
   {
     "lcls_cd": "N1",
-    "lcls_nm": "시설관리·임대",
+    "lcls_nm": "사업시설 관리, 사업 지원 및 임대 서비스업",
     "mcls_cd": "N101",
-    "mcls_nm": "시설관리",
+    "mcls_nm": "사업시설 유지ㆍ관리 서비스업",
     "scls_cd": "N10101",
     "scls_nm": "사업시설 유지·관리 서비스업"
   },
   {
     "lcls_cd": "N1",
-    "lcls_nm": "시설관리·임대",
+    "lcls_nm": "사업시설 관리, 사업 지원 및 임대 서비스업",
     "mcls_cd": "N102",
-    "mcls_nm": "청소·방제",
+    "mcls_nm": "건물ㆍ산업설비 청소 및 방제 서비스업",
     "scls_cd": "N10201",
     "scls_nm": "건축물 일반 청소업"
   },
   {
     "lcls_cd": "N1",
-    "lcls_nm": "시설관리·임대",
+    "lcls_nm": "사업시설 관리, 사업 지원 및 임대 서비스업",
     "mcls_cd": "N102",
-    "mcls_nm": "청소·방제",
+    "mcls_nm": "건물ㆍ산업설비 청소 및 방제 서비스업",
     "scls_cd": "N10202",
     "scls_nm": "산업설비, 운송장비 및 공공장소 청소업"
   },
   {
     "lcls_cd": "N1",
-    "lcls_nm": "시설관리·임대",
+    "lcls_nm": "사업시설 관리, 사업 지원 및 임대 서비스업",
     "mcls_cd": "N102",
-    "mcls_nm": "청소·방제",
+    "mcls_nm": "건물ㆍ산업설비 청소 및 방제 서비스업",
     "scls_cd": "N10203",
     "scls_nm": "소독, 구충 및 방제 서비스업"
   },
   {
     "lcls_cd": "N1",
-    "lcls_nm": "시설관리·임대",
+    "lcls_nm": "사업시설 관리, 사업 지원 및 임대 서비스업",
     "mcls_cd": "N103",
-    "mcls_nm": "조경·유지",
+    "mcls_nm": "조경관리 및 유지 서비스업",
     "scls_cd": "N10301",
     "scls_nm": "조경 유지·관리 서비스업"
   },
   {
     "lcls_cd": "N1",
-    "lcls_nm": "시설관리·임대",
+    "lcls_nm": "사업시설 관리, 사업 지원 및 임대 서비스업",
     "mcls_cd": "N104",
-    "mcls_nm": "고용 알선",
+    "mcls_nm": "고용 알선 및 인력 공급업",
     "scls_cd": "N10401",
     "scls_nm": "고용 알선업"
   },
   {
     "lcls_cd": "N1",
-    "lcls_nm": "시설관리·임대",
+    "lcls_nm": "사업시설 관리, 사업 지원 및 임대 서비스업",
     "mcls_cd": "N104",
-    "mcls_nm": "고용 알선",
+    "mcls_nm": "고용 알선 및 인력 공급업",
     "scls_cd": "N10402",
     "scls_nm": "임시/일용 인력 공급업"
   },
   {
     "lcls_cd": "N1",
-    "lcls_nm": "시설관리·임대",
+    "lcls_nm": "사업시설 관리, 사업 지원 및 임대 서비스업",
     "mcls_cd": "N104",
-    "mcls_nm": "고용 알선",
+    "mcls_nm": "고용 알선 및 인력 공급업",
     "scls_cd": "N10403",
     "scls_nm": "상용 인력 공급 및 인사관리 서비스업"
   },
   {
     "lcls_cd": "N1",
-    "lcls_nm": "시설관리·임대",
+    "lcls_nm": "사업시설 관리, 사업 지원 및 임대 서비스업",
     "mcls_cd": "N105",
-    "mcls_nm": "여행사·보조",
+    "mcls_nm": "여행사 및 기타 여행 보조 서비스업",
     "scls_cd": "N10501",
     "scls_nm": "여행사"
   },
   {
     "lcls_cd": "N1",
-    "lcls_nm": "시설관리·임대",
+    "lcls_nm": "사업시설 관리, 사업 지원 및 임대 서비스업",
     "mcls_cd": "N105",
-    "mcls_nm": "여행사·보조",
+    "mcls_nm": "여행사 및 기타 여행 보조 서비스업",
     "scls_cd": "N10599",
     "scls_nm": "기타 여행 보조/예약 서비스업"
   },
   {
     "lcls_cd": "N1",
-    "lcls_nm": "시설관리·임대",
+    "lcls_nm": "사업시설 관리, 사업 지원 및 임대 서비스업",
     "mcls_cd": "N107",
-    "mcls_nm": "사무 지원",
+    "mcls_nm": "사무 지원 서비스업",
     "scls_cd": "N10703",
     "scls_nm": "복사업"
   },
   {
     "lcls_cd": "N1",
-    "lcls_nm": "시설관리·임대",
+    "lcls_nm": "사업시설 관리, 사업 지원 및 임대 서비스업",
     "mcls_cd": "N107",
-    "mcls_nm": "사무 지원",
+    "mcls_nm": "사무 지원 서비스업",
     "scls_cd": "N10799",
     "scls_nm": "기타 사무 지원 서비스업"
   },
   {
     "lcls_cd": "N1",
-    "lcls_nm": "시설관리·임대",
+    "lcls_nm": "사업시설 관리, 사업 지원 및 임대 서비스업",
     "mcls_cd": "N108",
-    "mcls_nm": "기타 사업 서비스",
+    "mcls_nm": "기타 사업 지원 서비스업",
     "scls_cd": "N10802",
     "scls_nm": "전시/컨벤션/행사 대행 서비스업"
   },
   {
     "lcls_cd": "N1",
-    "lcls_nm": "시설관리·임대",
+    "lcls_nm": "사업시설 관리, 사업 지원 및 임대 서비스업",
     "mcls_cd": "N108",
-    "mcls_nm": "기타 사업 서비스",
+    "mcls_nm": "기타 사업 지원 서비스업",
     "scls_cd": "N10805",
     "scls_nm": "포장/충전업"
   },
   {
     "lcls_cd": "N1",
-    "lcls_nm": "시설관리·임대",
+    "lcls_nm": "사업시설 관리, 사업 지원 및 임대 서비스업",
     "mcls_cd": "N109",
-    "mcls_nm": "운송장비 대여",
+    "mcls_nm": "운송장비 대여업",
     "scls_cd": "N10901",
     "scls_nm": "자동차 대여업"
   },
   {
     "lcls_cd": "N1",
-    "lcls_nm": "시설관리·임대",
+    "lcls_nm": "사업시설 관리, 사업 지원 및 임대 서비스업",
     "mcls_cd": "N109",
-    "mcls_nm": "운송장비 대여",
+    "mcls_nm": "운송장비 대여업",
     "scls_cd": "N10999",
     "scls_nm": "기타 운송장비 대여업"
   },
   {
     "lcls_cd": "N1",
-    "lcls_nm": "시설관리·임대",
+    "lcls_nm": "사업시설 관리, 사업 지원 및 임대 서비스업",
     "mcls_cd": "N110",
-    "mcls_nm": "가정용품 대여",
+    "mcls_nm": "개인 및 가정용품 대여업",
     "scls_cd": "N11001",
     "scls_nm": "스포츠/레크리에이션 용품 대여업"
   },
   {
     "lcls_cd": "N1",
-    "lcls_nm": "시설관리·임대",
+    "lcls_nm": "사업시설 관리, 사업 지원 및 임대 서비스업",
     "mcls_cd": "N110",
-    "mcls_nm": "가정용품 대여",
+    "mcls_nm": "개인 및 가정용품 대여업",
     "scls_cd": "N11002",
     "scls_nm": "음반/비디오물 대여업"
   },
   {
     "lcls_cd": "N1",
-    "lcls_nm": "시설관리·임대",
+    "lcls_nm": "사업시설 관리, 사업 지원 및 임대 서비스업",
     "mcls_cd": "N110",
-    "mcls_nm": "가정용품 대여",
+    "mcls_nm": "개인 및 가정용품 대여업",
     "scls_cd": "N11003",
     "scls_nm": "만화방"
   },
   {
     "lcls_cd": "N1",
-    "lcls_nm": "시설관리·임대",
+    "lcls_nm": "사업시설 관리, 사업 지원 및 임대 서비스업",
     "mcls_cd": "N110",
-    "mcls_nm": "가정용품 대여",
+    "mcls_nm": "개인 및 가정용품 대여업",
     "scls_cd": "N11004",
     "scls_nm": "의류 대여업"
   },
   {
     "lcls_cd": "N1",
-    "lcls_nm": "시설관리·임대",
+    "lcls_nm": "사업시설 관리, 사업 지원 및 임대 서비스업",
     "mcls_cd": "N110",
-    "mcls_nm": "가정용품 대여",
+    "mcls_nm": "개인 및 가정용품 대여업",
     "scls_cd": "N11099",
     "scls_nm": "기타 개인/가정용품 대여업"
   },
   {
     "lcls_cd": "N1",
-    "lcls_nm": "시설관리·임대",
+    "lcls_nm": "사업시설 관리, 사업 지원 및 임대 서비스업",
     "mcls_cd": "N111",
-    "mcls_nm": "산업용품 대여",
+    "mcls_nm": "산업용 기계 및 장비 대여업",
     "scls_cd": "N11101",
     "scls_nm": "건설기계/장비 대여업"
   },
   {
     "lcls_cd": "N1",
-    "lcls_nm": "시설관리·임대",
+    "lcls_nm": "사업시설 관리, 사업 지원 및 임대 서비스업",
     "mcls_cd": "N111",
-    "mcls_nm": "산업용품 대여",
+    "mcls_nm": "산업용 기계 및 장비 대여업",
     "scls_cd": "N11102",
     "scls_nm": "컴퓨터/사무기기 대여업"
   },
   {
     "lcls_cd": "N1",
-    "lcls_nm": "시설관리·임대",
+    "lcls_nm": "사업시설 관리, 사업 지원 및 임대 서비스업",
     "mcls_cd": "N111",
-    "mcls_nm": "산업용품 대여",
+    "mcls_nm": "산업용 기계 및 장비 대여업",
     "scls_cd": "N11199",
     "scls_nm": "기타 산업용 기계/장비 대여업"
   },
   {
     "lcls_cd": "P1",
-    "lcls_nm": "교육",
+    "lcls_nm": "교육 서비스업",
     "mcls_cd": "P105",
-    "mcls_nm": "일반 교육",
+    "mcls_nm": "일반 교육기관",
     "scls_cd": "P10501",
     "scls_nm": "입시·교과학원"
   },
   {
     "lcls_cd": "P1",
-    "lcls_nm": "교육",
+    "lcls_nm": "교육 서비스업",
     "mcls_cd": "P106",
-    "mcls_nm": "기타 교육",
+    "mcls_nm": "기타 교육기관",
     "scls_cd": "P10601",
     "scls_nm": "태권도/무술학원"
   },
   {
     "lcls_cd": "P1",
-    "lcls_nm": "교육",
+    "lcls_nm": "교육 서비스업",
     "mcls_cd": "P106",
-    "mcls_nm": "기타 교육",
+    "mcls_nm": "기타 교육기관",
     "scls_cd": "P10603",
     "scls_nm": "요가/필라테스 학원"
   },
   {
     "lcls_cd": "P1",
-    "lcls_nm": "교육",
+    "lcls_nm": "교육 서비스업",
     "mcls_cd": "P106",
-    "mcls_nm": "기타 교육",
+    "mcls_nm": "기타 교육기관",
     "scls_cd": "P10605",
     "scls_nm": "레크리에이션 교육기관"
   },
   {
     "lcls_cd": "P1",
-    "lcls_nm": "교육",
+    "lcls_nm": "교육 서비스업",
     "mcls_cd": "P106",
-    "mcls_nm": "기타 교육",
+    "mcls_nm": "기타 교육기관",
     "scls_cd": "P10607",
     "scls_nm": "청소년 수련시설"
   },
   {
     "lcls_cd": "P1",
-    "lcls_nm": "교육",
+    "lcls_nm": "교육 서비스업",
     "mcls_cd": "P106",
-    "mcls_nm": "기타 교육",
+    "mcls_nm": "기타 교육기관",
     "scls_cd": "P10609",
     "scls_nm": "음악학원"
   },
   {
     "lcls_cd": "P1",
-    "lcls_nm": "교육",
+    "lcls_nm": "교육 서비스업",
     "mcls_cd": "P106",
-    "mcls_nm": "기타 교육",
+    "mcls_nm": "기타 교육기관",
     "scls_cd": "P10611",
     "scls_nm": "미술학원"
   },
   {
     "lcls_cd": "P1",
-    "lcls_nm": "교육",
+    "lcls_nm": "교육 서비스업",
     "mcls_cd": "P106",
-    "mcls_nm": "기타 교육",
+    "mcls_nm": "기타 교육기관",
     "scls_cd": "P10613",
     "scls_nm": "기타 예술/스포츠 교육기관"
   },
   {
     "lcls_cd": "P1",
-    "lcls_nm": "교육",
+    "lcls_nm": "교육 서비스업",
     "mcls_cd": "P106",
-    "mcls_nm": "기타 교육",
+    "mcls_nm": "기타 교육기관",
     "scls_cd": "P10615",
     "scls_nm": "외국어학원"
   },
   {
     "lcls_cd": "P1",
-    "lcls_nm": "교육",
+    "lcls_nm": "교육 서비스업",
     "mcls_cd": "P106",
-    "mcls_nm": "기타 교육",
+    "mcls_nm": "기타 교육기관",
     "scls_cd": "P10617",
     "scls_nm": "전문자격/고시학원"
   },
   {
     "lcls_cd": "P1",
-    "lcls_nm": "교육",
+    "lcls_nm": "교육 서비스업",
     "mcls_cd": "P106",
-    "mcls_nm": "기타 교육",
+    "mcls_nm": "기타 교육기관",
     "scls_cd": "P10619",
     "scls_nm": "사회교육시설"
   },
   {
     "lcls_cd": "P1",
-    "lcls_nm": "교육",
+    "lcls_nm": "교육 서비스업",
     "mcls_cd": "P106",
-    "mcls_nm": "기타 교육",
+    "mcls_nm": "기타 교육기관",
     "scls_cd": "P10621",
     "scls_nm": "직원 훈련기관"
   },
   {
     "lcls_cd": "P1",
-    "lcls_nm": "교육",
+    "lcls_nm": "교육 서비스업",
     "mcls_cd": "P106",
-    "mcls_nm": "기타 교육",
+    "mcls_nm": "기타 교육기관",
     "scls_cd": "P10623",
     "scls_nm": "운전학원"
   },
   {
     "lcls_cd": "P1",
-    "lcls_nm": "교육",
+    "lcls_nm": "교육 서비스업",
     "mcls_cd": "P106",
-    "mcls_nm": "기타 교육",
+    "mcls_nm": "기타 교육기관",
     "scls_cd": "P10625",
     "scls_nm": "기타 기술/직업 훈련학원"
   },
   {
     "lcls_cd": "P1",
-    "lcls_nm": "교육",
+    "lcls_nm": "교육 서비스업",
     "mcls_cd": "P106",
-    "mcls_nm": "기타 교육",
+    "mcls_nm": "기타 교육기관",
     "scls_cd": "P10627",
     "scls_nm": "컴퓨터 학원"
   },
   {
     "lcls_cd": "P1",
-    "lcls_nm": "교육",
+    "lcls_nm": "교육 서비스업",
     "mcls_cd": "P106",
-    "mcls_nm": "기타 교육",
+    "mcls_nm": "기타 교육기관",
     "scls_cd": "P10629",
     "scls_nm": "그 외 기타 교육기관"
   },
   {
     "lcls_cd": "P1",
-    "lcls_nm": "교육",
+    "lcls_nm": "교육 서비스업",
     "mcls_cd": "P107",
-    "mcls_nm": "교육 지원",
+    "mcls_nm": "교육 지원 서비스업",
     "scls_cd": "P10701",
     "scls_nm": "교육컨설팅업"
   },
   {
     "lcls_cd": "P1",
-    "lcls_nm": "교육",
+    "lcls_nm": "교육 서비스업",
     "mcls_cd": "P107",
-    "mcls_nm": "교육 지원",
+    "mcls_nm": "교육 지원 서비스업",
     "scls_cd": "P10799",
     "scls_nm": "기타 교육지원 서비스업"
   },
   {
     "lcls_cd": "Q1",
-    "lcls_nm": "보건의료",
+    "lcls_nm": "보건의료업",
     "mcls_cd": "Q101",
     "mcls_nm": "병원",
     "scls_cd": "Q10101",
@@ -1473,7 +1497,7 @@
   },
   {
     "lcls_cd": "Q1",
-    "lcls_nm": "보건의료",
+    "lcls_nm": "보건의료업",
     "mcls_cd": "Q101",
     "mcls_nm": "병원",
     "scls_cd": "Q10102",
@@ -1481,7 +1505,15 @@
   },
   {
     "lcls_cd": "Q1",
-    "lcls_nm": "보건의료",
+    "lcls_nm": "보건의료업",
+    "mcls_cd": "Q101",
+    "mcls_nm": "병원",
+    "scls_cd": "Q10103",
+    "scls_nm": "치과병원"
+  },
+  {
+    "lcls_cd": "Q1",
+    "lcls_nm": "보건의료업",
     "mcls_cd": "Q101",
     "mcls_nm": "병원",
     "scls_cd": "Q10104",
@@ -1489,7 +1521,7 @@
   },
   {
     "lcls_cd": "Q1",
-    "lcls_nm": "보건의료",
+    "lcls_nm": "보건의료업",
     "mcls_cd": "Q101",
     "mcls_nm": "병원",
     "scls_cd": "Q10105",
@@ -1497,7 +1529,7 @@
   },
   {
     "lcls_cd": "Q1",
-    "lcls_nm": "보건의료",
+    "lcls_nm": "보건의료업",
     "mcls_cd": "Q102",
     "mcls_nm": "의원",
     "scls_cd": "Q10201",
@@ -1505,7 +1537,7 @@
   },
   {
     "lcls_cd": "Q1",
-    "lcls_nm": "보건의료",
+    "lcls_nm": "보건의료업",
     "mcls_cd": "Q102",
     "mcls_nm": "의원",
     "scls_cd": "Q10202",
@@ -1513,7 +1545,7 @@
   },
   {
     "lcls_cd": "Q1",
-    "lcls_nm": "보건의료",
+    "lcls_nm": "보건의료업",
     "mcls_cd": "Q102",
     "mcls_nm": "의원",
     "scls_cd": "Q10203",
@@ -1521,7 +1553,7 @@
   },
   {
     "lcls_cd": "Q1",
-    "lcls_nm": "보건의료",
+    "lcls_nm": "보건의료업",
     "mcls_cd": "Q102",
     "mcls_nm": "의원",
     "scls_cd": "Q10204",
@@ -1529,7 +1561,7 @@
   },
   {
     "lcls_cd": "Q1",
-    "lcls_nm": "보건의료",
+    "lcls_nm": "보건의료업",
     "mcls_cd": "Q102",
     "mcls_nm": "의원",
     "scls_cd": "Q10205",
@@ -1537,7 +1569,7 @@
   },
   {
     "lcls_cd": "Q1",
-    "lcls_nm": "보건의료",
+    "lcls_nm": "보건의료업",
     "mcls_cd": "Q102",
     "mcls_nm": "의원",
     "scls_cd": "Q10206",
@@ -1545,7 +1577,7 @@
   },
   {
     "lcls_cd": "Q1",
-    "lcls_nm": "보건의료",
+    "lcls_nm": "보건의료업",
     "mcls_cd": "Q102",
     "mcls_nm": "의원",
     "scls_cd": "Q10207",
@@ -1553,7 +1585,7 @@
   },
   {
     "lcls_cd": "Q1",
-    "lcls_nm": "보건의료",
+    "lcls_nm": "보건의료업",
     "mcls_cd": "Q102",
     "mcls_nm": "의원",
     "scls_cd": "Q10208",
@@ -1561,7 +1593,7 @@
   },
   {
     "lcls_cd": "Q1",
-    "lcls_nm": "보건의료",
+    "lcls_nm": "보건의료업",
     "mcls_cd": "Q102",
     "mcls_nm": "의원",
     "scls_cd": "Q10209",
@@ -1569,7 +1601,7 @@
   },
   {
     "lcls_cd": "Q1",
-    "lcls_nm": "보건의료",
+    "lcls_nm": "보건의료업",
     "mcls_cd": "Q102",
     "mcls_nm": "의원",
     "scls_cd": "Q10210",
@@ -1577,7 +1609,7 @@
   },
   {
     "lcls_cd": "Q1",
-    "lcls_nm": "보건의료",
+    "lcls_nm": "보건의료업",
     "mcls_cd": "Q102",
     "mcls_nm": "의원",
     "scls_cd": "Q10211",
@@ -1585,7 +1617,7 @@
   },
   {
     "lcls_cd": "Q1",
-    "lcls_nm": "보건의료",
+    "lcls_nm": "보건의료업",
     "mcls_cd": "Q102",
     "mcls_nm": "의원",
     "scls_cd": "Q10212",
@@ -1593,345 +1625,353 @@
   },
   {
     "lcls_cd": "Q1",
-    "lcls_nm": "보건의료",
+    "lcls_nm": "보건의료업",
     "mcls_cd": "Q104",
-    "mcls_nm": "기타 보건",
+    "mcls_nm": "기타 보건업",
     "scls_cd": "Q10402",
     "scls_nm": "유사 의료업"
   },
   {
     "lcls_cd": "R1",
-    "lcls_nm": "예술·스포츠",
+    "lcls_nm": "예술, 스포츠 및 여가관련 서비스업",
     "mcls_cd": "R102",
-    "mcls_nm": "도서관·사적지",
+    "mcls_nm": "도서관, 사적지 및 유사 여가관련 서비스업",
     "scls_cd": "R10202",
     "scls_nm": "독서실/스터디 카페"
   },
   {
     "lcls_cd": "R1",
-    "lcls_nm": "예술·스포츠",
+    "lcls_nm": "예술, 스포츠 및 여가관련 서비스업",
     "mcls_cd": "R103",
-    "mcls_nm": "스포츠 서비스",
+    "mcls_nm": "스포츠 서비스업",
     "scls_cd": "R10306",
     "scls_nm": "종합 스포츠시설"
   },
   {
     "lcls_cd": "R1",
-    "lcls_nm": "예술·스포츠",
+    "lcls_nm": "예술, 스포츠 및 여가관련 서비스업",
     "mcls_cd": "R103",
-    "mcls_nm": "스포츠 서비스",
+    "mcls_nm": "스포츠 서비스업",
     "scls_cd": "R10307",
     "scls_nm": "헬스장"
   },
   {
     "lcls_cd": "R1",
-    "lcls_nm": "예술·스포츠",
+    "lcls_nm": "예술, 스포츠 및 여가관련 서비스업",
     "mcls_cd": "R103",
-    "mcls_nm": "스포츠 서비스",
+    "mcls_nm": "스포츠 서비스업",
     "scls_cd": "R10308",
     "scls_nm": "수영장"
   },
   {
     "lcls_cd": "R1",
-    "lcls_nm": "예술·스포츠",
+    "lcls_nm": "예술, 스포츠 및 여가관련 서비스업",
     "mcls_cd": "R103",
-    "mcls_nm": "스포츠 서비스",
+    "mcls_nm": "스포츠 서비스업",
     "scls_cd": "R10309",
     "scls_nm": "볼링장"
   },
   {
     "lcls_cd": "R1",
-    "lcls_nm": "예술·스포츠",
+    "lcls_nm": "예술, 스포츠 및 여가관련 서비스업",
     "mcls_cd": "R103",
-    "mcls_nm": "스포츠 서비스",
+    "mcls_nm": "스포츠 서비스업",
     "scls_cd": "R10310",
     "scls_nm": "당구장"
   },
   {
     "lcls_cd": "R1",
-    "lcls_nm": "예술·스포츠",
+    "lcls_nm": "예술, 스포츠 및 여가관련 서비스업",
     "mcls_cd": "R103",
-    "mcls_nm": "스포츠 서비스",
+    "mcls_nm": "스포츠 서비스업",
     "scls_cd": "R10311",
     "scls_nm": "골프 연습장"
   },
   {
     "lcls_cd": "R1",
-    "lcls_nm": "예술·스포츠",
+    "lcls_nm": "예술, 스포츠 및 여가관련 서비스업",
     "mcls_cd": "R103",
-    "mcls_nm": "스포츠 서비스",
+    "mcls_nm": "스포츠 서비스업",
     "scls_cd": "R10312",
     "scls_nm": "테니스장"
   },
   {
     "lcls_cd": "R1",
-    "lcls_nm": "예술·스포츠",
+    "lcls_nm": "예술, 스포츠 및 여가관련 서비스업",
     "mcls_cd": "R103",
-    "mcls_nm": "스포츠 서비스",
+    "mcls_nm": "스포츠 서비스업",
     "scls_cd": "R10313",
     "scls_nm": "탁구장"
   },
   {
     "lcls_cd": "R1",
-    "lcls_nm": "예술·스포츠",
+    "lcls_nm": "예술, 스포츠 및 여가관련 서비스업",
     "mcls_cd": "R103",
-    "mcls_nm": "스포츠 서비스",
+    "mcls_nm": "스포츠 서비스업",
     "scls_cd": "R10314",
     "scls_nm": "기타 스포츠시설 운영업"
   },
   {
     "lcls_cd": "R1",
-    "lcls_nm": "예술·스포츠",
+    "lcls_nm": "예술, 스포츠 및 여가관련 서비스업",
     "mcls_cd": "R103",
-    "mcls_nm": "스포츠 서비스",
+    "mcls_nm": "스포츠 서비스업",
     "scls_cd": "R10316",
     "scls_nm": "스쿼시/라켓볼장"
   },
   {
     "lcls_cd": "R1",
-    "lcls_nm": "예술·스포츠",
+    "lcls_nm": "예술, 스포츠 및 여가관련 서비스업",
     "mcls_cd": "R104",
-    "mcls_nm": "유원지·오락",
+    "mcls_nm": "유원지 및 기타 오락관련 서비스업",
+    "scls_cd": "R10402",
+    "scls_nm": "비디오방"
+  },
+  {
+    "lcls_cd": "R1",
+    "lcls_nm": "예술, 스포츠 및 여가관련 서비스업",
+    "mcls_cd": "R104",
+    "mcls_nm": "유원지 및 기타 오락관련 서비스업",
     "scls_cd": "R10404",
     "scls_nm": "전자 게임장"
   },
   {
     "lcls_cd": "R1",
-    "lcls_nm": "예술·스포츠",
+    "lcls_nm": "예술, 스포츠 및 여가관련 서비스업",
     "mcls_cd": "R104",
-    "mcls_nm": "유원지·오락",
+    "mcls_nm": "유원지 및 기타 오락관련 서비스업",
     "scls_cd": "R10405",
     "scls_nm": "기타 오락장"
   },
   {
     "lcls_cd": "R1",
-    "lcls_nm": "예술·스포츠",
+    "lcls_nm": "예술, 스포츠 및 여가관련 서비스업",
     "mcls_cd": "R104",
-    "mcls_nm": "유원지·오락",
+    "mcls_nm": "유원지 및 기타 오락관련 서비스업",
     "scls_cd": "R10406",
     "scls_nm": "PC방"
   },
   {
     "lcls_cd": "R1",
-    "lcls_nm": "예술·스포츠",
+    "lcls_nm": "예술, 스포츠 및 여가관련 서비스업",
     "mcls_cd": "R104",
-    "mcls_nm": "유원지·오락",
+    "mcls_nm": "유원지 및 기타 오락관련 서비스업",
     "scls_cd": "R10407",
     "scls_nm": "노래방"
   },
   {
     "lcls_cd": "R1",
-    "lcls_nm": "예술·스포츠",
+    "lcls_nm": "예술, 스포츠 및 여가관련 서비스업",
     "mcls_cd": "R104",
-    "mcls_nm": "유원지·오락",
+    "mcls_nm": "유원지 및 기타 오락관련 서비스업",
     "scls_cd": "R10408",
     "scls_nm": "낚시터 운영업"
   },
   {
     "lcls_cd": "R1",
-    "lcls_nm": "예술·스포츠",
+    "lcls_nm": "예술, 스포츠 및 여가관련 서비스업",
     "mcls_cd": "R104",
-    "mcls_nm": "유원지·오락",
+    "mcls_nm": "유원지 및 기타 오락관련 서비스업",
     "scls_cd": "R10409",
     "scls_nm": "수상/해양 레저업"
   },
   {
     "lcls_cd": "R1",
-    "lcls_nm": "예술·스포츠",
+    "lcls_nm": "예술, 스포츠 및 여가관련 서비스업",
     "mcls_cd": "R104",
-    "mcls_nm": "유원지·오락",
+    "mcls_nm": "유원지 및 기타 오락관련 서비스업",
     "scls_cd": "R10410",
     "scls_nm": "복권 발행/판매업"
   },
   {
     "lcls_cd": "R1",
-    "lcls_nm": "예술·스포츠",
+    "lcls_nm": "예술, 스포츠 및 여가관련 서비스업",
     "mcls_cd": "R104",
-    "mcls_nm": "유원지·오락",
+    "mcls_nm": "유원지 및 기타 오락관련 서비스업",
     "scls_cd": "R10414",
     "scls_nm": "바둑/장기/체스 경기 운영업"
   },
   {
     "lcls_cd": "R1",
-    "lcls_nm": "예술·스포츠",
+    "lcls_nm": "예술, 스포츠 및 여가관련 서비스업",
     "mcls_cd": "R104",
-    "mcls_nm": "유원지·오락",
+    "mcls_nm": "유원지 및 기타 오락관련 서비스업",
     "scls_cd": "R10499",
     "scls_nm": "기타 오락관련 서비스업"
   },
   {
     "lcls_cd": "S2",
-    "lcls_nm": "수리·개인",
+    "lcls_nm": "수리 및 개인 서비스업",
     "mcls_cd": "S201",
-    "mcls_nm": "컴퓨터 수리",
+    "mcls_nm": "컴퓨터 및 주변 기기 수리업",
     "scls_cd": "S20101",
     "scls_nm": "컴퓨터/노트북/프린터 수리업"
   },
   {
     "lcls_cd": "S2",
-    "lcls_nm": "수리·개인",
+    "lcls_nm": "수리 및 개인 서비스업",
     "mcls_cd": "S202",
-    "mcls_nm": "통신장비 수리",
+    "mcls_nm": "통신장비 수리업",
     "scls_cd": "S20201",
     "scls_nm": "핸드폰/통신장비 수리업"
   },
   {
     "lcls_cd": "S2",
-    "lcls_nm": "수리·개인",
+    "lcls_nm": "수리 및 개인 서비스업",
     "mcls_cd": "S203",
-    "mcls_nm": "자동차 수리·세차",
+    "mcls_nm": "자동차 수리 및 세차업",
     "scls_cd": "S20301",
     "scls_nm": "자동차 정비소"
   },
   {
     "lcls_cd": "S2",
-    "lcls_nm": "수리·개인",
+    "lcls_nm": "수리 및 개인 서비스업",
     "mcls_cd": "S203",
-    "mcls_nm": "자동차 수리·세차",
+    "mcls_nm": "자동차 수리 및 세차업",
     "scls_cd": "S20302",
     "scls_nm": "자동차 세차장"
   },
   {
     "lcls_cd": "S2",
-    "lcls_nm": "수리·개인",
+    "lcls_nm": "수리 및 개인 서비스업",
     "mcls_cd": "S204",
-    "mcls_nm": "모터사이클 수리",
+    "mcls_nm": "모터사이클 수리업",
     "scls_cd": "S20401",
     "scls_nm": "모터사이클 수리업"
   },
   {
     "lcls_cd": "S2",
-    "lcls_nm": "수리·개인",
+    "lcls_nm": "수리 및 개인 서비스업",
     "mcls_cd": "S205",
-    "mcls_nm": "가전제품 수리",
+    "mcls_nm": "가전제품 수리업",
     "scls_cd": "S20501",
     "scls_nm": "가전제품 수리업"
   },
   {
     "lcls_cd": "S2",
-    "lcls_nm": "수리·개인",
+    "lcls_nm": "수리 및 개인 서비스업",
     "mcls_cd": "S206",
-    "mcls_nm": "기타 가정용품 수리",
+    "mcls_nm": "기타 개인 및 가정용품 수리업",
     "scls_cd": "S20601",
     "scls_nm": "의류/이불 수선업"
   },
   {
     "lcls_cd": "S2",
-    "lcls_nm": "수리·개인",
+    "lcls_nm": "수리 및 개인 서비스업",
     "mcls_cd": "S206",
-    "mcls_nm": "기타 가정용품 수리",
+    "mcls_nm": "기타 개인 및 가정용품 수리업",
     "scls_cd": "S20602",
     "scls_nm": "가죽/가방/신발 수선업"
   },
   {
     "lcls_cd": "S2",
-    "lcls_nm": "수리·개인",
+    "lcls_nm": "수리 및 개인 서비스업",
     "mcls_cd": "S206",
-    "mcls_nm": "기타 가정용품 수리",
+    "mcls_nm": "기타 개인 및 가정용품 수리업",
     "scls_cd": "S20603",
     "scls_nm": "시계/귀금속/악기 수리업"
   },
   {
     "lcls_cd": "S2",
-    "lcls_nm": "수리·개인",
+    "lcls_nm": "수리 및 개인 서비스업",
     "mcls_cd": "S206",
-    "mcls_nm": "기타 가정용품 수리",
+    "mcls_nm": "기타 개인 및 가정용품 수리업",
     "scls_cd": "S20699",
     "scls_nm": "그 외 기타 개인/가정용품 수리업"
   },
   {
     "lcls_cd": "S2",
-    "lcls_nm": "수리·개인",
+    "lcls_nm": "수리 및 개인 서비스업",
     "mcls_cd": "S207",
-    "mcls_nm": "이용·미용",
+    "mcls_nm": "이용 및 미용업",
     "scls_cd": "S20701",
     "scls_nm": "미용실"
   },
   {
     "lcls_cd": "S2",
-    "lcls_nm": "수리·개인",
+    "lcls_nm": "수리 및 개인 서비스업",
     "mcls_cd": "S207",
-    "mcls_nm": "이용·미용",
+    "mcls_nm": "이용 및 미용업",
     "scls_cd": "S20702",
     "scls_nm": "피부 관리실"
   },
   {
     "lcls_cd": "S2",
-    "lcls_nm": "수리·개인",
+    "lcls_nm": "수리 및 개인 서비스업",
     "mcls_cd": "S207",
-    "mcls_nm": "이용·미용",
+    "mcls_nm": "이용 및 미용업",
     "scls_cd": "S20703",
     "scls_nm": "네일숍"
   },
   {
     "lcls_cd": "S2",
-    "lcls_nm": "수리·개인",
+    "lcls_nm": "수리 및 개인 서비스업",
     "mcls_cd": "S208",
-    "mcls_nm": "욕탕·신체관리",
+    "mcls_nm": "욕탕, 마사지 및 기타 신체 관리 서비스업",
     "scls_cd": "S20801",
     "scls_nm": "목욕탕/사우나"
   },
   {
     "lcls_cd": "S2",
-    "lcls_nm": "수리·개인",
+    "lcls_nm": "수리 및 개인 서비스업",
     "mcls_cd": "S208",
-    "mcls_nm": "욕탕·신체관리",
+    "mcls_nm": "욕탕, 마사지 및 기타 신체 관리 서비스업",
     "scls_cd": "S20802",
     "scls_nm": "마사지/안마"
   },
   {
     "lcls_cd": "S2",
-    "lcls_nm": "수리·개인",
+    "lcls_nm": "수리 및 개인 서비스업",
     "mcls_cd": "S208",
-    "mcls_nm": "욕탕·신체관리",
+    "mcls_nm": "욕탕, 마사지 및 기타 신체 관리 서비스업",
     "scls_cd": "S20803",
     "scls_nm": "체형/비만 관리"
   },
   {
     "lcls_cd": "S2",
-    "lcls_nm": "수리·개인",
+    "lcls_nm": "수리 및 개인 서비스업",
     "mcls_cd": "S209",
-    "mcls_nm": "세탁",
+    "mcls_nm": "세탁업",
     "scls_cd": "S20901",
     "scls_nm": "세탁소"
   },
   {
     "lcls_cd": "S2",
-    "lcls_nm": "수리·개인",
+    "lcls_nm": "수리 및 개인 서비스업",
     "mcls_cd": "S209",
-    "mcls_nm": "세탁",
+    "mcls_nm": "세탁업",
     "scls_cd": "S20902",
     "scls_nm": "셀프 빨래방"
   },
   {
     "lcls_cd": "S2",
-    "lcls_nm": "수리·개인",
+    "lcls_nm": "수리 및 개인 서비스업",
     "mcls_cd": "S210",
-    "mcls_nm": "장례식장 ",
+    "mcls_nm": "장례식장 및 관련 서비스업",
     "scls_cd": "S21001",
     "scls_nm": "장례식장"
   },
   {
     "lcls_cd": "S2",
-    "lcls_nm": "수리·개인",
+    "lcls_nm": "수리 및 개인 서비스업",
     "mcls_cd": "S210",
-    "mcls_nm": "장례식장 ",
+    "mcls_nm": "장례식장 및 관련 서비스업",
     "scls_cd": "S21002",
     "scls_nm": "화장터/묘지/납골당"
   },
   {
     "lcls_cd": "S2",
-    "lcls_nm": "수리·개인",
+    "lcls_nm": "수리 및 개인 서비스업",
     "mcls_cd": "S211",
-    "mcls_nm": "기타 개인",
+    "mcls_nm": "기타 개인서비스",
     "scls_cd": "S21101",
     "scls_nm": "예식장업"
   },
   {
     "lcls_cd": "S2",
-    "lcls_nm": "수리·개인",
+    "lcls_nm": "수리 및 개인 서비스업",
     "mcls_cd": "S211",
-    "mcls_nm": "기타 개인",
+    "mcls_nm": "기타 개인서비스",
     "scls_cd": "S21105",
     "scls_nm": "결혼 상담 서비스업"
   }

@@ -1,6 +1,8 @@
 """서울시 추정매출 API — 지역 상권 분석."""
 
 import json
+import re
+from functools import lru_cache
 from pathlib import Path
 
 import httpx
@@ -15,6 +17,8 @@ API_URL_TEMPLATE = (
 )
 
 MOCK_PATH = Path(__file__).resolve().parent.parent / "data" / "mock" / "seoul_sales.json"
+SEOUL_NAMES_PATH = Path(__file__).resolve().parent.parent / "data" / "seoul_industry_names.json"
+CROSSWALK_PATH = Path(__file__).resolve().parent.parent / "data" / "industry_crosswalk.json"
 
 SIGNGU_CODES: dict[str, str] = {
     "종로구": "11110",
@@ -44,11 +48,53 @@ SIGNGU_CODES: dict[str, str] = {
     "강동구": "11740",
 }
 
-INDUSTRY_MATCHERS: dict[str, list[str]] = {
-    "카페": ["커피-음료", "카페", "커피", "다방"],
-    "음식점": ["한식음식점", "중식음식점", "양식음식점", "음식", "식당", "분식"],
-    "소매": ["소매", "편의점", "슈퍼", "마트", "의류", "화장품"],
-}
+
+def _normalize_industry(value: str) -> str:
+    return re.sub(r"[\s\-_/·]", "", value.strip().lower())
+
+
+@lru_cache(maxsize=1)
+def _load_seoul_industry_names() -> tuple[str, ...]:
+    with open(SEOUL_NAMES_PATH, encoding="utf-8") as file:
+        payload = json.load(file)
+    return tuple(payload.get("names", []))
+
+
+@lru_cache(maxsize=1)
+def _load_crosswalk_items() -> tuple[dict, ...]:
+    with open(CROSSWALK_PATH, encoding="utf-8") as file:
+        payload = json.load(file)
+    return tuple(payload.get("items", []))
+
+
+def _resolve_seoul_industry_names(industry: str) -> list[str]:
+    """사용자 입력 → 서울시 API 업종명(SVC_INDUTY_CD_NM) 목록."""
+    normalized = _normalize_industry(industry)
+    if not normalized:
+        return [industry]
+
+    for item in _load_crosswalk_items():
+        terms = {_normalize_industry(term) for term in item.get("search_terms", [])}
+        if normalized in terms or any(
+            normalized in term or term in normalized for term in terms if term
+        ):
+            if item.get("seoul_names"):
+                return list(item["seoul_names"])
+
+    official_names = _load_seoul_industry_names()
+    exact = [name for name in official_names if _normalize_industry(name) == normalized]
+    if exact:
+        return exact
+
+    partial = [
+        name
+        for name in official_names
+        if normalized in _normalize_industry(name) or _normalize_industry(name) in normalized
+    ]
+    if partial:
+        return partial
+
+    return [industry]
 
 
 def _load_mock(region: str, industry: str) -> dict:
@@ -81,14 +127,18 @@ def _parse_signgu_name(region: str) -> str:
 
 
 def _industry_keywords(industry: str) -> list[str]:
-    if industry in INDUSTRY_MATCHERS:
-        return INDUSTRY_MATCHERS[industry]
-    return [industry]
+    return _resolve_seoul_industry_names(industry)
 
 
 def _matches_industry(industry_name: str, industry: str) -> bool:
     keywords = _industry_keywords(industry)
-    return any(keyword in industry_name for keyword in keywords)
+    normalized_name = _normalize_industry(industry_name)
+    return any(
+        _normalize_industry(keyword) == normalized_name
+        or _normalize_industry(keyword) in normalized_name
+        or normalized_name in _normalize_industry(keyword)
+        for keyword in keywords
+    )
 
 
 def _build_url(signgu_code: str, start: int = 1, end: int = 1000) -> str:
