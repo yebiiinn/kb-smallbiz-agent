@@ -1,5 +1,5 @@
 {
-  "fetched_at": null,
+  "fetched_at": "2026-07-22T20:15:39.737125+09:00",
   "programs": [
     {
       "id": "policy_fund",
@@ -48,5 +48,5 @@
       "source": "seed"
     }
   ],
-  "source": "seed"
+  "source": "crawled"
 }

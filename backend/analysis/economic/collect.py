@@ -28,7 +28,7 @@ import pandas as pd
 from dotenv import load_dotenv
 
 # ── 환경변수 로드 (.env 위치: backend/project/.env) ──────────────────────────
-_ENV_PATH = Path(__file__).resolve().parent.parent / "project" / ".env"
+_ENV_PATH = Path(__file__).resolve().parent.parent.parent / "project" / ".env"
 load_dotenv(_ENV_PATH)
 
 ECOS_KEY = os.getenv("ECOS_API_KEY", "")
@@ -117,10 +117,44 @@ KOSIS_TARGETS: dict[str, dict] = {
         "tbl_id": "DT_1KC2020", "org_id": "101",
         "itm_id": "T2", "obj_l1": "T", "prd_se": "M",
     },
+    "서비스업생산_숙박": {           # 숙박업(I55) — 여행·숙박 키워드 정확 매핑
+        "tbl_id": "DT_1KC2020", "org_id": "101",
+        "itm_id": "T2", "obj_l1": "I55", "prd_se": "M",
+    },
+    "서비스업생산_여행사": {          # 여행사 및 여행보조서비스업(N75) — 여행 키워드 정확 매핑
+        "tbl_id": "DT_1KC2020", "org_id": "101",
+        "itm_id": "T2", "obj_l1": "N75", "prd_se": "M",
+    },
     # ── 고용 ─────────────────────────────────────────────────────────────────
     "실업률": {                   # 소비 여력·경기 압박 동행 지표
         "tbl_id": "DT_1DA7001S", "org_id": "101",
         "itm_id": "T80", "obj_l1": "0", "prd_se": "M",
+    },
+    # ── 소상공인 BSI (중소벤처기업부, 2026-07-21 API 탐색 확인) ──────────────
+    # orgId=142, itmId=s0(체감/실적) · s1(전망), objL1=C1코드
+    # DT_S0001N_001 부문별: C1=00(경기전반), 01(매출), 03(자금사정), 07(비용상황)
+    # DT_S0001N_002 업종별: C1=01(소매업), 02(음식점업), 05(교육서비스), 08(개인서비스)
+    "소상공인_BSI_경기전반전망": {
+        "tbl_id": "DT_S0001N_001", "org_id": "142",
+        "itm_id": "s1", "obj_l1": "00", "prd_se": "M",
+    },
+    "소상공인_BSI_소매업전망": {
+        "tbl_id": "DT_S0001N_002", "org_id": "142",
+        "itm_id": "s1", "obj_l1": "01", "prd_se": "M",
+    },
+    "소상공인_BSI_음식점업전망": {
+        "tbl_id": "DT_S0001N_002", "org_id": "142",
+        "itm_id": "s1", "obj_l1": "02", "prd_se": "M",
+    },
+    "소상공인_BSI_개인서비스전망": {
+        "tbl_id": "DT_S0001N_002", "org_id": "142",
+        "itm_id": "s1", "obj_l1": "08", "prd_se": "M",
+    },
+    # ── 온라인쇼핑 총거래액 (통계청, 2026-07-21 API 탐색 확인) ──────────────
+    # itmId=T20(거래액), objL1=000(합계 상품군별), objL2=00(계 범위별) 필수
+    "온라인쇼핑_총거래액": {
+        "tbl_id": "DT_1KE10041", "org_id": "101",
+        "itm_id": "T20", "obj_l1": "000", "obj_l2": "00", "prd_se": "M",
     },
 }
 

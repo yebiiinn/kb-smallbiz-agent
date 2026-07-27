@@ -33,7 +33,7 @@ def _get(url: str, params: dict[str, Any]) -> dict[str, Any]:
     """GET 요청을 수행하고 JSON 을 반환한다. 실패 시 1회 재시도."""
     for attempt in range(_MAX_RETRY + 1):
         try:
-            with httpx.Client(timeout=_TIMEOUT) as client:
+            with httpx.Client(timeout=_TIMEOUT, follow_redirects=True) as client:
                 resp = client.get(url, params=params)
                 resp.raise_for_status()
                 return resp.json()

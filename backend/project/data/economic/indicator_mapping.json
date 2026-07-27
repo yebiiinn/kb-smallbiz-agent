@@ -1,0 +1,289 @@
+{
+  "_meta": {
+    "description": "업종별 경기지표 상관관계 매핑표 — economic_node 가 참조하는 정적 데이터",
+    "analysis_period": "2023-07 ~ 2026-07 (37개월)",
+    "last_updated": "2026-07-21",
+    "threshold": "Pearson |r| >= 0.40",
+    "source_script": "backend/analysis/economic/collect.py",
+    "signal_type_legend": {
+      "선행": "경기에 1~3개월 선행하는 심리·기대 지표 (CSI, BSI). 통계청 공식 선행종합지수 또는 학계 실증 검증.",
+      "동행": "경기와 동시 움직이는 실물 지표 (소매판매액지수·서비스업생산지수·실업률). 통계청 공식 동행종합지수 구성요소.",
+      "거시배경": "공식 경기종합지수에는 미포함, 소상공인 원가·금융 환경에 영향을 주는 배경 거시조건 변수 (기준금리·물가·환율)."
+    },
+    "rate_regime_note": "분석 데이터(2023-07~2026-06) 전 기간이 금리 인하/동결 국면임. 2026-07-16 인상 전환(2.50→2.75%) 이후 인상 국면 상관계수는 재검증 필요."
+  },
+
+  "ecos_indicators": {
+    "기준금리":        { "stat_code": "722Y001", "item_code": "0101000", "item_code2": "",      "cycle": "M", "unit": "%",          "signal_type": "거시배경" },
+    "소비자물가지수":   { "stat_code": "901Y009", "item_code": "0",        "item_code2": "",      "cycle": "M", "unit": "2020=100",   "signal_type": "거시배경" },
+    "생산자물가지수":   { "stat_code": "404Y014", "item_code": "*AA",      "item_code2": "",      "cycle": "M", "unit": "2020=100",   "signal_type": "거시배경" },
+    "원달러환율":      { "stat_code": "731Y004", "item_code": "0000001",  "item_code2": "",      "cycle": "M", "unit": "원/달러",     "signal_type": "거시배경" },
+    "현재경기판단CSI":  { "stat_code": "511Y002", "item_code": "FMAB",     "item_code2": "99988", "cycle": "M", "unit": "CSI",        "signal_type": "선행" },
+    "향후경기전망CSI":  { "stat_code": "511Y002", "item_code": "FMBB",     "item_code2": "99988", "cycle": "M", "unit": "CSI",        "signal_type": "선행" },
+    "외식비지출전망CSI":{ "stat_code": "511Y002", "item_code": "FMCCC",    "item_code2": "99988", "cycle": "M", "unit": "CSI",        "signal_type": "선행" },
+    "여행비지출전망CSI":{ "stat_code": "511Y002", "item_code": "FMCCD",    "item_code2": "99988", "cycle": "M", "unit": "CSI",        "signal_type": "선행" },
+    "BSI_서비스업전망": { "stat_code": "512Y014", "item_code": "Y9950",    "item_code2": "BA",    "cycle": "M", "unit": "BSI",        "signal_type": "선행" },
+    "BSI_중소기업전망": { "stat_code": "512Y014", "item_code": "X6000",    "item_code2": "BA",    "cycle": "M", "unit": "BSI",        "signal_type": "선행" }
+  },
+
+  "kosis_indicators": {
+    "소매판매_편의점":      { "tbl_id": "DT_1K41013", "org_id": "101", "itm_id": "T2",  "obj_l1": "A5",  "prd_se": "M", "unit": "2020=100 불변지수", "signal_type": "동행" },
+    "소매판매_전문소매점":   { "tbl_id": "DT_1K41013", "org_id": "101", "itm_id": "T2",  "obj_l1": "A7",  "prd_se": "M", "unit": "2020=100 불변지수", "signal_type": "동행" },
+    "소매판매_무점포소매":   { "tbl_id": "DT_1K41013", "org_id": "101", "itm_id": "T2",  "obj_l1": "A8",  "prd_se": "M", "unit": "2020=100 불변지수", "signal_type": "동행" },
+    "서비스업생산_음식점주점":{ "tbl_id": "DT_1KC2020", "org_id": "101", "itm_id": "T2",  "obj_l1": "I56", "prd_se": "M", "unit": "2020=100 불변지수", "signal_type": "동행" },
+    "서비스업생산_교육서비스":{ "tbl_id": "DT_1KC2020", "org_id": "101", "itm_id": "T2",  "obj_l1": "P",   "prd_se": "M", "unit": "2020=100 불변지수", "signal_type": "동행" },
+    "서비스업생산_개인서비스":{ "tbl_id": "DT_1KC2020", "org_id": "101", "itm_id": "T2",  "obj_l1": "S96", "prd_se": "M", "unit": "2020=100 불변지수", "signal_type": "동행" },
+    "서비스업생산_총지수":   { "tbl_id": "DT_1KC2020", "org_id": "101", "itm_id": "T2",  "obj_l1": "T",   "prd_se": "M", "unit": "2020=100 불변지수", "signal_type": "동행" },
+    "서비스업생산_숙박":    { "tbl_id": "DT_1KC2020", "org_id": "101", "itm_id": "T2",  "obj_l1": "I55", "prd_se": "M", "unit": "2020=100 불변지수", "signal_type": "동행" },
+    "서비스업생산_여행사":   { "tbl_id": "DT_1KC2020", "org_id": "101", "itm_id": "T2",  "obj_l1": "N75", "prd_se": "M", "unit": "2020=100 불변지수", "signal_type": "동행",
+                          "_note": "여행사 및 여행보조서비스업(N75). 음식점주점(I56)과 분류 다름." },
+    "실업률":            { "tbl_id": "DT_1DA7001S","org_id": "101", "itm_id": "T80", "obj_l1": "0",   "prd_se": "M", "unit": "%",                 "signal_type": "동행",
+                          "_note": "통계청 공식 경기종합지수상 동행지표(비농림어업취업자수와 동일 부문). 이전 '후행' 분류는 오류로 정정." },
+    "소상공인_BSI_경기전반전망":  { "tbl_id": "DT_S0001N_001", "org_id": "142", "itm_id": "s1",  "obj_l1": "00", "prd_se": "M", "unit": "BSI", "signal_type": "선행",
+                          "_note": "중소벤처기업부 소상공인경기동향조사. org_id=142(소상공인시장진흥공단). 2026-07-21 상관계수 확인 후 정식 편입." },
+    "소상공인_BSI_소매업전망":    { "tbl_id": "DT_S0001N_002", "org_id": "142", "itm_id": "s1",  "obj_l1": "01", "prd_se": "M", "unit": "BSI", "signal_type": "선행",
+                          "_note": "전문소매점·편의점 업종과 r=0.68/0.12. 전문소매점 선행지표로 유효." },
+    "소상공인_BSI_음식점업전망":  { "tbl_id": "DT_S0001N_002", "org_id": "142", "itm_id": "s1",  "obj_l1": "02", "prd_se": "M", "unit": "BSI", "signal_type": "선행",
+                          "_note": "서비스업생산_음식점주점과 r=0.277로 직접 상관 미유의. 전문소매점(r=0.71), 여행사(r=0.60)와 간접 연동." },
+    "소상공인_BSI_개인서비스전망":{ "tbl_id": "DT_S0001N_002", "org_id": "142", "itm_id": "s1",  "obj_l1": "08", "prd_se": "M", "unit": "BSI", "signal_type": "선행",
+                          "_note": "서비스업생산_개인서비스와 r=0.538. 개인서비스 업종 직접 선행지표로 유효." }
+  },
+
+  "industry_keyword_map": {
+    "음식점":   "음식점주점",
+    "요식업":   "음식점주점",
+    "카페":     "음식점주점",
+    "주점":     "음식점주점",
+    "술집":     "음식점주점",
+    "편의점":   "편의점",
+    "소매":     "전문소매점",
+    "마트":     "전문소매점",
+    "잡화":     "전문소매점",
+    "소매점":   "전문소매점",
+    "안경":     "전문소매점",
+    "온라인":   "무점포소매",
+    "쇼핑몰":   "무점포소매",
+    "온라인쇼핑몰": "무점포소매",
+    "배달음식": "음식점주점",
+    "배달":     "음식점주점",
+    "학원":     "교육서비스",
+    "교육":     "교육서비스",
+    "과외":     "교육서비스",
+    "미용":     "개인서비스",
+    "세탁":     "개인서비스",
+    "이발":     "개인서비스",
+    "스파":     "개인서비스",
+    "수리":     "개인서비스",
+    "숙박":     "숙박",
+    "여행":     "여행사",
+    "호텔":     "숙박",
+    "펜션":     "숙박",
+    "게스트하우스": "숙박",
+    "여행사":   "여행사",
+    "투어":     "여행사"
+  },
+
+  "industry_indicator_correlation": {
+    "음식점주점": {
+      "summary": "편의점 소매판매·BSI 서비스업전망과 강한 양의 상관. 기준금리·실업률과는 무관에 가까움.",
+      "top_positive": [
+        { "indicator": "소매판매_편의점",    "signal_type": "동행", "r": 0.683, "interpretation": "소비 활성화 시 음식점 업황도 동반 상승" },
+        { "indicator": "소매판매_전문소매점", "signal_type": "동행", "r": 0.461, "interpretation": "오프라인 소비 회복 시 동반 상승" },
+        { "indicator": "BSI_서비스업전망",   "signal_type": "선행", "r": 0.381, "interpretation": "서비스업 전반 경기 낙관 시 개선" }
+      ],
+      "top_negative": [
+        { "indicator": "소비자물가지수",     "signal_type": "거시배경", "r": -0.210, "interpretation": "물가 상승 시 식자재 원가 부담 증가" }
+      ],
+      "agent_signal": "외식비지출전망CSI ↑ + 편의점소매판매 ↑ → 업황 개선 신호"
+    },
+
+    "편의점": {
+      "summary": "실업률과 강한 역의 상관(-0.70). BSI·여행비지출전망CSI와도 동조.",
+      "top_positive": [
+        { "indicator": "BSI_서비스업전망",  "signal_type": "선행", "r": 0.585, "interpretation": "서비스 경기 좋으면 편의점 매출도 증가" },
+        { "indicator": "BSI_중소기업전망",  "signal_type": "선행", "r": 0.480, "interpretation": "중소기업 낙관 = 소비 여력 증가" },
+        { "indicator": "여행비지출전망CSI", "signal_type": "선행", "r": 0.433, "interpretation": "여가 소비 심리 회복 시 동반 상승" }
+      ],
+      "top_negative": [
+        { "indicator": "실업률",           "signal_type": "동행",    "r": -0.702, "interpretation": "실업률 오르면 생계형 소비도 감소" },
+        { "indicator": "소비자물가지수",    "signal_type": "거시배경", "r": -0.247, "interpretation": "물가 상승 → 구매력 감소" }
+      ],
+      "agent_signal": "실업률 ↑ → 편의점 매출 위험 신호 / 실업률 ↓ → 회복 신호"
+    },
+
+    "전문소매점": {
+      "summary": "소상공인_BSI_소매업전망(r=0.68)·개인서비스·총지수와 강한 동조. 소상공인 BSI가 직접 선행지표로 유효함이 실측으로 확인됨.",
+      "top_positive": [
+        { "indicator": "소상공인_BSI_소매업전망",  "signal_type": "선행", "r": 0.680, "interpretation": "소매업 소상공인 경기 전망이 직접 선행 신호" },
+        { "indicator": "소상공인_BSI_경기전반전망","signal_type": "선행", "r": 0.673, "interpretation": "소상공인 전반 경기 낙관 시 소매 회복 선행" },
+        { "indicator": "서비스업생산_개인서비스",  "signal_type": "동행", "r": 0.627, "interpretation": "서비스 소비 확대 시 동반 성장" },
+        { "indicator": "서비스업생산_총지수",      "signal_type": "동행", "r": 0.598, "interpretation": "서비스 경기 동행 지표" },
+        { "indicator": "소매판매_무점포소매",      "signal_type": "동행", "r": 0.574, "interpretation": "오프라인·온라인 소매 동반 확대" }
+      ],
+      "top_negative": [],
+      "agent_signal": "소상공인_BSI_소매업전망 ↑ → 전문소매점 업황 회복 선행 신호"
+    },
+
+    "무점포소매": {
+      "summary": "물가·환율 상승 시 오히려 증가(온라인 가격 비교 수요 증가). 기준금리와 역상관.",
+      "top_positive": [
+        { "indicator": "서비스업생산_개인서비스", "signal_type": "동행",    "r": 0.625, "interpretation": "생활 서비스 소비와 동조" },
+        { "indicator": "생산자물가지수",         "signal_type": "거시배경", "r": 0.481, "interpretation": "원가 상승 → 소비자 온라인 이동" },
+        { "indicator": "원달러환율",             "signal_type": "거시배경", "r": 0.456, "interpretation": "환율 상승 → 온라인 가격 비교 수요" },
+        { "indicator": "소비자물가지수",         "signal_type": "거시배경", "r": 0.463, "interpretation": "물가 상승 → 온라인 저가 비교 구매 증가" }
+      ],
+      "top_negative": [
+        { "indicator": "기준금리",               "signal_type": "거시배경", "r": -0.427, "interpretation": "금리 상승 시 소비 심리 위축 → 온라인 매출 감소. 2026-07 인상 전환으로 모니터링 필요." }
+      ],
+      "agent_signal": "물가·환율 상승 국면 → 무점포 소매 유리한 환경 (가격 비교 수요). 단, 금리 인상 국면에서는 상쇄 효과 주의."
+    },
+
+    "교육서비스": {
+      "summary": "대부분 경기지표와 무관하거나 역의 상관. 경기 불황에도 지출 유지되는 '필수 서비스' 특성.",
+      "top_positive": [
+        { "indicator": "기준금리",         "signal_type": "거시배경", "r": 0.293, "interpretation": "경기 위축 시에도 교육비 지출 유지 (방어적 지출)" }
+      ],
+      "top_negative": [
+        { "indicator": "소매판매_편의점",  "signal_type": "동행", "r": -0.416, "interpretation": "편의점 소비 늘면 교육비 상대적 감소" },
+        { "indicator": "향후경기전망CSI", "signal_type": "선행", "r": -0.312, "interpretation": "경기 낙관 시에도 교육비 증가폭 제한" }
+      ],
+      "agent_signal": "경기 지표보다 인구통계(학령인구) 변화가 더 중요한 업종. 금리 인상 국면에서도 상대적 방어력 유지."
+    },
+
+    "숙박": {
+      "summary": "편의점 소매판매·음식점주점 생산지수와 매우 강한 동조(r≈0.76). 소비 활성화 국면에서 전반적 수혜. 여행비CSI(r=0.32)보다 소비 전반 지표가 더 강한 선행 신호.",
+      "_correlation_status": "confirmed — 2026-07-21 실측 (37개월)",
+      "top_positive": [
+        { "indicator": "소매판매_편의점",        "signal_type": "동행", "r": 0.760, "interpretation": "소비 전반 활성화 시 숙박 수요 동반 상승" },
+        { "indicator": "서비스업생산_음식점주점", "signal_type": "동행", "r": 0.758, "interpretation": "외식·숙박 동반 경기 순환" },
+        { "indicator": "BSI_서비스업전망",       "signal_type": "선행", "r": 0.594, "interpretation": "서비스 경기 낙관 시 숙박 선행 회복" },
+        { "indicator": "소매판매_전문소매점",     "signal_type": "동행", "r": 0.431, "interpretation": "오프라인 소비 확대 시 동반 상승" }
+      ],
+      "top_negative": [
+        { "indicator": "실업률",                "signal_type": "동행", "r": -0.481, "interpretation": "고용 악화 시 여행·숙박 지출 급감" }
+      ],
+      "agent_signal": "소매판매_편의점 ↑ + BSI_서비스업전망 ↑ → 숙박 업황 개선 신호 (소비 전반 활성화 연동)"
+    },
+
+    "여행사": {
+      "summary": "서비스업생산 총지수·전문소매점과 매우 강한 동조(r≈0.75). 소비 전반 확대 시 수혜. 여행비지출전망CSI(r=0.065)는 예상과 달리 유의미한 선행지표 아님 — 실물 소비 지표가 더 정확.",
+      "_correlation_status": "confirmed — 2026-07-21 실측 (37개월)",
+      "_insight": "여행비지출전망CSI와 r=0.065로 매우 낮음. 여행 심리지수보다 오프라인 소비·서비스업 전반 지표가 여행사 실적에 더 정확히 연동됨.",
+      "top_positive": [
+        { "indicator": "서비스업생산_총지수",    "signal_type": "동행", "r": 0.756, "interpretation": "서비스 경기 전반 동조" },
+        { "indicator": "소매판매_전문소매점",    "signal_type": "동행", "r": 0.751, "interpretation": "오프라인 소비 확대 시 여행사 동반 성장" },
+        { "indicator": "서비스업생산_개인서비스","signal_type": "동행", "r": 0.612, "interpretation": "생활 서비스 소비 확대와 동조" },
+        { "indicator": "서비스업생산_음식점주점","signal_type": "동행", "r": 0.540, "interpretation": "외식·여행 소비 동반 순환" }
+      ],
+      "top_negative": [],
+      "agent_signal": "서비스업생산 총지수 ↑ + 소매판매_전문소매점 ↑ → 여행사 업황 개선 신호 (소비 전반 활성화 연동)"
+    },
+
+    "개인서비스": {
+      "summary": "서비스업 전반(총지수)·전문소매점·무점포소매와 강한 동조. 소상공인_BSI_개인서비스전망(r=0.538)이 직접 선행지표로 추가 확인됨.",
+      "top_positive": [
+        { "indicator": "소매판매_전문소매점",        "signal_type": "동행", "r": 0.627, "interpretation": "오프라인 소비와 동반 성장" },
+        { "indicator": "서비스업생산_총지수",         "signal_type": "동행", "r": 0.625, "interpretation": "서비스 경기 전반과 동행" },
+        { "indicator": "소매판매_무점포소매",         "signal_type": "동행", "r": 0.625, "interpretation": "소비 채널 확장 시 수혜" },
+        { "indicator": "소상공인_BSI_개인서비스전망", "signal_type": "선행", "r": 0.538, "interpretation": "개인서비스 소상공인 경기 전망 직접 선행 신호" },
+        { "indicator": "소상공인_BSI_경기전반전망",   "signal_type": "선행", "r": 0.543, "interpretation": "소상공인 전반 경기 낙관 시 개인서비스 수혜" }
+      ],
+      "top_negative": [
+        { "indicator": "여행비지출전망CSI",           "signal_type": "선행", "r": -0.385, "interpretation": "여행 소비 증가 시 개인서비스 수요 분산" }
+      ],
+      "agent_signal": "소상공인_BSI_개인서비스전망 ↑ + 서비스업생산 총지수 ↑ → 개인서비스 업황 개선 신호"
+    }
+  },
+
+  "candidate_indicators": {
+    "_description": "수집·상관계수 검증 완료. 정식 편입된 지표는 kosis_indicators로 이동. 미편입 후보만 여기에 유지.",
+    "_last_verified": "2026-07-21 (37개월 실측 기반)",
+
+    "kosis_candidates": {
+      "소상공인_BSI_교육서비스전망": {
+        "tbl_id": "DT_S0001N_002", "org_id": "142", "itm_id": "s1", "obj_l1": "05", "prd_se": "M",
+        "unit": "BSI", "signal_type": "선행",
+        "rationale": "교육서비스 업종 직접 선행지표. 실업률(r=0.396)과 동조 — 경기 하락 시 역방향. API 검증 완료, 상관계수 추가 분석 필요.",
+        "status": "pending — industry_indicator_correlation 교육서비스 섹션 미반영"
+      },
+      "온라인쇼핑_총거래액": {
+        "tbl_id": "DT_1KE10041", "org_id": "101", "itm_id": "T20", "obj_l1": "000", "obj_l2": "00", "prd_se": "M",
+        "unit": "백만원", "signal_type": "동행",
+        "source": "통계청 온라인쇼핑동향조사 (KOSIS) 2017~현재",
+        "correlation_result": "소매판매_무점포소매와 r=0.834 — 사실상 동일 지표 움직임. 독립 정보 제공 가치 낮음.",
+        "decision": "미편입 유지 — 무점포소매(소매판매액지수 불변)로 충분. 명목액 기반 분석이 별도 필요할 경우 재검토.",
+        "note": "objL1=000(합계 상품군), objL2=00(계 범위별). 약 1개월 발표 lag."
+      }
+    },
+
+    "promoted_to_kosis_indicators": {
+      "_note": "2026-07-21 상관계수 실측 후 kosis_indicators로 이동된 지표 기록",
+      "소상공인_BSI_경기전반전망": "전문소매점(r=0.673), 개인서비스(r=0.543), 여행사(r=0.492)와 유의 상관. 정식 편입.",
+      "소상공인_BSI_소매업전망":   "전문소매점(r=0.680)과 유의 상관. 직접 선행지표. 정식 편입.",
+      "소상공인_BSI_음식점업전망": "서비스업생산_음식점주점(r=0.277)과 직접 상관 미유의. 편입하되 note 참조.",
+      "소상공인_BSI_개인서비스전망":"서비스업생산_개인서비스(r=0.538)와 유의 상관. 정식 편입."
+    },
+
+    "not_available_via_api": {
+      "구인구직배율": {
+        "kosis_tbl_id": "DT_1YL1101",
+        "reason": "KOSIS API statisticsParameterData.do 접근 불가 (파라미터 구조 상이). 연간 데이터로 추정(2003~2024). 월별 시계열 대체 불가.",
+        "alternative": "고용노동부 워크넷 통계 또는 KOSIS 100대 지표 별도 접근 경로 탐색 필요.",
+        "priority": "높음 (공식 CI 선행지수 구성요소, 현재 고용지표가 실업률(동행)만 있어 선행 공백)"
+      }
+    }
+  },
+
+  "macro_interpretation": {
+    "_rate_regime": {
+      "current": "인상 전환",
+      "rate_as_of": "2026-07-16",
+      "rate_value": "2.75%",
+      "prev_rate": "2.50%",
+      "note": "2026-07-16 한국은행 기준금리 인상(3년 6개월 만의 첫 인상, 14개월 동결 종료). 기존 상관계수는 전 기간 인하/동결 국면 데이터 기반이므로 인상 국면 신호는 반전·약화 가능성 있음."
+    },
+
+    "기준금리_인상_시": {
+      "effect": "대출·원가 부담 증가 → 소상공인 폐업률 상승 위험 (진승화·이민준 2024: 금리변동이 서울 소상공인 폐업에 가장 큰 영향). 무점포소매 직접 타격(r=-0.427).",
+      "beneficiary": ["교육서비스 (방어적 필수 지출로 상대적 방어력 유지)"],
+      "risk": [
+        "무점포소매 (r=-0.427, 분석 기간 내 가장 직접적 금리 역상관)",
+        "음식점주점 (이자·임대 비용 증가, 식자재 원가 부담 가중)",
+        "편의점 (가계 소비 여력 감소 → 생계형 소비도 위축)"
+      ],
+      "key_ref": "진승화·이민준, 중소기업금융연구 44권 2호, 2024 — 금리변동이 서울 소상공인 폐업률의 최대 영향 요인"
+    },
+
+    "기준금리_인하_시": {
+      "effect": "물가·환율·PPI 동반 상승 (r≈0.8~0.9 연동). 소비 여력 개선, 차입 부담 경감.",
+      "beneficiary": ["무점포소매 (r=-0.427 역상관이므로 금리 하락 시 수혜)", "음식점주점 (소비 심리 개선)"],
+      "risk": ["편의점 (물가 상승으로 구매력 일부 상쇄)", "소상공인 원가 부담 (PPI↑)"],
+      "note": "분석 데이터(2023-07~2026-06) 전 기간이 이 레짐에 해당. 현재(2026-07~)는 인상 전환 국면."
+    },
+
+    "기준금리_동결_시": {
+      "effect": "금리 방향성 불확실성 유지. 직전 인상/인하 레짐의 지연 효과 지속.",
+      "beneficiary": ["전 업종 (불확실성 해소 → 소비 심리 안정화 기대)"],
+      "risk": ["직전 레짐이 인상이었다면 원가·이자 부담 누적 지속"],
+      "note": "동결 기간 중에는 이전 금리 레짐 방향에 따라 효과가 달라짐. 방향성(인상 후 동결 vs 인하 후 동결) 구분 필요."
+    },
+
+    "실업률_상승_시": {
+      "effect": "편의점 매출 직접 타격 (r=-0.70). 동행지표이므로 경기 악화와 동시 발생.",
+      "beneficiary": ["교육서비스 (안전 자산적 지출)"],
+      "risk": ["편의점", "음식점주점", "개인서비스"]
+    },
+
+    "소비심리_개선_시": {
+      "indicators": ["현재경기판단CSI↑", "향후경기전망CSI↑", "외식비지출전망CSI↑"],
+      "beneficiary": ["음식점주점", "편의점", "개인서비스"],
+      "risk": []
+    },
+
+    "환율_상승_시": {
+      "effect": "PPI·CPI 연쇄 상승 (수입 원자재 가격 전가)",
+      "beneficiary": ["무점포소매 (온라인 가격 비교 수요)"],
+      "risk": ["음식점주점 (식자재 원가↑)", "전문소매점 (수입 상품 원가↑)"]
+    }
+  }
+}
