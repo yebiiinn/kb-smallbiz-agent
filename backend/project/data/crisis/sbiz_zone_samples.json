@@ -1,0 +1,97 @@
+{
+  "source": "sbiz365 / apis.data.go.kr/B553077/storeZoneOne",
+  "sample_limit": 10,
+  "count": 10,
+  "items": [
+    {
+      "trdar_cd": "10000",
+      "trdar_nm": "목동역1번 출구",
+      "signgu_cd": "11470",
+      "signgu_nm": "양천구",
+      "area_m2": 117413,
+      "coord_count": 709,
+      "base_date": "2024-01-01"
+    },
+    {
+      "trdar_cd": "10001",
+      "trdar_nm": "까치산역2번 출구",
+      "signgu_cd": "11500",
+      "signgu_nm": "강서구",
+      "area_m2": 77174,
+      "coord_count": 548,
+      "base_date": "2024-01-01"
+    },
+    {
+      "trdar_cd": "10002",
+      "trdar_nm": "서울화곡4동우체국",
+      "signgu_cd": "11500",
+      "signgu_nm": "강서구",
+      "area_m2": 68402,
+      "coord_count": 487,
+      "base_date": "2024-01-01"
+    },
+    {
+      "trdar_cd": "10003",
+      "trdar_nm": "우장산역4번 출구",
+      "signgu_cd": "11500",
+      "signgu_nm": "강서구",
+      "area_m2": 43858,
+      "coord_count": 432,
+      "base_date": "2024-01-01"
+    },
+    {
+      "trdar_cd": "10004",
+      "trdar_nm": "서울화곡본동우편취급국",
+      "signgu_cd": "11500",
+      "signgu_nm": "강서구",
+      "area_m2": 57727,
+      "coord_count": 326,
+      "base_date": "2024-01-01"
+    },
+    {
+      "trdar_cd": "10005",
+      "trdar_nm": "마곡역7번 출구",
+      "signgu_cd": "11500",
+      "signgu_nm": "강서구",
+      "area_m2": 41260,
+      "coord_count": 262,
+      "base_date": "2024-01-01"
+    },
+    {
+      "trdar_cd": "10006",
+      "trdar_nm": "마곡역4번 출구",
+      "signgu_cd": "11500",
+      "signgu_nm": "강서구",
+      "area_m2": 57154,
+      "coord_count": 180,
+      "base_date": "2024-01-01"
+    },
+    {
+      "trdar_cd": "10007",
+      "trdar_nm": "이대서울병원 정류장",
+      "signgu_cd": "11500",
+      "signgu_nm": "강서구",
+      "area_m2": 28999,
+      "coord_count": 190,
+      "base_date": "2024-01-01"
+    },
+    {
+      "trdar_cd": "10008",
+      "trdar_nm": "스페이스K",
+      "signgu_cd": "11500",
+      "signgu_nm": "강서구",
+      "area_m2": 89685,
+      "coord_count": 177,
+      "base_date": "2024-01-01"
+    },
+    {
+      "trdar_cd": "10009",
+      "trdar_nm": "발산역9번 출구",
+      "signgu_cd": "11500",
+      "signgu_nm": "강서구",
+      "area_m2": 111657,
+      "coord_count": 235,
+      "base_date": "2024-01-01"
+    }
+  ]
+}

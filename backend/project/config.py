@@ -27,6 +27,8 @@ class Settings(BaseSettings):
     kosis_consumption_obj_id: str = ""
     bizinfo_api_key: str = ""
     finlife_api_key: str = ""
+    vworld_api_key: str = ""
+    vworld_domain: str = "localhost"
 
     @property
     def cors_origin_list(self) -> list[str]:

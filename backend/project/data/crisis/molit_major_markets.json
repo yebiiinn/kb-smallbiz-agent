@@ -1,0 +1,8191 @@
+{
+  "source": "data.go.kr/15028102",
+  "api": "vworld.kr/req/data",
+  "layer": "LT_C_DGMAINBIZ",
+  "count": 1169,
+  "items": [
+    {
+      "zone_no": "9138",
+      "zone_name": "공덕역_1",
+      "zone_full_name": "공덕역_1",
+      "sido_nm": "서울특별시",
+      "signgu_nm": "마포구"
+    },
+    {
+      "zone_no": "9147",
+      "zone_name": "홍익대학교",
+      "zone_full_name": "홍익대학교",
+      "sido_nm": "서울특별시",
+      "signgu_nm": "마포구"
+    },
+    {
+      "zone_no": "9237",
+      "zone_name": "당산역_1",
+      "zone_full_name": "당산역_1",
+      "sido_nm": "서울특별시",
+      "signgu_nm": "영등포구"
+    },
+    {
+      "zone_no": "10177",
+      "zone_name": "관평동",
+      "zone_full_name": "관평동",
+      "sido_nm": "대전광역시",
+      "signgu_nm": "유성구"
+    },
+    {
+      "zone_no": "9238",
+      "zone_name": "당산역_2",
+      "zone_full_name": "당산역_2",
+      "sido_nm": "서울특별시",
+      "signgu_nm": "영등포구"
+    },
+    {
+      "zone_no": "9239",
+      "zone_name": "문래동 주민센터",
+      "zone_full_name": "문래동 주민센터",
+      "sido_nm": "서울특별시",
+      "signgu_nm": "영등포구"
+    },
+    {
+      "zone_no": "9240",
+      "zone_name": "여의도역_1",
+      "zone_full_name": "여의도역_1",
+      "sido_nm": "서울특별시",
+      "signgu_nm": "영등포구"
+    },
+    {
+      "zone_no": "9241",
+      "zone_name": "여의도역_2",
+      "zone_full_name": "여의도역_2",
+      "sido_nm": "서울특별시",
+      "signgu_nm": "영등포구"
+    },
+    {
+      "zone_no": "9242",
+      "zone_name": "영등포구청역",
+      "zone_full_name": "영등포구청역",
+      "sido_nm": "서울특별시",
+      "signgu_nm": "영등포구"
+    },
+    {
+      "zone_no": "9243",
+      "zone_name": "영등포시장역",
+      "zone_full_name": "영등포시장역",
+      "sido_nm": "서울특별시",
+      "signgu_nm": "영등포구"
+    },
+    {
+      "zone_no": "9244",
+      "zone_name": "영등포역_1",
+      "zone_full_name": "영등포역_1",
+      "sido_nm": "서울특별시",
+      "signgu_nm": "영등포구"
+    },
+    {
+      "zone_no": "9245",
+      "zone_name": "영등포역_2",
+      "zone_full_name": "영등포역_2",
+      "sido_nm": "서울특별시",
+      "signgu_nm": "영등포구"
+    },
+    {
+      "zone_no": "9246",
+      "zone_name": "영등포역_3",
+      "zone_full_name": "영등포역_3",
+      "sido_nm": "서울특별시",
+      "signgu_nm": "영등포구"
+    },
+    {
+      "zone_no": "9148",
+      "zone_name": "서대문역_1",
+      "zone_full_name": "서대문역_1",
+      "sido_nm": "서울특별시",
+      "signgu_nm": "종로구"
+    },
+    {
+      "zone_no": "9247",
+      "zone_name": "영등포유통상가",
+      "zone_full_name": "영등포유통상가",
+      "sido_nm": "서울특별시",
+      "signgu_nm": "영등포구"
+    },
+    {
+      "zone_no": "9248",
+      "zone_name": "고덕역",
+      "zone_full_name": "고덕역",
+      "sido_nm": "서울특별시",
+      "signgu_nm": "강동구"
+    },
+    {
+      "zone_no": "9249",
+      "zone_name": "길동역",
+      "zone_full_name": "길동역",
+      "sido_nm": "서울특별시",
+      "signgu_nm": "강동구"
+    },
+    {
+      "zone_no": "9250",
+      "zone_name": "둔촌동역",
+      "zone_full_name": "둔촌동역",
+      "sido_nm": "서울특별시",
+      "signgu_nm": "강동구"
+    },
+    {
+      "zone_no": "9251",
+      "zone_name": "명일역",
+      "zone_full_name": "명일역",
+      "sido_nm": "서울특별시",
+      "signgu_nm": "강동구"
+    },
+    {
+      "zone_no": "9252",
+      "zone_name": "천호역_1",
+      "zone_full_name": "천호역_1",
+      "sido_nm": "서울특별시",
+      "signgu_nm": "강동구"
+    },
+    {
+      "zone_no": "9253",
+      "zone_name": "천호역_2",
+      "zone_full_name": "천호역_2",
+      "sido_nm": "서울특별시",
+      "signgu_nm": "강동구"
+    },
+    {
+      "zone_no": "9254",
+      "zone_name": "강변테크노마트",
+      "zone_full_name": "강변테크노마트",
+      "sido_nm": "서울특별시",
+      "signgu_nm": "광진구"
+    },
+    {
+      "zone_no": "9255",
+      "zone_name": "건대입구역_1",
+      "zone_full_name": "건대입구역_1",
+      "sido_nm": "서울특별시",
+      "signgu_nm": "광진구"
+    },
+    {
+      "zone_no": "9256",
+      "zone_name": "건대입구역_2",
+      "zone_full_name": "건대입구역_2",
+      "sido_nm": "서울특별시",
+      "signgu_nm": "광진구"
+    },
+    {
+      "zone_no": "9149",
+      "zone_name": "서대문역_2",
+      "zone_full_name": "서대문역_2",
+      "sido_nm": "서울특별시",
+      "signgu_nm": "서대문구"
+    },
+    {
+      "zone_no": "9257",
+      "zone_name": "구의역",
+      "zone_full_name": "구의역",
+      "sido_nm": "서울특별시",
+      "signgu_nm": "광진구"
+    },
+    {
+      "zone_no": "9258",
+      "zone_name": "군자역",
+      "zone_full_name": "군자역",
+      "sido_nm": "서울특별시",
+      "signgu_nm": "광진구"
+    },
+    {
+      "zone_no": "9259",
+      "zone_name": "어린이대공원",
+      "zone_full_name": "어린이대공원",
+      "sido_nm": "서울특별시",
+      "signgu_nm": "광진구"
+    },
+    {
+      "zone_no": "9261",
+      "zone_name": "왕십리역_1",
+      "zone_full_name": "왕십리역_1",
+      "sido_nm": "서울특별시",
+      "signgu_nm": "성동구"
+    },
+    {
+      "zone_no": "9262",
+      "zone_name": "왕십리역_2",
+      "zone_full_name": "왕십리역_2",
+      "sido_nm": "서울특별시",
+      "signgu_nm": "성동구"
+    },
+    {
+      "zone_no": "9263",
+      "zone_name": "장안평 중고차시장골목",
+      "zone_full_name": "장안평 중고차시장골목",
+      "sido_nm": "서울특별시",
+      "signgu_nm": "성동구"
+    },
+    {
+      "zone_no": "9264",
+      "zone_name": "한양시장",
+      "zone_full_name": "한양시장",
+      "sido_nm": "서울특별시",
+      "signgu_nm": "성동구"
+    },
+    {
+      "zone_no": "9265",
+      "zone_name": "석촌역",
+      "zone_full_name": "석촌역",
+      "sido_nm": "서울특별시",
+      "signgu_nm": "송파구"
+    },
+    {
+      "zone_no": "9266",
+      "zone_name": "사가정역",
+      "zone_full_name": "사가정역",
+      "sido_nm": "서울특별시",
+      "signgu_nm": "중랑구"
+    },
+    {
+      "zone_no": "9267",
+      "zone_name": "가락시장",
+      "zone_full_name": "가락시장",
+      "sido_nm": "서울특별시",
+      "signgu_nm": "송파구"
+    },
+    {
+      "zone_no": "9150",
+      "zone_name": "신촌역_2",
+      "zone_full_name": "신촌역_2",
+      "sido_nm": "서울특별시",
+      "signgu_nm": "서대문구"
+    },
+    {
+      "zone_no": "9268",
+      "zone_name": "가락시장역",
+      "zone_full_name": "가락시장역",
+      "sido_nm": "서울특별시",
+      "signgu_nm": "송파구"
+    },
+    {
+      "zone_no": "9269",
+      "zone_name": "문정역",
+      "zone_full_name": "문정역",
+      "sido_nm": "서울특별시",
+      "signgu_nm": "송파구"
+    },
+    {
+      "zone_no": "9270",
+      "zone_name": "방이동 먹자골목",
+      "zone_full_name": "방이동 먹자골목",
+      "sido_nm": "서울특별시",
+      "signgu_nm": "송파구"
+    },
+    {
+      "zone_no": "9271",
+      "zone_name": "신천역",
+      "zone_full_name": "신천역",
+      "sido_nm": "서울특별시",
+      "signgu_nm": "송파구"
+    },
+    {
+      "zone_no": "9272",
+      "zone_name": "잠실역",
+      "zone_full_name": "잠실역",
+      "sido_nm": "서울특별시",
+      "signgu_nm": "송파구"
+    },
+    {
+      "zone_no": "9273",
+      "zone_name": "잠실역 롯데월드",
+      "zone_full_name": "잠실역 롯데월드",
+      "sido_nm": "서울특별시",
+      "signgu_nm": "송파구"
+    },
+    {
+      "zone_no": "9274",
+      "zone_name": "장지역",
+      "zone_full_name": "장지역",
+      "sido_nm": "서울특별시",
+      "signgu_nm": "송파구"
+    },
+    {
+      "zone_no": "9275",
+      "zone_name": "강남구청역_1",
+      "zone_full_name": "강남구청역_1",
+      "sido_nm": "서울특별시",
+      "signgu_nm": "강남구"
+    },
+    {
+      "zone_no": "9276",
+      "zone_name": "강남구청역_2",
+      "zone_full_name": "강남구청역_2",
+      "sido_nm": "서울특별시",
+      "signgu_nm": "강남구"
+    },
+    {
+      "zone_no": "9277",
+      "zone_name": "강남역_3",
+      "zone_full_name": "강남역_3",
+      "sido_nm": "서울특별시",
+      "signgu_nm": "강남구"
+    },
+    {
+      "zone_no": "9151",
+      "zone_name": "이대역",
+      "zone_full_name": "이대역",
+      "sido_nm": "서울특별시",
+      "signgu_nm": "서대문구"
+    },
+    {
+      "zone_no": "9278",
+      "zone_name": "강남역_4",
+      "zone_full_name": "강남역_4",
+      "sido_nm": "서울특별시",
+      "signgu_nm": "강남구"
+    },
+    {
+      "zone_no": "9279",
+      "zone_name": "논현역_1",
+      "zone_full_name": "논현역_1",
+      "sido_nm": "서울특별시",
+      "signgu_nm": "강남구"
+    },
+    {
+      "zone_no": "9280",
+      "zone_name": "논현역_2",
+      "zone_full_name": "논현역_2",
+      "sido_nm": "서울특별시",
+      "signgu_nm": "강남구"
+    },
+    {
+      "zone_no": "9281",
+      "zone_name": "논현역_3",
+      "zone_full_name": "논현역_3",
+      "sido_nm": "서울특별시",
+      "signgu_nm": "서초구"
+    },
+    {
+      "zone_no": "9282",
+      "zone_name": "논현역_4",
+      "zone_full_name": "논현역_4",
+      "sido_nm": "서울특별시",
+      "signgu_nm": "서초구"
+    },
+    {
+      "zone_no": "9283",
+      "zone_name": "대치역_1",
+      "zone_full_name": "대치역_1",
+      "sido_nm": "서울특별시",
+      "signgu_nm": "강남구"
+    },
+    {
+      "zone_no": "9284",
+      "zone_name": "대치역_2",
+      "zone_full_name": "대치역_2",
+      "sido_nm": "서울특별시",
+      "signgu_nm": "강남구"
+    },
+    {
+      "zone_no": "9285",
+      "zone_name": "도산공원사거리_1",
+      "zone_full_name": "도산공원사거리_1",
+      "sido_nm": "서울특별시",
+      "signgu_nm": "강남구"
+    },
+    {
+      "zone_no": "9287",
+      "zone_name": "뱅뱅사거리",
+      "zone_full_name": "뱅뱅사거리",
+      "sido_nm": "서울특별시",
+      "signgu_nm": "강남구"
+    },
+    {
+      "zone_no": "9288",
+      "zone_name": "삼성역_1",
+      "zone_full_name": "삼성역_1",
+      "sido_nm": "서울특별시",
+      "signgu_nm": "강남구"
+    },
+    {
+      "zone_no": "9152",
+      "zone_name": "숙대입구역",
+      "zone_full_name": "숙대입구역",
+      "sido_nm": "서울특별시",
+      "signgu_nm": "용산구"
+    },
+    {
+      "zone_no": "9289",
+      "zone_name": "삼성역_2",
+      "zone_full_name": "삼성역_2",
+      "sido_nm": "서울특별시",
+      "signgu_nm": "강남구"
+    },
+    {
+      "zone_no": "9290",
+      "zone_name": "삼성역_3",
+      "zone_full_name": "삼성역_3",
+      "sido_nm": "서울특별시",
+      "signgu_nm": "강남구"
+    },
+    {
+      "zone_no": "9291",
+      "zone_name": "선릉역_1",
+      "zone_full_name": "선릉역_1",
+      "sido_nm": "서울특별시",
+      "signgu_nm": "강남구"
+    },
+    {
+      "zone_no": "9292",
+      "zone_name": "선릉역_2",
+      "zone_full_name": "선릉역_2",
+      "sido_nm": "서울특별시",
+      "signgu_nm": "강남구"
+    },
+    {
+      "zone_no": "9293",
+      "zone_name": "선릉역_3",
+      "zone_full_name": "선릉역_3",
+      "sido_nm": "서울특별시",
+      "signgu_nm": "강남구"
+    },
+    {
+      "zone_no": "9294",
+      "zone_name": "선릉역_4",
+      "zone_full_name": "선릉역_4",
+      "sido_nm": "서울특별시",
+      "signgu_nm": "강남구"
+    },
+    {
+      "zone_no": "9295",
+      "zone_name": "선정릉역_1",
+      "zone_full_name": "선정릉역_1",
+      "sido_nm": "서울특별시",
+      "signgu_nm": "강남구"
+    },
+    {
+      "zone_no": "9296",
+      "zone_name": "선정릉역_2",
+      "zone_full_name": "선정릉역_2",
+      "sido_nm": "서울특별시",
+      "signgu_nm": "강남구"
+    },
+    {
+      "zone_no": "9297",
+      "zone_name": "수서역",
+      "zone_full_name": "수서역",
+      "sido_nm": "서울특별시",
+      "signgu_nm": "강남구"
+    },
+    {
+      "zone_no": "9298",
+      "zone_name": "신사동가로수길_1",
+      "zone_full_name": "신사동가로수길_1",
+      "sido_nm": "서울특별시",
+      "signgu_nm": "강남구"
+    },
+    {
+      "zone_no": "9153",
+      "zone_name": "신용산역",
+      "zone_full_name": "신용산역",
+      "sido_nm": "서울특별시",
+      "signgu_nm": "용산구"
+    },
+    {
+      "zone_no": "9299",
+      "zone_name": "신사역_1",
+      "zone_full_name": "신사역_1",
+      "sido_nm": "서울특별시",
+      "signgu_nm": "서초구"
+    },
+    {
+      "zone_no": "9300",
+      "zone_name": "신사역_2",
+      "zone_full_name": "신사역_2",
+      "sido_nm": "서울특별시",
+      "signgu_nm": "강남구"
+    },
+    {
+      "zone_no": "9301",
+      "zone_name": "압구정 로데오거리_1",
+      "zone_full_name": "압구정 로데오거리_1",
+      "sido_nm": "서울특별시",
+      "signgu_nm": "강남구"
+    },
+    {
+      "zone_no": "9302",
+      "zone_name": "압구정 로데오거리_2",
+      "zone_full_name": "압구정 로데오거리_2",
+      "sido_nm": "서울특별시",
+      "signgu_nm": "강남구"
+    },
+    {
+      "zone_no": "9303",
+      "zone_name": "압구정역",
+      "zone_full_name": "압구정역",
+      "sido_nm": "서울특별시",
+      "signgu_nm": "강남구"
+    },
+    {
+      "zone_no": "9304",
+      "zone_name": "양재역_2",
+      "zone_full_name": "양재역_2",
+      "sido_nm": "서울특별시",
+      "signgu_nm": "강남구"
+    },
+    {
+      "zone_no": "9305",
+      "zone_name": "언주역_1",
+      "zone_full_name": "언주역_1",
+      "sido_nm": "서울특별시",
+      "signgu_nm": "강남구"
+    },
+    {
+      "zone_no": "9306",
+      "zone_name": "언주역_2",
+      "zone_full_name": "언주역_2",
+      "sido_nm": "서울특별시",
+      "signgu_nm": "강남구"
+    },
+    {
+      "zone_no": "9307",
+      "zone_name": "역삼역_1",
+      "zone_full_name": "역삼역_1",
+      "sido_nm": "서울특별시",
+      "signgu_nm": "강남구"
+    },
+    {
+      "zone_no": "9308",
+      "zone_name": "역삼역_2",
+      "zone_full_name": "역삼역_2",
+      "sido_nm": "서울특별시",
+      "signgu_nm": "강남구"
+    },
+    {
+      "zone_no": "9154",
+      "zone_name": "용산 전자상가_1",
+      "zone_full_name": "용산 전자상가_1",
+      "sido_nm": "서울특별시",
+      "signgu_nm": "용산구"
+    },
+    {
+      "zone_no": "9309",
+      "zone_name": "역삼역_3",
+      "zone_full_name": "역삼역_3",
+      "sido_nm": "서울특별시",
+      "signgu_nm": "강남구"
+    },
+    {
+      "zone_no": "9310",
+      "zone_name": "역삼역_4",
+      "zone_full_name": "역삼역_4",
+      "sido_nm": "서울특별시",
+      "signgu_nm": "강남구"
+    },
+    {
+      "zone_no": "9311",
+      "zone_name": "은마아파트 앞",
+      "zone_full_name": "은마아파트 앞",
+      "sido_nm": "서울특별시",
+      "signgu_nm": "강남구"
+    },
+    {
+      "zone_no": "9312",
+      "zone_name": "은마아파트입구사거리_1",
+      "zone_full_name": "은마아파트입구사거리_1",
+      "sido_nm": "서울특별시",
+      "signgu_nm": "강남구"
+    },
+    {
+      "zone_no": "9313",
+      "zone_name": "은마아파트입구사거리_2",
+      "zone_full_name": "은마아파트입구사거리_2",
+      "sido_nm": "서울특별시",
+      "signgu_nm": "강남구"
+    },
+    {
+      "zone_no": "9314",
+      "zone_name": "은마아파트입구사거리_3",
+      "zone_full_name": "은마아파트입구사거리_3",
+      "sido_nm": "서울특별시",
+      "signgu_nm": "강남구"
+    },
+    {
+      "zone_no": "9315",
+      "zone_name": "은마아파트입구사거리_4",
+      "zone_full_name": "은마아파트입구사거리_4",
+      "sido_nm": "서울특별시",
+      "signgu_nm": "강남구"
+    },
+    {
+      "zone_no": "9316",
+      "zone_name": "청담사거리_1",
+      "zone_full_name": "청담사거리_1",
+      "sido_nm": "서울특별시",
+      "signgu_nm": "강남구"
+    },
+    {
+      "zone_no": "9317",
+      "zone_name": "청담사거리_2",
+      "zone_full_name": "청담사거리_2",
+      "sido_nm": "서울특별시",
+      "signgu_nm": "강남구"
+    },
+    {
+      "zone_no": "9318",
+      "zone_name": "청담사거리_3",
+      "zone_full_name": "청담사거리_3",
+      "sido_nm": "서울특별시",
+      "signgu_nm": "강남구"
+    },
+    {
+      "zone_no": "9155",
+      "zone_name": "용산 전자상가_2",
+      "zone_full_name": "용산 전자상가_2",
+      "sido_nm": "서울특별시",
+      "signgu_nm": "용산구"
+    },
+    {
+      "zone_no": "9319",
+      "zone_name": "청담역_1",
+      "zone_full_name": "청담역_1",
+      "sido_nm": "서울특별시",
+      "signgu_nm": "강남구"
+    },
+    {
+      "zone_no": "9320",
+      "zone_name": "청담역_2",
+      "zone_full_name": "청담역_2",
+      "sido_nm": "서울특별시",
+      "signgu_nm": "강남구"
+    },
+    {
+      "zone_no": "9321",
+      "zone_name": "코엑스",
+      "zone_full_name": "코엑스",
+      "sido_nm": "서울특별시",
+      "signgu_nm": "강남구"
+    },
+    {
+      "zone_no": "9322",
+      "zone_name": "포스코사거리_1",
+      "zone_full_name": "포스코사거리_1",
+      "sido_nm": "서울특별시",
+      "signgu_nm": "강남구"
+    },
+    {
+      "zone_no": "9323",
+      "zone_name": "포스코사거리_2",
+      "zone_full_name": "포스코사거리_2",
+      "sido_nm": "서울특별시",
+      "signgu_nm": "강남구"
+    },
+    {
+      "zone_no": "9324",
+      "zone_name": "포이사거리",
+      "zone_full_name": "포이사거리",
+      "sido_nm": "서울특별시",
+      "signgu_nm": "강남구"
+    },
+    {
+      "zone_no": "9325",
+      "zone_name": "포이사거리_2",
+      "zone_full_name": "포이사거리_2",
+      "sido_nm": "서울특별시",
+      "signgu_nm": "서초구"
+    },
+    {
+      "zone_no": "9326",
+      "zone_name": "학동사거리_1",
+      "zone_full_name": "학동사거리_1",
+      "sido_nm": "서울특별시",
+      "signgu_nm": "강남구"
+    },
+    {
+      "zone_no": "9327",
+      "zone_name": "학동사거리_2",
+      "zone_full_name": "학동사거리_2",
+      "sido_nm": "서울특별시",
+      "signgu_nm": "강남구"
+    },
+    {
+      "zone_no": "9328",
+      "zone_name": "학동역_1",
+      "zone_full_name": "학동역_1",
+      "sido_nm": "서울특별시",
+      "signgu_nm": "강남구"
+    },
+    {
+      "zone_no": "9156",
+      "zone_name": "용산 전자상가_3",
+      "zone_full_name": "용산 전자상가_3",
+      "sido_nm": "서울특별시",
+      "signgu_nm": "용산구"
+    },
+    {
+      "zone_no": "9329",
+      "zone_name": "학동역_2",
+      "zone_full_name": "학동역_2",
+      "sido_nm": "서울특별시",
+      "signgu_nm": "강남구"
+    },
+    {
+      "zone_no": "9330",
+      "zone_name": "학동역_3",
+      "zone_full_name": "학동역_3",
+      "sido_nm": "서울특별시",
+      "signgu_nm": "강남구"
+    },
+    {
+      "zone_no": "9331",
+      "zone_name": "학동역_4",
+      "zone_full_name": "학동역_4",
+      "sido_nm": "서울특별시",
+      "signgu_nm": "강남구"
+    },
+    {
+      "zone_no": "9332",
+      "zone_name": "한티역",
+      "zone_full_name": "한티역",
+      "sido_nm": "서울특별시",
+      "signgu_nm": "강남구"
+    },
+    {
+      "zone_no": "9333",
+      "zone_name": "대학동",
+      "zone_full_name": "대학동",
+      "sido_nm": "서울특별시",
+      "signgu_nm": "관악구"
+    },
+    {
+      "zone_no": "9334",
+      "zone_name": "사당역_1",
+      "zone_full_name": "사당역_1",
+      "sido_nm": "서울특별시",
+      "signgu_nm": "관악구"
+    },
+    {
+      "zone_no": "9335",
+      "zone_name": "사당역_2",
+      "zone_full_name": "사당역_2",
+      "sido_nm": "서울특별시",
+      "signgu_nm": "동작구"
+    },
+    {
+      "zone_no": "9336",
+      "zone_name": "서울대입구역_1",
+      "zone_full_name": "서울대입구역_1",
+      "sido_nm": "서울특별시",
+      "signgu_nm": "관악구"
+    },
+    {
+      "zone_no": "9337",
+      "zone_name": "서울대입구역_2",
+      "zone_full_name": "서울대입구역_2",
+      "sido_nm": "서울특별시",
+      "signgu_nm": "관악구"
+    },
+    {
+      "zone_no": "9338",
+      "zone_name": "신림역_1",
+      "zone_full_name": "신림역_1",
+      "sido_nm": "서울특별시",
+      "signgu_nm": "관악구"
+    },
+    {
+      "zone_no": "9139",
+      "zone_name": "공덕역_2",
+      "zone_full_name": "공덕역_2",
+      "sido_nm": "서울특별시",
+      "signgu_nm": "마포구"
+    },
+    {
+      "zone_no": "9157",
+      "zone_name": "용산 전자상가_4",
+      "zone_full_name": "용산 전자상가_4",
+      "sido_nm": "서울특별시",
+      "signgu_nm": "용산구"
+    },
+    {
+      "zone_no": "9339",
+      "zone_name": "신림역_2",
+      "zone_full_name": "신림역_2",
+      "sido_nm": "서울특별시",
+      "signgu_nm": "관악구"
+    },
+    {
+      "zone_no": "9340",
+      "zone_name": "신림역_3",
+      "zone_full_name": "신림역_3",
+      "sido_nm": "서울특별시",
+      "signgu_nm": "관악구"
+    },
+    {
+      "zone_no": "9341",
+      "zone_name": "신림역_4",
+      "zone_full_name": "신림역_4",
+      "sido_nm": "서울특별시",
+      "signgu_nm": "관악구"
+    },
+    {
+      "zone_no": "9342",
+      "zone_name": "노량진1동",
+      "zone_full_name": "노량진1동",
+      "sido_nm": "서울특별시",
+      "signgu_nm": "동작구"
+    },
+    {
+      "zone_no": "9343",
+      "zone_name": "노량진역",
+      "zone_full_name": "노량진역",
+      "sido_nm": "서울특별시",
+      "signgu_nm": "동작구"
+    },
+    {
+      "zone_no": "9344",
+      "zone_name": "보라매공원",
+      "zone_full_name": "보라매공원",
+      "sido_nm": "서울특별시",
+      "signgu_nm": "동작구"
+    },
+    {
+      "zone_no": "9345",
+      "zone_name": "신대방삼거리역",
+      "zone_full_name": "신대방삼거리역",
+      "sido_nm": "서울특별시",
+      "signgu_nm": "동작구"
+    },
+    {
+      "zone_no": "9346",
+      "zone_name": "총신대 앞",
+      "zone_full_name": "총신대 앞",
+      "sido_nm": "서울특별시",
+      "signgu_nm": "동작구"
+    },
+    {
+      "zone_no": "9347",
+      "zone_name": "총신대입구역_1",
+      "zone_full_name": "총신대입구역_1",
+      "sido_nm": "서울특별시",
+      "signgu_nm": "동작구"
+    },
+    {
+      "zone_no": "9348",
+      "zone_name": "강남역_1",
+      "zone_full_name": "강남역_1",
+      "sido_nm": "서울특별시",
+      "signgu_nm": "서초구"
+    },
+    {
+      "zone_no": "9158",
+      "zone_name": "용산 전자상가_5",
+      "zone_full_name": "용산 전자상가_5",
+      "sido_nm": "서울특별시",
+      "signgu_nm": "용산구"
+    },
+    {
+      "zone_no": "9349",
+      "zone_name": "강남역_2",
+      "zone_full_name": "강남역_2",
+      "sido_nm": "서울특별시",
+      "signgu_nm": "서초구"
+    },
+    {
+      "zone_no": "9350",
+      "zone_name": "고속터미널역",
+      "zone_full_name": "고속터미널역",
+      "sido_nm": "서울특별시",
+      "signgu_nm": "서초구"
+    },
+    {
+      "zone_no": "9351",
+      "zone_name": "교대역_1",
+      "zone_full_name": "교대역_1",
+      "sido_nm": "서울특별시",
+      "signgu_nm": "서초구"
+    },
+    {
+      "zone_no": "9352",
+      "zone_name": "교대역_2",
+      "zone_full_name": "교대역_2",
+      "sido_nm": "서울특별시",
+      "signgu_nm": "서초구"
+    },
+    {
+      "zone_no": "9353",
+      "zone_name": "교대역_3",
+      "zone_full_name": "교대역_3",
+      "sido_nm": "서울특별시",
+      "signgu_nm": "서초구"
+    },
+    {
+      "zone_no": "9354",
+      "zone_name": "교대역_4",
+      "zone_full_name": "교대역_4",
+      "sido_nm": "서울특별시",
+      "signgu_nm": "서초구"
+    },
+    {
+      "zone_no": "9355",
+      "zone_name": "남부터미널역_1",
+      "zone_full_name": "남부터미널역_1",
+      "sido_nm": "서울특별시",
+      "signgu_nm": "서초구"
+    },
+    {
+      "zone_no": "9356",
+      "zone_name": "남부터미널역_2",
+      "zone_full_name": "남부터미널역_2",
+      "sido_nm": "서울특별시",
+      "signgu_nm": "서초구"
+    },
+    {
+      "zone_no": "9357",
+      "zone_name": "남부터미널역_3",
+      "zone_full_name": "남부터미널역_3",
+      "sido_nm": "서울특별시",
+      "signgu_nm": "서초구"
+    },
+    {
+      "zone_no": "9358",
+      "zone_name": "매봉역",
+      "zone_full_name": "매봉역",
+      "sido_nm": "서울특별시",
+      "signgu_nm": "서초구"
+    },
+    {
+      "zone_no": "9159",
+      "zone_name": "용산구청",
+      "zone_full_name": "용산구청",
+      "sido_nm": "서울특별시",
+      "signgu_nm": "용산구"
+    },
+    {
+      "zone_no": "9359",
+      "zone_name": "방배동카페골목",
+      "zone_full_name": "방배동카페골목",
+      "sido_nm": "서울특별시",
+      "signgu_nm": "서초구"
+    },
+    {
+      "zone_no": "9360",
+      "zone_name": "방배역",
+      "zone_full_name": "방배역",
+      "sido_nm": "서울특별시",
+      "signgu_nm": "서초구"
+    },
+    {
+      "zone_no": "9361",
+      "zone_name": "뱅뱅사거리_3",
+      "zone_full_name": "뱅뱅사거리_3",
+      "sido_nm": "서울특별시",
+      "signgu_nm": "서초구"
+    },
+    {
+      "zone_no": "9362",
+      "zone_name": "사당역",
+      "zone_full_name": "사당역",
+      "sido_nm": "서울특별시",
+      "signgu_nm": "서초구"
+    },
+    {
+      "zone_no": "9363",
+      "zone_name": "서초역",
+      "zone_full_name": "서초역",
+      "sido_nm": "서울특별시",
+      "signgu_nm": "서초구"
+    },
+    {
+      "zone_no": "9364",
+      "zone_name": "양재 화물트럭터미널앞",
+      "zone_full_name": "양재 화물트럭터미널앞",
+      "sido_nm": "서울특별시",
+      "signgu_nm": "서초구"
+    },
+    {
+      "zone_no": "9365",
+      "zone_name": "양재동 꽃시장",
+      "zone_full_name": "양재동 꽃시장",
+      "sido_nm": "서울특별시",
+      "signgu_nm": "서초구"
+    },
+    {
+      "zone_no": "9366",
+      "zone_name": "양재역_1",
+      "zone_full_name": "양재역_1",
+      "sido_nm": "서울특별시",
+      "signgu_nm": "서초구"
+    },
+    {
+      "zone_no": "9367",
+      "zone_name": "양재역_3",
+      "zone_full_name": "양재역_3",
+      "sido_nm": "서울특별시",
+      "signgu_nm": "서초구"
+    },
+    {
+      "zone_no": "9368",
+      "zone_name": "강남역_5",
+      "zone_full_name": "강남역_5",
+      "sido_nm": "서울특별시",
+      "signgu_nm": "강남구"
+    },
+    {
+      "zone_no": "9160",
+      "zone_name": "이태원역",
+      "zone_full_name": "이태원역",
+      "sido_nm": "서울특별시",
+      "signgu_nm": "용산구"
+    },
+    {
+      "zone_no": "9369",
+      "zone_name": "서래마을",
+      "zone_full_name": "서래마을",
+      "sido_nm": "서울특별시",
+      "signgu_nm": "서초구"
+    },
+    {
+      "zone_no": "9370",
+      "zone_name": "신사동사로수길_2",
+      "zone_full_name": "신사동사로수길_2",
+      "sido_nm": "서울특별시",
+      "signgu_nm": "강남구"
+    },
+    {
+      "zone_no": "9372",
+      "zone_name": "서울대입구역_3",
+      "zone_full_name": "서울대입구역_3",
+      "sido_nm": "서울특별시",
+      "signgu_nm": "관악구"
+    },
+    {
+      "zone_no": "9374",
+      "zone_name": "미아사거리역_1",
+      "zone_full_name": "미아사거리역_1",
+      "sido_nm": "서울특별시",
+      "signgu_nm": "강북구"
+    },
+    {
+      "zone_no": "9375",
+      "zone_name": "수유역_1",
+      "zone_full_name": "수유역_1",
+      "sido_nm": "서울특별시",
+      "signgu_nm": "강북구"
+    },
+    {
+      "zone_no": "9376",
+      "zone_name": "수유역_2",
+      "zone_full_name": "수유역_2",
+      "sido_nm": "서울특별시",
+      "signgu_nm": "강북구"
+    },
+    {
+      "zone_no": "9377",
+      "zone_name": "수유역_3",
+      "zone_full_name": "수유역_3",
+      "sido_nm": "서울특별시",
+      "signgu_nm": "강북구"
+    },
+    {
+      "zone_no": "9378",
+      "zone_name": "노원역_1",
+      "zone_full_name": "노원역_1",
+      "sido_nm": "서울특별시",
+      "signgu_nm": "노원구"
+    },
+    {
+      "zone_no": "9379",
+      "zone_name": "노원역_2",
+      "zone_full_name": "노원역_2",
+      "sido_nm": "서울특별시",
+      "signgu_nm": "노원구"
+    },
+    {
+      "zone_no": "9380",
+      "zone_name": "노원역_3",
+      "zone_full_name": "노원역_3",
+      "sido_nm": "서울특별시",
+      "signgu_nm": "노원구"
+    },
+    {
+      "zone_no": "9161",
+      "zone_name": "한남오거리",
+      "zone_full_name": "한남오거리",
+      "sido_nm": "서울특별시",
+      "signgu_nm": "용산구"
+    },
+    {
+      "zone_no": "9381",
+      "zone_name": "등나무근린공원",
+      "zone_full_name": "등나무근린공원",
+      "sido_nm": "서울특별시",
+      "signgu_nm": "노원구"
+    },
+    {
+      "zone_no": "9382",
+      "zone_name": "창동역",
+      "zone_full_name": "창동역",
+      "sido_nm": "서울특별시",
+      "signgu_nm": "도봉구"
+    },
+    {
+      "zone_no": "9383",
+      "zone_name": "경동시장_1",
+      "zone_full_name": "경동시장_1",
+      "sido_nm": "서울특별시",
+      "signgu_nm": "동대문구"
+    },
+    {
+      "zone_no": "9384",
+      "zone_name": "경동시장_2",
+      "zone_full_name": "경동시장_2",
+      "sido_nm": "서울특별시",
+      "signgu_nm": "동대문구"
+    },
+    {
+      "zone_no": "9385",
+      "zone_name": "경희대학교",
+      "zone_full_name": "경희대학교",
+      "sido_nm": "서울특별시",
+      "signgu_nm": "동대문구"
+    },
+    {
+      "zone_no": "9386",
+      "zone_name": "신설동역_1",
+      "zone_full_name": "신설동역_1",
+      "sido_nm": "서울특별시",
+      "signgu_nm": "동대문구"
+    },
+    {
+      "zone_no": "9387",
+      "zone_name": "장안동사거리",
+      "zone_full_name": "장안동사거리",
+      "sido_nm": "서울특별시",
+      "signgu_nm": "동대문구"
+    },
+    {
+      "zone_no": "9388",
+      "zone_name": "청량리역",
+      "zone_full_name": "청량리역",
+      "sido_nm": "서울특별시",
+      "signgu_nm": "동대문구"
+    },
+    {
+      "zone_no": "9389",
+      "zone_name": "미아사거리",
+      "zone_full_name": "미아사거리",
+      "sido_nm": "서울특별시",
+      "signgu_nm": "성북구"
+    },
+    {
+      "zone_no": "9390",
+      "zone_name": "미아사거리역_2",
+      "zone_full_name": "미아사거리역_2",
+      "sido_nm": "서울특별시",
+      "signgu_nm": "성북구"
+    },
+    {
+      "zone_no": "9162",
+      "zone_name": "불광역_1",
+      "zone_full_name": "불광역_1",
+      "sido_nm": "서울특별시",
+      "signgu_nm": "은평구"
+    },
+    {
+      "zone_no": "9391",
+      "zone_name": "성신여대입구역",
+      "zone_full_name": "성신여대입구역",
+      "sido_nm": "서울특별시",
+      "signgu_nm": "성북구"
+    },
+    {
+      "zone_no": "9392",
+      "zone_name": "안암역",
+      "zone_full_name": "안암역",
+      "sido_nm": "서울특별시",
+      "signgu_nm": "성북구"
+    },
+    {
+      "zone_no": "9393",
+      "zone_name": "신설동역_2",
+      "zone_full_name": "신설동역_2",
+      "sido_nm": "서울특별시",
+      "signgu_nm": "동대문구"
+    },
+    {
+      "zone_no": "9394",
+      "zone_name": "장한평역_1",
+      "zone_full_name": "장한평역_1",
+      "sido_nm": "서울특별시",
+      "signgu_nm": "동대문구"
+    },
+    {
+      "zone_no": "9395",
+      "zone_name": "장한평역_2",
+      "zone_full_name": "장한평역_2",
+      "sido_nm": "서울특별시",
+      "signgu_nm": "동대문구"
+    },
+    {
+      "zone_no": "9396",
+      "zone_name": "양구읍",
+      "zone_full_name": "양구읍",
+      "sido_nm": "강원도",
+      "signgu_nm": "양구군"
+    },
+    {
+      "zone_no": "9397",
+      "zone_name": "인제읍",
+      "zone_full_name": "인제읍",
+      "sido_nm": "강원도",
+      "signgu_nm": "인제군"
+    },
+    {
+      "zone_no": "9398",
+      "zone_name": "동송시외버스공용터미널",
+      "zone_full_name": "동송시외버스공용터미널",
+      "sido_nm": "강원도",
+      "signgu_nm": "철원군"
+    },
+    {
+      "zone_no": "9399",
+      "zone_name": "신철원터미널",
+      "zone_full_name": "신철원터미널",
+      "sido_nm": "강원도",
+      "signgu_nm": "철원군"
+    },
+    {
+      "zone_no": "9400",
+      "zone_name": "거두리",
+      "zone_full_name": "거두리",
+      "sido_nm": "강원도",
+      "signgu_nm": "춘천시"
+    },
+    {
+      "zone_no": "9163",
+      "zone_name": "연신내역_1",
+      "zone_full_name": "연신내역_1",
+      "sido_nm": "서울특별시",
+      "signgu_nm": "은평구"
+    },
+    {
+      "zone_no": "9401",
+      "zone_name": "남춘천역",
+      "zone_full_name": "남춘천역",
+      "sido_nm": "강원도",
+      "signgu_nm": "춘천시"
+    },
+    {
+      "zone_no": "9402",
+      "zone_name": "스무숲",
+      "zone_full_name": "스무숲",
+      "sido_nm": "강원도",
+      "signgu_nm": "춘천시"
+    },
+    {
+      "zone_no": "9403",
+      "zone_name": "애막골",
+      "zone_full_name": "애막골",
+      "sido_nm": "강원도",
+      "signgu_nm": "춘천시"
+    },
+    {
+      "zone_no": "9404",
+      "zone_name": "춘천 명동",
+      "zone_full_name": "춘천 명동",
+      "sido_nm": "강원도",
+      "signgu_nm": "춘천시"
+    },
+    {
+      "zone_no": "9405",
+      "zone_name": "홍천읍",
+      "zone_full_name": "홍천읍",
+      "sido_nm": "강원도",
+      "signgu_nm": "홍천군"
+    },
+    {
+      "zone_no": "9406",
+      "zone_name": "화천공용버스터미널",
+      "zone_full_name": "화천공용버스터미널",
+      "sido_nm": "강원도",
+      "signgu_nm": "화천군"
+    },
+    {
+      "zone_no": "9407",
+      "zone_name": "팔호 광장",
+      "zone_full_name": "팔호 광장",
+      "sido_nm": "강원도",
+      "signgu_nm": "춘천시"
+    },
+    {
+      "zone_no": "9408",
+      "zone_name": "강릉역",
+      "zone_full_name": "강릉역",
+      "sido_nm": "강원도",
+      "signgu_nm": "강릉시"
+    },
+    {
+      "zone_no": "9409",
+      "zone_name": "중앙동",
+      "zone_full_name": "중앙동",
+      "sido_nm": "강원도",
+      "signgu_nm": "강릉시"
+    },
+    {
+      "zone_no": "9410",
+      "zone_name": "원주대 강릉캠퍼스",
+      "zone_full_name": "원주대 강릉캠퍼스",
+      "sido_nm": "강원도",
+      "signgu_nm": "강릉시"
+    },
+    {
+      "zone_no": "9164",
+      "zone_name": "연신내역_2",
+      "zone_full_name": "연신내역_2",
+      "sido_nm": "서울특별시",
+      "signgu_nm": "은평구"
+    },
+    {
+      "zone_no": "9411",
+      "zone_name": "주문진항",
+      "zone_full_name": "주문진항",
+      "sido_nm": "강원도",
+      "signgu_nm": "강릉시"
+    },
+    {
+      "zone_no": "9412",
+      "zone_name": "거진종합터미널",
+      "zone_full_name": "거진종합터미널",
+      "sido_nm": "강원도",
+      "signgu_nm": "고성군"
+    },
+    {
+      "zone_no": "9413",
+      "zone_name": "교동삼거리",
+      "zone_full_name": "교동삼거리",
+      "sido_nm": "강원도",
+      "signgu_nm": "속초시"
+    },
+    {
+      "zone_no": "9414",
+      "zone_name": "속초먹거리단지",
+      "zone_full_name": "속초먹거리단지",
+      "sido_nm": "강원도",
+      "signgu_nm": "속초시"
+    },
+    {
+      "zone_no": "9415",
+      "zone_name": "중앙시장",
+      "zone_full_name": "중앙시장",
+      "sido_nm": "강원도",
+      "signgu_nm": "속초시"
+    },
+    {
+      "zone_no": "9416",
+      "zone_name": "양양군청",
+      "zone_full_name": "양양군청",
+      "sido_nm": "강원도",
+      "signgu_nm": "양양군"
+    },
+    {
+      "zone_no": "9417",
+      "zone_name": "영월경찰서",
+      "zone_full_name": "영월경찰서",
+      "sido_nm": "강원도",
+      "signgu_nm": "영월군"
+    },
+    {
+      "zone_no": "9418",
+      "zone_name": "기독병원",
+      "zone_full_name": "기독병원",
+      "sido_nm": "강원도",
+      "signgu_nm": "원주시"
+    },
+    {
+      "zone_no": "9419",
+      "zone_name": "남부시장",
+      "zone_full_name": "남부시장",
+      "sido_nm": "강원도",
+      "signgu_nm": "원주시"
+    },
+    {
+      "zone_no": "9420",
+      "zone_name": "남원주중학교",
+      "zone_full_name": "남원주중학교",
+      "sido_nm": "강원도",
+      "signgu_nm": "원주시"
+    },
+    {
+      "zone_no": "9165",
+      "zone_name": "연신내역_3",
+      "zone_full_name": "연신내역_3",
+      "sido_nm": "서울특별시",
+      "signgu_nm": "은평구"
+    },
+    {
+      "zone_no": "9421",
+      "zone_name": "단구동 근린공원",
+      "zone_full_name": "단구동 근린공원",
+      "sido_nm": "강원도",
+      "signgu_nm": "원주시"
+    },
+    {
+      "zone_no": "9422",
+      "zone_name": "단구동 프리미엄아울렛",
+      "zone_full_name": "단구동 프리미엄아울렛",
+      "sido_nm": "강원도",
+      "signgu_nm": "원주시"
+    },
+    {
+      "zone_no": "9423",
+      "zone_name": "봉화산 택지",
+      "zone_full_name": "봉화산 택지",
+      "sido_nm": "강원도",
+      "signgu_nm": "원주시"
+    },
+    {
+      "zone_no": "9424",
+      "zone_name": "원주소방서",
+      "zone_full_name": "원주소방서",
+      "sido_nm": "강원도",
+      "signgu_nm": "원주시"
+    },
+    {
+      "zone_no": "9425",
+      "zone_name": "원주시외버스터미널",
+      "zone_full_name": "원주시외버스터미널",
+      "sido_nm": "강원도",
+      "signgu_nm": "원주시"
+    },
+    {
+      "zone_no": "9426",
+      "zone_name": "구원주역",
+      "zone_full_name": "구원주역",
+      "sido_nm": "강원도",
+      "signgu_nm": "원주시"
+    },
+    {
+      "zone_no": "9427",
+      "zone_name": "원주의료원",
+      "zone_full_name": "원주의료원",
+      "sido_nm": "강원도",
+      "signgu_nm": "원주시"
+    },
+    {
+      "zone_no": "9428",
+      "zone_name": "진부공용버스정류장",
+      "zone_full_name": "진부공용버스정류장",
+      "sido_nm": "강원도",
+      "signgu_nm": "평창군"
+    },
+    {
+      "zone_no": "9429",
+      "zone_name": "평창시외버스터미널",
+      "zone_full_name": "평창시외버스터미널",
+      "sido_nm": "강원도",
+      "signgu_nm": "평창군"
+    },
+    {
+      "zone_no": "9430",
+      "zone_name": "횡성군청",
+      "zone_full_name": "횡성군청",
+      "sido_nm": "강원도",
+      "signgu_nm": "횡성군"
+    },
+    {
+      "zone_no": "9166",
+      "zone_name": "경복궁역_1",
+      "zone_full_name": "경복궁역_1",
+      "sido_nm": "서울특별시",
+      "signgu_nm": "종로구"
+    },
+    {
+      "zone_no": "9431",
+      "zone_name": "묵호역",
+      "zone_full_name": "묵호역",
+      "sido_nm": "강원도",
+      "signgu_nm": "동해시"
+    },
+    {
+      "zone_no": "9432",
+      "zone_name": "천곡중앙로",
+      "zone_full_name": "천곡중앙로",
+      "sido_nm": "강원도",
+      "signgu_nm": "동해시"
+    },
+    {
+      "zone_no": "9433",
+      "zone_name": "중앙로",
+      "zone_full_name": "중앙로",
+      "sido_nm": "강원도",
+      "signgu_nm": "삼척시"
+    },
+    {
+      "zone_no": "9434",
+      "zone_name": "정선아리랑시장",
+      "zone_full_name": "정선아리랑시장",
+      "sido_nm": "강원도",
+      "signgu_nm": "정선군"
+    },
+    {
+      "zone_no": "9435",
+      "zone_name": "중앙로",
+      "zone_full_name": "중앙로",
+      "sido_nm": "강원도",
+      "signgu_nm": "태백시"
+    },
+    {
+      "zone_no": "9436",
+      "zone_name": "태백역",
+      "zone_full_name": "태백역",
+      "sido_nm": "강원도",
+      "signgu_nm": "태백시"
+    },
+    {
+      "zone_no": "9437",
+      "zone_name": "덕천역_1",
+      "zone_full_name": "덕천역_1",
+      "sido_nm": "부산광역시",
+      "signgu_nm": "북구"
+    },
+    {
+      "zone_no": "9438",
+      "zone_name": "덕천역_2",
+      "zone_full_name": "덕천역_2",
+      "sido_nm": "부산광역시",
+      "signgu_nm": "북구"
+    },
+    {
+      "zone_no": "9439",
+      "zone_name": "덕천역_3",
+      "zone_full_name": "덕천역_3",
+      "sido_nm": "부산광역시",
+      "signgu_nm": "북구"
+    },
+    {
+      "zone_no": "9440",
+      "zone_name": "화명역_1",
+      "zone_full_name": "화명역_1",
+      "sido_nm": "부산광역시",
+      "signgu_nm": "북구"
+    },
+    {
+      "zone_no": "9140",
+      "zone_name": "디지털미디어시티",
+      "zone_full_name": "디지털미디어시티",
+      "sido_nm": "서울특별시",
+      "signgu_nm": "마포구"
+    },
+    {
+      "zone_no": "9167",
+      "zone_name": "경복궁역_2",
+      "zone_full_name": "경복궁역_2",
+      "sido_nm": "서울특별시",
+      "signgu_nm": "종로구"
+    },
+    {
+      "zone_no": "9441",
+      "zone_name": "화명역_2",
+      "zone_full_name": "화명역_2",
+      "sido_nm": "부산광역시",
+      "signgu_nm": "북구"
+    },
+    {
+      "zone_no": "9442",
+      "zone_name": "감전동_1",
+      "zone_full_name": "감전동_1",
+      "sido_nm": "부산광역시",
+      "signgu_nm": "사상구"
+    },
+    {
+      "zone_no": "9443",
+      "zone_name": "감전동_2",
+      "zone_full_name": "감전동_2",
+      "sido_nm": "부산광역시",
+      "signgu_nm": "사상구"
+    },
+    {
+      "zone_no": "9444",
+      "zone_name": "사상역_1",
+      "zone_full_name": "사상역_1",
+      "sido_nm": "부산광역시",
+      "signgu_nm": "사상구"
+    },
+    {
+      "zone_no": "9445",
+      "zone_name": "사상역_2",
+      "zone_full_name": "사상역_2",
+      "sido_nm": "부산광역시",
+      "signgu_nm": "사상구"
+    },
+    {
+      "zone_no": "9446",
+      "zone_name": "사상역_3",
+      "zone_full_name": "사상역_3",
+      "sido_nm": "부산광역시",
+      "signgu_nm": "사상구"
+    },
+    {
+      "zone_no": "9447",
+      "zone_name": "사상역_4",
+      "zone_full_name": "사상역_4",
+      "sido_nm": "부산광역시",
+      "signgu_nm": "사상구"
+    },
+    {
+      "zone_no": "9448",
+      "zone_name": "엄궁동",
+      "zone_full_name": "엄궁동",
+      "sido_nm": "부산광역시",
+      "signgu_nm": "사상구"
+    },
+    {
+      "zone_no": "9449",
+      "zone_name": "구서동역",
+      "zone_full_name": "구서동역",
+      "sido_nm": "부산광역시",
+      "signgu_nm": "금정구"
+    },
+    {
+      "zone_no": "9450",
+      "zone_name": "부산대역",
+      "zone_full_name": "부산대역",
+      "sido_nm": "부산광역시",
+      "signgu_nm": "금정구"
+    },
+    {
+      "zone_no": "9168",
+      "zone_name": "광화문역_1",
+      "zone_full_name": "광화문역_1",
+      "sido_nm": "서울특별시",
+      "signgu_nm": "종로구"
+    },
+    {
+      "zone_no": "9451",
+      "zone_name": "서동역",
+      "zone_full_name": "서동역",
+      "sido_nm": "부산광역시",
+      "signgu_nm": "금정구"
+    },
+    {
+      "zone_no": "9452",
+      "zone_name": "동래역",
+      "zone_full_name": "동래역",
+      "sido_nm": "부산광역시",
+      "signgu_nm": "동래구"
+    },
+    {
+      "zone_no": "9453",
+      "zone_name": "명륜역",
+      "zone_full_name": "명륜역",
+      "sido_nm": "부산광역시",
+      "signgu_nm": "동래구"
+    },
+    {
+      "zone_no": "9454",
+      "zone_name": "미남역",
+      "zone_full_name": "미남역",
+      "sido_nm": "부산광역시",
+      "signgu_nm": "동래구"
+    },
+    {
+      "zone_no": "9455",
+      "zone_name": "사직2동",
+      "zone_full_name": "사직2동",
+      "sido_nm": "부산광역시",
+      "signgu_nm": "동래구"
+    },
+    {
+      "zone_no": "9457",
+      "zone_name": "온천장역",
+      "zone_full_name": "온천장역",
+      "sido_nm": "부산광역시",
+      "signgu_nm": "동래구"
+    },
+    {
+      "zone_no": "9458",
+      "zone_name": "충렬사역",
+      "zone_full_name": "충렬사역",
+      "sido_nm": "부산광역시",
+      "signgu_nm": "동래구"
+    },
+    {
+      "zone_no": "9459",
+      "zone_name": "부전역_1",
+      "zone_full_name": "부전역_1",
+      "sido_nm": "부산광역시",
+      "signgu_nm": "부산진구"
+    },
+    {
+      "zone_no": "9460",
+      "zone_name": "부전역_2",
+      "zone_full_name": "부전역_2",
+      "sido_nm": "부산광역시",
+      "signgu_nm": "부산진구"
+    },
+    {
+      "zone_no": "9461",
+      "zone_name": "서면역_1",
+      "zone_full_name": "서면역_1",
+      "sido_nm": "부산광역시",
+      "signgu_nm": "부산진구"
+    },
+    {
+      "zone_no": "9169",
+      "zone_name": "광화문역_2",
+      "zone_full_name": "광화문역_2",
+      "sido_nm": "서울특별시",
+      "signgu_nm": "종로구"
+    },
+    {
+      "zone_no": "9462",
+      "zone_name": "서면역_2",
+      "zone_full_name": "서면역_2",
+      "sido_nm": "부산광역시",
+      "signgu_nm": "부산진구"
+    },
+    {
+      "zone_no": "9463",
+      "zone_name": "서면역_3",
+      "zone_full_name": "서면역_3",
+      "sido_nm": "부산광역시",
+      "signgu_nm": "부산진구"
+    },
+    {
+      "zone_no": "9464",
+      "zone_name": "서면역_4",
+      "zone_full_name": "서면역_4",
+      "sido_nm": "부산광역시",
+      "signgu_nm": "부산진구"
+    },
+    {
+      "zone_no": "9465",
+      "zone_name": "서면역_5",
+      "zone_full_name": "서면역_5",
+      "sido_nm": "부산광역시",
+      "signgu_nm": "부산진구"
+    },
+    {
+      "zone_no": "9466",
+      "zone_name": "양정역_1",
+      "zone_full_name": "양정역_1",
+      "sido_nm": "부산광역시",
+      "signgu_nm": "부산진구"
+    },
+    {
+      "zone_no": "9467",
+      "zone_name": "양정역_2",
+      "zone_full_name": "양정역_2",
+      "sido_nm": "부산광역시",
+      "signgu_nm": "부산진구"
+    },
+    {
+      "zone_no": "9468",
+      "zone_name": "전포역",
+      "zone_full_name": "전포역",
+      "sido_nm": "부산광역시",
+      "signgu_nm": "부산진구"
+    },
+    {
+      "zone_no": "9469",
+      "zone_name": "거제1동_1",
+      "zone_full_name": "거제1동_1",
+      "sido_nm": "부산광역시",
+      "signgu_nm": "연제구"
+    },
+    {
+      "zone_no": "9470",
+      "zone_name": "연산9동_1",
+      "zone_full_name": "연산9동_1",
+      "sido_nm": "부산광역시",
+      "signgu_nm": "연제구"
+    },
+    {
+      "zone_no": "9471",
+      "zone_name": "연산9동_5",
+      "zone_full_name": "연산9동_5",
+      "sido_nm": "부산광역시",
+      "signgu_nm": "연제구"
+    },
+    {
+      "zone_no": "9170",
+      "zone_name": "동대문시장_1",
+      "zone_full_name": "동대문시장_1",
+      "sido_nm": "서울특별시",
+      "signgu_nm": "종로구"
+    },
+    {
+      "zone_no": "9472",
+      "zone_name": "연산동역_1",
+      "zone_full_name": "연산동역_1",
+      "sido_nm": "부산광역시",
+      "signgu_nm": "연제구"
+    },
+    {
+      "zone_no": "9473",
+      "zone_name": "연산동역_2",
+      "zone_full_name": "연산동역_2",
+      "sido_nm": "부산광역시",
+      "signgu_nm": "연제구"
+    },
+    {
+      "zone_no": "9474",
+      "zone_name": "연산동역_3",
+      "zone_full_name": "연산동역_3",
+      "sido_nm": "부산광역시",
+      "signgu_nm": "연제구"
+    },
+    {
+      "zone_no": "9475",
+      "zone_name": "연산동역_4",
+      "zone_full_name": "연산동역_4",
+      "sido_nm": "부산광역시",
+      "signgu_nm": "연제구"
+    },
+    {
+      "zone_no": "9476",
+      "zone_name": "연산동역_5",
+      "zone_full_name": "연산동역_5",
+      "sido_nm": "부산광역시",
+      "signgu_nm": "연제구"
+    },
+    {
+      "zone_no": "9477",
+      "zone_name": "연산동역_6",
+      "zone_full_name": "연산동역_6",
+      "sido_nm": "부산광역시",
+      "signgu_nm": "연제구"
+    },
+    {
+      "zone_no": "9478",
+      "zone_name": "기장역",
+      "zone_full_name": "기장역",
+      "sido_nm": "부산광역시",
+      "signgu_nm": "기장군"
+    },
+    {
+      "zone_no": "9479",
+      "zone_name": "기장읍",
+      "zone_full_name": "기장읍",
+      "sido_nm": "부산광역시",
+      "signgu_nm": "기장군"
+    },
+    {
+      "zone_no": "9480",
+      "zone_name": "경성대부경대역_1",
+      "zone_full_name": "경성대부경대역_1",
+      "sido_nm": "부산광역시",
+      "signgu_nm": "남구"
+    },
+    {
+      "zone_no": "9481",
+      "zone_name": "경성대부경대역_2",
+      "zone_full_name": "경성대부경대역_2",
+      "sido_nm": "부산광역시",
+      "signgu_nm": "남구"
+    },
+    {
+      "zone_no": "9171",
+      "zone_name": "동대문역_1",
+      "zone_full_name": "동대문역_1",
+      "sido_nm": "서울특별시",
+      "signgu_nm": "종로구"
+    },
+    {
+      "zone_no": "9482",
+      "zone_name": "경성대부경대역_3",
+      "zone_full_name": "경성대부경대역_3",
+      "sido_nm": "부산광역시",
+      "signgu_nm": "남구"
+    },
+    {
+      "zone_no": "9483",
+      "zone_name": "대연역",
+      "zone_full_name": "대연역",
+      "sido_nm": "부산광역시",
+      "signgu_nm": "남구"
+    },
+    {
+      "zone_no": "9484",
+      "zone_name": "용호1동",
+      "zone_full_name": "용호1동",
+      "sido_nm": "부산광역시",
+      "signgu_nm": "남구"
+    },
+    {
+      "zone_no": "9485",
+      "zone_name": "용호3동",
+      "zone_full_name": "용호3동",
+      "sido_nm": "부산광역시",
+      "signgu_nm": "남구"
+    },
+    {
+      "zone_no": "9486",
+      "zone_name": "광안리",
+      "zone_full_name": "광안리",
+      "sido_nm": "부산광역시",
+      "signgu_nm": "수영구"
+    },
+    {
+      "zone_no": "9487",
+      "zone_name": "남천1동",
+      "zone_full_name": "남천1동",
+      "sido_nm": "부산광역시",
+      "signgu_nm": "남구"
+    },
+    {
+      "zone_no": "9488",
+      "zone_name": "민락동_1",
+      "zone_full_name": "민락동_1",
+      "sido_nm": "부산광역시",
+      "signgu_nm": "수영구"
+    },
+    {
+      "zone_no": "9489",
+      "zone_name": "민락동_2",
+      "zone_full_name": "민락동_2",
+      "sido_nm": "부산광역시",
+      "signgu_nm": "수영구"
+    },
+    {
+      "zone_no": "9490",
+      "zone_name": "수영역_1",
+      "zone_full_name": "수영역_1",
+      "sido_nm": "부산광역시",
+      "signgu_nm": "수영구"
+    },
+    {
+      "zone_no": "9491",
+      "zone_name": "수영역_2",
+      "zone_full_name": "수영역_2",
+      "sido_nm": "부산광역시",
+      "signgu_nm": "수영구"
+    },
+    {
+      "zone_no": "9172",
+      "zone_name": "동대문역_2",
+      "zone_full_name": "동대문역_2",
+      "sido_nm": "서울특별시",
+      "signgu_nm": "종로구"
+    },
+    {
+      "zone_no": "9492",
+      "zone_name": "센텀시티역_1",
+      "zone_full_name": "센텀시티역_1",
+      "sido_nm": "부산광역시",
+      "signgu_nm": "해운대구"
+    },
+    {
+      "zone_no": "9493",
+      "zone_name": "센텀시티역_2",
+      "zone_full_name": "센텀시티역_2",
+      "sido_nm": "부산광역시",
+      "signgu_nm": "해운대구"
+    },
+    {
+      "zone_no": "9494",
+      "zone_name": "우1동_1",
+      "zone_full_name": "우1동_1",
+      "sido_nm": "부산광역시",
+      "signgu_nm": "해운대구"
+    },
+    {
+      "zone_no": "9495",
+      "zone_name": "우1동_2",
+      "zone_full_name": "우1동_2",
+      "sido_nm": "부산광역시",
+      "signgu_nm": "해운대구"
+    },
+    {
+      "zone_no": "9496",
+      "zone_name": "장산역_1",
+      "zone_full_name": "장산역_1",
+      "sido_nm": "부산광역시",
+      "signgu_nm": "해운대구"
+    },
+    {
+      "zone_no": "9497",
+      "zone_name": "장산역_2",
+      "zone_full_name": "장산역_2",
+      "sido_nm": "부산광역시",
+      "signgu_nm": "해운대구"
+    },
+    {
+      "zone_no": "9498",
+      "zone_name": "해운대역_1",
+      "zone_full_name": "해운대역_1",
+      "sido_nm": "부산광역시",
+      "signgu_nm": "해운대구"
+    },
+    {
+      "zone_no": "9499",
+      "zone_name": "해운대역_2",
+      "zone_full_name": "해운대역_2",
+      "sido_nm": "부산광역시",
+      "signgu_nm": "해운대구"
+    },
+    {
+      "zone_no": "9500",
+      "zone_name": "범일동역_1",
+      "zone_full_name": "범일동역_1",
+      "sido_nm": "부산광역시",
+      "signgu_nm": "동구"
+    },
+    {
+      "zone_no": "9501",
+      "zone_name": "범일동역_2",
+      "zone_full_name": "범일동역_2",
+      "sido_nm": "부산광역시",
+      "signgu_nm": "동구"
+    },
+    {
+      "zone_no": "9173",
+      "zone_name": "안국역",
+      "zone_full_name": "안국역",
+      "sido_nm": "서울특별시",
+      "signgu_nm": "종로구"
+    },
+    {
+      "zone_no": "9502",
+      "zone_name": "범일동역_3",
+      "zone_full_name": "범일동역_3",
+      "sido_nm": "부산광역시",
+      "signgu_nm": "동구"
+    },
+    {
+      "zone_no": "9503",
+      "zone_name": "범일동역_4",
+      "zone_full_name": "범일동역_4",
+      "sido_nm": "부산광역시",
+      "signgu_nm": "동구"
+    },
+    {
+      "zone_no": "9504",
+      "zone_name": "부산역",
+      "zone_full_name": "부산역",
+      "sido_nm": "부산광역시",
+      "signgu_nm": "중구"
+    },
+    {
+      "zone_no": "9505",
+      "zone_name": "부산진역",
+      "zone_full_name": "부산진역",
+      "sido_nm": "부산광역시",
+      "signgu_nm": "동구"
+    },
+    {
+      "zone_no": "9506",
+      "zone_name": "괴정역_1",
+      "zone_full_name": "괴정역_1",
+      "sido_nm": "부산광역시",
+      "signgu_nm": "사하구"
+    },
+    {
+      "zone_no": "9507",
+      "zone_name": "괴정역_2",
+      "zone_full_name": "괴정역_2",
+      "sido_nm": "부산광역시",
+      "signgu_nm": "사하구"
+    },
+    {
+      "zone_no": "9508",
+      "zone_name": "괴정역_3",
+      "zone_full_name": "괴정역_3",
+      "sido_nm": "부산광역시",
+      "signgu_nm": "사하구"
+    },
+    {
+      "zone_no": "9509",
+      "zone_name": "다대1동",
+      "zone_full_name": "다대1동",
+      "sido_nm": "부산광역시",
+      "signgu_nm": "사하구"
+    },
+    {
+      "zone_no": "9510",
+      "zone_name": "당리역_1",
+      "zone_full_name": "당리역_1",
+      "sido_nm": "부산광역시",
+      "signgu_nm": "사하구"
+    },
+    {
+      "zone_no": "9511",
+      "zone_name": "당리역_2",
+      "zone_full_name": "당리역_2",
+      "sido_nm": "부산광역시",
+      "signgu_nm": "사하구"
+    },
+    {
+      "zone_no": "9174",
+      "zone_name": "인사동",
+      "zone_full_name": "인사동",
+      "sido_nm": "서울특별시",
+      "signgu_nm": "종로구"
+    },
+    {
+      "zone_no": "9512",
+      "zone_name": "동아대학교승학캠퍼스",
+      "zone_full_name": "동아대학교승학캠퍼스",
+      "sido_nm": "부산광역시",
+      "signgu_nm": "사하구"
+    },
+    {
+      "zone_no": "9513",
+      "zone_name": "사하역",
+      "zone_full_name": "사하역",
+      "sido_nm": "부산광역시",
+      "signgu_nm": "사하구"
+    },
+    {
+      "zone_no": "9514",
+      "zone_name": "장림2동",
+      "zone_full_name": "장림2동",
+      "sido_nm": "부산광역시",
+      "signgu_nm": "사하구"
+    },
+    {
+      "zone_no": "9515",
+      "zone_name": "하단역_1",
+      "zone_full_name": "하단역_1",
+      "sido_nm": "부산광역시",
+      "signgu_nm": "사하구"
+    },
+    {
+      "zone_no": "9516",
+      "zone_name": "하단역_2",
+      "zone_full_name": "하단역_2",
+      "sido_nm": "부산광역시",
+      "signgu_nm": "사하구"
+    },
+    {
+      "zone_no": "9517",
+      "zone_name": "남항동_1",
+      "zone_full_name": "남항동_1",
+      "sido_nm": "부산광역시",
+      "signgu_nm": "영도구"
+    },
+    {
+      "zone_no": "9518",
+      "zone_name": "남항동_2",
+      "zone_full_name": "남항동_2",
+      "sido_nm": "부산광역시",
+      "signgu_nm": "영도구"
+    },
+    {
+      "zone_no": "9519",
+      "zone_name": "남항동_3",
+      "zone_full_name": "남항동_3",
+      "sido_nm": "부산광역시",
+      "signgu_nm": "영도구"
+    },
+    {
+      "zone_no": "9520",
+      "zone_name": "남항동_4",
+      "zone_full_name": "남항동_4",
+      "sido_nm": "부산광역시",
+      "signgu_nm": "영도구"
+    },
+    {
+      "zone_no": "9521",
+      "zone_name": "남포역_1",
+      "zone_full_name": "남포역_1",
+      "sido_nm": "부산광역시",
+      "signgu_nm": "중구"
+    },
+    {
+      "zone_no": "9175",
+      "zone_name": "종각역",
+      "zone_full_name": "종각역",
+      "sido_nm": "서울특별시",
+      "signgu_nm": "종로구"
+    },
+    {
+      "zone_no": "9522",
+      "zone_name": "남포역_2",
+      "zone_full_name": "남포역_2",
+      "sido_nm": "부산광역시",
+      "signgu_nm": "중구"
+    },
+    {
+      "zone_no": "9523",
+      "zone_name": "자갈치역_1",
+      "zone_full_name": "자갈치역_1",
+      "sido_nm": "부산광역시",
+      "signgu_nm": "중구"
+    },
+    {
+      "zone_no": "9524",
+      "zone_name": "자갈치역_2",
+      "zone_full_name": "자갈치역_2",
+      "sido_nm": "부산광역시",
+      "signgu_nm": "중구"
+    },
+    {
+      "zone_no": "9525",
+      "zone_name": "중앙역_1",
+      "zone_full_name": "중앙역_1",
+      "sido_nm": "부산광역시",
+      "signgu_nm": "중구"
+    },
+    {
+      "zone_no": "9526",
+      "zone_name": "중앙역_2",
+      "zone_full_name": "중앙역_2",
+      "sido_nm": "부산광역시",
+      "signgu_nm": "중구"
+    },
+    {
+      "zone_no": "9527",
+      "zone_name": "무거동_1",
+      "zone_full_name": "무거동_1",
+      "sido_nm": "울산광역시",
+      "signgu_nm": "남구"
+    },
+    {
+      "zone_no": "9528",
+      "zone_name": "무거동_2",
+      "zone_full_name": "무거동_2",
+      "sido_nm": "울산광역시",
+      "signgu_nm": "남구"
+    },
+    {
+      "zone_no": "9529",
+      "zone_name": "삼산동_1",
+      "zone_full_name": "삼산동_1",
+      "sido_nm": "울산광역시",
+      "signgu_nm": "남구"
+    },
+    {
+      "zone_no": "9530",
+      "zone_name": "삼산동_2",
+      "zone_full_name": "삼산동_2",
+      "sido_nm": "울산광역시",
+      "signgu_nm": "남구"
+    },
+    {
+      "zone_no": "9531",
+      "zone_name": "삼산동_3",
+      "zone_full_name": "삼산동_3",
+      "sido_nm": "울산광역시",
+      "signgu_nm": "남구"
+    },
+    {
+      "zone_no": "9176",
+      "zone_name": "종각역 젊음의거리",
+      "zone_full_name": "종각역 젊음의거리",
+      "sido_nm": "서울특별시",
+      "signgu_nm": "종로구"
+    },
+    {
+      "zone_no": "9532",
+      "zone_name": "삼산동_4",
+      "zone_full_name": "삼산동_4",
+      "sido_nm": "울산광역시",
+      "signgu_nm": "남구"
+    },
+    {
+      "zone_no": "9533",
+      "zone_name": "삼산동_5",
+      "zone_full_name": "삼산동_5",
+      "sido_nm": "울산광역시",
+      "signgu_nm": "남구"
+    },
+    {
+      "zone_no": "9534",
+      "zone_name": "삼산동_6",
+      "zone_full_name": "삼산동_6",
+      "sido_nm": "울산광역시",
+      "signgu_nm": "남구"
+    },
+    {
+      "zone_no": "9535",
+      "zone_name": "신정1동",
+      "zone_full_name": "신정1동",
+      "sido_nm": "울산광역시",
+      "signgu_nm": "남구"
+    },
+    {
+      "zone_no": "9536",
+      "zone_name": "신정2동",
+      "zone_full_name": "신정2동",
+      "sido_nm": "울산광역시",
+      "signgu_nm": "남구"
+    },
+    {
+      "zone_no": "9537",
+      "zone_name": "신정3동",
+      "zone_full_name": "신정3동",
+      "sido_nm": "울산광역시",
+      "signgu_nm": "남구"
+    },
+    {
+      "zone_no": "9538",
+      "zone_name": "야음장생포동",
+      "zone_full_name": "야음장생포동",
+      "sido_nm": "울산광역시",
+      "signgu_nm": "남구"
+    },
+    {
+      "zone_no": "9539",
+      "zone_name": "울산고속버스터미널_1",
+      "zone_full_name": "울산고속버스터미널_1",
+      "sido_nm": "울산광역시",
+      "signgu_nm": "남구"
+    },
+    {
+      "zone_no": "9540",
+      "zone_name": "울산고속버스터미널_2",
+      "zone_full_name": "울산고속버스터미널_2",
+      "sido_nm": "울산광역시",
+      "signgu_nm": "남구"
+    },
+    {
+      "zone_no": "9541",
+      "zone_name": "울산시외버스터미널",
+      "zone_full_name": "울산시외버스터미널",
+      "sido_nm": "울산광역시",
+      "signgu_nm": "남구"
+    },
+    {
+      "zone_no": "9141",
+      "zone_name": "마포역_1",
+      "zone_full_name": "마포역_1",
+      "sido_nm": "서울특별시",
+      "signgu_nm": "마포구"
+    },
+    {
+      "zone_no": "9177",
+      "zone_name": "종로3가역_1",
+      "zone_full_name": "종로3가역_1",
+      "sido_nm": "서울특별시",
+      "signgu_nm": "종로구"
+    },
+    {
+      "zone_no": "9542",
+      "zone_name": "울산시청",
+      "zone_full_name": "울산시청",
+      "sido_nm": "울산광역시",
+      "signgu_nm": "남구"
+    },
+    {
+      "zone_no": "9544",
+      "zone_name": "남목1동",
+      "zone_full_name": "남목1동",
+      "sido_nm": "울산광역시",
+      "signgu_nm": "동구"
+    },
+    {
+      "zone_no": "9545",
+      "zone_name": "대송동",
+      "zone_full_name": "대송동",
+      "sido_nm": "울산광역시",
+      "signgu_nm": "동구"
+    },
+    {
+      "zone_no": "9546",
+      "zone_name": "화정동_1",
+      "zone_full_name": "화정동_1",
+      "sido_nm": "울산광역시",
+      "signgu_nm": "동구"
+    },
+    {
+      "zone_no": "9547",
+      "zone_name": "농소1동",
+      "zone_full_name": "농소1동",
+      "sido_nm": "울산광역시",
+      "signgu_nm": "북구"
+    },
+    {
+      "zone_no": "9549",
+      "zone_name": "언양시외버스터미널",
+      "zone_full_name": "언양시외버스터미널",
+      "sido_nm": "울산광역시",
+      "signgu_nm": "울주군"
+    },
+    {
+      "zone_no": "9550",
+      "zone_name": "온산읍",
+      "zone_full_name": "온산읍",
+      "sido_nm": "울산광역시",
+      "signgu_nm": "울주군"
+    },
+    {
+      "zone_no": "9551",
+      "zone_name": "울주경찰서",
+      "zone_full_name": "울주경찰서",
+      "sido_nm": "울산광역시",
+      "signgu_nm": "울주군"
+    },
+    {
+      "zone_no": "9552",
+      "zone_name": "병영1동",
+      "zone_full_name": "병영1동",
+      "sido_nm": "울산광역시",
+      "signgu_nm": "중구"
+    },
+    {
+      "zone_no": "9553",
+      "zone_name": "중앙동",
+      "zone_full_name": "중앙동",
+      "sido_nm": "울산광역시",
+      "signgu_nm": "중구"
+    },
+    {
+      "zone_no": "9178",
+      "zone_name": "종로3가역_2",
+      "zone_full_name": "종로3가역_2",
+      "sido_nm": "서울특별시",
+      "signgu_nm": "종로구"
+    },
+    {
+      "zone_no": "9554",
+      "zone_name": "태화동 태화 종합시장",
+      "zone_full_name": "태화동 태화 종합시장",
+      "sido_nm": "울산광역시",
+      "signgu_nm": "중구"
+    },
+    {
+      "zone_no": "9555",
+      "zone_name": "울산대공원정문",
+      "zone_full_name": "울산대공원정문",
+      "sido_nm": "울산광역시",
+      "signgu_nm": "남구"
+    },
+    {
+      "zone_no": "9556",
+      "zone_name": "영산면",
+      "zone_full_name": "영산면",
+      "sido_nm": "경상남도",
+      "signgu_nm": "창녕군"
+    },
+    {
+      "zone_no": "9557",
+      "zone_name": "창녕읍",
+      "zone_full_name": "창녕읍",
+      "sido_nm": "경상남도",
+      "signgu_nm": "창녕군"
+    },
+    {
+      "zone_no": "9558",
+      "zone_name": "도계상권",
+      "zone_full_name": "도계상권",
+      "sido_nm": "경상남도",
+      "signgu_nm": "창원시"
+    },
+    {
+      "zone_no": "9559",
+      "zone_name": "도서동",
+      "zone_full_name": "도서동",
+      "sido_nm": "경상남도",
+      "signgu_nm": "창원시"
+    },
+    {
+      "zone_no": "9560",
+      "zone_name": "마산시외터미널",
+      "zone_full_name": "마산시외터미널",
+      "sido_nm": "경상남도",
+      "signgu_nm": "창원시"
+    },
+    {
+      "zone_no": "9561",
+      "zone_name": "명곡동",
+      "zone_full_name": "명곡동",
+      "sido_nm": "경상남도",
+      "signgu_nm": "창원시"
+    },
+    {
+      "zone_no": "9562",
+      "zone_name": "사파동",
+      "zone_full_name": "사파동",
+      "sido_nm": "경상남도",
+      "signgu_nm": "창원시"
+    },
+    {
+      "zone_no": "9563",
+      "zone_name": "양덕2동",
+      "zone_full_name": "양덕2동",
+      "sido_nm": "경상남도",
+      "signgu_nm": "창원시"
+    },
+    {
+      "zone_no": "9179",
+      "zone_name": "종로3가역_3",
+      "zone_full_name": "종로3가역_3",
+      "sido_nm": "서울특별시",
+      "signgu_nm": "종로구"
+    },
+    {
+      "zone_no": "9564",
+      "zone_name": "웅동2동",
+      "zone_full_name": "웅동2동",
+      "sido_nm": "경상남도",
+      "signgu_nm": "창원시"
+    },
+    {
+      "zone_no": "9565",
+      "zone_name": "월영동",
+      "zone_full_name": "월영동",
+      "sido_nm": "경상남도",
+      "signgu_nm": "창원시"
+    },
+    {
+      "zone_no": "9566",
+      "zone_name": "의창동",
+      "zone_full_name": "의창동",
+      "sido_nm": "경상남도",
+      "signgu_nm": "창원시"
+    },
+    {
+      "zone_no": "9567",
+      "zone_name": "중앙동",
+      "zone_full_name": "중앙동",
+      "sido_nm": "경상남도",
+      "signgu_nm": "창원시"
+    },
+    {
+      "zone_no": "9568",
+      "zone_name": "진해역",
+      "zone_full_name": "진해역",
+      "sido_nm": "경상남도",
+      "signgu_nm": "창원시"
+    },
+    {
+      "zone_no": "9569",
+      "zone_name": "창원역",
+      "zone_full_name": "창원역",
+      "sido_nm": "경상남도",
+      "signgu_nm": "창원시"
+    },
+    {
+      "zone_no": "9570",
+      "zone_name": "석동",
+      "zone_full_name": "석동",
+      "sido_nm": "경상남도",
+      "signgu_nm": "창원시"
+    },
+    {
+      "zone_no": "9571",
+      "zone_name": "산호동",
+      "zone_full_name": "산호동",
+      "sido_nm": "경상남도",
+      "signgu_nm": "창원시"
+    },
+    {
+      "zone_no": "9572",
+      "zone_name": "거창읍_1",
+      "zone_full_name": "거창읍_1",
+      "sido_nm": "경상남도",
+      "signgu_nm": "거창군"
+    },
+    {
+      "zone_no": "9573",
+      "zone_name": "거창읍_2",
+      "zone_full_name": "거창읍_2",
+      "sido_nm": "경상남도",
+      "signgu_nm": "거창군"
+    },
+    {
+      "zone_no": "9180",
+      "zone_name": "종로5가역_1",
+      "zone_full_name": "종로5가역_1",
+      "sido_nm": "서울특별시",
+      "signgu_nm": "종로구"
+    },
+    {
+      "zone_no": "9574",
+      "zone_name": "남해군청",
+      "zone_full_name": "남해군청",
+      "sido_nm": "경상남도",
+      "signgu_nm": "남해군"
+    },
+    {
+      "zone_no": "9575",
+      "zone_name": "벌리동",
+      "zone_full_name": "벌리동",
+      "sido_nm": "경상남도",
+      "signgu_nm": "사천시"
+    },
+    {
+      "zone_no": "9576",
+      "zone_name": "사천읍",
+      "zone_full_name": "사천읍",
+      "sido_nm": "경상남도",
+      "signgu_nm": "사천시"
+    },
+    {
+      "zone_no": "9577",
+      "zone_name": "중앙로",
+      "zone_full_name": "중앙로",
+      "sido_nm": "경상남도",
+      "signgu_nm": "사천시"
+    },
+    {
+      "zone_no": "9578",
+      "zone_name": "산청읍",
+      "zone_full_name": "산청읍",
+      "sido_nm": "경상남도",
+      "signgu_nm": "산청군"
+    },
+    {
+      "zone_no": "9579",
+      "zone_name": "의령읍",
+      "zone_full_name": "의령읍",
+      "sido_nm": "경상남도",
+      "signgu_nm": "의령군"
+    },
+    {
+      "zone_no": "9580",
+      "zone_name": "가호동",
+      "zone_full_name": "가호동",
+      "sido_nm": "경상남도",
+      "signgu_nm": "진주시"
+    },
+    {
+      "zone_no": "9581",
+      "zone_name": "상대1동",
+      "zone_full_name": "상대1동",
+      "sido_nm": "경상남도",
+      "signgu_nm": "진주시"
+    },
+    {
+      "zone_no": "9582",
+      "zone_name": "중앙동",
+      "zone_full_name": "중앙동",
+      "sido_nm": "경상남도",
+      "signgu_nm": "진주시"
+    },
+    {
+      "zone_no": "9583",
+      "zone_name": "평거동",
+      "zone_full_name": "평거동",
+      "sido_nm": "경상남도",
+      "signgu_nm": "진주시"
+    },
+    {
+      "zone_no": "9181",
+      "zone_name": "종로5가역_2",
+      "zone_full_name": "종로5가역_2",
+      "sido_nm": "서울특별시",
+      "signgu_nm": "종로구"
+    },
+    {
+      "zone_no": "9584",
+      "zone_name": "하대동",
+      "zone_full_name": "하대동",
+      "sido_nm": "경상남도",
+      "signgu_nm": "진주시"
+    },
+    {
+      "zone_no": "9585",
+      "zone_name": "하동공설시장",
+      "zone_full_name": "하동공설시장",
+      "sido_nm": "경상남도",
+      "signgu_nm": "하동군"
+    },
+    {
+      "zone_no": "9586",
+      "zone_name": "함양군청",
+      "zone_full_name": "함양군청",
+      "sido_nm": "경상남도",
+      "signgu_nm": "함양군"
+    },
+    {
+      "zone_no": "9587",
+      "zone_name": "합천시외버스터미널",
+      "zone_full_name": "합천시외버스터미널",
+      "sido_nm": "경상남도",
+      "signgu_nm": "합천군"
+    },
+    {
+      "zone_no": "9588",
+      "zone_name": "가야대학교 앞",
+      "zone_full_name": "가야대학교 앞",
+      "sido_nm": "경상남도",
+      "signgu_nm": "김해시"
+    },
+    {
+      "zone_no": "9589",
+      "zone_name": "김해시청",
+      "zone_full_name": "김해시청",
+      "sido_nm": "경상남도",
+      "signgu_nm": "김해시"
+    },
+    {
+      "zone_no": "9590",
+      "zone_name": "내외동",
+      "zone_full_name": "내외동",
+      "sido_nm": "경상남도",
+      "signgu_nm": "김해시"
+    },
+    {
+      "zone_no": "9591",
+      "zone_name": "삼안동",
+      "zone_full_name": "삼안동",
+      "sido_nm": "경상남도",
+      "signgu_nm": "김해시"
+    },
+    {
+      "zone_no": "9592",
+      "zone_name": "진영읍",
+      "zone_full_name": "진영읍",
+      "sido_nm": "경상남도",
+      "signgu_nm": "김해시"
+    },
+    {
+      "zone_no": "9593",
+      "zone_name": "회현동",
+      "zone_full_name": "회현동",
+      "sido_nm": "경상남도",
+      "signgu_nm": "김해시"
+    },
+    {
+      "zone_no": "9182",
+      "zone_name": "종로5가역_3",
+      "zone_full_name": "종로5가역_3",
+      "sido_nm": "서울특별시",
+      "signgu_nm": "종로구"
+    },
+    {
+      "zone_no": "9594",
+      "zone_name": "덕계동",
+      "zone_full_name": "덕계동",
+      "sido_nm": "경상남도",
+      "signgu_nm": "양산시"
+    },
+    {
+      "zone_no": "9595",
+      "zone_name": "물급읍",
+      "zone_full_name": "물급읍",
+      "sido_nm": "경상남도",
+      "signgu_nm": "양산시"
+    },
+    {
+      "zone_no": "9597",
+      "zone_name": "서창동",
+      "zone_full_name": "서창동",
+      "sido_nm": "경상남도",
+      "signgu_nm": "양산시"
+    },
+    {
+      "zone_no": "9598",
+      "zone_name": "양산역",
+      "zone_full_name": "양산역",
+      "sido_nm": "경상남도",
+      "signgu_nm": "양산시"
+    },
+    {
+      "zone_no": "9599",
+      "zone_name": "중앙동",
+      "zone_full_name": "중앙동",
+      "sido_nm": "경상남도",
+      "signgu_nm": "양산시"
+    },
+    {
+      "zone_no": "9600",
+      "zone_name": "고현시외버스터미널",
+      "zone_full_name": "고현시외버스터미널",
+      "sido_nm": "경상남도",
+      "signgu_nm": "거제시"
+    },
+    {
+      "zone_no": "9601",
+      "zone_name": "옥포여객터미널",
+      "zone_full_name": "옥포여객터미널",
+      "sido_nm": "경상남도",
+      "signgu_nm": "거제시"
+    },
+    {
+      "zone_no": "9602",
+      "zone_name": "고성군청",
+      "zone_full_name": "고성군청",
+      "sido_nm": "경상남도",
+      "signgu_nm": "고성군"
+    },
+    {
+      "zone_no": "9603",
+      "zone_name": "강구안",
+      "zone_full_name": "강구안",
+      "sido_nm": "경상남도",
+      "signgu_nm": "통영시"
+    },
+    {
+      "zone_no": "9604",
+      "zone_name": "통영시청 제2청사",
+      "zone_full_name": "통영시청 제2청사",
+      "sido_nm": "경상남도",
+      "signgu_nm": "통영시"
+    },
+    {
+      "zone_no": "9183",
+      "zone_name": "종로5가역_4",
+      "zone_full_name": "종로5가역_4",
+      "sido_nm": "서울특별시",
+      "signgu_nm": "종로구"
+    },
+    {
+      "zone_no": "9605",
+      "zone_name": "통영종합버스터미널",
+      "zone_full_name": "통영종합버스터미널",
+      "sido_nm": "경상남도",
+      "signgu_nm": "통영시"
+    },
+    {
+      "zone_no": "9606",
+      "zone_name": "상당못역_1",
+      "zone_full_name": "상당못역_1",
+      "sido_nm": "대구광역시",
+      "signgu_nm": "남구"
+    },
+    {
+      "zone_no": "9607",
+      "zone_name": "상당못역_2",
+      "zone_full_name": "상당못역_2",
+      "sido_nm": "대구광역시",
+      "signgu_nm": "남구"
+    },
+    {
+      "zone_no": "9608",
+      "zone_name": "상당못역_3",
+      "zone_full_name": "상당못역_3",
+      "sido_nm": "대구광역시",
+      "signgu_nm": "달서구"
+    },
+    {
+      "zone_no": "9609",
+      "zone_name": "감삼역",
+      "zone_full_name": "감삼역",
+      "sido_nm": "대구광역시",
+      "signgu_nm": "달서구"
+    },
+    {
+      "zone_no": "9610",
+      "zone_name": "계명대",
+      "zone_full_name": "계명대",
+      "sido_nm": "대구광역시",
+      "signgu_nm": "달서구"
+    },
+    {
+      "zone_no": "9611",
+      "zone_name": "도원동",
+      "zone_full_name": "도원동",
+      "sido_nm": "대구광역시",
+      "signgu_nm": "달서구"
+    },
+    {
+      "zone_no": "9612",
+      "zone_name": "상인역_1",
+      "zone_full_name": "상인역_1",
+      "sido_nm": "대구광역시",
+      "signgu_nm": "달서구"
+    },
+    {
+      "zone_no": "9613",
+      "zone_name": "상인역_2",
+      "zone_full_name": "상인역_2",
+      "sido_nm": "대구광역시",
+      "signgu_nm": "달서구"
+    },
+    {
+      "zone_no": "9614",
+      "zone_name": "성서산업단지역_1",
+      "zone_full_name": "성서산업단지역_1",
+      "sido_nm": "대구광역시",
+      "signgu_nm": "달서구"
+    },
+    {
+      "zone_no": "9184",
+      "zone_name": "종로구청",
+      "zone_full_name": "종로구청",
+      "sido_nm": "서울특별시",
+      "signgu_nm": "종로구"
+    },
+    {
+      "zone_no": "9615",
+      "zone_name": "성서산업단지역_2",
+      "zone_full_name": "성서산업단지역_2",
+      "sido_nm": "대구광역시",
+      "signgu_nm": "달서구"
+    },
+    {
+      "zone_no": "9616",
+      "zone_name": "성서산업단지역_3",
+      "zone_full_name": "성서산업단지역_3",
+      "sido_nm": "대구광역시",
+      "signgu_nm": "달서구"
+    },
+    {
+      "zone_no": "9617",
+      "zone_name": "신당동",
+      "zone_full_name": "신당동",
+      "sido_nm": "대구광역시",
+      "signgu_nm": "달서구"
+    },
+    {
+      "zone_no": "9618",
+      "zone_name": "장기동",
+      "zone_full_name": "장기동",
+      "sido_nm": "대구광역시",
+      "signgu_nm": "달서구"
+    },
+    {
+      "zone_no": "9619",
+      "zone_name": "칠성시장역",
+      "zone_full_name": "칠성시장역",
+      "sido_nm": "대구광역시",
+      "signgu_nm": "북구"
+    },
+    {
+      "zone_no": "9620",
+      "zone_name": "대신동_1",
+      "zone_full_name": "대신동_1",
+      "sido_nm": "대구광역시",
+      "signgu_nm": "중구"
+    },
+    {
+      "zone_no": "9621",
+      "zone_name": "대신동_2",
+      "zone_full_name": "대신동_2",
+      "sido_nm": "대구광역시",
+      "signgu_nm": "중구"
+    },
+    {
+      "zone_no": "9622",
+      "zone_name": "성내3동",
+      "zone_full_name": "성내3동",
+      "sido_nm": "대구광역시",
+      "signgu_nm": "중구"
+    },
+    {
+      "zone_no": "9623",
+      "zone_name": "중앙로역_1",
+      "zone_full_name": "중앙로역_1",
+      "sido_nm": "대구광역시",
+      "signgu_nm": "중구"
+    },
+    {
+      "zone_no": "9624",
+      "zone_name": "중앙로역_2",
+      "zone_full_name": "중앙로역_2",
+      "sido_nm": "대구광역시",
+      "signgu_nm": "중구"
+    },
+    {
+      "zone_no": "9185",
+      "zone_name": "종묘앞_1",
+      "zone_full_name": "종묘앞_1",
+      "sido_nm": "서울특별시",
+      "signgu_nm": "종로구"
+    },
+    {
+      "zone_no": "9625",
+      "zone_name": "중앙로역_3",
+      "zone_full_name": "중앙로역_3",
+      "sido_nm": "대구광역시",
+      "signgu_nm": "중구"
+    },
+    {
+      "zone_no": "9626",
+      "zone_name": "중앙로역_4",
+      "zone_full_name": "중앙로역_4",
+      "sido_nm": "대구광역시",
+      "signgu_nm": "중구"
+    },
+    {
+      "zone_no": "9627",
+      "zone_name": "각산역",
+      "zone_full_name": "각산역",
+      "sido_nm": "대구광역시",
+      "signgu_nm": "동구"
+    },
+    {
+      "zone_no": "9629",
+      "zone_name": "동대구역",
+      "zone_full_name": "동대구역",
+      "sido_nm": "대구광역시",
+      "signgu_nm": "동구"
+    },
+    {
+      "zone_no": "9630",
+      "zone_name": "신암3동",
+      "zone_full_name": "신암3동",
+      "sido_nm": "대구광역시",
+      "signgu_nm": "동구"
+    },
+    {
+      "zone_no": "9632",
+      "zone_name": "효목2동_1",
+      "zone_full_name": "효목2동_1",
+      "sido_nm": "대구광역시",
+      "signgu_nm": "동구"
+    },
+    {
+      "zone_no": "9633",
+      "zone_name": "효목2동_2",
+      "zone_full_name": "효목2동_2",
+      "sido_nm": "대구광역시",
+      "signgu_nm": "동구"
+    },
+    {
+      "zone_no": "9634",
+      "zone_name": "노원동",
+      "zone_full_name": "노원동",
+      "sido_nm": "대구광역시",
+      "signgu_nm": "북구"
+    },
+    {
+      "zone_no": "9635",
+      "zone_name": "동천동",
+      "zone_full_name": "동천동",
+      "sido_nm": "대구광역시",
+      "signgu_nm": "북구"
+    },
+    {
+      "zone_no": "9636",
+      "zone_name": "산격2동_1",
+      "zone_full_name": "산격2동_1",
+      "sido_nm": "대구광역시",
+      "signgu_nm": "북구"
+    },
+    {
+      "zone_no": "9186",
+      "zone_name": "종묘앞_2",
+      "zone_full_name": "종묘앞_2",
+      "sido_nm": "서울특별시",
+      "signgu_nm": "종로구"
+    },
+    {
+      "zone_no": "9637",
+      "zone_name": "산격2동_2",
+      "zone_full_name": "산격2동_2",
+      "sido_nm": "대구광역시",
+      "signgu_nm": "북구"
+    },
+    {
+      "zone_no": "9638",
+      "zone_name": "산격3동",
+      "zone_full_name": "산격3동",
+      "sido_nm": "대구광역시",
+      "signgu_nm": "북구"
+    },
+    {
+      "zone_no": "9639",
+      "zone_name": "읍내동",
+      "zone_full_name": "읍내동",
+      "sido_nm": "대구광역시",
+      "signgu_nm": "북구"
+    },
+    {
+      "zone_no": "9640",
+      "zone_name": "태전1동_1",
+      "zone_full_name": "태전1동_1",
+      "sido_nm": "대구광역시",
+      "signgu_nm": "북구"
+    },
+    {
+      "zone_no": "9641",
+      "zone_name": "태전1동_2",
+      "zone_full_name": "태전1동_2",
+      "sido_nm": "대구광역시",
+      "signgu_nm": "북구"
+    },
+    {
+      "zone_no": "9642",
+      "zone_name": "지산1동",
+      "zone_full_name": "지산1동",
+      "sido_nm": "대구광역시",
+      "signgu_nm": "수성구"
+    },
+    {
+      "zone_no": "9643",
+      "zone_name": "황금2동",
+      "zone_full_name": "황금2동",
+      "sido_nm": "대구광역시",
+      "signgu_nm": "수성구"
+    },
+    {
+      "zone_no": "9644",
+      "zone_name": "담티역",
+      "zone_full_name": "담티역",
+      "sido_nm": "대구광역시",
+      "signgu_nm": "수성구"
+    },
+    {
+      "zone_no": "9645",
+      "zone_name": "범어역",
+      "zone_full_name": "범어역",
+      "sido_nm": "대구광역시",
+      "signgu_nm": "수성구"
+    },
+    {
+      "zone_no": "9646",
+      "zone_name": "수성구청역",
+      "zone_full_name": "수성구청역",
+      "sido_nm": "대구광역시",
+      "signgu_nm": "수성구"
+    },
+    {
+      "zone_no": "9142",
+      "zone_name": "마포역_2",
+      "zone_full_name": "마포역_2",
+      "sido_nm": "서울특별시",
+      "signgu_nm": "마포구"
+    },
+    {
+      "zone_no": "9187",
+      "zone_name": "종묘앞_3",
+      "zone_full_name": "종묘앞_3",
+      "sido_nm": "서울특별시",
+      "signgu_nm": "종로구"
+    },
+    {
+      "zone_no": "9647",
+      "zone_name": "신매역",
+      "zone_full_name": "신매역",
+      "sido_nm": "대구광역시",
+      "signgu_nm": "수성구"
+    },
+    {
+      "zone_no": "9648",
+      "zone_name": "봉무동",
+      "zone_full_name": "봉무동",
+      "sido_nm": "대구광역시",
+      "signgu_nm": "동구"
+    },
+    {
+      "zone_no": "9649",
+      "zone_name": "봉화읍",
+      "zone_full_name": "봉화읍",
+      "sido_nm": "경상북도",
+      "signgu_nm": "봉화군"
+    },
+    {
+      "zone_no": "9650",
+      "zone_name": "안동시청_1",
+      "zone_full_name": "안동시청_1",
+      "sido_nm": "경상북도",
+      "signgu_nm": "안동시"
+    },
+    {
+      "zone_no": "9651",
+      "zone_name": "안동시청_2",
+      "zone_full_name": "안동시청_2",
+      "sido_nm": "경상북도",
+      "signgu_nm": "안동시"
+    },
+    {
+      "zone_no": "9652",
+      "zone_name": "옥동_1",
+      "zone_full_name": "옥동_1",
+      "sido_nm": "경상북도",
+      "signgu_nm": "안동시"
+    },
+    {
+      "zone_no": "9653",
+      "zone_name": "옥동_2",
+      "zone_full_name": "옥동_2",
+      "sido_nm": "경상북도",
+      "signgu_nm": "안동시"
+    },
+    {
+      "zone_no": "9654",
+      "zone_name": "영양군보건소",
+      "zone_full_name": "영양군보건소",
+      "sido_nm": "경상북도",
+      "signgu_nm": "영양군"
+    },
+    {
+      "zone_no": "9655",
+      "zone_name": "영주역",
+      "zone_full_name": "영주역",
+      "sido_nm": "경상북도",
+      "signgu_nm": "영주시"
+    },
+    {
+      "zone_no": "9656",
+      "zone_name": "풍기읍",
+      "zone_full_name": "풍기읍",
+      "sido_nm": "경상북도",
+      "signgu_nm": "영주시"
+    },
+    {
+      "zone_no": "9188",
+      "zone_name": "혜화역 대학로_1",
+      "zone_full_name": "혜화역 대학로_1",
+      "sido_nm": "서울특별시",
+      "signgu_nm": "종로구"
+    },
+    {
+      "zone_no": "9657",
+      "zone_name": "하망동",
+      "zone_full_name": "하망동",
+      "sido_nm": "경상북도",
+      "signgu_nm": "영주시"
+    },
+    {
+      "zone_no": "9658",
+      "zone_name": "예천군청",
+      "zone_full_name": "예천군청",
+      "sido_nm": "경상북도",
+      "signgu_nm": "예천군"
+    },
+    {
+      "zone_no": "9659",
+      "zone_name": "의성역",
+      "zone_full_name": "의성역",
+      "sido_nm": "경상북도",
+      "signgu_nm": "의성군"
+    },
+    {
+      "zone_no": "9660",
+      "zone_name": "고령시외버스터미널",
+      "zone_full_name": "고령시외버스터미널",
+      "sido_nm": "경상북도",
+      "signgu_nm": "고령군"
+    },
+    {
+      "zone_no": "9661",
+      "zone_name": "구미시청",
+      "zone_full_name": "구미시청",
+      "sido_nm": "경상북도",
+      "signgu_nm": "구미시"
+    },
+    {
+      "zone_no": "9662",
+      "zone_name": "구미역_1",
+      "zone_full_name": "구미역_1",
+      "sido_nm": "경상북도",
+      "signgu_nm": "구미시"
+    },
+    {
+      "zone_no": "9663",
+      "zone_name": "구미역_2",
+      "zone_full_name": "구미역_2",
+      "sido_nm": "경상북도",
+      "signgu_nm": "구미시"
+    },
+    {
+      "zone_no": "9664",
+      "zone_name": "상모사곡동",
+      "zone_full_name": "상모사곡동",
+      "sido_nm": "경상북도",
+      "signgu_nm": "구미시"
+    },
+    {
+      "zone_no": "9665",
+      "zone_name": "선산읍",
+      "zone_full_name": "선산읍",
+      "sido_nm": "경상북도",
+      "signgu_nm": "구미시"
+    },
+    {
+      "zone_no": "9666",
+      "zone_name": "선주원남동_2",
+      "zone_full_name": "선주원남동_2",
+      "sido_nm": "경상북도",
+      "signgu_nm": "구미시"
+    },
+    {
+      "zone_no": "9189",
+      "zone_name": "혜화역 대학로_2",
+      "zone_full_name": "혜화역 대학로_2",
+      "sido_nm": "서울특별시",
+      "signgu_nm": "종로구"
+    },
+    {
+      "zone_no": "9667",
+      "zone_name": "선주원남동_3",
+      "zone_full_name": "선주원남동_3",
+      "sido_nm": "경상북도",
+      "signgu_nm": "구미시"
+    },
+    {
+      "zone_no": "9668",
+      "zone_name": "신평1동_1",
+      "zone_full_name": "신평1동_1",
+      "sido_nm": "경상북도",
+      "signgu_nm": "구미시"
+    },
+    {
+      "zone_no": "9669",
+      "zone_name": "양포동_1",
+      "zone_full_name": "양포동_1",
+      "sido_nm": "경상북도",
+      "signgu_nm": "구미시"
+    },
+    {
+      "zone_no": "9670",
+      "zone_name": "양포동_2",
+      "zone_full_name": "양포동_2",
+      "sido_nm": "경상북도",
+      "signgu_nm": "구미시"
+    },
+    {
+      "zone_no": "9671",
+      "zone_name": "인동동",
+      "zone_full_name": "인동동",
+      "sido_nm": "경상북도",
+      "signgu_nm": "구미시"
+    },
+    {
+      "zone_no": "9672",
+      "zone_name": "임수동 공구상가",
+      "zone_full_name": "임수동 공구상가",
+      "sido_nm": "경상북도",
+      "signgu_nm": "구미시"
+    },
+    {
+      "zone_no": "9673",
+      "zone_name": "진미동",
+      "zone_full_name": "진미동",
+      "sido_nm": "경상북도",
+      "signgu_nm": "구미시"
+    },
+    {
+      "zone_no": "9674",
+      "zone_name": "형곡1동",
+      "zone_full_name": "형곡1동",
+      "sido_nm": "경상북도",
+      "signgu_nm": "구미시"
+    },
+    {
+      "zone_no": "9675",
+      "zone_name": "군위군법원",
+      "zone_full_name": "군위군법원",
+      "sido_nm": "경상북도",
+      "signgu_nm": "군위군"
+    },
+    {
+      "zone_no": "9676",
+      "zone_name": "김천역",
+      "zone_full_name": "김천역",
+      "sido_nm": "경상북도",
+      "signgu_nm": "김천시"
+    },
+    {
+      "zone_no": "9190",
+      "zone_name": "혜화역 대학로_3",
+      "zone_full_name": "혜화역 대학로_3",
+      "sido_nm": "서울특별시",
+      "signgu_nm": "종로구"
+    },
+    {
+      "zone_no": "9677",
+      "zone_name": "자산동",
+      "zone_full_name": "자산동",
+      "sido_nm": "경상북도",
+      "signgu_nm": "김천시"
+    },
+    {
+      "zone_no": "9678",
+      "zone_name": "동문동",
+      "zone_full_name": "동문동",
+      "sido_nm": "경상북도",
+      "signgu_nm": "상주시"
+    },
+    {
+      "zone_no": "9679",
+      "zone_name": "성주시외버스터미널",
+      "zone_full_name": "성주시외버스터미널",
+      "sido_nm": "경상북도",
+      "signgu_nm": "성주군"
+    },
+    {
+      "zone_no": "9680",
+      "zone_name": "석적읍",
+      "zone_full_name": "석적읍",
+      "sido_nm": "경상북도",
+      "signgu_nm": "칠곡군"
+    },
+    {
+      "zone_no": "9681",
+      "zone_name": "영덕읍",
+      "zone_full_name": "영덕읍",
+      "sido_nm": "경상북도",
+      "signgu_nm": "영덕군"
+    },
+    {
+      "zone_no": "9682",
+      "zone_name": "영해면",
+      "zone_full_name": "영해면",
+      "sido_nm": "경상북도",
+      "signgu_nm": "영덕군"
+    },
+    {
+      "zone_no": "9683",
+      "zone_name": "울진군청",
+      "zone_full_name": "울진군청",
+      "sido_nm": "경상북도",
+      "signgu_nm": "울진군"
+    },
+    {
+      "zone_no": "9684",
+      "zone_name": "죽변면",
+      "zone_full_name": "죽변면",
+      "sido_nm": "경상북도",
+      "signgu_nm": "울진군"
+    },
+    {
+      "zone_no": "9685",
+      "zone_name": "구룡포읍",
+      "zone_full_name": "구룡포읍",
+      "sido_nm": "경상북도",
+      "signgu_nm": "포항시"
+    },
+    {
+      "zone_no": "9686",
+      "zone_name": "대이동",
+      "zone_full_name": "대이동",
+      "sido_nm": "경상북도",
+      "signgu_nm": "포항시"
+    },
+    {
+      "zone_no": "9191",
+      "zone_name": "남대문시장",
+      "zone_full_name": "남대문시장",
+      "sido_nm": "서울특별시",
+      "signgu_nm": "중구"
+    },
+    {
+      "zone_no": "9687",
+      "zone_name": "두호동",
+      "zone_full_name": "두호동",
+      "sido_nm": "경상북도",
+      "signgu_nm": "포항시"
+    },
+    {
+      "zone_no": "9688",
+      "zone_name": "오거리",
+      "zone_full_name": "오거리",
+      "sido_nm": "경상북도",
+      "signgu_nm": "포항시"
+    },
+    {
+      "zone_no": "9689",
+      "zone_name": "오천읍",
+      "zone_full_name": "오천읍",
+      "sido_nm": "경상북도",
+      "signgu_nm": "포항시"
+    },
+    {
+      "zone_no": "9690",
+      "zone_name": "죽도동",
+      "zone_full_name": "죽도동",
+      "sido_nm": "경상북도",
+      "signgu_nm": "포항시"
+    },
+    {
+      "zone_no": "9691",
+      "zone_name": "죽도시장",
+      "zone_full_name": "죽도시장",
+      "sido_nm": "경상북도",
+      "signgu_nm": "포항시"
+    },
+    {
+      "zone_no": "9692",
+      "zone_name": "중앙상가",
+      "zone_full_name": "중앙상가",
+      "sido_nm": "경상북도",
+      "signgu_nm": "포항시"
+    },
+    {
+      "zone_no": "9693",
+      "zone_name": "양덕동",
+      "zone_full_name": "양덕동",
+      "sido_nm": "경상북도",
+      "signgu_nm": "포항시"
+    },
+    {
+      "zone_no": "9694",
+      "zone_name": "남부시장",
+      "zone_full_name": "남부시장",
+      "sido_nm": "경상북도",
+      "signgu_nm": "포항시"
+    },
+    {
+      "zone_no": "9695",
+      "zone_name": "포항시청",
+      "zone_full_name": "포항시청",
+      "sido_nm": "경상북도",
+      "signgu_nm": "포항시"
+    },
+    {
+      "zone_no": "9696",
+      "zone_name": "효자동_1",
+      "zone_full_name": "효자동_1",
+      "sido_nm": "경상북도",
+      "signgu_nm": "포항시"
+    },
+    {
+      "zone_no": "9192",
+      "zone_name": "동대문시장_2",
+      "zone_full_name": "동대문시장_2",
+      "sido_nm": "서울특별시",
+      "signgu_nm": "중구"
+    },
+    {
+      "zone_no": "9697",
+      "zone_name": "효자동_2",
+      "zone_full_name": "효자동_2",
+      "sido_nm": "경상북도",
+      "signgu_nm": "포항시"
+    },
+    {
+      "zone_no": "9698",
+      "zone_name": "남부동",
+      "zone_full_name": "남부동",
+      "sido_nm": "경상북도",
+      "signgu_nm": "경산시"
+    },
+    {
+      "zone_no": "9699",
+      "zone_name": "영남대역",
+      "zone_full_name": "영남대역",
+      "sido_nm": "경상북도",
+      "signgu_nm": "경산시"
+    },
+    {
+      "zone_no": "9700",
+      "zone_name": "중앙동",
+      "zone_full_name": "중앙동",
+      "sido_nm": "경상북도",
+      "signgu_nm": "경산시"
+    },
+    {
+      "zone_no": "9701",
+      "zone_name": "진량읍",
+      "zone_full_name": "진량읍",
+      "sido_nm": "경상북도",
+      "signgu_nm": "경산시"
+    },
+    {
+      "zone_no": "9702",
+      "zone_name": "하양읍",
+      "zone_full_name": "하양읍",
+      "sido_nm": "경상북도",
+      "signgu_nm": "경산시"
+    },
+    {
+      "zone_no": "9703",
+      "zone_name": "경주시청",
+      "zone_full_name": "경주시청",
+      "sido_nm": "경상북도",
+      "signgu_nm": "경주시"
+    },
+    {
+      "zone_no": "9704",
+      "zone_name": "경주역",
+      "zone_full_name": "경주역",
+      "sido_nm": "경상북도",
+      "signgu_nm": "경주시"
+    },
+    {
+      "zone_no": "9705",
+      "zone_name": "안강읍_1",
+      "zone_full_name": "안강읍_1",
+      "sido_nm": "경상북도",
+      "signgu_nm": "경주시"
+    },
+    {
+      "zone_no": "9706",
+      "zone_name": "안강읍_2",
+      "zone_full_name": "안강읍_2",
+      "sido_nm": "경상북도",
+      "signgu_nm": "경주시"
+    },
+    {
+      "zone_no": "9193",
+      "zone_name": "동대문역사문화공원역",
+      "zone_full_name": "동대문역사문화공원역",
+      "sido_nm": "서울특별시",
+      "signgu_nm": "중구"
+    },
+    {
+      "zone_no": "9707",
+      "zone_name": "용강동",
+      "zone_full_name": "용강동",
+      "sido_nm": "경상북도",
+      "signgu_nm": "경주시"
+    },
+    {
+      "zone_no": "9708",
+      "zone_name": "황성동",
+      "zone_full_name": "황성동",
+      "sido_nm": "경상북도",
+      "signgu_nm": "경주시"
+    },
+    {
+      "zone_no": "9709",
+      "zone_name": "영천역",
+      "zone_full_name": "영천역",
+      "sido_nm": "경상북도",
+      "signgu_nm": "영천시"
+    },
+    {
+      "zone_no": "9710",
+      "zone_name": "청도역",
+      "zone_full_name": "청도역",
+      "sido_nm": "경상북도",
+      "signgu_nm": "청도군"
+    },
+    {
+      "zone_no": "9711",
+      "zone_name": "경산시외버스터미널",
+      "zone_full_name": "경산시외버스터미널",
+      "sido_nm": "경상북도",
+      "signgu_nm": "경산시"
+    },
+    {
+      "zone_no": "9712",
+      "zone_name": "봉선지구",
+      "zone_full_name": "봉선지구",
+      "sido_nm": "광주광역시",
+      "signgu_nm": "남구"
+    },
+    {
+      "zone_no": "9713",
+      "zone_name": "상무지구_1",
+      "zone_full_name": "상무지구_1",
+      "sido_nm": "광주광역시",
+      "signgu_nm": "서구"
+    },
+    {
+      "zone_no": "9714",
+      "zone_name": "광천동",
+      "zone_full_name": "광천동",
+      "sido_nm": "광주광역시",
+      "signgu_nm": "서구"
+    },
+    {
+      "zone_no": "9715",
+      "zone_name": "금호1동",
+      "zone_full_name": "금호1동",
+      "sido_nm": "광주광역시",
+      "signgu_nm": "서구"
+    },
+    {
+      "zone_no": "9716",
+      "zone_name": "서부농수산물도매시장",
+      "zone_full_name": "서부농수산물도매시장",
+      "sido_nm": "광주광역시",
+      "signgu_nm": "서구"
+    },
+    {
+      "zone_no": "9194",
+      "zone_name": "롯데백화점 본점",
+      "zone_full_name": "롯데백화점 본점",
+      "sido_nm": "서울특별시",
+      "signgu_nm": "중구"
+    },
+    {
+      "zone_no": "9717",
+      "zone_name": "양동시장",
+      "zone_full_name": "양동시장",
+      "sido_nm": "광주광역시",
+      "signgu_nm": "서구"
+    },
+    {
+      "zone_no": "9718",
+      "zone_name": "상무지구_2",
+      "zone_full_name": "상무지구_2",
+      "sido_nm": "광주광역시",
+      "signgu_nm": "서구"
+    },
+    {
+      "zone_no": "9719",
+      "zone_name": "LC타워",
+      "zone_full_name": "LC타워",
+      "sido_nm": "광주광역시",
+      "signgu_nm": "광산구"
+    },
+    {
+      "zone_no": "9720",
+      "zone_name": "송정역",
+      "zone_full_name": "송정역",
+      "sido_nm": "광주광역시",
+      "signgu_nm": "광산구"
+    },
+    {
+      "zone_no": "9721",
+      "zone_name": "수완동_1",
+      "zone_full_name": "수완동_1",
+      "sido_nm": "광주광역시",
+      "signgu_nm": "광산구"
+    },
+    {
+      "zone_no": "9722",
+      "zone_name": "신창동",
+      "zone_full_name": "신창동",
+      "sido_nm": "광주광역시",
+      "signgu_nm": "광산구"
+    },
+    {
+      "zone_no": "9723",
+      "zone_name": "첨단1동주민센터",
+      "zone_full_name": "첨단1동주민센터",
+      "sido_nm": "광주광역시",
+      "signgu_nm": "광산구"
+    },
+    {
+      "zone_no": "9724",
+      "zone_name": "첨단2동",
+      "zone_full_name": "첨단2동",
+      "sido_nm": "광주광역시",
+      "signgu_nm": "광산구"
+    },
+    {
+      "zone_no": "9725",
+      "zone_name": "첨단CGV",
+      "zone_full_name": "첨단CGV",
+      "sido_nm": "광주광역시",
+      "signgu_nm": "광산구"
+    },
+    {
+      "zone_no": "9726",
+      "zone_name": "하남",
+      "zone_full_name": "하남",
+      "sido_nm": "광주광역시",
+      "signgu_nm": "광산구"
+    },
+    {
+      "zone_no": "9195",
+      "zone_name": "명동",
+      "zone_full_name": "명동",
+      "sido_nm": "서울특별시",
+      "signgu_nm": "중구"
+    },
+    {
+      "zone_no": "9727",
+      "zone_name": "수완동_2",
+      "zone_full_name": "수완동_2",
+      "sido_nm": "광주광역시",
+      "signgu_nm": "광산구"
+    },
+    {
+      "zone_no": "9728",
+      "zone_name": "선운지구",
+      "zone_full_name": "선운지구",
+      "sido_nm": "광주광역시",
+      "signgu_nm": "광산구"
+    },
+    {
+      "zone_no": "9729",
+      "zone_name": "흑석사거리",
+      "zone_full_name": "흑석사거리",
+      "sido_nm": "광주광역시",
+      "signgu_nm": "광산구"
+    },
+    {
+      "zone_no": "9730",
+      "zone_name": "금남로4가역_1",
+      "zone_full_name": "금남로4가역_1",
+      "sido_nm": "광주광역시",
+      "signgu_nm": "동구"
+    },
+    {
+      "zone_no": "9731",
+      "zone_name": "금남로4가역_2",
+      "zone_full_name": "금남로4가역_2",
+      "sido_nm": "광주광역시",
+      "signgu_nm": "동구"
+    },
+    {
+      "zone_no": "9732",
+      "zone_name": "금남로4가역_3",
+      "zone_full_name": "금남로4가역_3",
+      "sido_nm": "광주광역시",
+      "signgu_nm": "동구"
+    },
+    {
+      "zone_no": "9733",
+      "zone_name": "금남로4가역_4",
+      "zone_full_name": "금남로4가역_4",
+      "sido_nm": "광주광역시",
+      "signgu_nm": "동구"
+    },
+    {
+      "zone_no": "9734",
+      "zone_name": "문화전당역",
+      "zone_full_name": "문화전당역",
+      "sido_nm": "광주광역시",
+      "signgu_nm": "동구"
+    },
+    {
+      "zone_no": "9735",
+      "zone_name": "대인시장",
+      "zone_full_name": "대인시장",
+      "sido_nm": "광주광역시",
+      "signgu_nm": "동구"
+    },
+    {
+      "zone_no": "9736",
+      "zone_name": "금남로5가역",
+      "zone_full_name": "금남로5가역",
+      "sido_nm": "광주광역시",
+      "signgu_nm": "북구"
+    },
+    {
+      "zone_no": "9196",
+      "zone_name": "명동역",
+      "zone_full_name": "명동역",
+      "sido_nm": "서울특별시",
+      "signgu_nm": "중구"
+    },
+    {
+      "zone_no": "9737",
+      "zone_name": "문흥1동",
+      "zone_full_name": "문흥1동",
+      "sido_nm": "광주광역시",
+      "signgu_nm": "북구"
+    },
+    {
+      "zone_no": "9738",
+      "zone_name": "일곡동",
+      "zone_full_name": "일곡동",
+      "sido_nm": "광주광역시",
+      "signgu_nm": "북구"
+    },
+    {
+      "zone_no": "9739",
+      "zone_name": "전남대",
+      "zone_full_name": "전남대",
+      "sido_nm": "광주광역시",
+      "signgu_nm": "북구"
+    },
+    {
+      "zone_no": "9740",
+      "zone_name": "남광주시장",
+      "zone_full_name": "남광주시장",
+      "sido_nm": "광주광역시",
+      "signgu_nm": "동구"
+    },
+    {
+      "zone_no": "9741",
+      "zone_name": "양산동_1",
+      "zone_full_name": "양산동_1",
+      "sido_nm": "광주광역시",
+      "signgu_nm": "북구"
+    },
+    {
+      "zone_no": "9742",
+      "zone_name": "양산동_2",
+      "zone_full_name": "양산동_2",
+      "sido_nm": "광주광역시",
+      "signgu_nm": "북구"
+    },
+    {
+      "zone_no": "9743",
+      "zone_name": "양산동_3",
+      "zone_full_name": "양산동_3",
+      "sido_nm": "광주광역시",
+      "signgu_nm": "북구"
+    },
+    {
+      "zone_no": "9744",
+      "zone_name": "강진버스여객터미널",
+      "zone_full_name": "강진버스여객터미널",
+      "sido_nm": "전라남도",
+      "signgu_nm": "강진군"
+    },
+    {
+      "zone_no": "9745",
+      "zone_name": "나주버스터미널",
+      "zone_full_name": "나주버스터미널",
+      "sido_nm": "전라남도",
+      "signgu_nm": "나주시"
+    },
+    {
+      "zone_no": "9746",
+      "zone_name": "나주중앙로",
+      "zone_full_name": "나주중앙로",
+      "sido_nm": "전라남도",
+      "signgu_nm": "나주시"
+    },
+    {
+      "zone_no": "9143",
+      "zone_name": "신촌역_1",
+      "zone_full_name": "신촌역_1",
+      "sido_nm": "서울특별시",
+      "signgu_nm": "서대문구"
+    },
+    {
+      "zone_no": "9197",
+      "zone_name": "북창동",
+      "zone_full_name": "북창동",
+      "sido_nm": "서울특별시",
+      "signgu_nm": "중구"
+    },
+    {
+      "zone_no": "9747",
+      "zone_name": "MBC",
+      "zone_full_name": "MBC",
+      "sido_nm": "전라남도",
+      "signgu_nm": "목포시"
+    },
+    {
+      "zone_no": "9748",
+      "zone_name": "동부시장",
+      "zone_full_name": "동부시장",
+      "sido_nm": "전라남도",
+      "signgu_nm": "목포시"
+    },
+    {
+      "zone_no": "9749",
+      "zone_name": "목포종합버스터미널",
+      "zone_full_name": "목포종합버스터미널",
+      "sido_nm": "전라남도",
+      "signgu_nm": "목포시"
+    },
+    {
+      "zone_no": "9750",
+      "zone_name": "비파아파트",
+      "zone_full_name": "비파아파트",
+      "sido_nm": "전라남도",
+      "signgu_nm": "목포시"
+    },
+    {
+      "zone_no": "9751",
+      "zone_name": "신흥동_2",
+      "zone_full_name": "신흥동_2",
+      "sido_nm": "전라남도",
+      "signgu_nm": "목포시"
+    },
+    {
+      "zone_no": "9752",
+      "zone_name": "신흥동_5",
+      "zone_full_name": "신흥동_5",
+      "sido_nm": "전라남도",
+      "signgu_nm": "목포시"
+    },
+    {
+      "zone_no": "9753",
+      "zone_name": "이마트",
+      "zone_full_name": "이마트",
+      "sido_nm": "전라남도",
+      "signgu_nm": "목포시"
+    },
+    {
+      "zone_no": "9754",
+      "zone_name": "장미의거리",
+      "zone_full_name": "장미의거리",
+      "sido_nm": "전라남도",
+      "signgu_nm": "목포시"
+    },
+    {
+      "zone_no": "9755",
+      "zone_name": "평화광장",
+      "zone_full_name": "평화광장",
+      "sido_nm": "전라남도",
+      "signgu_nm": "목포시"
+    },
+    {
+      "zone_no": "9756",
+      "zone_name": "하당동_1",
+      "zone_full_name": "하당동_1",
+      "sido_nm": "전라남도",
+      "signgu_nm": "목포시"
+    },
+    {
+      "zone_no": "9198",
+      "zone_name": "서울시청",
+      "zone_full_name": "서울시청",
+      "sido_nm": "서울특별시",
+      "signgu_nm": "중구"
+    },
+    {
+      "zone_no": "9757",
+      "zone_name": "하당동_4",
+      "zone_full_name": "하당동_4",
+      "sido_nm": "전라남도",
+      "signgu_nm": "목포시"
+    },
+    {
+      "zone_no": "9758",
+      "zone_name": "무안읍",
+      "zone_full_name": "무안읍",
+      "sido_nm": "전라남도",
+      "signgu_nm": "무안군"
+    },
+    {
+      "zone_no": "9759",
+      "zone_name": "삼향읍",
+      "zone_full_name": "삼향읍",
+      "sido_nm": "전라남도",
+      "signgu_nm": "무안군"
+    },
+    {
+      "zone_no": "9760",
+      "zone_name": "영광읍",
+      "zone_full_name": "영광읍",
+      "sido_nm": "전라남도",
+      "signgu_nm": "영광군"
+    },
+    {
+      "zone_no": "9761",
+      "zone_name": "영암군청",
+      "zone_full_name": "영암군청",
+      "sido_nm": "전라남도",
+      "signgu_nm": "영암군"
+    },
+    {
+      "zone_no": "9762",
+      "zone_name": "완도읍",
+      "zone_full_name": "완도읍",
+      "sido_nm": "전라남도",
+      "signgu_nm": "완도군"
+    },
+    {
+      "zone_no": "9763",
+      "zone_name": "장성역",
+      "zone_full_name": "장성역",
+      "sido_nm": "전라남도",
+      "signgu_nm": "장성군"
+    },
+    {
+      "zone_no": "9764",
+      "zone_name": "장흥군청",
+      "zone_full_name": "장흥군청",
+      "sido_nm": "전라남도",
+      "signgu_nm": "장흥군"
+    },
+    {
+      "zone_no": "9765",
+      "zone_name": "진도읍",
+      "zone_full_name": "진도읍",
+      "sido_nm": "전라남도",
+      "signgu_nm": "진도군"
+    },
+    {
+      "zone_no": "9766",
+      "zone_name": "함평읍",
+      "zone_full_name": "함평읍",
+      "sido_nm": "전라남도",
+      "signgu_nm": "함평군"
+    },
+    {
+      "zone_no": "9199",
+      "zone_name": "시청역_1",
+      "zone_full_name": "시청역_1",
+      "sido_nm": "서울특별시",
+      "signgu_nm": "중구"
+    },
+    {
+      "zone_no": "9767",
+      "zone_name": "해남군청",
+      "zone_full_name": "해남군청",
+      "sido_nm": "전라남도",
+      "signgu_nm": "해남군"
+    },
+    {
+      "zone_no": "9768",
+      "zone_name": "해남종합버스터미널",
+      "zone_full_name": "해남종합버스터미널",
+      "sido_nm": "전라남도",
+      "signgu_nm": "해남군"
+    },
+    {
+      "zone_no": "9769",
+      "zone_name": "차없는거리",
+      "zone_full_name": "차없는거리",
+      "sido_nm": "전라남도",
+      "signgu_nm": "목포시"
+    },
+    {
+      "zone_no": "9770",
+      "zone_name": "봉산동 상권",
+      "zone_full_name": "봉산동 상권",
+      "sido_nm": "전라남도",
+      "signgu_nm": "여수시"
+    },
+    {
+      "zone_no": "9771",
+      "zone_name": "여서동",
+      "zone_full_name": "여서동",
+      "sido_nm": "전라남도",
+      "signgu_nm": "여수시"
+    },
+    {
+      "zone_no": "9773",
+      "zone_name": "중앙동_1",
+      "zone_full_name": "중앙동_1",
+      "sido_nm": "전라남도",
+      "signgu_nm": "여수시"
+    },
+    {
+      "zone_no": "9774",
+      "zone_name": "중앙동_2",
+      "zone_full_name": "중앙동_2",
+      "sido_nm": "전라남도",
+      "signgu_nm": "여수시"
+    },
+    {
+      "zone_no": "9775",
+      "zone_name": "학동상권",
+      "zone_full_name": "학동상권",
+      "sido_nm": "전라남도",
+      "signgu_nm": "여수시"
+    },
+    {
+      "zone_no": "9776",
+      "zone_name": "흥국상가",
+      "zone_full_name": "흥국상가",
+      "sido_nm": "전라남도",
+      "signgu_nm": "여수시"
+    },
+    {
+      "zone_no": "9777",
+      "zone_name": "웅천동",
+      "zone_full_name": "웅천동",
+      "sido_nm": "전라남도",
+      "signgu_nm": "여수시"
+    },
+    {
+      "zone_no": "9200",
+      "zone_name": "시청역_2",
+      "zone_full_name": "시청역_2",
+      "sido_nm": "서울특별시",
+      "signgu_nm": "중구"
+    },
+    {
+      "zone_no": "9778",
+      "zone_name": "죽림지구",
+      "zone_full_name": "죽림지구",
+      "sido_nm": "전라남도",
+      "signgu_nm": "여수시"
+    },
+    {
+      "zone_no": "9779",
+      "zone_name": "고흥읍",
+      "zone_full_name": "고흥읍",
+      "sido_nm": "전라남도",
+      "signgu_nm": "고흥군"
+    },
+    {
+      "zone_no": "9780",
+      "zone_name": "도양읍",
+      "zone_full_name": "도양읍",
+      "sido_nm": "전라남도",
+      "signgu_nm": "고흥군"
+    },
+    {
+      "zone_no": "9781",
+      "zone_name": "곡성군청",
+      "zone_full_name": "곡성군청",
+      "sido_nm": "전라남도",
+      "signgu_nm": "곡성군"
+    },
+    {
+      "zone_no": "9782",
+      "zone_name": "광양읍_1",
+      "zone_full_name": "광양읍_1",
+      "sido_nm": "전라남도",
+      "signgu_nm": "광양시"
+    },
+    {
+      "zone_no": "9783",
+      "zone_name": "중마동_2",
+      "zone_full_name": "중마동_2",
+      "sido_nm": "전라남도",
+      "signgu_nm": "광양시"
+    },
+    {
+      "zone_no": "9784",
+      "zone_name": "중마동_4",
+      "zone_full_name": "중마동_4",
+      "sido_nm": "전라남도",
+      "signgu_nm": "광양시"
+    },
+    {
+      "zone_no": "9785",
+      "zone_name": "담양여객버스터미널",
+      "zone_full_name": "담양여객버스터미널",
+      "sido_nm": "전라남도",
+      "signgu_nm": "담양군"
+    },
+    {
+      "zone_no": "9786",
+      "zone_name": "덕연동",
+      "zone_full_name": "덕연동",
+      "sido_nm": "전라남도",
+      "signgu_nm": "순천시"
+    },
+    {
+      "zone_no": "9787",
+      "zone_name": "삼산동",
+      "zone_full_name": "삼산동",
+      "sido_nm": "전라남도",
+      "signgu_nm": "순천시"
+    },
+    {
+      "zone_no": "9201",
+      "zone_name": "신당역_1",
+      "zone_full_name": "신당역_1",
+      "sido_nm": "서울특별시",
+      "signgu_nm": "중구"
+    },
+    {
+      "zone_no": "9788",
+      "zone_name": "순천만국가정원",
+      "zone_full_name": "순천만국가정원",
+      "sido_nm": "전라남도",
+      "signgu_nm": "순천시"
+    },
+    {
+      "zone_no": "9789",
+      "zone_name": "순천시청",
+      "zone_full_name": "순천시청",
+      "sido_nm": "전라남도",
+      "signgu_nm": "순천시"
+    },
+    {
+      "zone_no": "9790",
+      "zone_name": "순천역",
+      "zone_full_name": "순천역",
+      "sido_nm": "전라남도",
+      "signgu_nm": "순천시"
+    },
+    {
+      "zone_no": "9791",
+      "zone_name": "신대지구",
+      "zone_full_name": "신대지구",
+      "sido_nm": "전라남도",
+      "signgu_nm": "순천시"
+    },
+    {
+      "zone_no": "9792",
+      "zone_name": "왕조1동_2",
+      "zone_full_name": "왕조1동_2",
+      "sido_nm": "전라남도",
+      "signgu_nm": "순천시"
+    },
+    {
+      "zone_no": "9793",
+      "zone_name": "왕조1동_3",
+      "zone_full_name": "왕조1동_3",
+      "sido_nm": "전라남도",
+      "signgu_nm": "순천시"
+    },
+    {
+      "zone_no": "9794",
+      "zone_name": "왕조2동_2",
+      "zone_full_name": "왕조2동_2",
+      "sido_nm": "전라남도",
+      "signgu_nm": "순천시"
+    },
+    {
+      "zone_no": "9795",
+      "zone_name": "중앙동",
+      "zone_full_name": "중앙동",
+      "sido_nm": "전라남도",
+      "signgu_nm": "순천시"
+    },
+    {
+      "zone_no": "9796",
+      "zone_name": "풍덕동",
+      "zone_full_name": "풍덕동",
+      "sido_nm": "전라남도",
+      "signgu_nm": "순천시"
+    },
+    {
+      "zone_no": "9797",
+      "zone_name": "해룡면",
+      "zone_full_name": "해룡면",
+      "sido_nm": "전라남도",
+      "signgu_nm": "순천시"
+    },
+    {
+      "zone_no": "9202",
+      "zone_name": "신당역_2",
+      "zone_full_name": "신당역_2",
+      "sido_nm": "서울특별시",
+      "signgu_nm": "중구"
+    },
+    {
+      "zone_no": "9798",
+      "zone_name": "화순읍",
+      "zone_full_name": "화순읍",
+      "sido_nm": "전라남도",
+      "signgu_nm": "화순군"
+    },
+    {
+      "zone_no": "9800",
+      "zone_name": "동흥동",
+      "zone_full_name": "동흥동",
+      "sido_nm": "제주특별자치도",
+      "signgu_nm": "서귀포시"
+    },
+    {
+      "zone_no": "9801",
+      "zone_name": "중앙동",
+      "zone_full_name": "중앙동",
+      "sido_nm": "제주특별자치도",
+      "signgu_nm": "서귀포시"
+    },
+    {
+      "zone_no": "9802",
+      "zone_name": "고마로",
+      "zone_full_name": "고마로",
+      "sido_nm": "제주특별자치도",
+      "signgu_nm": "제주시"
+    },
+    {
+      "zone_no": "9803",
+      "zone_name": "대학로",
+      "zone_full_name": "대학로",
+      "sido_nm": "제주특별자치도",
+      "signgu_nm": "제주시"
+    },
+    {
+      "zone_no": "9804",
+      "zone_name": "연동",
+      "zone_full_name": "연동",
+      "sido_nm": "제주특별자치도",
+      "signgu_nm": "제주시"
+    },
+    {
+      "zone_no": "9805",
+      "zone_name": "칠성로",
+      "zone_full_name": "칠성로",
+      "sido_nm": "제주특별자치도",
+      "signgu_nm": "제주시"
+    },
+    {
+      "zone_no": "9806",
+      "zone_name": "노형동",
+      "zone_full_name": "노형동",
+      "sido_nm": "제주특별자치도",
+      "signgu_nm": "제주시"
+    },
+    {
+      "zone_no": "9807",
+      "zone_name": "무주읍",
+      "zone_full_name": "무주읍",
+      "sido_nm": "전라북도",
+      "signgu_nm": "무주군"
+    },
+    {
+      "zone_no": "9808",
+      "zone_name": "삼례읍_1",
+      "zone_full_name": "삼례읍_1",
+      "sido_nm": "전라북도",
+      "signgu_nm": "완주군"
+    },
+    {
+      "zone_no": "9203",
+      "zone_name": "약수역",
+      "zone_full_name": "약수역",
+      "sido_nm": "서울특별시",
+      "signgu_nm": "중구"
+    },
+    {
+      "zone_no": "9809",
+      "zone_name": "삼례읍_2",
+      "zone_full_name": "삼례읍_2",
+      "sido_nm": "전라북도",
+      "signgu_nm": "완주군"
+    },
+    {
+      "zone_no": "9810",
+      "zone_name": "도청앞신시가지",
+      "zone_full_name": "도청앞신시가지",
+      "sido_nm": "전라북도",
+      "signgu_nm": "전주시"
+    },
+    {
+      "zone_no": "9811",
+      "zone_name": "삼천3동",
+      "zone_full_name": "삼천3동",
+      "sido_nm": "전라북도",
+      "signgu_nm": "전주시"
+    },
+    {
+      "zone_no": "9812",
+      "zone_name": "서곡지구",
+      "zone_full_name": "서곡지구",
+      "sido_nm": "전라북도",
+      "signgu_nm": "전주시"
+    },
+    {
+      "zone_no": "9813",
+      "zone_name": "서신동_1",
+      "zone_full_name": "서신동_1",
+      "sido_nm": "전라북도",
+      "signgu_nm": "전주시"
+    },
+    {
+      "zone_no": "9814",
+      "zone_name": "서신동_2",
+      "zone_full_name": "서신동_2",
+      "sido_nm": "전라북도",
+      "signgu_nm": "전주시"
+    },
+    {
+      "zone_no": "9815",
+      "zone_name": "송천동메가박스",
+      "zone_full_name": "송천동메가박스",
+      "sido_nm": "전라북도",
+      "signgu_nm": "전주시"
+    },
+    {
+      "zone_no": "9816",
+      "zone_name": "아중고려병원",
+      "zone_full_name": "아중고려병원",
+      "sido_nm": "전라북도",
+      "signgu_nm": "전주시"
+    },
+    {
+      "zone_no": "9817",
+      "zone_name": "전북대학교",
+      "zone_full_name": "전북대학교",
+      "sido_nm": "전라북도",
+      "signgu_nm": "전주시"
+    },
+    {
+      "zone_no": "9818",
+      "zone_name": "전주시청_1",
+      "zone_full_name": "전주시청_1",
+      "sido_nm": "전라북도",
+      "signgu_nm": "전주시"
+    },
+    {
+      "zone_no": "9204",
+      "zone_name": "을지로3가역_1",
+      "zone_full_name": "을지로3가역_1",
+      "sido_nm": "서울특별시",
+      "signgu_nm": "중구"
+    },
+    {
+      "zone_no": "9819",
+      "zone_name": "전주시청_2",
+      "zone_full_name": "전주시청_2",
+      "sido_nm": "전라북도",
+      "signgu_nm": "전주시"
+    },
+    {
+      "zone_no": "9820",
+      "zone_name": "전주역",
+      "zone_full_name": "전주역",
+      "sido_nm": "전라북도",
+      "signgu_nm": "전주시"
+    },
+    {
+      "zone_no": "9821",
+      "zone_name": "중앙동_1",
+      "zone_full_name": "중앙동_1",
+      "sido_nm": "전라북도",
+      "signgu_nm": "전주시"
+    },
+    {
+      "zone_no": "9822",
+      "zone_name": "중앙동_2",
+      "zone_full_name": "중앙동_2",
+      "sido_nm": "전라북도",
+      "signgu_nm": "전주시"
+    },
+    {
+      "zone_no": "9823",
+      "zone_name": "중앙동_3",
+      "zone_full_name": "중앙동_3",
+      "sido_nm": "전라북도",
+      "signgu_nm": "전주시"
+    },
+    {
+      "zone_no": "9824",
+      "zone_name": "중화산1동",
+      "zone_full_name": "중화산1동",
+      "sido_nm": "전라북도",
+      "signgu_nm": "전주시"
+    },
+    {
+      "zone_no": "9825",
+      "zone_name": "중화산2동",
+      "zone_full_name": "중화산2동",
+      "sido_nm": "전라북도",
+      "signgu_nm": "전주시"
+    },
+    {
+      "zone_no": "9826",
+      "zone_name": "평화2동_1",
+      "zone_full_name": "평화2동_1",
+      "sido_nm": "전라북도",
+      "signgu_nm": "전주시"
+    },
+    {
+      "zone_no": "9827",
+      "zone_name": "평화2동_2",
+      "zone_full_name": "평화2동_2",
+      "sido_nm": "전라북도",
+      "signgu_nm": "전주시"
+    },
+    {
+      "zone_no": "9828",
+      "zone_name": "풍남동_1",
+      "zone_full_name": "풍남동_1",
+      "sido_nm": "전라북도",
+      "signgu_nm": "전주시"
+    },
+    {
+      "zone_no": "9205",
+      "zone_name": "을지로3가역_2",
+      "zone_full_name": "을지로3가역_2",
+      "sido_nm": "서울특별시",
+      "signgu_nm": "중구"
+    },
+    {
+      "zone_no": "9829",
+      "zone_name": "풍남동_3",
+      "zone_full_name": "풍남동_3",
+      "sido_nm": "전라북도",
+      "signgu_nm": "전주시"
+    },
+    {
+      "zone_no": "9830",
+      "zone_name": "하가지구",
+      "zone_full_name": "하가지구",
+      "sido_nm": "전라북도",
+      "signgu_nm": "전주시"
+    },
+    {
+      "zone_no": "9831",
+      "zone_name": "아중역앞",
+      "zone_full_name": "아중역앞",
+      "sido_nm": "전라북도",
+      "signgu_nm": "전주시"
+    },
+    {
+      "zone_no": "9832",
+      "zone_name": "전주농산물도매시장",
+      "zone_full_name": "전주농산물도매시장",
+      "sido_nm": "전라북도",
+      "signgu_nm": "전주시"
+    },
+    {
+      "zone_no": "9833",
+      "zone_name": "금동",
+      "zone_full_name": "금동",
+      "sido_nm": "전라북도",
+      "signgu_nm": "남원시"
+    },
+    {
+      "zone_no": "9834",
+      "zone_name": "남원공용버스터미널",
+      "zone_full_name": "남원공용버스터미널",
+      "sido_nm": "전라북도",
+      "signgu_nm": "남원시"
+    },
+    {
+      "zone_no": "9835",
+      "zone_name": "도통동",
+      "zone_full_name": "도통동",
+      "sido_nm": "전라북도",
+      "signgu_nm": "남원시"
+    },
+    {
+      "zone_no": "9836",
+      "zone_name": "순창공용버스정류장",
+      "zone_full_name": "순창공용버스정류장",
+      "sido_nm": "전라북도",
+      "signgu_nm": "순창군"
+    },
+    {
+      "zone_no": "9837",
+      "zone_name": "순창읍_3",
+      "zone_full_name": "순창읍_3",
+      "sido_nm": "전라북도",
+      "signgu_nm": "순창군"
+    },
+    {
+      "zone_no": "9838",
+      "zone_name": "남중동_1",
+      "zone_full_name": "남중동_1",
+      "sido_nm": "전라북도",
+      "signgu_nm": "익산시"
+    },
+    {
+      "zone_no": "9206",
+      "zone_name": "을지로4가역",
+      "zone_full_name": "을지로4가역",
+      "sido_nm": "서울특별시",
+      "signgu_nm": "중구"
+    },
+    {
+      "zone_no": "9839",
+      "zone_name": "모현동",
+      "zone_full_name": "모현동",
+      "sido_nm": "전라북도",
+      "signgu_nm": "익산시"
+    },
+    {
+      "zone_no": "9840",
+      "zone_name": "삼성동",
+      "zone_full_name": "삼성동",
+      "sido_nm": "전라북도",
+      "signgu_nm": "익산시"
+    },
+    {
+      "zone_no": "9842",
+      "zone_name": "신동",
+      "zone_full_name": "신동",
+      "sido_nm": "전라북도",
+      "signgu_nm": "익산시"
+    },
+    {
+      "zone_no": "9843",
+      "zone_name": "영등1동_1",
+      "zone_full_name": "영등1동_1",
+      "sido_nm": "전라북도",
+      "signgu_nm": "익산시"
+    },
+    {
+      "zone_no": "9845",
+      "zone_name": "영등2동_2",
+      "zone_full_name": "영등2동_2",
+      "sido_nm": "전라북도",
+      "signgu_nm": "익산시"
+    },
+    {
+      "zone_no": "9846",
+      "zone_name": "영등2동_3",
+      "zone_full_name": "영등2동_3",
+      "sido_nm": "전라북도",
+      "signgu_nm": "익산시"
+    },
+    {
+      "zone_no": "9848",
+      "zone_name": "익산역_2",
+      "zone_full_name": "익산역_2",
+      "sido_nm": "전라북도",
+      "signgu_nm": "익산시"
+    },
+    {
+      "zone_no": "9849",
+      "zone_name": "군산대학교",
+      "zone_full_name": "군산대학교",
+      "sido_nm": "전라북도",
+      "signgu_nm": "군산시"
+    },
+    {
+      "zone_no": "9850",
+      "zone_name": "나운동",
+      "zone_full_name": "나운동",
+      "sido_nm": "전라북도",
+      "signgu_nm": "군산시"
+    },
+    {
+      "zone_no": "9851",
+      "zone_name": "지곡동_2",
+      "zone_full_name": "지곡동_2",
+      "sido_nm": "전라북도",
+      "signgu_nm": "군산시"
+    },
+    {
+      "zone_no": "9144",
+      "zone_name": "홍대입구역_1",
+      "zone_full_name": "홍대입구역_1",
+      "sido_nm": "서울특별시",
+      "signgu_nm": "마포구"
+    },
+    {
+      "zone_no": "9207",
+      "zone_name": "장충동 족발거리",
+      "zone_full_name": "장충동 족발거리",
+      "sido_nm": "서울특별시",
+      "signgu_nm": "중구"
+    },
+    {
+      "zone_no": "9852",
+      "zone_name": "지곡동_1",
+      "zone_full_name": "지곡동_1",
+      "sido_nm": "전라북도",
+      "signgu_nm": "군산시"
+    },
+    {
+      "zone_no": "9853",
+      "zone_name": "중앙동_1",
+      "zone_full_name": "중앙동_1",
+      "sido_nm": "전라북도",
+      "signgu_nm": "군산시"
+    },
+    {
+      "zone_no": "9854",
+      "zone_name": "중앙동_2",
+      "zone_full_name": "중앙동_2",
+      "sido_nm": "전라북도",
+      "signgu_nm": "군산시"
+    },
+    {
+      "zone_no": "9855",
+      "zone_name": "수송동롯데마트_1",
+      "zone_full_name": "수송동롯데마트_1",
+      "sido_nm": "전라북도",
+      "signgu_nm": "군산시"
+    },
+    {
+      "zone_no": "9856",
+      "zone_name": "수송동롯데마트_2",
+      "zone_full_name": "수송동롯데마트_2",
+      "sido_nm": "전라북도",
+      "signgu_nm": "군산시"
+    },
+    {
+      "zone_no": "9859",
+      "zone_name": "고창공용버스터미널_1",
+      "zone_full_name": "고창공용버스터미널_1",
+      "sido_nm": "전라북도",
+      "signgu_nm": "고창군"
+    },
+    {
+      "zone_no": "9860",
+      "zone_name": "고창공용버스터미널_2",
+      "zone_full_name": "고창공용버스터미널_2",
+      "sido_nm": "전라북도",
+      "signgu_nm": "고창군"
+    },
+    {
+      "zone_no": "9861",
+      "zone_name": "요촌동",
+      "zone_full_name": "요촌동",
+      "sido_nm": "전라북도",
+      "signgu_nm": "김제시"
+    },
+    {
+      "zone_no": "9862",
+      "zone_name": "부안시외버스터미널_1",
+      "zone_full_name": "부안시외버스터미널_1",
+      "sido_nm": "전라북도",
+      "signgu_nm": "부안군"
+    },
+    {
+      "zone_no": "9863",
+      "zone_name": "부안시외버스터미널_2",
+      "zone_full_name": "부안시외버스터미널_2",
+      "sido_nm": "전라북도",
+      "signgu_nm": "부안군"
+    },
+    {
+      "zone_no": "9208",
+      "zone_name": "충무로역_1",
+      "zone_full_name": "충무로역_1",
+      "sido_nm": "서울특별시",
+      "signgu_nm": "중구"
+    },
+    {
+      "zone_no": "9864",
+      "zone_name": "수성동_1",
+      "zone_full_name": "수성동_1",
+      "sido_nm": "전라북도",
+      "signgu_nm": "정읍시"
+    },
+    {
+      "zone_no": "9865",
+      "zone_name": "수성동_2",
+      "zone_full_name": "수성동_2",
+      "sido_nm": "전라북도",
+      "signgu_nm": "정읍시"
+    },
+    {
+      "zone_no": "9866",
+      "zone_name": "정읍역",
+      "zone_full_name": "정읍역",
+      "sido_nm": "전라북도",
+      "signgu_nm": "정읍시"
+    },
+    {
+      "zone_no": "9867",
+      "zone_name": "수원버스터미널",
+      "zone_full_name": "수원버스터미널",
+      "sido_nm": "경기도",
+      "signgu_nm": "수원시"
+    },
+    {
+      "zone_no": "9868",
+      "zone_name": "수원시청_2",
+      "zone_full_name": "수원시청_2",
+      "sido_nm": "경기도",
+      "signgu_nm": "수원시"
+    },
+    {
+      "zone_no": "9870",
+      "zone_name": "경희대학교국제캠퍼스",
+      "zone_full_name": "경희대학교국제캠퍼스",
+      "sido_nm": "경기도",
+      "signgu_nm": "수원시"
+    },
+    {
+      "zone_no": "9872",
+      "zone_name": "망포역_1",
+      "zone_full_name": "망포역_1",
+      "sido_nm": "경기도",
+      "signgu_nm": "수원시"
+    },
+    {
+      "zone_no": "9873",
+      "zone_name": "망포역_2",
+      "zone_full_name": "망포역_2",
+      "sido_nm": "경기도",
+      "signgu_nm": "수원시"
+    },
+    {
+      "zone_no": "9874",
+      "zone_name": "아주대삼거리_1",
+      "zone_full_name": "아주대삼거리_1",
+      "sido_nm": "경기도",
+      "signgu_nm": "수원시"
+    },
+    {
+      "zone_no": "9875",
+      "zone_name": "영통역_1",
+      "zone_full_name": "영통역_1",
+      "sido_nm": "경기도",
+      "signgu_nm": "수원시"
+    },
+    {
+      "zone_no": "9209",
+      "zone_name": "충무로역_2",
+      "zone_full_name": "충무로역_2",
+      "sido_nm": "서울특별시",
+      "signgu_nm": "중구"
+    },
+    {
+      "zone_no": "9876",
+      "zone_name": "영통역_2",
+      "zone_full_name": "영통역_2",
+      "sido_nm": "경기도",
+      "signgu_nm": "수원시"
+    },
+    {
+      "zone_no": "9877",
+      "zone_name": "영통역_5",
+      "zone_full_name": "영통역_5",
+      "sido_nm": "경기도",
+      "signgu_nm": "수원시"
+    },
+    {
+      "zone_no": "9878",
+      "zone_name": "영통역_4",
+      "zone_full_name": "영통역_4",
+      "sido_nm": "경기도",
+      "signgu_nm": "수원시"
+    },
+    {
+      "zone_no": "9879",
+      "zone_name": "광교",
+      "zone_full_name": "광교",
+      "sido_nm": "경기도",
+      "signgu_nm": "수원시"
+    },
+    {
+      "zone_no": "9880",
+      "zone_name": "샘내공원삼거리",
+      "zone_full_name": "샘내공원삼거리",
+      "sido_nm": "경기도",
+      "signgu_nm": "수원시"
+    },
+    {
+      "zone_no": "9881",
+      "zone_name": "성균관대자연과학캠퍼스",
+      "zone_full_name": "성균관대자연과학캠퍼스",
+      "sido_nm": "경기도",
+      "signgu_nm": "수원시"
+    },
+    {
+      "zone_no": "9882",
+      "zone_name": "장안구청",
+      "zone_full_name": "장안구청",
+      "sido_nm": "경기도",
+      "signgu_nm": "수원시"
+    },
+    {
+      "zone_no": "9883",
+      "zone_name": "장안문로터리_1",
+      "zone_full_name": "장안문로터리_1",
+      "sido_nm": "경기도",
+      "signgu_nm": "수원시"
+    },
+    {
+      "zone_no": "9884",
+      "zone_name": "장안문로터리_2",
+      "zone_full_name": "장안문로터리_2",
+      "sido_nm": "경기도",
+      "signgu_nm": "수원시"
+    },
+    {
+      "zone_no": "9885",
+      "zone_name": "정자3동주민센터",
+      "zone_full_name": "정자3동주민센터",
+      "sido_nm": "경기도",
+      "signgu_nm": "수원시"
+    },
+    {
+      "zone_no": "9210",
+      "zone_name": "강서구청",
+      "zone_full_name": "강서구청",
+      "sido_nm": "서울특별시",
+      "signgu_nm": "강서구"
+    },
+    {
+      "zone_no": "9886",
+      "zone_name": "못골종합시장_1",
+      "zone_full_name": "못골종합시장_1",
+      "sido_nm": "경기도",
+      "signgu_nm": "수원시"
+    },
+    {
+      "zone_no": "9887",
+      "zone_name": "못골종합시장_2",
+      "zone_full_name": "못골종합시장_2",
+      "sido_nm": "경기도",
+      "signgu_nm": "수원시"
+    },
+    {
+      "zone_no": "9888",
+      "zone_name": "수원시청_1",
+      "zone_full_name": "수원시청_1",
+      "sido_nm": "경기도",
+      "signgu_nm": "수원시"
+    },
+    {
+      "zone_no": "9889",
+      "zone_name": "수원시청_3",
+      "zone_full_name": "수원시청_3",
+      "sido_nm": "경기도",
+      "signgu_nm": "수원시"
+    },
+    {
+      "zone_no": "9890",
+      "zone_name": "수원시청_4",
+      "zone_full_name": "수원시청_4",
+      "sido_nm": "경기도",
+      "signgu_nm": "수원시"
+    },
+    {
+      "zone_no": "9891",
+      "zone_name": "수원역",
+      "zone_full_name": "수원역",
+      "sido_nm": "경기도",
+      "signgu_nm": "수원시"
+    },
+    {
+      "zone_no": "9893",
+      "zone_name": "아주대삼거리_2",
+      "zone_full_name": "아주대삼거리_2",
+      "sido_nm": "경기도",
+      "signgu_nm": "수원시"
+    },
+    {
+      "zone_no": "9894",
+      "zone_name": "아주대삼거리_3",
+      "zone_full_name": "아주대삼거리_3",
+      "sido_nm": "경기도",
+      "signgu_nm": "수원시"
+    },
+    {
+      "zone_no": "9895",
+      "zone_name": "팔달문로터리_1",
+      "zone_full_name": "팔달문로터리_1",
+      "sido_nm": "경기도",
+      "signgu_nm": "수원시"
+    },
+    {
+      "zone_no": "9896",
+      "zone_name": "팔달문로터리_2",
+      "zone_full_name": "팔달문로터리_2",
+      "sido_nm": "경기도",
+      "signgu_nm": "수원시"
+    },
+    {
+      "zone_no": "9211",
+      "zone_name": "발산역",
+      "zone_full_name": "발산역",
+      "sido_nm": "서울특별시",
+      "signgu_nm": "강서구"
+    },
+    {
+      "zone_no": "9897",
+      "zone_name": "팔달문로터리_3",
+      "zone_full_name": "팔달문로터리_3",
+      "sido_nm": "경기도",
+      "signgu_nm": "수원시"
+    },
+    {
+      "zone_no": "9898",
+      "zone_name": "강남대",
+      "zone_full_name": "강남대",
+      "sido_nm": "경기도",
+      "signgu_nm": "용인시"
+    },
+    {
+      "zone_no": "9899",
+      "zone_name": "구갈공원",
+      "zone_full_name": "구갈공원",
+      "sido_nm": "경기도",
+      "signgu_nm": "용인시"
+    },
+    {
+      "zone_no": "9900",
+      "zone_name": "신갈오거리",
+      "zone_full_name": "신갈오거리",
+      "sido_nm": "경기도",
+      "signgu_nm": "용인시"
+    },
+    {
+      "zone_no": "9901",
+      "zone_name": "죽전역",
+      "zone_full_name": "죽전역",
+      "sido_nm": "경기도",
+      "signgu_nm": "용인시"
+    },
+    {
+      "zone_no": "9902",
+      "zone_name": "죽전카페거리",
+      "zone_full_name": "죽전카페거리",
+      "sido_nm": "경기도",
+      "signgu_nm": "용인시"
+    },
+    {
+      "zone_no": "9903",
+      "zone_name": "쥬네브썬월드",
+      "zone_full_name": "쥬네브썬월드",
+      "sido_nm": "경기도",
+      "signgu_nm": "용인시"
+    },
+    {
+      "zone_no": "9904",
+      "zone_name": "흥덕초등학교앞",
+      "zone_full_name": "흥덕초등학교앞",
+      "sido_nm": "경기도",
+      "signgu_nm": "용인시"
+    },
+    {
+      "zone_no": "9905",
+      "zone_name": "수지구청_1",
+      "zone_full_name": "수지구청_1",
+      "sido_nm": "경기도",
+      "signgu_nm": "용인시"
+    },
+    {
+      "zone_no": "9906",
+      "zone_name": "수지구청_2",
+      "zone_full_name": "수지구청_2",
+      "sido_nm": "경기도",
+      "signgu_nm": "용인시"
+    },
+    {
+      "zone_no": "9212",
+      "zone_name": "송정역",
+      "zone_full_name": "송정역",
+      "sido_nm": "서울특별시",
+      "signgu_nm": "강서구"
+    },
+    {
+      "zone_no": "9907",
+      "zone_name": "수지구청_3",
+      "zone_full_name": "수지구청_3",
+      "sido_nm": "경기도",
+      "signgu_nm": "용인시"
+    },
+    {
+      "zone_no": "9908",
+      "zone_name": "용인사거리_1",
+      "zone_full_name": "용인사거리_1",
+      "sido_nm": "경기도",
+      "signgu_nm": "용인시"
+    },
+    {
+      "zone_no": "9909",
+      "zone_name": "용인사거리_2",
+      "zone_full_name": "용인사거리_2",
+      "sido_nm": "경기도",
+      "signgu_nm": "용인시"
+    },
+    {
+      "zone_no": "9910",
+      "zone_name": "상현역",
+      "zone_full_name": "상현역",
+      "sido_nm": "경기도",
+      "signgu_nm": "용인시"
+    },
+    {
+      "zone_no": "9911",
+      "zone_name": "안성시장",
+      "zone_full_name": "안성시장",
+      "sido_nm": "경기도",
+      "signgu_nm": "안성시"
+    },
+    {
+      "zone_no": "9912",
+      "zone_name": "서정리역",
+      "zone_full_name": "서정리역",
+      "sido_nm": "경기도",
+      "signgu_nm": "평택시"
+    },
+    {
+      "zone_no": "9913",
+      "zone_name": "소사벌지구",
+      "zone_full_name": "소사벌지구",
+      "sido_nm": "경기도",
+      "signgu_nm": "평택시"
+    },
+    {
+      "zone_no": "9914",
+      "zone_name": "송탄국제중앙시장",
+      "zone_full_name": "송탄국제중앙시장",
+      "sido_nm": "경기도",
+      "signgu_nm": "평택시"
+    },
+    {
+      "zone_no": "9915",
+      "zone_name": "송탄출장소앞",
+      "zone_full_name": "송탄출장소앞",
+      "sido_nm": "경기도",
+      "signgu_nm": "평택시"
+    },
+    {
+      "zone_no": "9916",
+      "zone_name": "안중시장삼거리",
+      "zone_full_name": "안중시장삼거리",
+      "sido_nm": "경기도",
+      "signgu_nm": "평택시"
+    },
+    {
+      "zone_no": "9213",
+      "zone_name": "가리봉시장(구로디지털오거리)",
+      "zone_full_name": "가리봉시장(구로디지털오거리)",
+      "sido_nm": "서울특별시",
+      "signgu_nm": "구로구"
+    },
+    {
+      "zone_no": "9917",
+      "zone_name": "평택시청_1",
+      "zone_full_name": "평택시청_1",
+      "sido_nm": "경기도",
+      "signgu_nm": "평택시"
+    },
+    {
+      "zone_no": "9918",
+      "zone_name": "평택시청_2",
+      "zone_full_name": "평택시청_2",
+      "sido_nm": "경기도",
+      "signgu_nm": "평택시"
+    },
+    {
+      "zone_no": "9919",
+      "zone_name": "평택역_1",
+      "zone_full_name": "평택역_1",
+      "sido_nm": "경기도",
+      "signgu_nm": "평택시"
+    },
+    {
+      "zone_no": "9920",
+      "zone_name": "평택역_2",
+      "zone_full_name": "평택역_2",
+      "sido_nm": "경기도",
+      "signgu_nm": "평택시"
+    },
+    {
+      "zone_no": "9921",
+      "zone_name": "평택역_3",
+      "zone_full_name": "평택역_3",
+      "sido_nm": "경기도",
+      "signgu_nm": "평택시"
+    },
+    {
+      "zone_no": "9922",
+      "zone_name": "포승도곡근린공원",
+      "zone_full_name": "포승도곡근린공원",
+      "sido_nm": "경기도",
+      "signgu_nm": "평택시"
+    },
+    {
+      "zone_no": "9923",
+      "zone_name": "공도읍_1",
+      "zone_full_name": "공도읍_1",
+      "sido_nm": "경기도",
+      "signgu_nm": "안성시"
+    },
+    {
+      "zone_no": "9924",
+      "zone_name": "오산시청",
+      "zone_full_name": "오산시청",
+      "sido_nm": "경기도",
+      "signgu_nm": "오산시"
+    },
+    {
+      "zone_no": "9925",
+      "zone_name": "오산역",
+      "zone_full_name": "오산역",
+      "sido_nm": "경기도",
+      "signgu_nm": "오산시"
+    },
+    {
+      "zone_no": "9926",
+      "zone_name": "동탄센트럴파크_1",
+      "zone_full_name": "동탄센트럴파크_1",
+      "sido_nm": "경기도",
+      "signgu_nm": "화성시"
+    },
+    {
+      "zone_no": "9214",
+      "zone_name": "가산디지털단지역_2",
+      "zone_full_name": "가산디지털단지역_2",
+      "sido_nm": "서울특별시",
+      "signgu_nm": "금천구"
+    },
+    {
+      "zone_no": "9927",
+      "zone_name": "동탄센트럴파크_2",
+      "zone_full_name": "동탄센트럴파크_2",
+      "sido_nm": "경기도",
+      "signgu_nm": "화성시"
+    },
+    {
+      "zone_no": "9928",
+      "zone_name": "반월동상점가",
+      "zone_full_name": "반월동상점가",
+      "sido_nm": "경기도",
+      "signgu_nm": "수원시"
+    },
+    {
+      "zone_no": "9929",
+      "zone_name": "발안사거리",
+      "zone_full_name": "발안사거리",
+      "sido_nm": "경기도",
+      "signgu_nm": "화성시"
+    },
+    {
+      "zone_no": "9930",
+      "zone_name": "병점중심상가",
+      "zone_full_name": "병점중심상가",
+      "sido_nm": "경기도",
+      "signgu_nm": "화성시"
+    },
+    {
+      "zone_no": "9931",
+      "zone_name": "조암버스터미널",
+      "zone_full_name": "조암버스터미널",
+      "sido_nm": "경기도",
+      "signgu_nm": "화성시"
+    },
+    {
+      "zone_no": "9932",
+      "zone_name": "향남신도시",
+      "zone_full_name": "향남신도시",
+      "sido_nm": "경기도",
+      "signgu_nm": "화성시"
+    },
+    {
+      "zone_no": "9934",
+      "zone_name": "수원대앞",
+      "zone_full_name": "수원대앞",
+      "sido_nm": "경기도",
+      "signgu_nm": "화성시"
+    },
+    {
+      "zone_no": "9935",
+      "zone_name": "남양시장",
+      "zone_full_name": "남양시장",
+      "sido_nm": "경기도",
+      "signgu_nm": "화성시"
+    },
+    {
+      "zone_no": "9936",
+      "zone_name": "사강시장",
+      "zone_full_name": "사강시장",
+      "sido_nm": "경기도",
+      "signgu_nm": "화성시"
+    },
+    {
+      "zone_no": "9937",
+      "zone_name": "오산오색시장",
+      "zone_full_name": "오산오색시장",
+      "sido_nm": "경기도",
+      "signgu_nm": "오산시"
+    },
+    {
+      "zone_no": "9215",
+      "zone_name": "가산디지털단지역_3",
+      "zone_full_name": "가산디지털단지역_3",
+      "sido_nm": "서울특별시",
+      "signgu_nm": "금천구"
+    },
+    {
+      "zone_no": "9938",
+      "zone_name": "병점역",
+      "zone_full_name": "병점역",
+      "sido_nm": "경기도",
+      "signgu_nm": "화성시"
+    },
+    {
+      "zone_no": "9939",
+      "zone_name": "광명사거리역",
+      "zone_full_name": "광명사거리역",
+      "sido_nm": "경기도",
+      "signgu_nm": "광명시"
+    },
+    {
+      "zone_no": "9940",
+      "zone_name": "철산역",
+      "zone_full_name": "철산역",
+      "sido_nm": "경기도",
+      "signgu_nm": "광명시"
+    },
+    {
+      "zone_no": "9941",
+      "zone_name": "하안사거리",
+      "zone_full_name": "하안사거리",
+      "sido_nm": "경기도",
+      "signgu_nm": "광명시"
+    },
+    {
+      "zone_no": "9942",
+      "zone_name": "비둘기공원앞",
+      "zone_full_name": "비둘기공원앞",
+      "sido_nm": "경기도",
+      "signgu_nm": "시흥시"
+    },
+    {
+      "zone_no": "9943",
+      "zone_name": "삼미시장",
+      "zone_full_name": "삼미시장",
+      "sido_nm": "경기도",
+      "signgu_nm": "시흥시"
+    },
+    {
+      "zone_no": "9944",
+      "zone_name": "시흥시평생학습센터앞",
+      "zone_full_name": "시흥시평생학습센터앞",
+      "sido_nm": "경기도",
+      "signgu_nm": "시흥시"
+    },
+    {
+      "zone_no": "9945",
+      "zone_name": "오이도해양단지",
+      "zone_full_name": "오이도해양단지",
+      "sido_nm": "경기도",
+      "signgu_nm": "시흥시"
+    },
+    {
+      "zone_no": "9946",
+      "zone_name": "유천아파트앞",
+      "zone_full_name": "유천아파트앞",
+      "sido_nm": "경기도",
+      "signgu_nm": "시흥시"
+    },
+    {
+      "zone_no": "9947",
+      "zone_name": "유통상가사거리",
+      "zone_full_name": "유통상가사거리",
+      "sido_nm": "경기도",
+      "signgu_nm": "시흥시"
+    },
+    {
+      "zone_no": "9216",
+      "zone_name": "개봉동 현대아파트",
+      "zone_full_name": "개봉동 현대아파트",
+      "sido_nm": "서울특별시",
+      "signgu_nm": "구로구"
+    },
+    {
+      "zone_no": "9948",
+      "zone_name": "이마트시화점사거리",
+      "zone_full_name": "이마트시화점사거리",
+      "sido_nm": "경기도",
+      "signgu_nm": "시흥시"
+    },
+    {
+      "zone_no": "9949",
+      "zone_name": "정왕동옥구상가",
+      "zone_full_name": "정왕동옥구상가",
+      "sido_nm": "경기도",
+      "signgu_nm": "시흥시"
+    },
+    {
+      "zone_no": "9950",
+      "zone_name": "정왕시장",
+      "zone_full_name": "정왕시장",
+      "sido_nm": "경기도",
+      "signgu_nm": "시흥시"
+    },
+    {
+      "zone_no": "9951",
+      "zone_name": "소화상업지구",
+      "zone_full_name": "소화상업지구",
+      "sido_nm": "경기도",
+      "signgu_nm": "광명시"
+    },
+    {
+      "zone_no": "9952",
+      "zone_name": "곤지암시외버스터미널",
+      "zone_full_name": "곤지암시외버스터미널",
+      "sido_nm": "경기도",
+      "signgu_nm": "광주시"
+    },
+    {
+      "zone_no": "9953",
+      "zone_name": "광주종합터미널",
+      "zone_full_name": "광주종합터미널",
+      "sido_nm": "경기도",
+      "signgu_nm": "광주시"
+    },
+    {
+      "zone_no": "9954",
+      "zone_name": "미금역_1",
+      "zone_full_name": "미금역_1",
+      "sido_nm": "경기도",
+      "signgu_nm": "성남시"
+    },
+    {
+      "zone_no": "9955",
+      "zone_name": "미금역_2",
+      "zone_full_name": "미금역_2",
+      "sido_nm": "경기도",
+      "signgu_nm": "성남시"
+    },
+    {
+      "zone_no": "9956",
+      "zone_name": "미금역_3",
+      "zone_full_name": "미금역_3",
+      "sido_nm": "경기도",
+      "signgu_nm": "성남시"
+    },
+    {
+      "zone_no": "9957",
+      "zone_name": "미금역_4",
+      "zone_full_name": "미금역_4",
+      "sido_nm": "경기도",
+      "signgu_nm": "성남시"
+    },
+    {
+      "zone_no": "9145",
+      "zone_name": "홍대입구역_2",
+      "zone_full_name": "홍대입구역_2",
+      "sido_nm": "서울특별시",
+      "signgu_nm": "마포구"
+    },
+    {
+      "zone_no": "9217",
+      "zone_name": "구로기계공구상_1",
+      "zone_full_name": "구로기계공구상_1",
+      "sido_nm": "서울특별시",
+      "signgu_nm": "구로구"
+    },
+    {
+      "zone_no": "9958",
+      "zone_name": "서현역",
+      "zone_full_name": "서현역",
+      "sido_nm": "경기도",
+      "signgu_nm": "성남시"
+    },
+    {
+      "zone_no": "9959",
+      "zone_name": "수내역",
+      "zone_full_name": "수내역",
+      "sido_nm": "경기도",
+      "signgu_nm": "성남시"
+    },
+    {
+      "zone_no": "9960",
+      "zone_name": "야탑역_1",
+      "zone_full_name": "야탑역_1",
+      "sido_nm": "경기도",
+      "signgu_nm": "성남시"
+    },
+    {
+      "zone_no": "9961",
+      "zone_name": "야탑역_2",
+      "zone_full_name": "야탑역_2",
+      "sido_nm": "경기도",
+      "signgu_nm": "성남시"
+    },
+    {
+      "zone_no": "9962",
+      "zone_name": "오리역_1",
+      "zone_full_name": "오리역_1",
+      "sido_nm": "경기도",
+      "signgu_nm": "성남시"
+    },
+    {
+      "zone_no": "9963",
+      "zone_name": "오리역_2",
+      "zone_full_name": "오리역_2",
+      "sido_nm": "경기도",
+      "signgu_nm": "성남시"
+    },
+    {
+      "zone_no": "9964",
+      "zone_name": "정자역",
+      "zone_full_name": "정자역",
+      "sido_nm": "경기도",
+      "signgu_nm": "성남시"
+    },
+    {
+      "zone_no": "9965",
+      "zone_name": "카페거리",
+      "zone_full_name": "카페거리",
+      "sido_nm": "경기도",
+      "signgu_nm": "성남시"
+    },
+    {
+      "zone_no": "9966",
+      "zone_name": "판교테크벨리",
+      "zone_full_name": "판교테크벨리",
+      "sido_nm": "경기도",
+      "signgu_nm": "성남시"
+    },
+    {
+      "zone_no": "9967",
+      "zone_name": "성남시민회관앞",
+      "zone_full_name": "성남시민회관앞",
+      "sido_nm": "경기도",
+      "signgu_nm": "성남시"
+    },
+    {
+      "zone_no": "9218",
+      "zone_name": "구로기계공구상_2",
+      "zone_full_name": "구로기계공구상_2",
+      "sido_nm": "서울특별시",
+      "signgu_nm": "구로구"
+    },
+    {
+      "zone_no": "9968",
+      "zone_name": "신흥역_1",
+      "zone_full_name": "신흥역_1",
+      "sido_nm": "경기도",
+      "signgu_nm": "성남시"
+    },
+    {
+      "zone_no": "9969",
+      "zone_name": "신흥역_2",
+      "zone_full_name": "신흥역_2",
+      "sido_nm": "경기도",
+      "signgu_nm": "성남시"
+    },
+    {
+      "zone_no": "9970",
+      "zone_name": "모란역_1",
+      "zone_full_name": "모란역_1",
+      "sido_nm": "경기도",
+      "signgu_nm": "성남시"
+    },
+    {
+      "zone_no": "9971",
+      "zone_name": "모란역_2",
+      "zone_full_name": "모란역_2",
+      "sido_nm": "경기도",
+      "signgu_nm": "성남시"
+    },
+    {
+      "zone_no": "9972",
+      "zone_name": "양평역_1",
+      "zone_full_name": "양평역_1",
+      "sido_nm": "경기도",
+      "signgu_nm": "양평군"
+    },
+    {
+      "zone_no": "9973",
+      "zone_name": "양평역_2",
+      "zone_full_name": "양평역_2",
+      "sido_nm": "경기도",
+      "signgu_nm": "양평군"
+    },
+    {
+      "zone_no": "9974",
+      "zone_name": "양평역_3",
+      "zone_full_name": "양평역_3",
+      "sido_nm": "경기도",
+      "signgu_nm": "양평군"
+    },
+    {
+      "zone_no": "9975",
+      "zone_name": "용문역",
+      "zone_full_name": "용문역",
+      "sido_nm": "경기도",
+      "signgu_nm": "양평군"
+    },
+    {
+      "zone_no": "9976",
+      "zone_name": "여주군청",
+      "zone_full_name": "여주군청",
+      "sido_nm": "경기도",
+      "signgu_nm": "여주시"
+    },
+    {
+      "zone_no": "9977",
+      "zone_name": "여주군청_2",
+      "zone_full_name": "여주군청_2",
+      "sido_nm": "경기도",
+      "signgu_nm": "여주시"
+    },
+    {
+      "zone_no": "9219",
+      "zone_name": "디지털단지오거리",
+      "zone_full_name": "디지털단지오거리",
+      "sido_nm": "서울특별시",
+      "signgu_nm": "구로구"
+    },
+    {
+      "zone_no": "9978",
+      "zone_name": "이천종합터미널_1",
+      "zone_full_name": "이천종합터미널_1",
+      "sido_nm": "경기도",
+      "signgu_nm": "이천시"
+    },
+    {
+      "zone_no": "9979",
+      "zone_name": "이천종합터미널_2",
+      "zone_full_name": "이천종합터미널_2",
+      "sido_nm": "경기도",
+      "signgu_nm": "이천시"
+    },
+    {
+      "zone_no": "9980",
+      "zone_name": "이천종합터미널_4",
+      "zone_full_name": "이천종합터미널_4",
+      "sido_nm": "경기도",
+      "signgu_nm": "이천시"
+    },
+    {
+      "zone_no": "9981",
+      "zone_name": "이천종합터미널_5",
+      "zone_full_name": "이천종합터미널_5",
+      "sido_nm": "경기도",
+      "signgu_nm": "이천시"
+    },
+    {
+      "zone_no": "9982",
+      "zone_name": "장호원버스터미널",
+      "zone_full_name": "장호원버스터미널",
+      "sido_nm": "경기도",
+      "signgu_nm": "이천시"
+    },
+    {
+      "zone_no": "9983",
+      "zone_name": "신장시장",
+      "zone_full_name": "신장시장",
+      "sido_nm": "경기도",
+      "signgu_nm": "하남시"
+    },
+    {
+      "zone_no": "9984",
+      "zone_name": "판교역",
+      "zone_full_name": "판교역",
+      "sido_nm": "경기도",
+      "signgu_nm": "성남시"
+    },
+    {
+      "zone_no": "9985",
+      "zone_name": "가평읍",
+      "zone_full_name": "가평읍",
+      "sido_nm": "경기도",
+      "signgu_nm": "가평군"
+    },
+    {
+      "zone_no": "9986",
+      "zone_name": "가평터미널",
+      "zone_full_name": "가평터미널",
+      "sido_nm": "경기도",
+      "signgu_nm": "가평군"
+    },
+    {
+      "zone_no": "9987",
+      "zone_name": "청평시외버스터미널",
+      "zone_full_name": "청평시외버스터미널",
+      "sido_nm": "경기도",
+      "signgu_nm": "가평군"
+    },
+    {
+      "zone_no": "9220",
+      "zone_name": "구로역",
+      "zone_full_name": "구로역",
+      "sido_nm": "서울특별시",
+      "signgu_nm": "구로구"
+    },
+    {
+      "zone_no": "9988",
+      "zone_name": "돌다리사거리_1",
+      "zone_full_name": "돌다리사거리_1",
+      "sido_nm": "경기도",
+      "signgu_nm": "구리시"
+    },
+    {
+      "zone_no": "9989",
+      "zone_name": "돌다리사거리_2",
+      "zone_full_name": "돌다리사거리_2",
+      "sido_nm": "경기도",
+      "signgu_nm": "구리시"
+    },
+    {
+      "zone_no": "9990",
+      "zone_name": "돌다리사거리_3",
+      "zone_full_name": "돌다리사거리_3",
+      "sido_nm": "경기도",
+      "signgu_nm": "구리시"
+    },
+    {
+      "zone_no": "9991",
+      "zone_name": "돌다리사거리_4",
+      "zone_full_name": "돌다리사거리_4",
+      "sido_nm": "경기도",
+      "signgu_nm": "구리시"
+    },
+    {
+      "zone_no": "9992",
+      "zone_name": "구리등기소",
+      "zone_full_name": "구리등기소",
+      "sido_nm": "경기도",
+      "signgu_nm": "구리시"
+    },
+    {
+      "zone_no": "9993",
+      "zone_name": "덕소초등학교앞",
+      "zone_full_name": "덕소초등학교앞",
+      "sido_nm": "경기도",
+      "signgu_nm": "남양주시"
+    },
+    {
+      "zone_no": "9994",
+      "zone_name": "마석역",
+      "zone_full_name": "마석역",
+      "sido_nm": "경기도",
+      "signgu_nm": "남양주시"
+    },
+    {
+      "zone_no": "9995",
+      "zone_name": "심석고등학교",
+      "zone_full_name": "심석고등학교",
+      "sido_nm": "경기도",
+      "signgu_nm": "남양주시"
+    },
+    {
+      "zone_no": "9996",
+      "zone_name": "장현초등학교",
+      "zone_full_name": "장현초등학교",
+      "sido_nm": "경기도",
+      "signgu_nm": "남양주시"
+    },
+    {
+      "zone_no": "9997",
+      "zone_name": "평내동주민센터",
+      "zone_full_name": "평내동주민센터",
+      "sido_nm": "경기도",
+      "signgu_nm": "남양주시"
+    },
+    {
+      "zone_no": "9221",
+      "zone_name": "구로중앙유통단지",
+      "zone_full_name": "구로중앙유통단지",
+      "sido_nm": "서울특별시",
+      "signgu_nm": "양천구"
+    },
+    {
+      "zone_no": "9998",
+      "zone_name": "평내호평역",
+      "zone_full_name": "평내호평역",
+      "sido_nm": "경기도",
+      "signgu_nm": "남양주시"
+    },
+    {
+      "zone_no": "9999",
+      "zone_name": "중앙시장",
+      "zone_full_name": "중앙시장",
+      "sido_nm": "경기도",
+      "signgu_nm": "동두천시"
+    },
+    {
+      "zone_no": "10000",
+      "zone_name": "지행역",
+      "zone_full_name": "지행역",
+      "sido_nm": "경기도",
+      "signgu_nm": "동두천시"
+    },
+    {
+      "zone_no": "10001",
+      "zone_name": "전곡터미널",
+      "zone_full_name": "전곡터미널",
+      "sido_nm": "경기도",
+      "signgu_nm": "연천군"
+    },
+    {
+      "zone_no": "10002",
+      "zone_name": "가능역",
+      "zone_full_name": "가능역",
+      "sido_nm": "경기도",
+      "signgu_nm": "의정부시"
+    },
+    {
+      "zone_no": "10003",
+      "zone_name": "경기도청북부청사역_1",
+      "zone_full_name": "경기도청북부청사역_1",
+      "sido_nm": "경기도",
+      "signgu_nm": "의정부시"
+    },
+    {
+      "zone_no": "10004",
+      "zone_name": "경기도청북부청사역_2",
+      "zone_full_name": "경기도청북부청사역_2",
+      "sido_nm": "경기도",
+      "signgu_nm": "의정부시"
+    },
+    {
+      "zone_no": "10005",
+      "zone_name": "의정부역_1",
+      "zone_full_name": "의정부역_1",
+      "sido_nm": "경기도",
+      "signgu_nm": "의정부시"
+    },
+    {
+      "zone_no": "10006",
+      "zone_name": "의정부역_2",
+      "zone_full_name": "의정부역_2",
+      "sido_nm": "경기도",
+      "signgu_nm": "의정부시"
+    },
+    {
+      "zone_no": "10007",
+      "zone_name": "젊음의거리_1",
+      "zone_full_name": "젊음의거리_1",
+      "sido_nm": "경기도",
+      "signgu_nm": "의정부시"
+    },
+    {
+      "zone_no": "9222",
+      "zone_name": "대림역",
+      "zone_full_name": "대림역",
+      "sido_nm": "서울특별시",
+      "signgu_nm": "구로구"
+    },
+    {
+      "zone_no": "10008",
+      "zone_name": "젊음의거리_2",
+      "zone_full_name": "젊음의거리_2",
+      "sido_nm": "경기도",
+      "signgu_nm": "의정부시"
+    },
+    {
+      "zone_no": "10009",
+      "zone_name": "송우리시외버스터미널_1",
+      "zone_full_name": "송우리시외버스터미널_1",
+      "sido_nm": "경기도",
+      "signgu_nm": "포천시"
+    },
+    {
+      "zone_no": "10010",
+      "zone_name": "송우리시외버스터미널_2",
+      "zone_full_name": "송우리시외버스터미널_2",
+      "sido_nm": "경기도",
+      "signgu_nm": "포천시"
+    },
+    {
+      "zone_no": "10011",
+      "zone_name": "일동면",
+      "zone_full_name": "일동면",
+      "sido_nm": "경기도",
+      "signgu_nm": "포천시"
+    },
+    {
+      "zone_no": "10012",
+      "zone_name": "포천시외버스터미널_1",
+      "zone_full_name": "포천시외버스터미널_1",
+      "sido_nm": "경기도",
+      "signgu_nm": "포천시"
+    },
+    {
+      "zone_no": "10013",
+      "zone_name": "포천시외버스터미널_2",
+      "zone_full_name": "포천시외버스터미널_2",
+      "sido_nm": "경기도",
+      "signgu_nm": "포천시"
+    },
+    {
+      "zone_no": "10014",
+      "zone_name": "가능역2-3번출구",
+      "zone_full_name": "가능역2-3번출구",
+      "sido_nm": "경기도",
+      "signgu_nm": "의정부시"
+    },
+    {
+      "zone_no": "10015",
+      "zone_name": "덕소역",
+      "zone_full_name": "덕소역",
+      "sido_nm": "경기도",
+      "signgu_nm": "남양주시"
+    },
+    {
+      "zone_no": "10016",
+      "zone_name": "고촌읍사무소",
+      "zone_full_name": "고촌읍사무소",
+      "sido_nm": "경기도",
+      "signgu_nm": "김포시"
+    },
+    {
+      "zone_no": "10017",
+      "zone_name": "김포시청_1",
+      "zone_full_name": "김포시청_1",
+      "sido_nm": "경기도",
+      "signgu_nm": "김포시"
+    },
+    {
+      "zone_no": "9223",
+      "zone_name": "신도림역",
+      "zone_full_name": "신도림역",
+      "sido_nm": "서울특별시",
+      "signgu_nm": "구로구"
+    },
+    {
+      "zone_no": "10018",
+      "zone_name": "김포시청_2",
+      "zone_full_name": "김포시청_2",
+      "sido_nm": "경기도",
+      "signgu_nm": "김포시"
+    },
+    {
+      "zone_no": "10019",
+      "zone_name": "장기사거리",
+      "zone_full_name": "장기사거리",
+      "sido_nm": "경기도",
+      "signgu_nm": "김포시"
+    },
+    {
+      "zone_no": "10020",
+      "zone_name": "통진우체국",
+      "zone_full_name": "통진우체국",
+      "sido_nm": "경기도",
+      "signgu_nm": "김포시"
+    },
+    {
+      "zone_no": "10021",
+      "zone_name": "부천역",
+      "zone_full_name": "부천역",
+      "sido_nm": "경기도",
+      "signgu_nm": "부천시"
+    },
+    {
+      "zone_no": "10022",
+      "zone_name": "역곡역_1",
+      "zone_full_name": "역곡역_1",
+      "sido_nm": "경기도",
+      "signgu_nm": "부천시"
+    },
+    {
+      "zone_no": "10023",
+      "zone_name": "원종사거리",
+      "zone_full_name": "원종사거리",
+      "sido_nm": "경기도",
+      "signgu_nm": "부천시"
+    },
+    {
+      "zone_no": "10024",
+      "zone_name": "부개역",
+      "zone_full_name": "부개역",
+      "sido_nm": "인천광역시",
+      "signgu_nm": "부평구"
+    },
+    {
+      "zone_no": "10025",
+      "zone_name": "부천시청",
+      "zone_full_name": "부천시청",
+      "sido_nm": "경기도",
+      "signgu_nm": "부천시"
+    },
+    {
+      "zone_no": "10027",
+      "zone_name": "상동역_1",
+      "zone_full_name": "상동역_1",
+      "sido_nm": "경기도",
+      "signgu_nm": "부천시"
+    },
+    {
+      "zone_no": "10028",
+      "zone_name": "상동역_2",
+      "zone_full_name": "상동역_2",
+      "sido_nm": "경기도",
+      "signgu_nm": "부천시"
+    },
+    {
+      "zone_no": "9224",
+      "zone_name": "오류동",
+      "zone_full_name": "오류동",
+      "sido_nm": "서울특별시",
+      "signgu_nm": "구로구"
+    },
+    {
+      "zone_no": "10029",
+      "zone_name": "상동역_3",
+      "zone_full_name": "상동역_3",
+      "sido_nm": "경기도",
+      "signgu_nm": "부천시"
+    },
+    {
+      "zone_no": "10030",
+      "zone_name": "상동역_4",
+      "zone_full_name": "상동역_4",
+      "sido_nm": "경기도",
+      "signgu_nm": "부천시"
+    },
+    {
+      "zone_no": "10031",
+      "zone_name": "송내 영화의거리",
+      "zone_full_name": "송내 영화의거리",
+      "sido_nm": "경기도",
+      "signgu_nm": "부천시"
+    },
+    {
+      "zone_no": "10033",
+      "zone_name": "신중동역",
+      "zone_full_name": "신중동역",
+      "sido_nm": "경기도",
+      "signgu_nm": "부천시"
+    },
+    {
+      "zone_no": "10034",
+      "zone_name": "역곡역_2",
+      "zone_full_name": "역곡역_2",
+      "sido_nm": "경기도",
+      "signgu_nm": "부천시"
+    },
+    {
+      "zone_no": "10035",
+      "zone_name": "고양시청_1",
+      "zone_full_name": "고양시청_1",
+      "sido_nm": "경기도",
+      "signgu_nm": "고양시"
+    },
+    {
+      "zone_no": "10036",
+      "zone_name": "고양시청_2",
+      "zone_full_name": "고양시청_2",
+      "sido_nm": "경기도",
+      "signgu_nm": "고양시"
+    },
+    {
+      "zone_no": "10037",
+      "zone_name": "덕양구청",
+      "zone_full_name": "덕양구청",
+      "sido_nm": "경기도",
+      "signgu_nm": "고양시"
+    },
+    {
+      "zone_no": "10038",
+      "zone_name": "행신1동주민센터",
+      "zone_full_name": "행신1동주민센터",
+      "sido_nm": "경기도",
+      "signgu_nm": "고양시"
+    },
+    {
+      "zone_no": "10039",
+      "zone_name": "행신역",
+      "zone_full_name": "행신역",
+      "sido_nm": "경기도",
+      "signgu_nm": "고양시"
+    },
+    {
+      "zone_no": "9225",
+      "zone_name": "가산디지털단지역_1",
+      "zone_full_name": "가산디지털단지역_1",
+      "sido_nm": "서울특별시",
+      "signgu_nm": "금천구"
+    },
+    {
+      "zone_no": "10040",
+      "zone_name": "화정역_1",
+      "zone_full_name": "화정역_1",
+      "sido_nm": "경기도",
+      "signgu_nm": "고양시"
+    },
+    {
+      "zone_no": "10041",
+      "zone_name": "화정역_2",
+      "zone_full_name": "화정역_2",
+      "sido_nm": "경기도",
+      "signgu_nm": "고양시"
+    },
+    {
+      "zone_no": "10042",
+      "zone_name": "마두역_1",
+      "zone_full_name": "마두역_1",
+      "sido_nm": "경기도",
+      "signgu_nm": "고양시"
+    },
+    {
+      "zone_no": "10043",
+      "zone_name": "마두역_2",
+      "zone_full_name": "마두역_2",
+      "sido_nm": "경기도",
+      "signgu_nm": "고양시"
+    },
+    {
+      "zone_no": "10044",
+      "zone_name": "백석역_1",
+      "zone_full_name": "백석역_1",
+      "sido_nm": "경기도",
+      "signgu_nm": "고양시"
+    },
+    {
+      "zone_no": "10045",
+      "zone_name": "백석역_2",
+      "zone_full_name": "백석역_2",
+      "sido_nm": "경기도",
+      "signgu_nm": "고양시"
+    },
+    {
+      "zone_no": "10046",
+      "zone_name": "백석역_3",
+      "zone_full_name": "백석역_3",
+      "sido_nm": "경기도",
+      "signgu_nm": "고양시"
+    },
+    {
+      "zone_no": "10047",
+      "zone_name": "정발산역_1",
+      "zone_full_name": "정발산역_1",
+      "sido_nm": "경기도",
+      "signgu_nm": "고양시"
+    },
+    {
+      "zone_no": "10048",
+      "zone_name": "정발산역_2",
+      "zone_full_name": "정발산역_2",
+      "sido_nm": "경기도",
+      "signgu_nm": "고양시"
+    },
+    {
+      "zone_no": "10049",
+      "zone_name": "정발산역_3",
+      "zone_full_name": "정발산역_3",
+      "sido_nm": "경기도",
+      "signgu_nm": "고양시"
+    },
+    {
+      "zone_no": "9226",
+      "zone_name": "독산1동",
+      "zone_full_name": "독산1동",
+      "sido_nm": "서울특별시",
+      "signgu_nm": "금천구"
+    },
+    {
+      "zone_no": "10050",
+      "zone_name": "정발산역_4",
+      "zone_full_name": "정발산역_4",
+      "sido_nm": "경기도",
+      "signgu_nm": "고양시"
+    },
+    {
+      "zone_no": "10051",
+      "zone_name": "정발산역_5",
+      "zone_full_name": "정발산역_5",
+      "sido_nm": "경기도",
+      "signgu_nm": "고양시"
+    },
+    {
+      "zone_no": "10052",
+      "zone_name": "대화역_1",
+      "zone_full_name": "대화역_1",
+      "sido_nm": "경기도",
+      "signgu_nm": "고양시"
+    },
+    {
+      "zone_no": "10053",
+      "zone_name": "일산역",
+      "zone_full_name": "일산역",
+      "sido_nm": "경기도",
+      "signgu_nm": "고양시"
+    },
+    {
+      "zone_no": "10055",
+      "zone_name": "주엽역_1",
+      "zone_full_name": "주엽역_1",
+      "sido_nm": "경기도",
+      "signgu_nm": "고양시"
+    },
+    {
+      "zone_no": "10056",
+      "zone_name": "주엽역_2",
+      "zone_full_name": "주엽역_2",
+      "sido_nm": "경기도",
+      "signgu_nm": "고양시"
+    },
+    {
+      "zone_no": "10060",
+      "zone_name": "파주출판산업단지",
+      "zone_full_name": "파주출판산업단지",
+      "sido_nm": "경기도",
+      "signgu_nm": "파주시"
+    },
+    {
+      "zone_no": "10061",
+      "zone_name": "금릉역",
+      "zone_full_name": "금릉역",
+      "sido_nm": "경기도",
+      "signgu_nm": "파주시"
+    },
+    {
+      "zone_no": "10062",
+      "zone_name": "금촌역_1",
+      "zone_full_name": "금촌역_1",
+      "sido_nm": "경기도",
+      "signgu_nm": "파주시"
+    },
+    {
+      "zone_no": "10063",
+      "zone_name": "금촌역_2",
+      "zone_full_name": "금촌역_2",
+      "sido_nm": "경기도",
+      "signgu_nm": "파주시"
+    },
+    {
+      "zone_no": "9146",
+      "zone_name": "홍대입구역_3",
+      "zone_full_name": "홍대입구역_3",
+      "sido_nm": "서울특별시",
+      "signgu_nm": "마포구"
+    },
+    {
+      "zone_no": "9227",
+      "zone_name": "시흥1동",
+      "zone_full_name": "시흥1동",
+      "sido_nm": "서울특별시",
+      "signgu_nm": "금천구"
+    },
+    {
+      "zone_no": "10064",
+      "zone_name": "문산시외버스터미널",
+      "zone_full_name": "문산시외버스터미널",
+      "sido_nm": "경기도",
+      "signgu_nm": "파주시"
+    },
+    {
+      "zone_no": "10065",
+      "zone_name": "법원사거리",
+      "zone_full_name": "법원사거리",
+      "sido_nm": "경기도",
+      "signgu_nm": "파주시"
+    },
+    {
+      "zone_no": "10066",
+      "zone_name": "대화역_2",
+      "zone_full_name": "대화역_2",
+      "sido_nm": "경기도",
+      "signgu_nm": "고양시"
+    },
+    {
+      "zone_no": "10067",
+      "zone_name": "정부과천청사역_1",
+      "zone_full_name": "정부과천청사역_1",
+      "sido_nm": "경기도",
+      "signgu_nm": "과천시"
+    },
+    {
+      "zone_no": "10068",
+      "zone_name": "정부과천청사역_2",
+      "zone_full_name": "정부과천청사역_2",
+      "sido_nm": "경기도",
+      "signgu_nm": "과천시"
+    },
+    {
+      "zone_no": "10069",
+      "zone_name": "금정역",
+      "zone_full_name": "금정역",
+      "sido_nm": "경기도",
+      "signgu_nm": "군포시"
+    },
+    {
+      "zone_no": "10070",
+      "zone_name": "산본역",
+      "zone_full_name": "산본역",
+      "sido_nm": "경기도",
+      "signgu_nm": "군포시"
+    },
+    {
+      "zone_no": "10071",
+      "zone_name": "계원예술대학교",
+      "zone_full_name": "계원예술대학교",
+      "sido_nm": "경기도",
+      "signgu_nm": "의왕시"
+    },
+    {
+      "zone_no": "10072",
+      "zone_name": "관양사거리",
+      "zone_full_name": "관양사거리",
+      "sido_nm": "경기도",
+      "signgu_nm": "안양시"
+    },
+    {
+      "zone_no": "10073",
+      "zone_name": "범계역",
+      "zone_full_name": "범계역",
+      "sido_nm": "경기도",
+      "signgu_nm": "안양시"
+    },
+    {
+      "zone_no": "9228",
+      "zone_name": "시흥3동",
+      "zone_full_name": "시흥3동",
+      "sido_nm": "서울특별시",
+      "signgu_nm": "금천구"
+    },
+    {
+      "zone_no": "10074",
+      "zone_name": "인덕원역",
+      "zone_full_name": "인덕원역",
+      "sido_nm": "경기도",
+      "signgu_nm": "안양시"
+    },
+    {
+      "zone_no": "10076",
+      "zone_name": "평촌먹거리촌",
+      "zone_full_name": "평촌먹거리촌",
+      "sido_nm": "경기도",
+      "signgu_nm": "안양시"
+    },
+    {
+      "zone_no": "10077",
+      "zone_name": "평촌역",
+      "zone_full_name": "평촌역",
+      "sido_nm": "경기도",
+      "signgu_nm": "안양시"
+    },
+    {
+      "zone_no": "10078",
+      "zone_name": "호계사거리",
+      "zone_full_name": "호계사거리",
+      "sido_nm": "경기도",
+      "signgu_nm": "안양시"
+    },
+    {
+      "zone_no": "10079",
+      "zone_name": "명학역_1",
+      "zone_full_name": "명학역_1",
+      "sido_nm": "경기도",
+      "signgu_nm": "안양시"
+    },
+    {
+      "zone_no": "10080",
+      "zone_name": "성결대",
+      "zone_full_name": "성결대",
+      "sido_nm": "경기도",
+      "signgu_nm": "안양시"
+    },
+    {
+      "zone_no": "10081",
+      "zone_name": "안양대앞",
+      "zone_full_name": "안양대앞",
+      "sido_nm": "경기도",
+      "signgu_nm": "안양시"
+    },
+    {
+      "zone_no": "10082",
+      "zone_name": "남부시장",
+      "zone_full_name": "남부시장",
+      "sido_nm": "경기도",
+      "signgu_nm": "안양시"
+    },
+    {
+      "zone_no": "10083",
+      "zone_name": "안양1번가",
+      "zone_full_name": "안양1번가",
+      "sido_nm": "경기도",
+      "signgu_nm": "안양시"
+    },
+    {
+      "zone_no": "10084",
+      "zone_name": "안양3동",
+      "zone_full_name": "안양3동",
+      "sido_nm": "경기도",
+      "signgu_nm": "안양시"
+    },
+    {
+      "zone_no": "9229",
+      "zone_name": "시흥4동",
+      "zone_full_name": "시흥4동",
+      "sido_nm": "서울특별시",
+      "signgu_nm": "금천구"
+    },
+    {
+      "zone_no": "10086",
+      "zone_name": "안양중앙시장",
+      "zone_full_name": "안양중앙시장",
+      "sido_nm": "경기도",
+      "signgu_nm": "안양시"
+    },
+    {
+      "zone_no": "10087",
+      "zone_name": "고잔역",
+      "zone_full_name": "고잔역",
+      "sido_nm": "경기도",
+      "signgu_nm": "안산시"
+    },
+    {
+      "zone_no": "10089",
+      "zone_name": "별망중학교앞",
+      "zone_full_name": "별망중학교앞",
+      "sido_nm": "경기도",
+      "signgu_nm": "안산시"
+    },
+    {
+      "zone_no": "10090",
+      "zone_name": "선부광장",
+      "zone_full_name": "선부광장",
+      "sido_nm": "경기도",
+      "signgu_nm": "안산시"
+    },
+    {
+      "zone_no": "10091",
+      "zone_name": "호수동상점가",
+      "zone_full_name": "호수동상점가",
+      "sido_nm": "경기도",
+      "signgu_nm": "안산시"
+    },
+    {
+      "zone_no": "10093",
+      "zone_name": "안산참치골목",
+      "zone_full_name": "안산참치골목",
+      "sido_nm": "경기도",
+      "signgu_nm": "안산시"
+    },
+    {
+      "zone_no": "10094",
+      "zone_name": "도리섬상점가상권",
+      "zone_full_name": "도리섬상점가상권",
+      "sido_nm": "경기도",
+      "signgu_nm": "안산시"
+    },
+    {
+      "zone_no": "10096",
+      "zone_name": "안산다문화거리",
+      "zone_full_name": "안산다문화거리",
+      "sido_nm": "경기도",
+      "signgu_nm": "안산시"
+    },
+    {
+      "zone_no": "10097",
+      "zone_name": "중앙역",
+      "zone_full_name": "중앙역",
+      "sido_nm": "경기도",
+      "signgu_nm": "안산시"
+    },
+    {
+      "zone_no": "10098",
+      "zone_name": "초지동주민센터",
+      "zone_full_name": "초지동주민센터",
+      "sido_nm": "경기도",
+      "signgu_nm": "안산시"
+    },
+    {
+      "zone_no": "9230",
+      "zone_name": "등촌역",
+      "zone_full_name": "등촌역",
+      "sido_nm": "서울특별시",
+      "signgu_nm": "양천구"
+    },
+    {
+      "zone_no": "10099",
+      "zone_name": "상록수역",
+      "zone_full_name": "상록수역",
+      "sido_nm": "경기도",
+      "signgu_nm": "안산시"
+    },
+    {
+      "zone_no": "10100",
+      "zone_name": "송호고등학교앞",
+      "zone_full_name": "송호고등학교앞",
+      "sido_nm": "경기도",
+      "signgu_nm": "안산시"
+    },
+    {
+      "zone_no": "10101",
+      "zone_name": "한대앞역",
+      "zone_full_name": "한대앞역",
+      "sido_nm": "경기도",
+      "signgu_nm": "안산시"
+    },
+    {
+      "zone_no": "10102",
+      "zone_name": "구월동로데오거리",
+      "zone_full_name": "구월동로데오거리",
+      "sido_nm": "인천광역시",
+      "signgu_nm": "미추홀구"
+    },
+    {
+      "zone_no": "10103",
+      "zone_name": "인천지방법원",
+      "zone_full_name": "인천지방법원",
+      "sido_nm": "인천광역시",
+      "signgu_nm": "미추홀구"
+    },
+    {
+      "zone_no": "10104",
+      "zone_name": "인하대 후문",
+      "zone_full_name": "인하대 후문",
+      "sido_nm": "인천광역시",
+      "signgu_nm": "미추홀구"
+    },
+    {
+      "zone_no": "10105",
+      "zone_name": "주안2동",
+      "zone_full_name": "주안2동",
+      "sido_nm": "인천광역시",
+      "signgu_nm": "미추홀구"
+    },
+    {
+      "zone_no": "10106",
+      "zone_name": "주안6동",
+      "zone_full_name": "주안6동",
+      "sido_nm": "인천광역시",
+      "signgu_nm": "미추홀구"
+    },
+    {
+      "zone_no": "10107",
+      "zone_name": "주안역_1",
+      "zone_full_name": "주안역_1",
+      "sido_nm": "인천광역시",
+      "signgu_nm": "미추홀구"
+    },
+    {
+      "zone_no": "10108",
+      "zone_name": "주안역_2",
+      "zone_full_name": "주안역_2",
+      "sido_nm": "인천광역시",
+      "signgu_nm": "미추홀구"
+    },
+    {
+      "zone_no": "9231",
+      "zone_name": "목동 현대백화점",
+      "zone_full_name": "목동 현대백화점",
+      "sido_nm": "서울특별시",
+      "signgu_nm": "양천구"
+    },
+    {
+      "zone_no": "10109",
+      "zone_name": "주안역_3",
+      "zone_full_name": "주안역_3",
+      "sido_nm": "인천광역시",
+      "signgu_nm": "미추홀구"
+    },
+    {
+      "zone_no": "10110",
+      "zone_name": "가천의대길병원",
+      "zone_full_name": "가천의대길병원",
+      "sido_nm": "인천광역시",
+      "signgu_nm": "남동구"
+    },
+    {
+      "zone_no": "10111",
+      "zone_name": "간석오거리역",
+      "zone_full_name": "간석오거리역",
+      "sido_nm": "인천광역시",
+      "signgu_nm": "남동구"
+    },
+    {
+      "zone_no": "10112",
+      "zone_name": "구월4동",
+      "zone_full_name": "구월4동",
+      "sido_nm": "인천광역시",
+      "signgu_nm": "남동구"
+    },
+    {
+      "zone_no": "10113",
+      "zone_name": "논현역",
+      "zone_full_name": "논현역",
+      "sido_nm": "인천광역시",
+      "signgu_nm": "남동구"
+    },
+    {
+      "zone_no": "10114",
+      "zone_name": "만수1동",
+      "zone_full_name": "만수1동",
+      "sido_nm": "인천광역시",
+      "signgu_nm": "남동구"
+    },
+    {
+      "zone_no": "10115",
+      "zone_name": "만수2동",
+      "zone_full_name": "만수2동",
+      "sido_nm": "인천광역시",
+      "signgu_nm": "남동구"
+    },
+    {
+      "zone_no": "10116",
+      "zone_name": "만수6동_1",
+      "zone_full_name": "만수6동_1",
+      "sido_nm": "인천광역시",
+      "signgu_nm": "남동구"
+    },
+    {
+      "zone_no": "10117",
+      "zone_name": "만수6동_2",
+      "zone_full_name": "만수6동_2",
+      "sido_nm": "인천광역시",
+      "signgu_nm": "남동구"
+    },
+    {
+      "zone_no": "10118",
+      "zone_name": "인천소래포구",
+      "zone_full_name": "인천소래포구",
+      "sido_nm": "인천광역시",
+      "signgu_nm": "남동구"
+    },
+    {
+      "zone_no": "9232",
+      "zone_name": "목동사거리",
+      "zone_full_name": "목동사거리",
+      "sido_nm": "서울특별시",
+      "signgu_nm": "양천구"
+    },
+    {
+      "zone_no": "10119",
+      "zone_name": "인천시청_1",
+      "zone_full_name": "인천시청_1",
+      "sido_nm": "인천광역시",
+      "signgu_nm": "남동구"
+    },
+    {
+      "zone_no": "10120",
+      "zone_name": "인천시청_2",
+      "zone_full_name": "인천시청_2",
+      "sido_nm": "인천광역시",
+      "signgu_nm": "남동구"
+    },
+    {
+      "zone_no": "10121",
+      "zone_name": "동춘2동",
+      "zone_full_name": "동춘2동",
+      "sido_nm": "인천광역시",
+      "signgu_nm": "연수구"
+    },
+    {
+      "zone_no": "10122",
+      "zone_name": "송도1동",
+      "zone_full_name": "송도1동",
+      "sido_nm": "인천광역시",
+      "signgu_nm": "연수구"
+    },
+    {
+      "zone_no": "10123",
+      "zone_name": "연수2동_1",
+      "zone_full_name": "연수2동_1",
+      "sido_nm": "인천광역시",
+      "signgu_nm": "연수구"
+    },
+    {
+      "zone_no": "10124",
+      "zone_name": "연수2동_2",
+      "zone_full_name": "연수2동_2",
+      "sido_nm": "인천광역시",
+      "signgu_nm": "연수구"
+    },
+    {
+      "zone_no": "10125",
+      "zone_name": "연수역_1",
+      "zone_full_name": "연수역_1",
+      "sido_nm": "인천광역시",
+      "signgu_nm": "연수구"
+    },
+    {
+      "zone_no": "10126",
+      "zone_name": "연수역_2",
+      "zone_full_name": "연수역_2",
+      "sido_nm": "인천광역시",
+      "signgu_nm": "연수구"
+    },
+    {
+      "zone_no": "10127",
+      "zone_name": "동인천역",
+      "zone_full_name": "동인천역",
+      "sido_nm": "인천광역시",
+      "signgu_nm": "중구"
+    },
+    {
+      "zone_no": "10128",
+      "zone_name": "신포시장",
+      "zone_full_name": "신포시장",
+      "sido_nm": "인천광역시",
+      "signgu_nm": "중구"
+    },
+    {
+      "zone_no": "9233",
+      "zone_name": "신정네거리역",
+      "zone_full_name": "신정네거리역",
+      "sido_nm": "서울특별시",
+      "signgu_nm": "양천구"
+    },
+    {
+      "zone_no": "10129",
+      "zone_name": "연안부두",
+      "zone_full_name": "연안부두",
+      "sido_nm": "인천광역시",
+      "signgu_nm": "중구"
+    },
+    {
+      "zone_no": "10130",
+      "zone_name": "운서동",
+      "zone_full_name": "운서동",
+      "sido_nm": "인천광역시",
+      "signgu_nm": "중구"
+    },
+    {
+      "zone_no": "10131",
+      "zone_name": "송도신도시_1",
+      "zone_full_name": "송도신도시_1",
+      "sido_nm": "인천광역시",
+      "signgu_nm": "연수구"
+    },
+    {
+      "zone_no": "10132",
+      "zone_name": "송도신도시_2",
+      "zone_full_name": "송도신도시_2",
+      "sido_nm": "인천광역시",
+      "signgu_nm": "연수구"
+    },
+    {
+      "zone_no": "10133",
+      "zone_name": "강화군청",
+      "zone_full_name": "강화군청",
+      "sido_nm": "인천광역시",
+      "signgu_nm": "강화군"
+    },
+    {
+      "zone_no": "10134",
+      "zone_name": "경인교대입구역",
+      "zone_full_name": "경인교대입구역",
+      "sido_nm": "인천광역시",
+      "signgu_nm": "계양구"
+    },
+    {
+      "zone_no": "10135",
+      "zone_name": "경인교대입구역_1",
+      "zone_full_name": "경인교대입구역_1",
+      "sido_nm": "인천광역시",
+      "signgu_nm": "계양구"
+    },
+    {
+      "zone_no": "10136",
+      "zone_name": "경인교대입구역_2",
+      "zone_full_name": "경인교대입구역_2",
+      "sido_nm": "인천광역시",
+      "signgu_nm": "계양구"
+    },
+    {
+      "zone_no": "10137",
+      "zone_name": "계산4동_1",
+      "zone_full_name": "계산4동_1",
+      "sido_nm": "인천광역시",
+      "signgu_nm": "계양구"
+    },
+    {
+      "zone_no": "10139",
+      "zone_name": "계산역",
+      "zone_full_name": "계산역",
+      "sido_nm": "인천광역시",
+      "signgu_nm": "계양구"
+    },
+    {
+      "zone_no": "9234",
+      "zone_name": "오목교역",
+      "zone_full_name": "오목교역",
+      "sido_nm": "서울특별시",
+      "signgu_nm": "양천구"
+    },
+    {
+      "zone_no": "10141",
+      "zone_name": "임학역",
+      "zone_full_name": "임학역",
+      "sido_nm": "인천광역시",
+      "signgu_nm": "계양구"
+    },
+    {
+      "zone_no": "10142",
+      "zone_name": "작전서운동",
+      "zone_full_name": "작전서운동",
+      "sido_nm": "인천광역시",
+      "signgu_nm": "계양구"
+    },
+    {
+      "zone_no": "10143",
+      "zone_name": "굴포천역",
+      "zone_full_name": "굴포천역",
+      "sido_nm": "인천광역시",
+      "signgu_nm": "부평구"
+    },
+    {
+      "zone_no": "10144",
+      "zone_name": "동암역_2",
+      "zone_full_name": "동암역_2",
+      "sido_nm": "인천광역시",
+      "signgu_nm": "부평구"
+    },
+    {
+      "zone_no": "10145",
+      "zone_name": "동암역_3",
+      "zone_full_name": "동암역_3",
+      "sido_nm": "인천광역시",
+      "signgu_nm": "부평구"
+    },
+    {
+      "zone_no": "10146",
+      "zone_name": "부평시장",
+      "zone_full_name": "부평시장",
+      "sido_nm": "인천광역시",
+      "signgu_nm": "부평구"
+    },
+    {
+      "zone_no": "10147",
+      "zone_name": "부평역_1",
+      "zone_full_name": "부평역_1",
+      "sido_nm": "인천광역시",
+      "signgu_nm": "부평구"
+    },
+    {
+      "zone_no": "10148",
+      "zone_name": "부평역_2",
+      "zone_full_name": "부평역_2",
+      "sido_nm": "인천광역시",
+      "signgu_nm": "부평구"
+    },
+    {
+      "zone_no": "10149",
+      "zone_name": "부평역_3",
+      "zone_full_name": "부평역_3",
+      "sido_nm": "인천광역시",
+      "signgu_nm": "부평구"
+    },
+    {
+      "zone_no": "10150",
+      "zone_name": "부평문화의거리",
+      "zone_full_name": "부평문화의거리",
+      "sido_nm": "인천광역시",
+      "signgu_nm": "부평구"
+    },
+    {
+      "zone_no": "9235",
+      "zone_name": "국회의사당역_1",
+      "zone_full_name": "국회의사당역_1",
+      "sido_nm": "서울특별시",
+      "signgu_nm": "영등포구"
+    },
+    {
+      "zone_no": "10151",
+      "zone_name": "부평해물탕거리",
+      "zone_full_name": "부평해물탕거리",
+      "sido_nm": "인천광역시",
+      "signgu_nm": "부평구"
+    },
+    {
+      "zone_no": "10152",
+      "zone_name": "가정1동",
+      "zone_full_name": "가정1동",
+      "sido_nm": "인천광역시",
+      "signgu_nm": "서구"
+    },
+    {
+      "zone_no": "10153",
+      "zone_name": "엠파크타워",
+      "zone_full_name": "엠파크타워",
+      "sido_nm": "인천광역시",
+      "signgu_nm": "서구"
+    },
+    {
+      "zone_no": "10154",
+      "zone_name": "검단1동",
+      "zone_full_name": "검단1동",
+      "sido_nm": "인천광역시",
+      "signgu_nm": "서구"
+    },
+    {
+      "zone_no": "10155",
+      "zone_name": "발산초등학교",
+      "zone_full_name": "발산초등학교",
+      "sido_nm": "인천광역시",
+      "signgu_nm": "서구"
+    },
+    {
+      "zone_no": "10156",
+      "zone_name": "서구청역_1",
+      "zone_full_name": "서구청역_1",
+      "sido_nm": "인천광역시",
+      "signgu_nm": "서구"
+    },
+    {
+      "zone_no": "10157",
+      "zone_name": "서구청역_2",
+      "zone_full_name": "서구청역_2",
+      "sido_nm": "인천광역시",
+      "signgu_nm": "서구"
+    },
+    {
+      "zone_no": "10158",
+      "zone_name": "검단먹거리타운",
+      "zone_full_name": "검단먹거리타운",
+      "sido_nm": "인천광역시",
+      "signgu_nm": "서구"
+    },
+    {
+      "zone_no": "10159",
+      "zone_name": "완정역",
+      "zone_full_name": "완정역",
+      "sido_nm": "인천광역시",
+      "signgu_nm": "서구"
+    },
+    {
+      "zone_no": "10161",
+      "zone_name": "동암역_1",
+      "zone_full_name": "동암역_1",
+      "sido_nm": "인천광역시",
+      "signgu_nm": "부평구"
+    },
+    {
+      "zone_no": "9236",
+      "zone_name": "국회의사당역_2",
+      "zone_full_name": "국회의사당역_2",
+      "sido_nm": "서울특별시",
+      "signgu_nm": "영등포구"
+    },
+    {
+      "zone_no": "10162",
+      "zone_name": "동춘당공원",
+      "zone_full_name": "동춘당공원",
+      "sido_nm": "대전광역시",
+      "signgu_nm": "대덕구"
+    },
+    {
+      "zone_no": "10164",
+      "zone_name": "관저2동",
+      "zone_full_name": "관저2동",
+      "sido_nm": "대전광역시",
+      "signgu_nm": "서구"
+    },
+    {
+      "zone_no": "10166",
+      "zone_name": "대전문화예술의전당",
+      "zone_full_name": "대전문화예술의전당",
+      "sido_nm": "대전광역시",
+      "signgu_nm": "서구"
+    },
+    {
+      "zone_no": "10167",
+      "zone_name": "청사시외버스정류장",
+      "zone_full_name": "청사시외버스정류장",
+      "sido_nm": "대전광역시",
+      "signgu_nm": "서구"
+    },
+    {
+      "zone_no": "10168",
+      "zone_name": "둔산2동_1",
+      "zone_full_name": "둔산2동_1",
+      "sido_nm": "대전광역시",
+      "signgu_nm": "서구"
+    },
+    {
+      "zone_no": "10169",
+      "zone_name": "둔산2동_2",
+      "zone_full_name": "둔산2동_2",
+      "sido_nm": "대전광역시",
+      "signgu_nm": "서구"
+    },
+    {
+      "zone_no": "10170",
+      "zone_name": "둔산2동_4",
+      "zone_full_name": "둔산2동_4",
+      "sido_nm": "대전광역시",
+      "signgu_nm": "서구"
+    },
+    {
+      "zone_no": "10171",
+      "zone_name": "시청역",
+      "zone_full_name": "시청역",
+      "sido_nm": "대전광역시",
+      "signgu_nm": "서구"
+    },
+    {
+      "zone_no": "10173",
+      "zone_name": "용문역_1",
+      "zone_full_name": "용문역_1",
+      "sido_nm": "대전광역시",
+      "signgu_nm": "서구"
+    },
+    {
+      "zone_no": "10176",
+      "zone_name": "월평역",
+      "zone_full_name": "월평역",
+      "sido_nm": "대전광역시",
+      "signgu_nm": "서구"
+    },
+    {
+      "zone_no": "10178",
+      "zone_name": "구즉동",
+      "zone_full_name": "구즉동",
+      "sido_nm": "대전광역시",
+      "signgu_nm": "유성구"
+    },
+    {
+      "zone_no": "10179",
+      "zone_name": "노은2동_1",
+      "zone_full_name": "노은2동_1",
+      "sido_nm": "대전광역시",
+      "signgu_nm": "유성구"
+    },
+    {
+      "zone_no": "10180",
+      "zone_name": "노은2동_2",
+      "zone_full_name": "노은2동_2",
+      "sido_nm": "대전광역시",
+      "signgu_nm": "유성구"
+    },
+    {
+      "zone_no": "10181",
+      "zone_name": "온천1동_1",
+      "zone_full_name": "온천1동_1",
+      "sido_nm": "대전광역시",
+      "signgu_nm": "유성구"
+    },
+    {
+      "zone_no": "10182",
+      "zone_name": "온천1동_2",
+      "zone_full_name": "온천1동_2",
+      "sido_nm": "대전광역시",
+      "signgu_nm": "유성구"
+    },
+    {
+      "zone_no": "10183",
+      "zone_name": "도안상권",
+      "zone_full_name": "도안상권",
+      "sido_nm": "대전광역시",
+      "signgu_nm": "서구"
+    },
+    {
+      "zone_no": "10184",
+      "zone_name": "궁동",
+      "zone_full_name": "궁동",
+      "sido_nm": "대전광역시",
+      "signgu_nm": "유성구"
+    },
+    {
+      "zone_no": "10185",
+      "zone_name": "신성동",
+      "zone_full_name": "신성동",
+      "sido_nm": "대전광역시",
+      "signgu_nm": "유성구"
+    },
+    {
+      "zone_no": "10186",
+      "zone_name": "가오동",
+      "zone_full_name": "가오동",
+      "sido_nm": "대전광역시",
+      "signgu_nm": "동구"
+    },
+    {
+      "zone_no": "10187",
+      "zone_name": "대전복합터미널",
+      "zone_full_name": "대전복합터미널",
+      "sido_nm": "대전광역시",
+      "signgu_nm": "동구"
+    },
+    {
+      "zone_no": "10188",
+      "zone_name": "대전역",
+      "zone_full_name": "대전역",
+      "sido_nm": "대전광역시",
+      "signgu_nm": "동구"
+    },
+    {
+      "zone_no": "10189",
+      "zone_name": "대전중앙시장",
+      "zone_full_name": "대전중앙시장",
+      "sido_nm": "대전광역시",
+      "signgu_nm": "동구"
+    },
+    {
+      "zone_no": "10190",
+      "zone_name": "대흥동",
+      "zone_full_name": "대흥동",
+      "sido_nm": "대전광역시",
+      "signgu_nm": "중구"
+    },
+    {
+      "zone_no": "10191",
+      "zone_name": "산성시장",
+      "zone_full_name": "산성시장",
+      "sido_nm": "대전광역시",
+      "signgu_nm": "중구"
+    },
+    {
+      "zone_no": "10192",
+      "zone_name": "선화동_1",
+      "zone_full_name": "선화동_1",
+      "sido_nm": "대전광역시",
+      "signgu_nm": "중구"
+    },
+    {
+      "zone_no": "10193",
+      "zone_name": "선화동_2",
+      "zone_full_name": "선화동_2",
+      "sido_nm": "대전광역시",
+      "signgu_nm": "중구"
+    },
+    {
+      "zone_no": "10194",
+      "zone_name": "오류동먹자골목",
+      "zone_full_name": "오류동먹자골목",
+      "sido_nm": "대전광역시",
+      "signgu_nm": "중구"
+    },
+    {
+      "zone_no": "10195",
+      "zone_name": "은행동",
+      "zone_full_name": "은행동",
+      "sido_nm": "대전광역시",
+      "signgu_nm": "중구"
+    },
+    {
+      "zone_no": "10196",
+      "zone_name": "태평동",
+      "zone_full_name": "태평동",
+      "sido_nm": "대전광역시",
+      "signgu_nm": "중구"
+    },
+    {
+      "zone_no": "10197",
+      "zone_name": "배방읍",
+      "zone_full_name": "배방읍",
+      "sido_nm": "충청남도",
+      "signgu_nm": "아산시"
+    },
+    {
+      "zone_no": "10198",
+      "zone_name": "온양온천_1",
+      "zone_full_name": "온양온천_1",
+      "sido_nm": "충청남도",
+      "signgu_nm": "아산시"
+    },
+    {
+      "zone_no": "10199",
+      "zone_name": "온양온천_2",
+      "zone_full_name": "온양온천_2",
+      "sido_nm": "충청남도",
+      "signgu_nm": "아산시"
+    },
+    {
+      "zone_no": "10200",
+      "zone_name": "신례원역",
+      "zone_full_name": "신례원역",
+      "sido_nm": "충청남도",
+      "signgu_nm": "예산군"
+    },
+    {
+      "zone_no": "10201",
+      "zone_name": "예산역",
+      "zone_full_name": "예산역",
+      "sido_nm": "충청남도",
+      "signgu_nm": "예산군"
+    },
+    {
+      "zone_no": "10202",
+      "zone_name": "예산읍",
+      "zone_full_name": "예산읍",
+      "sido_nm": "충청남도",
+      "signgu_nm": "예산군"
+    },
+    {
+      "zone_no": "10203",
+      "zone_name": "예산종합터미널",
+      "zone_full_name": "예산종합터미널",
+      "sido_nm": "충청남도",
+      "signgu_nm": "예산군"
+    },
+    {
+      "zone_no": "10204",
+      "zone_name": "부성동",
+      "zone_full_name": "부성동",
+      "sido_nm": "충청남도",
+      "signgu_nm": "천안시"
+    },
+    {
+      "zone_no": "10205",
+      "zone_name": "불당동",
+      "zone_full_name": "불당동",
+      "sido_nm": "충청남도",
+      "signgu_nm": "천안시"
+    },
+    {
+      "zone_no": "10206",
+      "zone_name": "성정2동",
+      "zone_full_name": "성정2동",
+      "sido_nm": "충청남도",
+      "signgu_nm": "천안시"
+    },
+    {
+      "zone_no": "10207",
+      "zone_name": "성환읍",
+      "zone_full_name": "성환읍",
+      "sido_nm": "충청남도",
+      "signgu_nm": "천안시"
+    },
+    {
+      "zone_no": "10208",
+      "zone_name": "신방동_1",
+      "zone_full_name": "신방동_1",
+      "sido_nm": "충청남도",
+      "signgu_nm": "천안시"
+    },
+    {
+      "zone_no": "10209",
+      "zone_name": "신방동_2",
+      "zone_full_name": "신방동_2",
+      "sido_nm": "충청남도",
+      "signgu_nm": "천안시"
+    },
+    {
+      "zone_no": "10210",
+      "zone_name": "신부동먹자골목",
+      "zone_full_name": "신부동먹자골목",
+      "sido_nm": "충청남도",
+      "signgu_nm": "천안시"
+    },
+    {
+      "zone_no": "10211",
+      "zone_name": "쌍용동먹자골목",
+      "zone_full_name": "쌍용동먹자골목",
+      "sido_nm": "충청남도",
+      "signgu_nm": "천안시"
+    },
+    {
+      "zone_no": "10212",
+      "zone_name": "쌍용동용암마을",
+      "zone_full_name": "쌍용동용암마을",
+      "sido_nm": "충청남도",
+      "signgu_nm": "천안시"
+    },
+    {
+      "zone_no": "10213",
+      "zone_name": "쌍용동월봉지구",
+      "zone_full_name": "쌍용동월봉지구",
+      "sido_nm": "충청남도",
+      "signgu_nm": "천안시"
+    },
+    {
+      "zone_no": "10214",
+      "zone_name": "천안역",
+      "zone_full_name": "천안역",
+      "sido_nm": "충청남도",
+      "signgu_nm": "천안시"
+    },
+    {
+      "zone_no": "10215",
+      "zone_name": "천안종합버스터미널",
+      "zone_full_name": "천안종합버스터미널",
+      "sido_nm": "충청남도",
+      "signgu_nm": "천안시"
+    },
+    {
+      "zone_no": "10216",
+      "zone_name": "계룡엄사",
+      "zone_full_name": "계룡엄사",
+      "sido_nm": "충청남도",
+      "signgu_nm": "계룡시"
+    },
+    {
+      "zone_no": "10217",
+      "zone_name": "금산읍",
+      "zone_full_name": "금산읍",
+      "sido_nm": "충청남도",
+      "signgu_nm": "금산군"
+    },
+    {
+      "zone_no": "10218",
+      "zone_name": "강경시외버스터미널",
+      "zone_full_name": "강경시외버스터미널",
+      "sido_nm": "충청남도",
+      "signgu_nm": "논산시"
+    },
+    {
+      "zone_no": "10219",
+      "zone_name": "논산시네마",
+      "zone_full_name": "논산시네마",
+      "sido_nm": "충청남도",
+      "signgu_nm": "논산시"
+    },
+    {
+      "zone_no": "10220",
+      "zone_name": "논산시외터미널",
+      "zone_full_name": "논산시외터미널",
+      "sido_nm": "충청남도",
+      "signgu_nm": "논산시"
+    },
+    {
+      "zone_no": "10221",
+      "zone_name": "연무읍",
+      "zone_full_name": "연무읍",
+      "sido_nm": "충청남도",
+      "signgu_nm": "논산시"
+    },
+    {
+      "zone_no": "10222",
+      "zone_name": "부여시외버스터미널",
+      "zone_full_name": "부여시외버스터미널",
+      "sido_nm": "충청남도",
+      "signgu_nm": "부여군"
+    },
+    {
+      "zone_no": "10223",
+      "zone_name": "서천시외버스터미널",
+      "zone_full_name": "서천시외버스터미널",
+      "sido_nm": "충청남도",
+      "signgu_nm": "서천군"
+    },
+    {
+      "zone_no": "10224",
+      "zone_name": "당진1동",
+      "zone_full_name": "당진1동",
+      "sido_nm": "충청남도",
+      "signgu_nm": "당진시"
+    },
+    {
+      "zone_no": "10225",
+      "zone_name": "합덕읍",
+      "zone_full_name": "합덕읍",
+      "sido_nm": "충청남도",
+      "signgu_nm": "당진시"
+    },
+    {
+      "zone_no": "10226",
+      "zone_name": "대천1동",
+      "zone_full_name": "대천1동",
+      "sido_nm": "충청남도",
+      "signgu_nm": "보령시"
+    },
+    {
+      "zone_no": "10227",
+      "zone_name": "대천2동",
+      "zone_full_name": "대천2동",
+      "sido_nm": "충청남도",
+      "signgu_nm": "보령시"
+    },
+    {
+      "zone_no": "10228",
+      "zone_name": "동대동",
+      "zone_full_name": "동대동",
+      "sido_nm": "충청남도",
+      "signgu_nm": "보령시"
+    },
+    {
+      "zone_no": "10229",
+      "zone_name": "동문1동",
+      "zone_full_name": "동문1동",
+      "sido_nm": "충청남도",
+      "signgu_nm": "서산시"
+    },
+    {
+      "zone_no": "10230",
+      "zone_name": "서산공용버스터미널",
+      "zone_full_name": "서산공용버스터미널",
+      "sido_nm": "충청남도",
+      "signgu_nm": "서산시"
+    },
+    {
+      "zone_no": "10231",
+      "zone_name": "읍내동",
+      "zone_full_name": "읍내동",
+      "sido_nm": "충청남도",
+      "signgu_nm": "서산시"
+    },
+    {
+      "zone_no": "10232",
+      "zone_name": "태안읍_1",
+      "zone_full_name": "태안읍_1",
+      "sido_nm": "충청남도",
+      "signgu_nm": "태안군"
+    },
+    {
+      "zone_no": "10233",
+      "zone_name": "태안읍_2",
+      "zone_full_name": "태안읍_2",
+      "sido_nm": "충청남도",
+      "signgu_nm": "태안군"
+    },
+    {
+      "zone_no": "10235",
+      "zone_name": "조치원_2",
+      "zone_full_name": "조치원_2",
+      "sido_nm": "세종특별자치시",
+      "signgu_nm": "세종특별자치시"
+    },
+    {
+      "zone_no": "10236",
+      "zone_name": "중동4거리",
+      "zone_full_name": "중동4거리",
+      "sido_nm": "충청남도",
+      "signgu_nm": "공주시"
+    },
+    {
+      "zone_no": "10237",
+      "zone_name": "청양시외버스터미널",
+      "zone_full_name": "청양시외버스터미널",
+      "sido_nm": "충청남도",
+      "signgu_nm": "청양군"
+    },
+    {
+      "zone_no": "10238",
+      "zone_name": "공주대학교",
+      "zone_full_name": "공주대학교",
+      "sido_nm": "충청남도",
+      "signgu_nm": "공주시"
+    },
+    {
+      "zone_no": "10239",
+      "zone_name": "광혜원면",
+      "zone_full_name": "광혜원면",
+      "sido_nm": "충청북도",
+      "signgu_nm": "진천군"
+    },
+    {
+      "zone_no": "10240",
+      "zone_name": "진천읍",
+      "zone_full_name": "진천읍",
+      "sido_nm": "충청북도",
+      "signgu_nm": "진천군"
+    },
+    {
+      "zone_no": "10241",
+      "zone_name": "오창",
+      "zone_full_name": "오창",
+      "sido_nm": "충청북도",
+      "signgu_nm": "청주시"
+    },
+    {
+      "zone_no": "10242",
+      "zone_name": "강서동",
+      "zone_full_name": "강서동",
+      "sido_nm": "충청북도",
+      "signgu_nm": "청주시"
+    },
+    {
+      "zone_no": "10243",
+      "zone_name": "공구상가",
+      "zone_full_name": "공구상가",
+      "sido_nm": "충청북도",
+      "signgu_nm": "청주시"
+    },
+    {
+      "zone_no": "10244",
+      "zone_name": "구법원",
+      "zone_full_name": "구법원",
+      "sido_nm": "충청북도",
+      "signgu_nm": "청주시"
+    },
+    {
+      "zone_no": "10245",
+      "zone_name": "산남동",
+      "zone_full_name": "산남동",
+      "sido_nm": "충청북도",
+      "signgu_nm": "청주시"
+    },
+    {
+      "zone_no": "10246",
+      "zone_name": "분평동",
+      "zone_full_name": "분평동",
+      "sido_nm": "충청북도",
+      "signgu_nm": "청주시"
+    },
+    {
+      "zone_no": "10247",
+      "zone_name": "상당구청",
+      "zone_full_name": "상당구청",
+      "sido_nm": "충청북도",
+      "signgu_nm": "청주시"
+    },
+    {
+      "zone_no": "10248",
+      "zone_name": "성안길육거리",
+      "zone_full_name": "성안길육거리",
+      "sido_nm": "충청북도",
+      "signgu_nm": "청주시"
+    },
+    {
+      "zone_no": "10249",
+      "zone_name": "성화",
+      "zone_full_name": "성화",
+      "sido_nm": "충청북도",
+      "signgu_nm": "청주시"
+    },
+    {
+      "zone_no": "10250",
+      "zone_name": "용담동광장",
+      "zone_full_name": "용담동광장",
+      "sido_nm": "충청북도",
+      "signgu_nm": "청주시"
+    },
+    {
+      "zone_no": "10251",
+      "zone_name": "용암1지구",
+      "zone_full_name": "용암1지구",
+      "sido_nm": "충청북도",
+      "signgu_nm": "청주시"
+    },
+    {
+      "zone_no": "10252",
+      "zone_name": "청주고속버스터미널",
+      "zone_full_name": "청주고속버스터미널",
+      "sido_nm": "충청북도",
+      "signgu_nm": "청주시"
+    },
+    {
+      "zone_no": "10253",
+      "zone_name": "청주법원",
+      "zone_full_name": "청주법원",
+      "sido_nm": "충청북도",
+      "signgu_nm": "청주시"
+    },
+    {
+      "zone_no": "10254",
+      "zone_name": "청주산업단지",
+      "zone_full_name": "청주산업단지",
+      "sido_nm": "충청북도",
+      "signgu_nm": "청주시"
+    },
+    {
+      "zone_no": "10255",
+      "zone_name": "교육청",
+      "zone_full_name": "교육청",
+      "sido_nm": "충청북도",
+      "signgu_nm": "청주시"
+    },
+    {
+      "zone_no": "10256",
+      "zone_name": "충대중문",
+      "zone_full_name": "충대중문",
+      "sido_nm": "충청북도",
+      "signgu_nm": "청주시"
+    },
+    {
+      "zone_no": "10257",
+      "zone_name": "홈플러스",
+      "zone_full_name": "홈플러스",
+      "sido_nm": "충청북도",
+      "signgu_nm": "청주시"
+    },
+    {
+      "zone_no": "10258",
+      "zone_name": "흥덕구청",
+      "zone_full_name": "흥덕구청",
+      "sido_nm": "충청북도",
+      "signgu_nm": "청주시"
+    },
+    {
+      "zone_no": "10259",
+      "zone_name": "농수산물시장",
+      "zone_full_name": "농수산물시장",
+      "sido_nm": "충청북도",
+      "signgu_nm": "청주시"
+    },
+    {
+      "zone_no": "10260",
+      "zone_name": "연수상가",
+      "zone_full_name": "연수상가",
+      "sido_nm": "충청북도",
+      "signgu_nm": "충주시"
+    },
+    {
+      "zone_no": "10261",
+      "zone_name": "충주시청",
+      "zone_full_name": "충주시청",
+      "sido_nm": "충청북도",
+      "signgu_nm": "충주시"
+    },
+    {
+      "zone_no": "10262",
+      "zone_name": "성내.충인",
+      "zone_full_name": "성내.충인",
+      "sido_nm": "충청북도",
+      "signgu_nm": "충주시"
+    },
+    {
+      "zone_no": "10263",
+      "zone_name": "신연수동",
+      "zone_full_name": "신연수동",
+      "sido_nm": "충청북도",
+      "signgu_nm": "충주시"
+    },
+    {
+      "zone_no": "10264",
+      "zone_name": "단양구경시장",
+      "zone_full_name": "단양구경시장",
+      "sido_nm": "충청북도",
+      "signgu_nm": "단양군"
+    },
+    {
+      "zone_no": "10265",
+      "zone_name": "중앙.의림동",
+      "zone_full_name": "중앙.의림동",
+      "sido_nm": "충청북도",
+      "signgu_nm": "제천시"
+    },
+    {
+      "zone_no": "10266",
+      "zone_name": "제천시외버스터미널",
+      "zone_full_name": "제천시외버스터미널",
+      "sido_nm": "충청북도",
+      "signgu_nm": "제천시"
+    },
+    {
+      "zone_no": "10267",
+      "zone_name": "대명리조트앞",
+      "zone_full_name": "대명리조트앞",
+      "sido_nm": "충청북도",
+      "signgu_nm": "단양군"
+    },
+    {
+      "zone_no": "10268",
+      "zone_name": "괴산시외버스공용터미널",
+      "zone_full_name": "괴산시외버스공용터미널",
+      "sido_nm": "충청북도",
+      "signgu_nm": "괴산군"
+    },
+    {
+      "zone_no": "10269",
+      "zone_name": "무극공용버스터미널",
+      "zone_full_name": "무극공용버스터미널",
+      "sido_nm": "충청북도",
+      "signgu_nm": "음성군"
+    },
+    {
+      "zone_no": "10270",
+      "zone_name": "음성읍",
+      "zone_full_name": "음성읍",
+      "sido_nm": "충청북도",
+      "signgu_nm": "음성군"
+    },
+    {
+      "zone_no": "10271",
+      "zone_name": "증평군청",
+      "zone_full_name": "증평군청",
+      "sido_nm": "충청북도",
+      "signgu_nm": "증평군"
+    },
+    {
+      "zone_no": "10272",
+      "zone_name": "보은읍",
+      "zone_full_name": "보은읍",
+      "sido_nm": "충청북도",
+      "signgu_nm": "보은군"
+    },
+    {
+      "zone_no": "10273",
+      "zone_name": "영동읍",
+      "zone_full_name": "영동읍",
+      "sido_nm": "충청북도",
+      "signgu_nm": "영동군"
+    },
+    {
+      "zone_no": "10274",
+      "zone_name": "옥천읍",
+      "zone_full_name": "옥천읍",
+      "sido_nm": "충청북도",
+      "signgu_nm": "옥천군"
+    },
+    {
+      "zone_no": "10275",
+      "zone_name": "충북혁신도시",
+      "zone_full_name": "충북혁신도시",
+      "sido_nm": "충청북도",
+      "signgu_nm": "음성군"
+    },
+    {
+      "zone_no": "10276",
+      "zone_name": "북한산보국문역",
+      "zone_full_name": "북한산보국문역",
+      "sido_nm": "서울특별시",
+      "signgu_nm": "성북구"
+    },
+    {
+      "zone_no": "10277",
+      "zone_name": "정릉역",
+      "zone_full_name": "정릉역",
+      "sido_nm": "서울특별시",
+      "signgu_nm": "성북구"
+    },
+    {
+      "zone_no": "10280",
+      "zone_name": "시흥시청",
+      "zone_full_name": "시흥시청",
+      "sido_nm": "경기도",
+      "signgu_nm": "시흥시"
+    },
+    {
+      "zone_no": "10282",
+      "zone_name": "구래역",
+      "zone_full_name": "구래역",
+      "sido_nm": "경기도",
+      "signgu_nm": "김포시"
+    },
+    {
+      "zone_no": "10284",
+      "zone_name": "원주혁신도시",
+      "zone_full_name": "원주혁신도시",
+      "sido_nm": "강원도",
+      "signgu_nm": "원주시"
+    },
+    {
+      "zone_no": "10285",
+      "zone_name": "상무지구3",
+      "zone_full_name": "상무지구3",
+      "sido_nm": "광주광역시",
+      "signgu_nm": "서구"
+    },
+    {
+      "zone_no": "10286",
+      "zone_name": "진월동",
+      "zone_full_name": "진월동",
+      "sido_nm": "광주광역시",
+      "signgu_nm": "남구"
+    },
+    {
+      "zone_no": "10287",
+      "zone_name": "봉선동2",
+      "zone_full_name": "봉선동2",
+      "sido_nm": "광주광역시",
+      "signgu_nm": "남구"
+    },
+    {
+      "zone_no": "10288",
+      "zone_name": "양림동",
+      "zone_full_name": "양림동",
+      "sido_nm": "광주광역시",
+      "signgu_nm": "남구"
+    },
+    {
+      "zone_no": "10289",
+      "zone_name": "쌍촌동1",
+      "zone_full_name": "쌍촌동1",
+      "sido_nm": "광주광역시",
+      "signgu_nm": "서구"
+    },
+    {
+      "zone_no": "10290",
+      "zone_name": "쌍촌동2",
+      "zone_full_name": "쌍촌동2",
+      "sido_nm": "광주광역시",
+      "signgu_nm": "서구"
+    },
+    {
+      "zone_no": "10291",
+      "zone_name": "동천동",
+      "zone_full_name": "동천동",
+      "sido_nm": "광주광역시",
+      "signgu_nm": "서구"
+    },
+    {
+      "zone_no": "10292",
+      "zone_name": "유촌동",
+      "zone_full_name": "유촌동",
+      "sido_nm": "광주광역시",
+      "signgu_nm": "서구"
+    },
+    {
+      "zone_no": "10293",
+      "zone_name": "풍암동1",
+      "zone_full_name": "풍암동1",
+      "sido_nm": "광주광역시",
+      "signgu_nm": "서구"
+    },
+    {
+      "zone_no": "10294",
+      "zone_name": "풍암동2",
+      "zone_full_name": "풍암동2",
+      "sido_nm": "광주광역시",
+      "signgu_nm": "서구"
+    },
+    {
+      "zone_no": "10295",
+      "zone_name": "화정동",
+      "zone_full_name": "화정동",
+      "sido_nm": "광주광역시",
+      "signgu_nm": "서구"
+    },
+    {
+      "zone_no": "10297",
+      "zone_name": "의왕역",
+      "zone_full_name": "의왕역",
+      "sido_nm": "경기도",
+      "signgu_nm": "군포시"
+    },
+    {
+      "zone_no": "10298",
+      "zone_name": "대호동상권",
+      "zone_full_name": "대호동상권",
+      "sido_nm": "전라남도",
+      "signgu_nm": "나주시"
+    },
+    {
+      "zone_no": "10299",
+      "zone_name": "당정동",
+      "zone_full_name": "당정동",
+      "sido_nm": "경기도",
+      "signgu_nm": "군포시"
+    },
+    {
+      "zone_no": "10301",
+      "zone_name": "계양산전통시장상권",
+      "zone_full_name": "계양산전통시장상권",
+      "sido_nm": "인천광역시",
+      "signgu_nm": "계양구"
+    },
+    {
+      "zone_no": "10302",
+      "zone_name": "서부산유통단지-1",
+      "zone_full_name": "서부산유통단지-1",
+      "sido_nm": "부산광역시",
+      "signgu_nm": "강서구"
+    },
+    {
+      "zone_no": "10303",
+      "zone_name": "서부산유통단지-2",
+      "zone_full_name": "서부산유통단지-2",
+      "sido_nm": "부산광역시",
+      "signgu_nm": "강서구"
+    },
+    {
+      "zone_no": "10305",
+      "zone_name": "명지1동(명지국제신도시-1)",
+      "zone_full_name": "명지1동(명지국제신도시-1)",
+      "sido_nm": "부산광역시",
+      "signgu_nm": "강서구"
+    },
+    {
+      "zone_no": "10306",
+      "zone_name": "명지1동(명지국제신도시-2)",
+      "zone_full_name": "명지1동(명지국제신도시-2)",
+      "sido_nm": "부산광역시",
+      "signgu_nm": "강서구"
+    },
+    {
+      "zone_no": "10308",
+      "zone_name": "명지오션시티-1",
+      "zone_full_name": "명지오션시티-1",
+      "sido_nm": "부산광역시",
+      "signgu_nm": "강서구"
+    },
+    {
+      "zone_no": "10309",
+      "zone_name": "명지오션시티-2",
+      "zone_full_name": "명지오션시티-2",
+      "sido_nm": "부산광역시",
+      "signgu_nm": "강서구"
+    },
+    {
+      "zone_no": "10310",
+      "zone_name": "명지신호산단-1",
+      "zone_full_name": "명지신호산단-1",
+      "sido_nm": "부산광역시",
+      "signgu_nm": "강서구"
+    },
+    {
+      "zone_no": "10313",
+      "zone_name": "율하광장",
+      "zone_full_name": "율하광장",
+      "sido_nm": "대구광역시",
+      "signgu_nm": "동구"
+    },
+    {
+      "zone_no": "10315",
+      "zone_name": "동촌유원지",
+      "zone_full_name": "동촌유원지",
+      "sido_nm": "대구광역시",
+      "signgu_nm": "동구"
+    },
+    {
+      "zone_no": "10316",
+      "zone_name": "대구혁신도시",
+      "zone_full_name": "대구혁신도시",
+      "sido_nm": "대구광역시",
+      "signgu_nm": "동구"
+    },
+    {
+      "zone_no": "10317",
+      "zone_name": "팔공산 동화사",
+      "zone_full_name": "팔공산 동화사",
+      "sido_nm": "대구광역시",
+      "signgu_nm": "동구"
+    },
+    {
+      "zone_no": "10320",
+      "zone_name": "금호지구",
+      "zone_full_name": "금호지구",
+      "sido_nm": "대구광역시",
+      "signgu_nm": "북구"
+    },
+    {
+      "zone_no": "10323",
+      "zone_name": "고성동",
+      "zone_full_name": "고성동",
+      "sido_nm": "대구광역시",
+      "signgu_nm": "북구"
+    },
+    {
+      "zone_no": "10325",
+      "zone_name": "침산네거리",
+      "zone_full_name": "침산네거리",
+      "sido_nm": "대구광역시",
+      "signgu_nm": "북구"
+    },
+    {
+      "zone_no": "10328",
+      "zone_name": "호수공원 예천동 상권",
+      "zone_full_name": "호수공원 예천동 상권",
+      "sido_nm": "충청남도",
+      "signgu_nm": "서산시"
+    },
+    {
+      "zone_no": "10329",
+      "zone_name": "홍성명동상점가",
+      "zone_full_name": "홍성명동상점가",
+      "sido_nm": "충청남도",
+      "signgu_nm": "홍성군"
+    },
+    {
+      "zone_no": "10330",
+      "zone_name": "해미시장",
+      "zone_full_name": "해미시장",
+      "sido_nm": "충청남도",
+      "signgu_nm": "서산시"
+    },
+    {
+      "zone_no": "10331",
+      "zone_name": "원도심 상권",
+      "zone_full_name": "원도심 상권",
+      "sido_nm": "충청남도",
+      "signgu_nm": "당진시"
+    },
+    {
+      "zone_no": "10332",
+      "zone_name": "당진버스터미널",
+      "zone_full_name": "당진버스터미널",
+      "sido_nm": "충청남도",
+      "signgu_nm": "당진시"
+    },
+    {
+      "zone_no": "10333",
+      "zone_name": "문경 중앙시장",
+      "zone_full_name": "문경 중앙시장",
+      "sido_nm": "경상북도",
+      "signgu_nm": "문경시"
+    },
+    {
+      "zone_no": "10335",
+      "zone_name": "나주혁신도시",
+      "zone_full_name": "나주혁신도시",
+      "sido_nm": "전라남도",
+      "signgu_nm": "나주시"
+    },
+    {
+      "zone_no": "10337",
+      "zone_name": "담양 메타프로방스 상권",
+      "zone_full_name": "담양 메타프로방스 상권",
+      "sido_nm": "전라남도",
+      "signgu_nm": "담양군"
+    },
+    {
+      "zone_no": "10338",
+      "zone_name": "영광 법성포 상권",
+      "zone_full_name": "영광 법성포 상권",
+      "sido_nm": "전라남도",
+      "signgu_nm": "영광군"
+    },
+    {
+      "zone_no": "10339",
+      "zone_name": "영산포  상권",
+      "zone_full_name": "영산포  상권",
+      "sido_nm": "전라남도",
+      "signgu_nm": "나주시"
+    },
+    {
+      "zone_no": "10346",
+      "zone_name": "청라 커널웨이  수변공원",
+      "zone_full_name": "청라 커널웨이  수변공원",
+      "sido_nm": "인천광역시",
+      "signgu_nm": "서구"
+    },
+    {
+      "zone_no": "10349",
+      "zone_name": "김천구미역",
+      "zone_full_name": "김천구미역",
+      "sido_nm": "경상북도",
+      "signgu_nm": "김천시"
+    },
+    {
+      "zone_no": "10350",
+      "zone_name": "황리단길",
+      "zone_full_name": "황리단길",
+      "sido_nm": "경상북도",
+      "signgu_nm": "경주시"
+    },
+    {
+      "zone_no": "10351",
+      "zone_name": "하양역",
+      "zone_full_name": "하양역",
+      "sido_nm": "경상북도",
+      "signgu_nm": "경산시"
+    },
+    {
+      "zone_no": "10352",
+      "zone_name": "산동면1",
+      "zone_full_name": "산동면1",
+      "sido_nm": "경상북도",
+      "signgu_nm": "구미시"
+    },
+    {
+      "zone_no": "10353",
+      "zone_name": "강남동(kbs방송국) 상권",
+      "zone_full_name": "강남동(kbs방송국) 상권",
+      "sido_nm": "강원도",
+      "signgu_nm": "춘천시"
+    },
+    {
+      "zone_no": "10354",
+      "zone_name": "칠금,금릉동",
+      "zone_full_name": "칠금,금릉동",
+      "sido_nm": "충청북도",
+      "signgu_nm": "충주시"
+    },
+    {
+      "zone_no": "10355",
+      "zone_name": "구례읍",
+      "zone_full_name": "구례읍",
+      "sido_nm": "전라남도",
+      "signgu_nm": "구례군"
+    },
+    {
+      "zone_no": "10356",
+      "zone_name": "보성읍",
+      "zone_full_name": "보성읍",
+      "sido_nm": "전라남도",
+      "signgu_nm": "보성군"
+    },
+    {
+      "zone_no": "10357",
+      "zone_name": "용산동",
+      "zone_full_name": "용산동",
+      "sido_nm": "충청북도",
+      "signgu_nm": "충주시"
+    },
+    {
+      "zone_no": "10358",
+      "zone_name": "호암지구",
+      "zone_full_name": "호암지구",
+      "sido_nm": "충청북도",
+      "signgu_nm": "충주시"
+    },
+    {
+      "zone_no": "10359",
+      "zone_name": "송악 부곡공단 상권",
+      "zone_full_name": "송악 부곡공단 상권",
+      "sido_nm": "충청남도",
+      "signgu_nm": "당진시"
+    },
+    {
+      "zone_no": "10360",
+      "zone_name": "모현동 2",
+      "zone_full_name": "모현동 2",
+      "sido_nm": "전라북도",
+      "signgu_nm": "익산시"
+    },
+    {
+      "zone_no": "10361",
+      "zone_name": "청도읍",
+      "zone_full_name": "청도읍",
+      "sido_nm": "경상북도",
+      "signgu_nm": "청도군"
+    },
+    {
+      "zone_no": "10362",
+      "zone_name": "설악로데오거리 상권",
+      "zone_full_name": "설악로데오거리 상권",
+      "sido_nm": "강원도",
+      "signgu_nm": "속초시"
+    },
+    {
+      "zone_no": "10364",
+      "zone_name": "간성시장 상권",
+      "zone_full_name": "간성시장 상권",
+      "sido_nm": "강원도",
+      "signgu_nm": "고성군"
+    },
+    {
+      "zone_no": "10365",
+      "zone_name": "원통시내 상권",
+      "zone_full_name": "원통시내 상권",
+      "sido_nm": "강원도",
+      "signgu_nm": "인제군"
+    },
+    {
+      "zone_no": "10366",
+      "zone_name": "무선지구",
+      "zone_full_name": "무선지구",
+      "sido_nm": "전라남도",
+      "signgu_nm": "여수시"
+    },
+    {
+      "zone_no": "10367",
+      "zone_name": "원평동3",
+      "zone_full_name": "원평동3",
+      "sido_nm": "경상북도",
+      "signgu_nm": "구미시"
+    },
+    {
+      "zone_no": "10368",
+      "zone_name": "아주대삼거리_4",
+      "zone_full_name": "아주대삼거리_4",
+      "sido_nm": "경기도",
+      "signgu_nm": "수원시"
+    },
+    {
+      "zone_no": "10369",
+      "zone_name": "기흥역",
+      "zone_full_name": "기흥역",
+      "sido_nm": "경기도",
+      "signgu_nm": "용인시"
+    },
+    {
+      "zone_no": "10370",
+      "zone_name": "유천택지",
+      "zone_full_name": "유천택지",
+      "sido_nm": "강원도",
+      "signgu_nm": "강릉시"
+    },
+    {
+      "zone_no": "10371",
+      "zone_name": "부산대병원상권",
+      "zone_full_name": "부산대병원상권",
+      "sido_nm": "부산광역시",
+      "signgu_nm": "서구"
+    },
+    {
+      "zone_no": "10372",
+      "zone_name": "동아대부민캠퍼스",
+      "zone_full_name": "동아대부민캠퍼스",
+      "sido_nm": "부산광역시",
+      "signgu_nm": "서구"
+    },
+    {
+      "zone_no": "10373",
+      "zone_name": "동대신동역",
+      "zone_full_name": "동대신동역",
+      "sido_nm": "부산광역시",
+      "signgu_nm": "서구"
+    },
+    {
+      "zone_no": "10374",
+      "zone_name": "동아대병원",
+      "zone_full_name": "동아대병원",
+      "sido_nm": "부산광역시",
+      "signgu_nm": "서구"
+    },
+    {
+      "zone_no": "10375",
+      "zone_name": "하단역 3",
+      "zone_full_name": "하단역 3",
+      "sido_nm": "부산광역시",
+      "signgu_nm": "사하구"
+    },
+    {
+      "zone_no": "10376",
+      "zone_name": "다대포항역",
+      "zone_full_name": "다대포항역",
+      "sido_nm": "부산광역시",
+      "signgu_nm": "사하구"
+    }
+  ]
+}
