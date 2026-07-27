@@ -9,11 +9,18 @@
 
 from __future__ import annotations
 
+import json
+import logging
 from typing import Any
 
+from openai import OpenAI
+
+from project.config import settings
 from project.schemas import BusinessStage, RecommendationItem
 from project.state import AgentState
 from project.tools import bizinfo_api, finlife_api, kb_crawler, semas_crawler
+
+logger = logging.getLogger(__name__)
 
 # ---------------------------------------------------------------------------
 # stage → intent 매핑
@@ -137,6 +144,7 @@ def finance_node(state: AgentState) -> dict:
     # 2-d. KB국민은행 — KB 소상공인 전용 상품 (seed + 실시간) — finlife 필터링 전에 먼저 호출
     kb_info: dict[str, Any] = kb_crawler.get_kb_sme_info()
     kb_policy: dict[str, Any] = kb_info.get("policy_fund", {})
+    kb_sme_products_raw: list[dict[str, Any]] = kb_info.get("sme_products", [])
 
     # 2-c. 금감원 finlife — 민간 금융상품 (API / mock)
     finlife_result: dict[str, Any] = finlife_api.search_finance_products(
@@ -214,10 +222,32 @@ def finance_node(state: AgentState) -> dict:
             )
         )
 
+    # 3-e. KB 소상공인 개별 상품 (intent/region/업종 필터 후 최대 2건)
+    if intent in _LOAN_INTENTS:
+        kb_sme_filtered = _filter_kb_sme_products(
+            products=kb_sme_products_raw,
+            intent=intent,
+            region=region,
+            industry=ctx.industry or "",
+        )
+        for p in kb_sme_filtered:
+            rate_str = f"최저금리 연 {p['min_rate']}%" if p.get("min_rate") else ""
+            limit_str = p.get("loan_limit", "")
+            reason_parts_kb = [s for s in [rate_str, limit_str, p.get("description", "")] if s]
+            recommendations.append(
+                RecommendationItem(
+                    type="financial_product",
+                    name=p["product_name"],
+                    reason=" | ".join(reason_parts_kb[:2]) or "KB국민은행 소상공인 전용 상품",
+                    link=p.get("url", "https://obiz.kbstar.com/quics?page=C016282"),
+                )
+            )
+
     # ── 4. 요약 문구 ─────────────────────────────────────────────────────────
     n_policy = len(semas_results) + len(bizinfo_results)
     kb_included = kb_policy.get("product_name") and intent in _LOAN_INTENTS
-    n_product = len(finlife_products) + (1 if kb_included else 0)
+    n_kb_sme = len(kb_sme_filtered) if intent in _LOAN_INTENTS else 0
+    n_product = len(finlife_products) + (1 if kb_included else 0) + n_kb_sme
 
     # intent 가 stage 기본값을 override 했으면 intent 맞춤 문구 사용
     _INTENT_SUMMARY: dict[str, str] = {
@@ -228,6 +258,21 @@ def finance_node(state: AgentState) -> dict:
     }
     base_summary = _INTENT_SUMMARY.get(intent) or _SUMMARY_TEMPLATE.get(stage, "금융상품 분석 결과입니다.")
     summary = f"{base_summary} 정책자금 {n_policy}건, 금융상품 {n_product}건을 확인했습니다."
+
+    # ── 5. LLM 추천 이유 개인화 ──────────────────────────────────────────────
+    # 성공 시 각 추천의 reason 을 맥락 있는 문구로 교체.
+    # 실패 시 정적 문구 그대로 유지 (서비스 중단 없음).
+    economic = state.get("economic_result") or {}
+    commercial = state.get("commercial_result") or {}
+    recommendations = _enrich_with_llm(
+        recommendations=recommendations,
+        region=region,
+        industry=ctx.industry or "소상공인",
+        stage=stage,
+        user_query=user_query,
+        economic=economic,
+        commercial=commercial,
+    )
 
     return {
         "finance_result": {
@@ -249,6 +294,53 @@ def finance_node(state: AgentState) -> dict:
 # 내부 헬퍼 — 은행 다양성 필터
 # ---------------------------------------------------------------------------
 _KB_BANK_NAMES = {"국민은행", "KB국민은행"}
+
+# KB SME 상품 중 기본 제외할 카테고리
+_KB_SKIP_CATEGORIES = {"채무조정", "대환대출"}
+# 경기도 전용 상품 키워드
+_GYEONGGI_KEYWORDS = {"경기", "수원", "성남", "의정부", "고양", "부천", "안산", "화성", "용인", "시흥"}
+
+
+def _filter_kb_sme_products(
+    products: list[dict[str, Any]],
+    intent: str,
+    region: str,
+    industry: str,
+    max_items: int = 2,
+) -> list[dict[str, Any]]:
+    """intent/region/업종 기준으로 KB 소상공인 상품을 필터링한다.
+
+    - 채무조정·대환 상품: 기본 제외 (상환연장 intent 에서만 포함)
+    - 경기도 전용 상품: region 이 경기권이 아니면 제외
+    - 프랜차이즈 대출: 프랜차이즈 업종이 아니면 제외
+    - 정렬 기준: min_rate 낮은 순, None 은 뒤로
+    """
+    _REFINANCE_INTENTS = {"상환연장", "대환"}
+
+    filtered: list[dict[str, Any]] = []
+    for p in products:
+        cat = p.get("category", "")
+
+        # 채무조정·대환은 상환 관련 intent 에서만
+        if cat in _KB_SKIP_CATEGORIES and intent not in _REFINANCE_INTENTS:
+            continue
+
+        # 경기도 전용 상품 — region 필터
+        if any(kw in p.get("description", "") for kw in ("경기도",)):
+            if not any(kw in region for kw in _GYEONGGI_KEYWORDS):
+                continue
+
+        # 프랜차이즈 대출 — 업종 필터
+        if "프랜차이즈" in p.get("product_name", ""):
+            franchise_kws = {"프랜차이즈", "가맹점", "체인"}
+            if not any(kw in industry for kw in franchise_kws):
+                continue
+
+        filtered.append(p)
+
+    # 금리 낮은 순 정렬 (None 은 맨 뒤)
+    filtered.sort(key=lambda x: (x.get("min_rate") is None, x.get("min_rate") or 99.0))
+    return filtered[:max_items]
 
 
 def _deduplicate_by_bank(
@@ -328,3 +420,135 @@ def _stage_intent(stage: str, user_query: str) -> str:
         return "경영비용"
 
     return _STAGE_INTENT.get(stage, "창업자금")
+
+
+# ---------------------------------------------------------------------------
+# LLM 추천 이유 개인화
+# ---------------------------------------------------------------------------
+_STAGE_KO: dict[str, str] = {
+    "startup":   "창업 준비",
+    "operation": "운영 중",
+    "expansion": "확장 계획",
+}
+
+_SYSTEM_PROMPT = """\
+당신은 소상공인 금융 전문 컨설턴트입니다.
+사용자 상황에 맞게 각 금융상품·정책자금의 추천 이유를 새롭게 작성해 주세요.
+
+규칙:
+- 각 항목당 1~2문장, 최대 80자
+- 사용자의 업종·지역·사업 단계·경기 상황을 구체적으로 언급할 것
+- 숫자(금리·한도·신청기간)가 있으면 반드시 포함할 것
+- 과장 표현·광고 문구 금지. 실용적이고 간결하게
+- 반드시 JSON 객체만 반환. 키는 "items", 값은 배열
+"""
+
+
+def _enrich_with_llm(
+    recommendations: list[RecommendationItem],
+    region: str,
+    industry: str,
+    stage: str,
+    user_query: str,
+    economic: dict[str, Any],
+    commercial: dict[str, Any],
+) -> list[RecommendationItem]:
+    """LLM 으로 각 추천 항목의 reason 을 개인화한다.
+
+    OpenAI 호출에 실패하거나 API 키가 없으면 기존 정적 문구를 그대로 반환해
+    서비스가 중단되지 않도록 한다.
+
+    Args:
+        recommendations: 정적 reason 이 채워진 추천 리스트.
+        region: 지역 (예: "서울").
+        industry: 업종 (예: "카페").
+        stage: 사업 단계 ("startup" | "operation" | "expansion").
+        user_query: 원본 사용자 질문.
+        economic: economic_node 결과 dict (경기지표·소비 트렌드).
+        commercial: commercial_node 결과 dict (상권 분석).
+
+    Returns:
+        reason 이 LLM 문구로 교체된 추천 리스트.
+        실패 시 원본 리스트 그대로 반환.
+    """
+    if not settings.openai_api_key or not recommendations:
+        return recommendations
+
+    # ── 컨텍스트 요약 조립 ────────────────────────────────────────────────
+    stage_ko = _STAGE_KO.get(stage, stage)
+    econ_indicator = economic.get("indicator", "")
+    econ_trend = economic.get("consumption_trend", "")
+    comm_summary = commercial.get("summary", "")
+
+    context_lines = [
+        f"- 사용자: {region} / {industry} / {stage_ko}",
+        f"- 원본 질문: {user_query}",
+    ]
+    if econ_indicator:
+        context_lines.append(f"- 경기지표: {econ_indicator[:120]}")
+    if econ_trend:
+        context_lines.append(f"- 소비 트렌드: {econ_trend[:100]}")
+    if comm_summary:
+        context_lines.append(f"- 상권 분석: {comm_summary[:100]}")
+
+    context_block = "\n".join(context_lines)
+
+    # ── 상품 목록 조립 (current_reason 제외 — LLM이 그대로 베끼지 않도록) ──
+    items_for_llm = [
+        {"index": i, "type": r.type, "name": r.name}
+        for i, r in enumerate(recommendations)
+    ]
+    items_block = json.dumps(items_for_llm, ensure_ascii=False, indent=2)
+
+    user_prompt = f"""\
+[사용자 상황]
+{context_block}
+
+[추천 항목]
+{items_block}
+
+위 사용자 상황을 반영해 각 항목별 추천 이유를 새로 작성하세요.
+반환 형식 (JSON 객체):
+{{"items": [{{"index": 0, "reason": "..."}}, {{"index": 1, "reason": "..."}}]}}
+"""
+
+    try:
+        client = OpenAI(api_key=settings.openai_api_key)
+        response = client.chat.completions.create(
+            model=settings.llm_model,
+            messages=[
+                {"role": "system", "content": _SYSTEM_PROMPT},
+                {"role": "user",   "content": user_prompt},
+            ],
+            max_tokens=600,
+            temperature=0.4,
+            response_format={"type": "json_object"},
+        )
+        raw = response.choices[0].message.content or ""
+        parsed = json.loads(raw)
+
+        # {"items": [...]} 또는 값 중 리스트인 것 추출
+        reason_list: list[dict] = next(
+            (v for v in parsed.values() if isinstance(v, list)), []
+        )
+
+        reason_map: dict[int, str] = {
+            item["index"]: item["reason"]
+            for item in reason_list
+            if isinstance(item, dict) and "index" in item and "reason" in item
+        }
+        logger.debug("finance LLM reason_map: %s", reason_map)
+
+        enriched: list[RecommendationItem] = []
+        for i, rec in enumerate(recommendations):
+            if i in reason_map and reason_map[i].strip():
+                enriched.append(rec.model_copy(update={"reason": reason_map[i].strip()}))
+            else:
+                enriched.append(rec)
+
+        logger.info("finance LLM enrichment 완료: %d건", len(enriched))
+        return enriched
+
+    except Exception as exc:
+        logger.warning("finance LLM enrichment 실패 (정적 문구 유지): %s", exc)
+        return recommendations
