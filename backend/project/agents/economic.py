@@ -277,7 +277,7 @@ def _build_consumption_summary(
         beneficiaries: list[str] = scenario.get("beneficiary", [])
         risks: list[str] = scenario.get("risk", [])
 
-        if industry_key in beneficiaries:
+        if any(industry_key in b for b in beneficiaries):
             parts.append(f"현재 국면에서 '{industry_key}' 수혜 업종")
 
         for risk_desc in risks:
@@ -328,7 +328,9 @@ def _format_ecos_lines(ecos_values: dict[str, float | None]) -> str:
         "현재경기판단CSI": "(100 초과=긍정)",
         "향후경기전망CSI": "(100 초과=긍정)",
         "외식비지출전망CSI": "(100 초과=긍정)",
+        "여행비지출전망CSI": "(100 초과=긍정)",
         "BSI_서비스업전망": "(100 초과=긍정)",
+        "BSI_중소기업전망": "(100 초과=긍정)",
     }
     lines = []
     for name, val in ecos_values.items():
@@ -340,10 +342,18 @@ def _format_ecos_lines(ecos_values: dict[str, float | None]) -> str:
 
 def _format_kosis_lines(kosis_values: dict[str, float | None]) -> str:
     """KOSIS 지표값을 LLM 프롬프트용 텍스트로 변환."""
+    unit_map = {
+        "실업률": "%",
+        "소상공인_BSI_경기전반전망": "(100 초과=긍정)",
+        "소상공인_BSI_소매업전망":   "(100 초과=긍정)",
+        "소상공인_BSI_음식점업전망": "(100 초과=긍정)",
+        "소상공인_BSI_개인서비스전망":"(100 초과=긍정)",
+    }
     lines = []
     for name, val in kosis_values.items():
         if val is not None:
-            lines.append(f"- {name}: {val:.1f} (2020=100 불변지수)")
+            unit = unit_map.get(name, "(2020=100 불변지수)")
+            lines.append(f"- {name}: {val:.1f} {unit}")
     return "\n".join(lines) if lines else "- 조회 중"
 
 
@@ -365,7 +375,7 @@ def _format_scenario_lines(
         label = key.replace("_", " ")
         if effect:
             lines.append(f"- [{label}] {effect}")
-        if industry_key in beneficiaries:
+        if any(industry_key in b for b in beneficiaries):
             lines.append(f"  → '{industry_key}' 수혜 업종에 해당")
         for risk_desc in risks:
             if industry_key in risk_desc:
@@ -444,7 +454,8 @@ def economic_node(state: AgentState) -> dict:
     ecos_targets = [
         "기준금리", "소비자물가지수", "생산자물가지수", "원달러환율",
         "현재경기판단CSI", "향후경기전망CSI",
-        "외식비지출전망CSI", "BSI_서비스업전망",
+        "외식비지출전망CSI", "여행비지출전망CSI",
+        "BSI_서비스업전망", "BSI_중소기업전망",
     ]
     ecos_values = _fetch_ecos_values(ecos_targets)
 
