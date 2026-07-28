@@ -2,7 +2,7 @@
   "_meta": {
     "description": "업종별 경기지표 상관관계 매핑표 — economic_node 가 참조하는 정적 데이터",
     "analysis_period": "2023-07 ~ 2026-07 (37개월)",
-    "last_updated": "2026-07-21",
+    "last_updated": "2026-07-28",
     "threshold": "Pearson |r| >= 0.40",
     "source_script": "backend/analysis/economic/collect.py",
     "signal_type_legend": {
@@ -48,7 +48,7 @@
     "소상공인_BSI_개인서비스전망":{ "tbl_id": "DT_S0001N_002", "org_id": "142", "itm_id": "s1",  "obj_l1": "08", "prd_se": "M", "unit": "BSI", "signal_type": "선행",
                           "_note": "서비스업생산_개인서비스와 r=0.538. 개인서비스 업종 직접 선행지표로 유효." },
     "소상공인_BSI_교육서비스전망":{ "tbl_id": "DT_S0001N_002", "org_id": "142", "itm_id": "s1",  "obj_l1": "05", "prd_se": "M", "unit": "BSI", "signal_type": "선행",
-                          "_note": "교육서비스 업종 직접 선행지표. 실업률(r=0.396)과 동조 — 경기 하락 시 역방향. 상관계수 추가 분석 예정." }
+                          "_note": "서비스업생산_교육서비스와 r=-0.071로 직접 선행지표 아님 (2026-07-28 실측 확인). 다른 BSI 지수와 r≈0.7~0.8 동조 — 전반적 경기심리 반영 지수. 전문소매점(r=0.482), 무점포소매(r=0.442), 개인서비스(r=0.438)와 약한 양의 상관. 교육서비스 업종 전용 지표로는 무효." }
   },
 
   "industry_keyword_map": {
@@ -125,15 +125,14 @@
 
   "industry_indicator_correlation": {
     "음식점주점": {
-      "summary": "편의점 소매판매·BSI 서비스업전망과 강한 양의 상관. 기준금리·실업률과는 무관에 가까움.",
+      "summary": "편의점 소매판매·전문소매점과 강한 양의 상관. 기준금리·실업률과는 무관에 가까움.",
+      "_note": "BSI_서비스업전망(r=0.381)은 |r|≥0.40 미달로 제거.",
       "top_positive": [
         { "indicator": "소매판매_편의점",    "signal_type": "동행", "r": 0.683, "interpretation": "소비 활성화 시 음식점 업황도 동반 상승" },
-        { "indicator": "소매판매_전문소매점", "signal_type": "동행", "r": 0.461, "interpretation": "오프라인 소비 회복 시 동반 상승" },
-        { "indicator": "BSI_서비스업전망",   "signal_type": "선행", "r": 0.381, "interpretation": "서비스업 전반 경기 낙관 시 개선" }
+        { "indicator": "소매판매_전문소매점", "signal_type": "동행", "r": 0.461, "interpretation": "오프라인 소비 회복 시 동반 상승" }
       ],
-      "top_negative": [
-        { "indicator": "소비자물가지수",     "signal_type": "거시배경", "r": -0.210, "interpretation": "물가 상승 시 식자재 원가 부담 증가" }
-      ],
+      "top_negative": [],
+      "_note2": "소비자물가지수(r=-0.210)도 |r|≥0.40 미달로 제거. 원가 부담은 agent_signal 및 macro_interpretation 음식점주점 risk 항목으로 반영.",
       "agent_signal": "외식비지출전망CSI ↑ + 편의점소매판매 ↑ → 업황 개선 신호"
     },
 
@@ -145,9 +144,9 @@
         { "indicator": "여행비지출전망CSI", "signal_type": "선행", "r": 0.433, "interpretation": "여가 소비 심리 회복 시 동반 상승" }
       ],
       "top_negative": [
-        { "indicator": "실업률",           "signal_type": "동행",    "r": -0.702, "interpretation": "실업률 오르면 생계형 소비도 감소" },
-        { "indicator": "소비자물가지수",    "signal_type": "거시배경", "r": -0.247, "interpretation": "물가 상승 → 구매력 감소" }
+        { "indicator": "실업률",           "signal_type": "동행",    "r": -0.702, "interpretation": "실업률 오르면 생계형 소비도 감소" }
       ],
+      "_note": "소비자물가지수(r=-0.247)는 |r|≥0.40 미달로 제거.",
       "agent_signal": "실업률 ↑ → 편의점 매출 위험 신호 / 실업률 ↓ → 회복 신호"
     },
 
@@ -179,15 +178,13 @@
     },
 
     "교육서비스": {
-      "summary": "대부분 경기지표와 무관하거나 역의 상관. 경기 불황에도 지출 유지되는 '필수 서비스' 특성. 소상공인_BSI_교육서비스전망이 직접 선행지표로 추가 확인됨.",
-      "_note": "기준금리(r=0.293)는 |r|≥0.40 미달로 top_positive에서 제거. 교육비는 경기 방어적 지출이나 상관계수가 threshold 미달.",
-      "top_positive": [
-        { "indicator": "소상공인_BSI_교육서비스전망", "signal_type": "선행", "r": null, "interpretation": "교육 소상공인 경기 전망 직접 선행 신호 (상관계수 추가 검증 예정)" }
-      ],
+      "summary": "대부분 경기지표와 무관하거나 역의 상관. 경기 불황에도 지출 유지되는 '필수 서비스' 특성. 소상공인_BSI_교육서비스전망(r=-0.071)은 직접 선행지표로 무효 — 37개월 실측 확인(2026-07-28).",
+      "_note": "기준금리(r=0.293), 소상공인_BSI_교육서비스전망(r=-0.071) 모두 |r|≥0.40 미달로 top_positive 없음. 교육서비스는 경기 방어적·학령인구 의존적 업종으로 거시 지표보다 구조적 요인(출생률·학령인구 감소)이 더 중요.",
+      "top_positive": [],
       "top_negative": [
-        { "indicator": "소매판매_편의점",  "signal_type": "동행", "r": -0.416, "interpretation": "편의점 소비 늘면 교육비 상대적 감소" }
+        { "indicator": "소매판매_편의점",  "signal_type": "동행", "r": -0.416, "interpretation": "편의점 소비 늘면 교육비 상대적 감소 — 경기 호황 시 여가·외식 지출 증가로 교육비 경쟁" }
       ],
-      "agent_signal": "소상공인_BSI_교육서비스전망 ↑ → 교육서비스 업황 선행 신호. 경기 지표보다 인구통계(학령인구) 변화가 더 중요한 업종."
+      "agent_signal": "소매판매_편의점 ↑ → 교육서비스 상대적 위축 신호. 경기 지표보다 학령인구·출생률 구조 변화가 더 결정적인 업종."
     },
 
     "숙박": {
@@ -228,9 +225,8 @@
         { "indicator": "소상공인_BSI_개인서비스전망", "signal_type": "선행", "r": 0.538, "interpretation": "개인서비스 소상공인 경기 전망 직접 선행 신호" },
         { "indicator": "소상공인_BSI_경기전반전망",   "signal_type": "선행", "r": 0.543, "interpretation": "소상공인 전반 경기 낙관 시 개인서비스 수혜" }
       ],
-      "top_negative": [
-        { "indicator": "여행비지출전망CSI",           "signal_type": "선행", "r": -0.385, "interpretation": "여행 소비 증가 시 개인서비스 수요 분산" }
-      ],
+      "top_negative": [],
+      "_note": "여행비지출전망CSI(r=-0.385)는 |r|≥0.40 미달로 제거. 개인서비스는 선행지표가 양의 지표 중심.",
       "agent_signal": "소상공인_BSI_개인서비스전망 ↑ + 서비스업생산 총지수 ↑ → 개인서비스 업황 개선 신호"
     }
   },
@@ -256,7 +252,7 @@
       "소상공인_BSI_소매업전망":   "전문소매점(r=0.680)과 유의 상관. 직접 선행지표. 정식 편입.",
       "소상공인_BSI_음식점업전망": "서비스업생산_음식점주점(r=0.277)과 직접 상관 미유의. 편입하되 note 참조.",
       "소상공인_BSI_개인서비스전망":"서비스업생산_개인서비스(r=0.538)와 유의 상관. 정식 편입.",
-      "소상공인_BSI_교육서비스전망":"교육서비스 업종 직접 선행지표. 상관계수 추가 분석 예정. 정식 편입."
+      "소상공인_BSI_교육서비스전망":"서비스업생산_교육서비스와 r=-0.071로 직접 선행지표 아님(2026-07-28 실측). 전반적 경기심리 지수로 다른 BSI와 동조(r≈0.8). kosis_indicators 유지하되 교육서비스 top_positive에서 제거."
     },
 
     "not_available_via_api": {

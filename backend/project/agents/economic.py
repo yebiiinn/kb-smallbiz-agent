@@ -54,6 +54,97 @@ def _detect_industry_key(industry: str) -> str:
     return "음식점주점"
 
 
+# ── 헬퍼: 지역 분류 ──────────────────────────────────────────────────────────
+
+_REGION_GROUPS: dict[str, list[str]] = {
+    "수도권": ["서울", "경기", "인천", "강남", "강북", "강서", "강동", "종로", "마포", "송파", "홍대", "신촌", "이태원", "판교", "분당", "수원", "성남", "용인", "고양", "부천", "안양", "광명", "의정부", "시흥", "화성", "평택", "안산", "부평", "계양"],
+    "부울경": ["부산", "울산", "경남", "창원", "마산", "거제", "진주", "통영", "해운대", "서면", "남포동", "광안리"],
+    "대경권": ["대구", "경북", "포항", "구미", "경산", "칠곡", "동성로", "반월당"],
+    "호남권": ["광주", "전남", "전북", "전주", "여수", "순천", "목포", "군산", "익산"],
+    "충청권": ["대전", "세종", "충남", "충북", "천안", "청주", "공주", "아산"],
+    "강원권": ["강원", "춘천", "원주", "강릉", "속초"],
+    "제주권": ["제주", "서귀포"],
+}
+
+_REGION_CONTEXT: dict[str, dict] = {
+    "수도권": {
+        "label": "수도권(서울·경기·인천)",
+        "characteristics": "고밀도 상권, 높은 임대료·인건비, 유동인구 풍부, 온라인 배달 수요 강함, 경쟁 강도 최고 수준",
+        "economic_note": "부동산 임대료·최저임금 상승 압력이 타 지역 대비 즉각 반영됨. 소비 패턴 변화 민감도 높음.",
+    },
+    "부울경": {
+        "label": "부울경(부산·울산·경남)",
+        "characteristics": "제조업·조선 연관 소비, 관광 수요(해운대 등), 고령화 진행, 수도권 대비 임대료 낮음",
+        "economic_note": "제조업 경기에 연동된 소비 구조. 환율·원자재 가격 변동이 지역 소비에 간접 영향을 줌.",
+    },
+    "대경권": {
+        "label": "대경권(대구·경북)",
+        "characteristics": "섬유·기계 제조업 기반, 상대적으로 보수적 소비 패턴, 신규 상권 형성 속도 완만",
+        "economic_note": "내수 소비 중심 구조로 금리·고용 변화 직접 영향 큼.",
+    },
+    "호남권": {
+        "label": "호남권(광주·전남·전북)",
+        "characteristics": "농업·식품 연관 소비, 지역 밀착형 상권, 단골 고객 의존도 높음, 인구 감소 압력",
+        "economic_note": "지역 내 인구 감소로 신규 고객 유입 제한적. 기존 단골 고객 유지가 핵심.",
+    },
+    "충청권": {
+        "label": "충청권(대전·세종·충남·충북)",
+        "characteristics": "행정 수요, 신도시 개발로 인구 유입 지속, 세종 중심 공무원 소비",
+        "economic_note": "세종시 개발로 신규 상권 형성 중. 행정 인구 소비 패턴 반영 필요.",
+    },
+    "강원권": {
+        "label": "강원권",
+        "characteristics": "관광 의존도 높음, 계절성 강함(여름·겨울 성수기), 비수기 매출 변동 극심",
+        "economic_note": "계절 관광객 수에 따라 매출 편차 크므로 성수기·비수기 전략이 중요.",
+    },
+    "제주권": {
+        "label": "제주권",
+        "characteristics": "관광 의존도 매우 높음, 내·외국인 관광객 소비, 임대료 상승, 제주 이주 인구",
+        "economic_note": "코로나 이후 내국인 제주 여행 증가. 외국인 관광 회복세가 소비에 직결.",
+    },
+}
+
+
+def _classify_region(region: str) -> dict:
+    """지역 텍스트를 경제권으로 분류하고 상권 특성 정보를 반환.
+
+    Parameters
+    ----------
+    region : str
+        사용자가 입력한 지역명 (예: "서울 강남구", "부산 해운대")
+
+    Returns
+    -------
+    dict with keys: group, label, characteristics, economic_note
+    분류 실패 시 "전국" 기본값 반환.
+    """
+    if not region:
+        return {
+            "group": "전국",
+            "label": "전국",
+            "characteristics": "지역 미지정",
+            "economic_note": "",
+        }
+
+    for group, keywords in _REGION_GROUPS.items():
+        for kw in keywords:
+            if kw in region:
+                ctx = _REGION_CONTEXT[group]
+                return {
+                    "group": group,
+                    "label": ctx["label"],
+                    "characteristics": ctx["characteristics"],
+                    "economic_note": ctx["economic_note"],
+                }
+
+    return {
+        "group": "기타지방",
+        "label": f"지방({region})",
+        "characteristics": "지역 밀착형 상권, 단골 중심, 수도권 대비 임대료·인건비 낮음",
+        "economic_note": "지역 특화 산업·인구 구조에 따라 소비 패턴이 결정됨.",
+    }
+
+
 # ── 헬퍼: 최근 3개월 기간 계산 ───────────────────────────────────────────────
 
 def _recent_period() -> tuple[str, str]:
@@ -343,7 +434,12 @@ _SYSTEM_PROMPT = """당신은 소상공인 경기 분석 전문가입니다.
 - 경기 악화 상황이면 "하락" 또는 "위축", 개선이면 "개선" 또는 "회복"을 포함합니다.
 - 각 필드는 2~3문장으로 간결하게. 불필요한 수식어는 생략합니다."""
 
-_USER_PROMPT_TEMPLATE = """다음 정보를 바탕으로 {industry} 업종({region}) 소상공인을 위한 경기 분석을 JSON으로 작성해주세요.
+_USER_PROMPT_TEMPLATE = """다음 정보를 바탕으로 {region_label} 지역의 {industry} 업종 소상공인을 위한 경기 분석을 JSON으로 작성해주세요.
+
+## 지역 상권 특성
+- 경제권: {region_label}
+- 상권 특성: {region_characteristics}
+- 경제적 참고: {region_economic_note}
 
 ## 현재 주요 경기지표 (↑↓→ = 전월 대비 방향)
 {ecos_lines}
@@ -358,8 +454,8 @@ _USER_PROMPT_TEMPLATE = """다음 정보를 바탕으로 {industry} 업종({regi
 ## 현재 해당되는 거시경제 시나리오
 {scenario_lines}
 
-indicator 필드: 금리·물가·환율·소비심리 등 거시경제 흐름 중심으로 작성
-consumption_trend 필드: 위 실물지표 트렌드와 업종 상관관계 인사이트 중심으로 작성"""
+indicator 필드: 금리·물가·환율·소비심리 등 거시경제 흐름 중심으로 작성 (지역 맥락 반영)
+consumption_trend 필드: 위 실물지표 트렌드와 업종 상관관계 인사이트 중심으로 작성 (지역 상권 특성 반영)"""
 
 
 def _format_ecos_lines(
@@ -446,10 +542,11 @@ def _call_llm_summary(
     kosis_values: dict[str, float | None],
     active_scenarios: list[str],
     corr_cfg: dict,
+    region_info: dict | None = None,
     ecos_trends: dict[str, str] | None = None,
     kosis_trends: dict[str, str] | None = None,
 ) -> dict[str, str] | None:
-    """OpenAI API로 업종 맞춤 경기 해석 생성.
+    """OpenAI API로 업종·지역 맞춤 경기 해석 생성.
 
     Returns
     -------
@@ -459,10 +556,13 @@ def _call_llm_summary(
     if not settings.openai_api_key:
         return None
 
+    rinfo = region_info or _classify_region(region)
     macro_interp: dict = _MAPPING.get("macro_interpretation", {})
     user_prompt = _USER_PROMPT_TEMPLATE.format(
         industry=industry or industry_key,
-        region=region or "전국",
+        region_label=rinfo["label"],
+        region_characteristics=rinfo["characteristics"],
+        region_economic_note=rinfo["economic_note"] or "해당 없음",
         ecos_lines=_format_ecos_lines(ecos_values, ecos_trends),
         kosis_lines=_format_kosis_lines(kosis_values, kosis_trends),
         industry_summary=corr_cfg.get("summary", "해당 업종 분석 데이터 없음"),
@@ -512,8 +612,9 @@ def economic_node(state: AgentState) -> dict:
     region = ctx.region or commercial.get("region", "")
     industry = ctx.industry or commercial.get("industry", "")
 
-    # 1. 업종 분류
+    # 1. 업종 분류 + 지역 분류
     industry_key = _detect_industry_key(industry)
+    region_info = _classify_region(region)
 
     # 2. ECOS 핵심 거시지표 조회 (업종 공통 + 업종 특화) + 트렌드
     ecos_targets = [
@@ -525,16 +626,17 @@ def economic_node(state: AgentState) -> dict:
     ecos_values, ecos_trends = _fetch_ecos_values(ecos_targets)
 
     # 3. 업종별 상관 높은 KOSIS 지표 조회 + 트렌드
-    #    industry_indicator_correlation 의 top_positive 목록 중 KOSIS 지표만 선택
+    #    top_positive + top_negative 모두에서 KOSIS 지표를 추출해 LLM에 전달
     kosis_cfg = _MAPPING.get("kosis_indicators", {})
     corr_cfg: dict = (
         _MAPPING.get("industry_indicator_correlation", {}).get(industry_key, {})
     )
-    kosis_targets: list[str] = [
+    kosis_targets: list[str] = list({
         item["indicator"]
-        for item in corr_cfg.get("top_positive", [])
+        for section in ("top_positive", "top_negative")
+        for item in corr_cfg.get(section, [])
         if item["indicator"] in kosis_cfg
-    ]
+    })
     if not kosis_targets:
         kosis_targets = ["서비스업생산_총지수"]
 
@@ -577,6 +679,7 @@ def economic_node(state: AgentState) -> dict:
         kosis_values=kosis_values,
         active_scenarios=active_scenarios,
         corr_cfg=corr_cfg,
+        region_info=region_info,
         ecos_trends=ecos_trends,
         kosis_trends=kosis_trends,
     )
@@ -604,6 +707,7 @@ def economic_node(state: AgentState) -> dict:
                 "raw_consumption": raw_consumption,
                 "agent_signal": corr_cfg.get("agent_signal", ""),
                 "industry_summary": corr_cfg.get("summary", ""),
+                "region_info": region_info,
             },
         }
     }
