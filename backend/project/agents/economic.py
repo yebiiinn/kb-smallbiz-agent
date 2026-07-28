@@ -43,11 +43,12 @@ _MAPPING: dict = _load_mapping()
 def _detect_industry_key(industry: str) -> str:
     """사용자 업종 텍스트 → indicator_mapping 분류키 변환.
 
-    industry_keyword_map 을 순회하며 키워드가 포함되면 해당 분류키 반환.
+    긴 키워드를 먼저 검사해 짧은 키워드가 먼저 매칭되는 문제를 방지.
+    예: "스마트스토어"가 "마트"에 먼저 걸리는 현상 차단.
     매칭 실패 시 기본값 '음식점주점' 반환.
     """
     keyword_map: dict[str, str] = _MAPPING.get("industry_keyword_map", {})
-    for keyword, key in keyword_map.items():
+    for keyword, key in sorted(keyword_map.items(), key=lambda x: len(x[0]), reverse=True):
         if keyword in industry:
             return key
     return "음식점주점"
