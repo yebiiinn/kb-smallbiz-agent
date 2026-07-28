@@ -63,21 +63,45 @@ def _recent_period() -> tuple[str, str]:
     return start, end
 
 
-# ── 헬퍼: ECOS 지표 최신값 조회 ──────────────────────────────────────────────
+# ── 헬퍼: 시계열 트렌드 방향 계산 ────────────────────────────────────────────
 
-def _fetch_ecos_values(indicator_names: list[str]) -> dict[str, float | None]:
-    """지표명 목록의 ECOS 최신값을 조회해 {지표명: 값} 딕셔너리로 반환.
+def _trend_arrow(series: list) -> str:
+    """시계열 리스트에서 전월 대비 방향을 반환. ↑ / ↓ / → / ?"""
+    if not series or len(series) < 2:
+        return "?"
+    curr = series[-1]["value"]
+    prev = series[-2]["value"]
+    if curr is None or prev is None:
+        return "?"
+    if curr > prev:
+        return "↑"
+    elif curr < prev:
+        return "↓"
+    return "→"
 
-    API 키 없거나 조회 실패 시 None 값으로 채움.
+
+# ── 헬퍼: ECOS 지표 최신값 + 트렌드 조회 ─────────────────────────────────────
+
+def _fetch_ecos_values(
+    indicator_names: list[str],
+) -> tuple[dict[str, float | None], dict[str, str]]:
+    """ECOS 지표 최신값과 전월 대비 트렌드를 동시에 반환.
+
+    Returns
+    -------
+    values : {지표명: 최신값 or None}
+    trends : {지표명: "↑" | "↓" | "→" | "?"}
     """
     ecos_cfg: dict[str, dict] = _MAPPING.get("ecos_indicators", {})
     start, end = _recent_period()
-    result: dict[str, float | None] = {}
+    values: dict[str, float | None] = {}
+    trends: dict[str, str] = {}
 
     for name in indicator_names:
         cfg = ecos_cfg.get(name)
         if not cfg:
-            result[name] = None
+            values[name] = None
+            trends[name] = "?"
             continue
         series = ecos_api.fetch_indicator_series(
             stat_code=cfg["stat_code"],
@@ -87,23 +111,34 @@ def _fetch_ecos_values(indicator_names: list[str]) -> dict[str, float | None]:
             start=start,
             end=end,
         )
-        result[name] = series[-1]["value"] if series else None
+        values[name] = series[-1]["value"] if series else None
+        trends[name] = _trend_arrow(series)
 
-    return result
+    return values, trends
 
 
-# ── 헬퍼: KOSIS 지표 최신값 조회 ─────────────────────────────────────────────
+# ── 헬퍼: KOSIS 지표 최신값 + 트렌드 조회 ────────────────────────────────────
 
-def _fetch_kosis_values(indicator_names: list[str]) -> dict[str, float | None]:
-    """지표명 목록의 KOSIS 최신값을 조회해 {지표명: 값} 딕셔너리로 반환."""
+def _fetch_kosis_values(
+    indicator_names: list[str],
+) -> tuple[dict[str, float | None], dict[str, str]]:
+    """KOSIS 지표 최신값과 전월 대비 트렌드를 동시에 반환.
+
+    Returns
+    -------
+    values : {지표명: 최신값 or None}
+    trends : {지표명: "↑" | "↓" | "→" | "?"}
+    """
     kosis_cfg: dict[str, dict] = _MAPPING.get("kosis_indicators", {})
     start, end = _recent_period()
-    result: dict[str, float | None] = {}
+    values: dict[str, float | None] = {}
+    trends: dict[str, str] = {}
 
     for name in indicator_names:
         cfg = kosis_cfg.get(name)
         if not cfg:
-            result[name] = None
+            values[name] = None
+            trends[name] = "?"
             continue
         series = kosis_api.fetch_indicator_series(
             tbl_id=cfg["tbl_id"],
@@ -114,9 +149,10 @@ def _fetch_kosis_values(indicator_names: list[str]) -> dict[str, float | None]:
             start=start,
             end=end,
         )
-        result[name] = series[-1]["value"] if series else None
+        values[name] = series[-1]["value"] if series else None
+        trends[name] = _trend_arrow(series)
 
-    return result
+    return values, trends
 
 
 # ── 헬퍼: 기준금리 방향성 자동 감지 ──────────────────────────────────────────
@@ -293,19 +329,25 @@ _SYSTEM_PROMPT = """당신은 소상공인 경기 분석 전문가입니다.
 한국은행(ECOS)·통계청(KOSIS) 지표 데이터와 업종별 상관분석 결과를 바탕으로,
 소상공인이 자신의 업종에 맞는 경기 흐름을 쉽게 이해할 수 있도록 분석합니다.
 
-답변 규칙:
+반드시 아래 JSON 형식으로만 응답하세요:
+{
+  "indicator": "거시경제 상황 분석 (2~3문장)",
+  "consumption_trend": "소비 트렌드 및 업종 실물 지표 분석 (2~3문장)"
+}
+
+공통 작성 규칙:
 - 반드시 한국어로 작성합니다.
 - 전문 용어는 괄호로 쉽게 풀어 씁니다. 예: CSI(소비자심리지수)
-- 경기가 악화되는 상황이면 "하락" 또는 "위축"이라는 단어를 자연스럽게 포함합니다.
-- 경기가 개선되는 상황이면 "개선" 또는 "회복"이라는 단어를 포함합니다.
-- 2~3문장으로 간결하게 작성합니다. 불필요한 수식어는 생략합니다."""
+- 지표값 옆의 ↑/↓/→ 는 전월 대비 방향입니다. 분석에 활용하세요.
+- 경기 악화 상황이면 "하락" 또는 "위축", 개선이면 "개선" 또는 "회복"을 포함합니다.
+- 각 필드는 2~3문장으로 간결하게. 불필요한 수식어는 생략합니다."""
 
-_USER_PROMPT_TEMPLATE = """다음 정보를 바탕으로 {industry} 업종({region}) 소상공인을 위한 경기 분석을 작성해주세요.
+_USER_PROMPT_TEMPLATE = """다음 정보를 바탕으로 {industry} 업종({region}) 소상공인을 위한 경기 분석을 JSON으로 작성해주세요.
 
-## 현재 주요 경기지표
+## 현재 주요 경기지표 (↑↓→ = 전월 대비 방향)
 {ecos_lines}
 
-## {industry} 업종 관련 실물지표
+## {industry} 업종 관련 실물지표 (↑↓→ = 전월 대비 방향)
 {kosis_lines}
 
 ## 업종별 상관분석 인사이트
@@ -315,11 +357,15 @@ _USER_PROMPT_TEMPLATE = """다음 정보를 바탕으로 {industry} 업종({regi
 ## 현재 해당되는 거시경제 시나리오
 {scenario_lines}
 
-위 정보를 종합해 {industry} 업종 소상공인 관점에서 현재 경기 상황과 주의할 점을 2~3문장으로 설명해주세요."""
+indicator 필드: 금리·물가·환율·소비심리 등 거시경제 흐름 중심으로 작성
+consumption_trend 필드: 위 실물지표 트렌드와 업종 상관관계 인사이트 중심으로 작성"""
 
 
-def _format_ecos_lines(ecos_values: dict[str, float | None]) -> str:
-    """ECOS 지표값을 LLM 프롬프트용 텍스트로 변환."""
+def _format_ecos_lines(
+    ecos_values: dict[str, float | None],
+    ecos_trends: dict[str, str] | None = None,
+) -> str:
+    """ECOS 지표값을 LLM 프롬프트용 텍스트로 변환. 트렌드 화살표 포함."""
     unit_map = {
         "기준금리": "%",
         "소비자물가지수": "(2020=100)",
@@ -332,28 +378,36 @@ def _format_ecos_lines(ecos_values: dict[str, float | None]) -> str:
         "BSI_서비스업전망": "(100 초과=긍정)",
         "BSI_중소기업전망": "(100 초과=긍정)",
     }
+    trends = ecos_trends or {}
     lines = []
     for name, val in ecos_values.items():
         if val is not None:
             unit = unit_map.get(name, "")
-            lines.append(f"- {name}: {val:.2f} {unit}")
+            arrow = trends.get(name, "")
+            lines.append(f"- {name}: {val:.2f} {unit} {arrow}".rstrip())
     return "\n".join(lines) if lines else "- 조회 중"
 
 
-def _format_kosis_lines(kosis_values: dict[str, float | None]) -> str:
-    """KOSIS 지표값을 LLM 프롬프트용 텍스트로 변환."""
+def _format_kosis_lines(
+    kosis_values: dict[str, float | None],
+    kosis_trends: dict[str, str] | None = None,
+) -> str:
+    """KOSIS 지표값을 LLM 프롬프트용 텍스트로 변환. 트렌드 화살표 포함."""
     unit_map = {
         "실업률": "%",
-        "소상공인_BSI_경기전반전망": "(100 초과=긍정)",
-        "소상공인_BSI_소매업전망":   "(100 초과=긍정)",
-        "소상공인_BSI_음식점업전망": "(100 초과=긍정)",
+        "소상공인_BSI_경기전반전망":  "(100 초과=긍정)",
+        "소상공인_BSI_소매업전망":    "(100 초과=긍정)",
+        "소상공인_BSI_음식점업전망":  "(100 초과=긍정)",
         "소상공인_BSI_개인서비스전망":"(100 초과=긍정)",
+        "소상공인_BSI_교육서비스전망":"(100 초과=긍정)",
     }
+    trends = kosis_trends or {}
     lines = []
     for name, val in kosis_values.items():
         if val is not None:
             unit = unit_map.get(name, "(2020=100 불변지수)")
-            lines.append(f"- {name}: {val:.1f} {unit}")
+            arrow = trends.get(name, "")
+            lines.append(f"- {name}: {val:.1f} {unit} {arrow}".rstrip())
     return "\n".join(lines) if lines else "- 조회 중"
 
 
@@ -391,10 +445,15 @@ def _call_llm_summary(
     kosis_values: dict[str, float | None],
     active_scenarios: list[str],
     corr_cfg: dict,
-) -> str | None:
+    ecos_trends: dict[str, str] | None = None,
+    kosis_trends: dict[str, str] | None = None,
+) -> dict[str, str] | None:
     """OpenAI API로 업종 맞춤 경기 해석 생성.
 
-    API 키 없거나 호출 실패 시 None 반환 → 호출부에서 fallback 처리.
+    Returns
+    -------
+    {"indicator": "...", "consumption_trend": "..."} or None (실패 시)
+    JSON 모드로 indicator + consumption_trend 를 한 번에 생성.
     """
     if not settings.openai_api_key:
         return None
@@ -403,8 +462,8 @@ def _call_llm_summary(
     user_prompt = _USER_PROMPT_TEMPLATE.format(
         industry=industry or industry_key,
         region=region or "전국",
-        ecos_lines=_format_ecos_lines(ecos_values),
-        kosis_lines=_format_kosis_lines(kosis_values),
+        ecos_lines=_format_ecos_lines(ecos_values, ecos_trends),
+        kosis_lines=_format_kosis_lines(kosis_values, kosis_trends),
         industry_summary=corr_cfg.get("summary", "해당 업종 분석 데이터 없음"),
         agent_signal=corr_cfg.get("agent_signal", "없음"),
         scenario_lines=_format_scenario_lines(
@@ -420,10 +479,15 @@ def _call_llm_summary(
                 {"role": "system", "content": _SYSTEM_PROMPT},
                 {"role": "user", "content": user_prompt},
             ],
-            max_tokens=300,
+            max_tokens=500,
             temperature=0.3,
+            response_format={"type": "json_object"},
         )
-        return response.choices[0].message.content.strip()
+        raw = response.choices[0].message.content.strip()
+        parsed = json.loads(raw)
+        if "indicator" in parsed and "consumption_trend" in parsed:
+            return parsed
+        return None
     except Exception:
         return None
 
@@ -450,16 +514,16 @@ def economic_node(state: AgentState) -> dict:
     # 1. 업종 분류
     industry_key = _detect_industry_key(industry)
 
-    # 2. ECOS 핵심 거시지표 조회 (업종 공통 + 업종 특화)
+    # 2. ECOS 핵심 거시지표 조회 (업종 공통 + 업종 특화) + 트렌드
     ecos_targets = [
         "기준금리", "소비자물가지수", "생산자물가지수", "원달러환율",
         "현재경기판단CSI", "향후경기전망CSI",
         "외식비지출전망CSI", "여행비지출전망CSI",
         "BSI_서비스업전망", "BSI_중소기업전망",
     ]
-    ecos_values = _fetch_ecos_values(ecos_targets)
+    ecos_values, ecos_trends = _fetch_ecos_values(ecos_targets)
 
-    # 3. 업종별 상관 높은 KOSIS 지표 조회
+    # 3. 업종별 상관 높은 KOSIS 지표 조회 + 트렌드
     #    industry_indicator_correlation 의 top_positive 목록 중 KOSIS 지표만 선택
     kosis_cfg = _MAPPING.get("kosis_indicators", {})
     corr_cfg: dict = (
@@ -477,7 +541,7 @@ def economic_node(state: AgentState) -> dict:
     if "실업률" not in kosis_targets:
         kosis_targets.append("실업률")
 
-    kosis_values = _fetch_kosis_values(kosis_targets)
+    kosis_values, kosis_trends = _fetch_kosis_values(kosis_targets)
 
     # 4. 거시 시나리오 판별
     rate_direction = _fetch_rate_direction()
@@ -502,8 +566,9 @@ def economic_node(state: AgentState) -> dict:
         raw_consumption = fallback_kosis.get("summary", raw_consumption)
 
     # 7. LLM 자연어 해석 생성
-    #    성공 시 indicator 필드를 자연어 텍스트로 교체, 실패 시 raw 요약 사용
-    llm_summary = _call_llm_summary(
+    #    성공 시 indicator + consumption_trend 모두 LLM 텍스트로 교체
+    #    실패 시 raw 요약 사용
+    llm_result = _call_llm_summary(
         industry=industry,
         region=region,
         industry_key=industry_key,
@@ -511,14 +576,17 @@ def economic_node(state: AgentState) -> dict:
         kosis_values=kosis_values,
         active_scenarios=active_scenarios,
         corr_cfg=corr_cfg,
+        ecos_trends=ecos_trends,
+        kosis_trends=kosis_trends,
     )
-    indicator_summary = llm_summary if llm_summary else raw_indicator
+    indicator_summary = llm_result["indicator"] if llm_result else raw_indicator
+    consumption_summary = llm_result["consumption_trend"] if llm_result else raw_consumption
 
     return {
         "economic_result": {
             # synthesize_node + crisis_node 가 직접 참조하는 핵심 필드
             "indicator": indicator_summary,
-            "consumption_trend": raw_consumption,
+            "consumption_trend": consumption_summary,
             # 분석 메타
             "industry_key": industry_key,
             "active_scenarios": active_scenarios,
@@ -528,8 +596,11 @@ def economic_node(state: AgentState) -> dict:
             "raw": {
                 "ecos": ecos_values,
                 "kosis": kosis_values,
+                "ecos_trends": ecos_trends,
+                "kosis_trends": kosis_trends,
                 "rate_direction": rate_direction,
                 "raw_indicator": raw_indicator,
+                "raw_consumption": raw_consumption,
                 "agent_signal": corr_cfg.get("agent_signal", ""),
                 "industry_summary": corr_cfg.get("summary", ""),
             },
