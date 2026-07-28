@@ -5,8 +5,10 @@ from __future__ import annotations
 import json
 from functools import lru_cache
 from pathlib import Path
+from statistics import median
 
 DATA_DIR = Path(__file__).resolve().parent.parent / "data" / "crisis"
+SIGNGU_CODES_PATH = Path(__file__).resolve().parent.parent / "data" / "signgu_codes.json"
 
 SIDO_ALIASES: dict[str, str] = {
     "서울": "서울",
@@ -93,6 +95,71 @@ def _region_matches_signgu(region: str, signgu_nm: str) -> bool:
     return signgu in signgu_nm or signgu_nm in signgu
 
 
+def _sido_in_address(address: str, sido_short: str) -> bool:
+    normalized = address.replace(" ", "")
+    for alias, short in SIDO_ALIASES.items():
+        if short == sido_short and alias.replace(" ", "") in normalized:
+            return True
+    return False
+
+
+def _education_matches_region(address: str, region: str) -> bool:
+    if not address:
+        return False
+    signgu = _detect_signgu(region)
+    sido_short = _detect_sido_short(region)
+    if signgu and signgu not in address:
+        return False
+    if sido_short and not _sido_in_address(address, sido_short):
+        return False
+    return bool(signgu or sido_short)
+
+
+@lru_cache(maxsize=1)
+def _load_signgu_codes() -> tuple[dict, ...]:
+    with open(SIGNGU_CODES_PATH, encoding="utf-8") as file:
+        return tuple(json.load(file))
+
+
+def _resolve_signgu_code(region: str) -> str | None:
+    signgu = _detect_signgu(region)
+    if not signgu:
+        return None
+    sido_short = _detect_sido_short(region)
+    for entry in _load_signgu_codes():
+        if entry.get("sigungu") != signgu:
+            continue
+        sido = entry.get("sido", "")
+        if sido_short:
+            sido_key = sido.replace("특별", "").replace("광역", "").replace("자치", "")
+            if sido_short not in sido_key:
+                continue
+        return str(entry.get("code", "")).strip() or None
+    return None
+
+
+def _signgu_code_matches(item_code: str, full_code: str) -> bool:
+    item_code = str(item_code or "").strip()
+    full_code = str(full_code or "").strip()
+    if not item_code or not full_code:
+        return False
+    if item_code == full_code:
+        return True
+    if len(full_code) >= 4 and item_code == full_code[:4]:
+        return True
+    return full_code.startswith(item_code)
+
+
+@lru_cache(maxsize=1)
+def _national_median_market_area() -> float:
+    areas = [
+        float(item["area_m2"])
+        for item in _load_items("growth_markets.json")
+        if item.get("area_m2") is not None
+    ]
+    return float(median(areas)) if areas else 0.0
+
+
 @lru_cache(maxsize=1)
 def _load_items(filename: str) -> tuple[dict, ...]:
     path = DATA_DIR / filename
@@ -115,11 +182,27 @@ def analyze_regional_context(region: str) -> dict:
         if _region_matches_sido(region, item.get("sido_nm", ""))
         and _region_matches_signgu(region, item.get("signgu_nm", ""))
     ]
+    signgu_code = _resolve_signgu_code(region)
+    growth_markets = [
+        item
+        for item in _load_items("growth_markets.json")
+        if signgu_code
+        and (
+            _signgu_code_matches(item.get("signgu_cd", ""), signgu_code)
+            or str(item.get("dong_cd", "")).startswith(signgu_code)
+        )
+    ]
+    growth_areas = [
+        float(item["area_m2"])
+        for item in growth_markets
+        if item.get("area_m2") is not None
+    ]
+    avg_growth_area = sum(growth_areas) / len(growth_areas) if growth_areas else None
+
     education = [
         item
         for item in _load_items("education_institutions.json")
-        if region.replace(" ", "") in item.get("address", "").replace(" ", "")
-        or (_detect_sido_short(region) and _detect_sido_short(region) in item.get("address", ""))
+        if _education_matches_region(item.get("address", ""), region)
     ]
 
     sido_short = _detect_sido_short(region)
@@ -129,16 +212,23 @@ def analyze_regional_context(region: str) -> dict:
             national_count = item.get("market_count")
             break
 
+    growth_names = [item.get("zone_name", "") for item in growth_markets[:3]]
     sample_names = [item.get("trdar_nm") or item.get("zone_name", "") for item in major_markets[:3]]
     sample_names += [item.get("zone_name", "") for item in molit_markets[:2]]
+    sample_names += growth_names
 
     return {
         "sido_short": sido_short,
         "signgu": _detect_signgu(region),
+        "signgu_code": signgu_code,
         "major_market_count": len(major_markets),
         "molit_market_count": len(molit_markets),
+        "growth_market_count": len(growth_markets),
+        "avg_growth_market_area_m2": avg_growth_area,
+        "national_median_market_area_m2": _national_median_market_area(),
         "national_market_count": national_count,
         "education_count": len(education),
         "education_institutions": education[:3],
-        "sample_market_names": [name for name in sample_names if name][:5],
+        "growth_market_names": [name for name in growth_names if name],
+        "sample_market_names": [name for name in dict.fromkeys(sample_names) if name][:5],
     }

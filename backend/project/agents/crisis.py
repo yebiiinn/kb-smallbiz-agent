@@ -8,6 +8,11 @@ COMMERCIAL_WARNING_SCORE = 45
 COMMERCIAL_CRITICAL_SCORE = 35
 REVENUE_CRITICAL_THRESHOLD = 5_000_000
 LOW_MARKET_COUNT_THRESHOLD = 50
+COMPETITION_RATIO_WARNING = 0.05
+STORE_COUNT_WARNING = 3_000
+CSI_WARNING_THRESHOLD = 100
+CSI_CRITICAL_THRESHOLD = 90
+SMALL_MARKET_AREA_RATIO = 0.7
 
 
 def _max_level(current: str, new: str) -> str:
@@ -24,6 +29,50 @@ def _economic_is_weak(indicator: str, consumption: str) -> bool:
     text = f"{indicator} {consumption}"
     weak_keywords = ("하락", "부진", "둔화", "감소", "위축", "축소")
     return any(keyword in text for keyword in weak_keywords)
+
+
+def _parse_consumer_sentiment(value: object) -> float | None:
+    if value is None:
+        return None
+    try:
+        return float(value)
+    except (TypeError, ValueError):
+        return None
+
+
+def _economic_csi_is_weak(sentiment: float | None) -> bool:
+    return sentiment is not None and sentiment < CSI_WARNING_THRESHOLD
+
+
+def _economic_csi_is_critical(sentiment: float | None) -> bool:
+    return sentiment is not None and sentiment < CSI_CRITICAL_THRESHOLD
+
+
+def _get_sangkwon(commercial: dict) -> dict:
+    return (commercial.get("raw") or {}).get("sangkwon") or {}
+
+
+def _build_growth_signal(regional: dict) -> str | None:
+    growth_count = regional.get("growth_market_count", 0)
+    avg_area = regional.get("avg_growth_market_area_m2")
+    median_area = regional.get("national_median_market_area_m2")
+
+    if not regional.get("signgu"):
+        return None
+
+    if growth_count == 0 and regional.get("major_market_count", 0) == 0:
+        return "인근 성장상권 데이터가 없어 상권 활성도를 추가로 확인할 필요가 있습니다."
+
+    if growth_count == 0:
+        return None
+
+    if avg_area and median_area and avg_area < median_area * SMALL_MARKET_AREA_RATIO:
+        return (
+            f"인근 상권 평균 규모({int(avg_area):,}㎡)가 전국 중앙값({int(median_area):,}㎡) 대비 작아 "
+            "성장 여력이 제한될 수 있습니다."
+        )
+
+    return None
 
 
 def _build_regional_signal(region: str, regional: dict) -> str | None:
@@ -89,8 +138,10 @@ def _suggest_actions(level: str, regional: dict) -> list[str]:
         names = ", ".join(item.get("name", "") for item in education[:2])
         actions.append(f"인근 소상공인 교육기관 활용 검토 ({names})")
 
-    if regional.get("sample_market_names"):
-        actions.append("인근 주요상권(소상공인365·국토교통부) 매출·유동 추이 비교")
+    market_names = regional.get("sample_market_names") or []
+    if market_names:
+        names = ", ".join(market_names[:3])
+        actions.append(f"인근 주요상권({names}) 매출·유동 추이 비교")
 
     return actions
 
@@ -113,6 +164,10 @@ def crisis_node(state: AgentState) -> dict:
     commercial_score = int(commercial.get("score") or 50)
     revenue = ctx.revenue
     stage = ctx.stage.value
+    sangkwon = _get_sangkwon(commercial)
+    store_count = sangkwon.get("store_count")
+    competition_ratio = sangkwon.get("competition_ratio")
+    consumer_sentiment = _parse_consumer_sentiment(economic.get("consumer_sentiment"))
 
     level = "normal"
     signals: list[str] = []
@@ -134,6 +189,18 @@ def crisis_node(state: AgentState) -> dict:
         else:
             signals.append("주변 경쟁 업체 밀집도가 높습니다.")
 
+    if competition_ratio is not None and competition_ratio >= COMPETITION_RATIO_WARNING:
+        if commercial.get("competition_level") != "high":
+            level = _max_level(level, "warning")
+        ratio_pct = competition_ratio * 100
+        signals.append(
+            f"{industry} 업종 점포 비중이 {ratio_pct:.1f}%로 높아 상권 내 경쟁 과밀 신호가 있습니다."
+        )
+
+    if store_count is not None and store_count >= STORE_COUNT_WARNING:
+        level = _max_level(level, "warning")
+        signals.append(f"{region} {industry} 점포 수가 {store_count:,}개로 공급 과다 구간입니다.")
+
     sales_trend = commercial.get("sales_trend", "")
     if _sales_trend_is_negative(sales_trend):
         level = _max_level(level, "warning")
@@ -143,12 +210,27 @@ def crisis_node(state: AgentState) -> dict:
         level = _max_level(level, "critical")
         signals.append("자기신고 월 매출이 생계·운영 기준 이하로 추정됩니다.")
 
-    if _economic_is_weak(
+    if _economic_csi_is_critical(consumer_sentiment):
+        level = _max_level(level, "critical")
+        signals.append(
+            f"소비자심리지수(CSI)가 {consumer_sentiment:.0f}로 위축 구간입니다."
+        )
+    elif _economic_csi_is_weak(consumer_sentiment):
+        level = _max_level(level, "warning")
+        signals.append(
+            f"소비자심리지수(CSI)가 {consumer_sentiment:.0f}로 기준(100) 미만입니다."
+        )
+    elif _economic_is_weak(
         economic.get("indicator", ""),
         economic.get("consumption_trend", ""),
     ):
         level = _max_level(level, "warning")
         signals.append("경기·소비 지표에서 둔화 신호가 감지됩니다.")
+
+    growth_signal = _build_growth_signal(regional)
+    if growth_signal:
+        level = _max_level(level, "warning")
+        signals.append(growth_signal)
 
     regional_signal = _build_regional_signal(region, regional)
     if regional_signal:
@@ -170,10 +252,14 @@ def crisis_node(state: AgentState) -> dict:
             "industry": industry,
             "major_market_count": regional.get("major_market_count"),
             "molit_market_count": regional.get("molit_market_count"),
+            "growth_market_count": regional.get("growth_market_count"),
             "education_count": regional.get("education_count"),
             "raw": {
                 "regional": regional,
                 "commercial_score": commercial_score,
+                "store_count": store_count,
+                "competition_ratio": competition_ratio,
+                "consumer_sentiment": consumer_sentiment,
             },
         }
     }
