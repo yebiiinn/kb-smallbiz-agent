@@ -65,7 +65,6 @@ _SECTION_MAP: dict[str, str] = {
     "지원대상":  "target",
     "지원내용":  "support_content",
     "신청·접수": "application_url",
-    "신청·접수": "application_url",
     "문의처":    "contact",
 }
 
@@ -348,9 +347,9 @@ def search_semas_by_intent(intent: str) -> list[dict[str, Any]]:
     programs = get_semas_programs()
 
     _INTENT_KEYWORDS: list[tuple[set[str], str]] = [
-        ({"정책자금", "대출", "창업자금", "운전자금", "시설자금"}, "policy_fund"),
-        ({"상환", "연장", "코로나", "분할상환", "금리감면"},       "repayment_extension"),
-        ({"바우처", "공과금", "보험료", "경영비용", "경영안정"},   "management_voucher"),
+        ({"정책자금", "대출", "창업자금", "운전자금", "시설자금", "사업자금", "경영비용"}, "policy_fund"),
+        ({"상환", "연장", "코로나", "분할상환", "금리감면", "대환", "만기연장"},          "repayment_extension"),
+        ({"바우처", "공과금", "보험료", "경영비용", "경영안정"},                           "management_voucher"),
     ]
 
     matched_ids: set[str] = set()

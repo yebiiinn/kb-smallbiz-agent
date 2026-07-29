@@ -43,14 +43,106 @@ _MAPPING: dict = _load_mapping()
 def _detect_industry_key(industry: str) -> str:
     """사용자 업종 텍스트 → indicator_mapping 분류키 변환.
 
-    industry_keyword_map 을 순회하며 키워드가 포함되면 해당 분류키 반환.
+    긴 키워드를 먼저 검사해 짧은 키워드가 먼저 매칭되는 문제를 방지.
+    예: "스마트스토어"가 "마트"에 먼저 걸리는 현상 차단.
     매칭 실패 시 기본값 '음식점주점' 반환.
     """
     keyword_map: dict[str, str] = _MAPPING.get("industry_keyword_map", {})
-    for keyword, key in keyword_map.items():
+    for keyword, key in sorted(keyword_map.items(), key=lambda x: len(x[0]), reverse=True):
         if keyword in industry:
             return key
     return "음식점주점"
+
+
+# ── 헬퍼: 지역 분류 ──────────────────────────────────────────────────────────
+
+_REGION_GROUPS: dict[str, list[str]] = {
+    "수도권": ["서울", "경기", "인천", "강남", "강북", "강서", "강동", "종로", "마포", "송파", "홍대", "신촌", "이태원", "판교", "분당", "수원", "성남", "용인", "고양", "부천", "안양", "광명", "의정부", "시흥", "화성", "평택", "안산", "부평", "계양"],
+    "부울경": ["부산", "울산", "경남", "창원", "마산", "거제", "진주", "통영", "해운대", "서면", "남포동", "광안리"],
+    "대경권": ["대구", "경북", "포항", "구미", "경산", "칠곡", "동성로", "반월당"],
+    "호남권": ["광주", "전남", "전북", "전주", "여수", "순천", "목포", "군산", "익산"],
+    "충청권": ["대전", "세종", "충남", "충북", "천안", "청주", "공주", "아산"],
+    "강원권": ["강원", "춘천", "원주", "강릉", "속초"],
+    "제주권": ["제주", "서귀포"],
+}
+
+_REGION_CONTEXT: dict[str, dict] = {
+    "수도권": {
+        "label": "수도권(서울·경기·인천)",
+        "characteristics": "고밀도 상권, 높은 임대료·인건비, 유동인구 풍부, 온라인 배달 수요 강함, 경쟁 강도 최고 수준",
+        "economic_note": "부동산 임대료·최저임금 상승 압력이 타 지역 대비 즉각 반영됨. 소비 패턴 변화 민감도 높음.",
+    },
+    "부울경": {
+        "label": "부울경(부산·울산·경남)",
+        "characteristics": "제조업·조선 연관 소비, 관광 수요(해운대 등), 고령화 진행, 수도권 대비 임대료 낮음",
+        "economic_note": "제조업 경기에 연동된 소비 구조. 환율·원자재 가격 변동이 지역 소비에 간접 영향을 줌.",
+    },
+    "대경권": {
+        "label": "대경권(대구·경북)",
+        "characteristics": "섬유·기계 제조업 기반, 상대적으로 보수적 소비 패턴, 신규 상권 형성 속도 완만",
+        "economic_note": "내수 소비 중심 구조로 금리·고용 변화 직접 영향 큼.",
+    },
+    "호남권": {
+        "label": "호남권(광주·전남·전북)",
+        "characteristics": "농업·식품 연관 소비, 지역 밀착형 상권, 단골 고객 의존도 높음, 인구 감소 압력",
+        "economic_note": "지역 내 인구 감소로 신규 고객 유입 제한적. 기존 단골 고객 유지가 핵심.",
+    },
+    "충청권": {
+        "label": "충청권(대전·세종·충남·충북)",
+        "characteristics": "행정 수요, 신도시 개발로 인구 유입 지속, 세종 중심 공무원 소비",
+        "economic_note": "세종시 개발로 신규 상권 형성 중. 행정 인구 소비 패턴 반영 필요.",
+    },
+    "강원권": {
+        "label": "강원권",
+        "characteristics": "관광 의존도 높음, 계절성 강함(여름·겨울 성수기), 비수기 매출 변동 극심",
+        "economic_note": "계절 관광객 수에 따라 매출 편차 크므로 성수기·비수기 전략이 중요.",
+    },
+    "제주권": {
+        "label": "제주권",
+        "characteristics": "관광 의존도 매우 높음, 내·외국인 관광객 소비, 임대료 상승, 제주 이주 인구",
+        "economic_note": "코로나 이후 내국인 제주 여행 증가. 외국인 관광 회복세가 소비에 직결.",
+    },
+}
+
+
+def _classify_region(region: str) -> dict:
+    """지역 텍스트를 경제권으로 분류하고 상권 특성 정보를 반환.
+
+    Parameters
+    ----------
+    region : str
+        사용자가 입력한 지역명 (예: "서울 강남구", "부산 해운대")
+
+    Returns
+    -------
+    dict with keys: group, label, characteristics, economic_note
+    분류 실패 시 "전국" 기본값 반환.
+    """
+    if not region:
+        return {
+            "group": "전국",
+            "label": "전국",
+            "characteristics": "지역 미지정",
+            "economic_note": "",
+        }
+
+    for group, keywords in _REGION_GROUPS.items():
+        for kw in keywords:
+            if kw in region:
+                ctx = _REGION_CONTEXT[group]
+                return {
+                    "group": group,
+                    "label": ctx["label"],
+                    "characteristics": ctx["characteristics"],
+                    "economic_note": ctx["economic_note"],
+                }
+
+    return {
+        "group": "기타지방",
+        "label": f"지방({region})",
+        "characteristics": "지역 밀착형 상권, 단골 중심, 수도권 대비 임대료·인건비 낮음",
+        "economic_note": "지역 특화 산업·인구 구조에 따라 소비 패턴이 결정됨.",
+    }
 
 
 # ── 헬퍼: 최근 3개월 기간 계산 ───────────────────────────────────────────────
@@ -63,21 +155,45 @@ def _recent_period() -> tuple[str, str]:
     return start, end
 
 
-# ── 헬퍼: ECOS 지표 최신값 조회 ──────────────────────────────────────────────
+# ── 헬퍼: 시계열 트렌드 방향 계산 ────────────────────────────────────────────
 
-def _fetch_ecos_values(indicator_names: list[str]) -> dict[str, float | None]:
-    """지표명 목록의 ECOS 최신값을 조회해 {지표명: 값} 딕셔너리로 반환.
+def _trend_arrow(series: list) -> str:
+    """시계열 리스트에서 전월 대비 방향을 반환. ↑ / ↓ / → / ?"""
+    if not series or len(series) < 2:
+        return "?"
+    curr = series[-1]["value"]
+    prev = series[-2]["value"]
+    if curr is None or prev is None:
+        return "?"
+    if curr > prev:
+        return "↑"
+    elif curr < prev:
+        return "↓"
+    return "→"
 
-    API 키 없거나 조회 실패 시 None 값으로 채움.
+
+# ── 헬퍼: ECOS 지표 최신값 + 트렌드 조회 ─────────────────────────────────────
+
+def _fetch_ecos_values(
+    indicator_names: list[str],
+) -> tuple[dict[str, float | None], dict[str, str]]:
+    """ECOS 지표 최신값과 전월 대비 트렌드를 동시에 반환.
+
+    Returns
+    -------
+    values : {지표명: 최신값 or None}
+    trends : {지표명: "↑" | "↓" | "→" | "?"}
     """
     ecos_cfg: dict[str, dict] = _MAPPING.get("ecos_indicators", {})
     start, end = _recent_period()
-    result: dict[str, float | None] = {}
+    values: dict[str, float | None] = {}
+    trends: dict[str, str] = {}
 
     for name in indicator_names:
         cfg = ecos_cfg.get(name)
         if not cfg:
-            result[name] = None
+            values[name] = None
+            trends[name] = "?"
             continue
         series = ecos_api.fetch_indicator_series(
             stat_code=cfg["stat_code"],
@@ -87,23 +203,34 @@ def _fetch_ecos_values(indicator_names: list[str]) -> dict[str, float | None]:
             start=start,
             end=end,
         )
-        result[name] = series[-1]["value"] if series else None
+        values[name] = series[-1]["value"] if series else None
+        trends[name] = _trend_arrow(series)
 
-    return result
+    return values, trends
 
 
-# ── 헬퍼: KOSIS 지표 최신값 조회 ─────────────────────────────────────────────
+# ── 헬퍼: KOSIS 지표 최신값 + 트렌드 조회 ────────────────────────────────────
 
-def _fetch_kosis_values(indicator_names: list[str]) -> dict[str, float | None]:
-    """지표명 목록의 KOSIS 최신값을 조회해 {지표명: 값} 딕셔너리로 반환."""
+def _fetch_kosis_values(
+    indicator_names: list[str],
+) -> tuple[dict[str, float | None], dict[str, str]]:
+    """KOSIS 지표 최신값과 전월 대비 트렌드를 동시에 반환.
+
+    Returns
+    -------
+    values : {지표명: 최신값 or None}
+    trends : {지표명: "↑" | "↓" | "→" | "?"}
+    """
     kosis_cfg: dict[str, dict] = _MAPPING.get("kosis_indicators", {})
     start, end = _recent_period()
-    result: dict[str, float | None] = {}
+    values: dict[str, float | None] = {}
+    trends: dict[str, str] = {}
 
     for name in indicator_names:
         cfg = kosis_cfg.get(name)
         if not cfg:
-            result[name] = None
+            values[name] = None
+            trends[name] = "?"
             continue
         series = kosis_api.fetch_indicator_series(
             tbl_id=cfg["tbl_id"],
@@ -114,9 +241,10 @@ def _fetch_kosis_values(indicator_names: list[str]) -> dict[str, float | None]:
             start=start,
             end=end,
         )
-        result[name] = series[-1]["value"] if series else None
+        values[name] = series[-1]["value"] if series else None
+        trends[name] = _trend_arrow(series)
 
-    return result
+    return values, trends
 
 
 # ── 헬퍼: 기준금리 방향성 자동 감지 ──────────────────────────────────────────
@@ -277,7 +405,7 @@ def _build_consumption_summary(
         beneficiaries: list[str] = scenario.get("beneficiary", [])
         risks: list[str] = scenario.get("risk", [])
 
-        if industry_key in beneficiaries:
+        if any(industry_key in b for b in beneficiaries):
             parts.append(f"현재 국면에서 '{industry_key}' 수혜 업종")
 
         for risk_desc in risks:
@@ -293,19 +421,30 @@ _SYSTEM_PROMPT = """당신은 소상공인 경기 분석 전문가입니다.
 한국은행(ECOS)·통계청(KOSIS) 지표 데이터와 업종별 상관분석 결과를 바탕으로,
 소상공인이 자신의 업종에 맞는 경기 흐름을 쉽게 이해할 수 있도록 분석합니다.
 
-답변 규칙:
+반드시 아래 JSON 형식으로만 응답하세요:
+{
+  "indicator": "거시경제 상황 분석 (2~3문장)",
+  "consumption_trend": "소비 트렌드 및 업종 실물 지표 분석 (2~3문장)"
+}
+
+공통 작성 규칙:
 - 반드시 한국어로 작성합니다.
 - 전문 용어는 괄호로 쉽게 풀어 씁니다. 예: CSI(소비자심리지수)
-- 경기가 악화되는 상황이면 "하락" 또는 "위축"이라는 단어를 자연스럽게 포함합니다.
-- 경기가 개선되는 상황이면 "개선" 또는 "회복"이라는 단어를 포함합니다.
-- 2~3문장으로 간결하게 작성합니다. 불필요한 수식어는 생략합니다."""
+- 지표값 옆의 ↑/↓/→ 는 전월 대비 방향입니다. 분석에 활용하세요.
+- 경기 악화 상황이면 "하락" 또는 "위축", 개선이면 "개선" 또는 "회복"을 포함합니다.
+- 각 필드는 2~3문장으로 간결하게. 불필요한 수식어는 생략합니다."""
 
-_USER_PROMPT_TEMPLATE = """다음 정보를 바탕으로 {industry} 업종({region}) 소상공인을 위한 경기 분석을 작성해주세요.
+_USER_PROMPT_TEMPLATE = """다음 정보를 바탕으로 {region_label} 지역의 {industry} 업종 소상공인을 위한 경기 분석을 JSON으로 작성해주세요.
 
-## 현재 주요 경기지표
+## 지역 상권 특성
+- 경제권: {region_label}
+- 상권 특성: {region_characteristics}
+- 경제적 참고: {region_economic_note}
+
+## 현재 주요 경기지표 (↑↓→ = 전월 대비 방향)
 {ecos_lines}
 
-## {industry} 업종 관련 실물지표
+## {industry} 업종 관련 실물지표 (↑↓→ = 전월 대비 방향)
 {kosis_lines}
 
 ## 업종별 상관분석 인사이트
@@ -315,11 +454,15 @@ _USER_PROMPT_TEMPLATE = """다음 정보를 바탕으로 {industry} 업종({regi
 ## 현재 해당되는 거시경제 시나리오
 {scenario_lines}
 
-위 정보를 종합해 {industry} 업종 소상공인 관점에서 현재 경기 상황과 주의할 점을 2~3문장으로 설명해주세요."""
+indicator 필드: 금리·물가·환율·소비심리 등 거시경제 흐름 중심으로 작성 (지역 맥락 반영)
+consumption_trend 필드: 위 실물지표 트렌드와 업종 상관관계 인사이트 중심으로 작성 (지역 상권 특성 반영)"""
 
 
-def _format_ecos_lines(ecos_values: dict[str, float | None]) -> str:
-    """ECOS 지표값을 LLM 프롬프트용 텍스트로 변환."""
+def _format_ecos_lines(
+    ecos_values: dict[str, float | None],
+    ecos_trends: dict[str, str] | None = None,
+) -> str:
+    """ECOS 지표값을 LLM 프롬프트용 텍스트로 변환. 트렌드 화살표 포함."""
     unit_map = {
         "기준금리": "%",
         "소비자물가지수": "(2020=100)",
@@ -328,22 +471,40 @@ def _format_ecos_lines(ecos_values: dict[str, float | None]) -> str:
         "현재경기판단CSI": "(100 초과=긍정)",
         "향후경기전망CSI": "(100 초과=긍정)",
         "외식비지출전망CSI": "(100 초과=긍정)",
+        "여행비지출전망CSI": "(100 초과=긍정)",
         "BSI_서비스업전망": "(100 초과=긍정)",
+        "BSI_중소기업전망": "(100 초과=긍정)",
     }
+    trends = ecos_trends or {}
     lines = []
     for name, val in ecos_values.items():
         if val is not None:
             unit = unit_map.get(name, "")
-            lines.append(f"- {name}: {val:.2f} {unit}")
+            arrow = trends.get(name, "")
+            lines.append(f"- {name}: {val:.2f} {unit} {arrow}".rstrip())
     return "\n".join(lines) if lines else "- 조회 중"
 
 
-def _format_kosis_lines(kosis_values: dict[str, float | None]) -> str:
-    """KOSIS 지표값을 LLM 프롬프트용 텍스트로 변환."""
+def _format_kosis_lines(
+    kosis_values: dict[str, float | None],
+    kosis_trends: dict[str, str] | None = None,
+) -> str:
+    """KOSIS 지표값을 LLM 프롬프트용 텍스트로 변환. 트렌드 화살표 포함."""
+    unit_map = {
+        "실업률": "%",
+        "소상공인_BSI_경기전반전망":  "(100 초과=긍정)",
+        "소상공인_BSI_소매업전망":    "(100 초과=긍정)",
+        "소상공인_BSI_음식점업전망":  "(100 초과=긍정)",
+        "소상공인_BSI_개인서비스전망":"(100 초과=긍정)",
+        "소상공인_BSI_교육서비스전망":"(100 초과=긍정)",
+    }
+    trends = kosis_trends or {}
     lines = []
     for name, val in kosis_values.items():
         if val is not None:
-            lines.append(f"- {name}: {val:.1f} (2020=100 불변지수)")
+            unit = unit_map.get(name, "(2020=100 불변지수)")
+            arrow = trends.get(name, "")
+            lines.append(f"- {name}: {val:.1f} {unit} {arrow}".rstrip())
     return "\n".join(lines) if lines else "- 조회 중"
 
 
@@ -365,7 +526,7 @@ def _format_scenario_lines(
         label = key.replace("_", " ")
         if effect:
             lines.append(f"- [{label}] {effect}")
-        if industry_key in beneficiaries:
+        if any(industry_key in b for b in beneficiaries):
             lines.append(f"  → '{industry_key}' 수혜 업종에 해당")
         for risk_desc in risks:
             if industry_key in risk_desc:
@@ -381,20 +542,29 @@ def _call_llm_summary(
     kosis_values: dict[str, float | None],
     active_scenarios: list[str],
     corr_cfg: dict,
-) -> str | None:
-    """OpenAI API로 업종 맞춤 경기 해석 생성.
+    region_info: dict | None = None,
+    ecos_trends: dict[str, str] | None = None,
+    kosis_trends: dict[str, str] | None = None,
+) -> dict[str, str] | None:
+    """OpenAI API로 업종·지역 맞춤 경기 해석 생성.
 
-    API 키 없거나 호출 실패 시 None 반환 → 호출부에서 fallback 처리.
+    Returns
+    -------
+    {"indicator": "...", "consumption_trend": "..."} or None (실패 시)
+    JSON 모드로 indicator + consumption_trend 를 한 번에 생성.
     """
     if not settings.openai_api_key:
         return None
 
+    rinfo = region_info or _classify_region(region)
     macro_interp: dict = _MAPPING.get("macro_interpretation", {})
     user_prompt = _USER_PROMPT_TEMPLATE.format(
         industry=industry or industry_key,
-        region=region or "전국",
-        ecos_lines=_format_ecos_lines(ecos_values),
-        kosis_lines=_format_kosis_lines(kosis_values),
+        region_label=rinfo["label"],
+        region_characteristics=rinfo["characteristics"],
+        region_economic_note=rinfo["economic_note"] or "해당 없음",
+        ecos_lines=_format_ecos_lines(ecos_values, ecos_trends),
+        kosis_lines=_format_kosis_lines(kosis_values, kosis_trends),
         industry_summary=corr_cfg.get("summary", "해당 업종 분석 데이터 없음"),
         agent_signal=corr_cfg.get("agent_signal", "없음"),
         scenario_lines=_format_scenario_lines(
@@ -410,10 +580,15 @@ def _call_llm_summary(
                 {"role": "system", "content": _SYSTEM_PROMPT},
                 {"role": "user", "content": user_prompt},
             ],
-            max_tokens=300,
+            max_tokens=500,
             temperature=0.3,
+            response_format={"type": "json_object"},
         )
-        return response.choices[0].message.content.strip()
+        raw = response.choices[0].message.content.strip()
+        parsed = json.loads(raw)
+        if "indicator" in parsed and "consumption_trend" in parsed:
+            return parsed
+        return None
     except Exception:
         return None
 
@@ -437,28 +612,31 @@ def economic_node(state: AgentState) -> dict:
     region = ctx.region or commercial.get("region", "")
     industry = ctx.industry or commercial.get("industry", "")
 
-    # 1. 업종 분류
+    # 1. 업종 분류 + 지역 분류
     industry_key = _detect_industry_key(industry)
+    region_info = _classify_region(region)
 
-    # 2. ECOS 핵심 거시지표 조회 (업종 공통 + 업종 특화)
+    # 2. ECOS 핵심 거시지표 조회 (업종 공통 + 업종 특화) + 트렌드
     ecos_targets = [
         "기준금리", "소비자물가지수", "생산자물가지수", "원달러환율",
         "현재경기판단CSI", "향후경기전망CSI",
-        "외식비지출전망CSI", "BSI_서비스업전망",
+        "외식비지출전망CSI", "여행비지출전망CSI",
+        "BSI_서비스업전망", "BSI_중소기업전망",
     ]
-    ecos_values = _fetch_ecos_values(ecos_targets)
+    ecos_values, ecos_trends = _fetch_ecos_values(ecos_targets)
 
-    # 3. 업종별 상관 높은 KOSIS 지표 조회
-    #    industry_indicator_correlation 의 top_positive 목록 중 KOSIS 지표만 선택
+    # 3. 업종별 상관 높은 KOSIS 지표 조회 + 트렌드
+    #    top_positive + top_negative 모두에서 KOSIS 지표를 추출해 LLM에 전달
     kosis_cfg = _MAPPING.get("kosis_indicators", {})
     corr_cfg: dict = (
         _MAPPING.get("industry_indicator_correlation", {}).get(industry_key, {})
     )
-    kosis_targets: list[str] = [
+    kosis_targets: list[str] = list({
         item["indicator"]
-        for item in corr_cfg.get("top_positive", [])
+        for section in ("top_positive", "top_negative")
+        for item in corr_cfg.get(section, [])
         if item["indicator"] in kosis_cfg
-    ]
+    })
     if not kosis_targets:
         kosis_targets = ["서비스업생산_총지수"]
 
@@ -466,7 +644,7 @@ def economic_node(state: AgentState) -> dict:
     if "실업률" not in kosis_targets:
         kosis_targets.append("실업률")
 
-    kosis_values = _fetch_kosis_values(kosis_targets)
+    kosis_values, kosis_trends = _fetch_kosis_values(kosis_targets)
 
     # 4. 거시 시나리오 판별
     rate_direction = _fetch_rate_direction()
@@ -491,8 +669,9 @@ def economic_node(state: AgentState) -> dict:
         raw_consumption = fallback_kosis.get("summary", raw_consumption)
 
     # 7. LLM 자연어 해석 생성
-    #    성공 시 indicator 필드를 자연어 텍스트로 교체, 실패 시 raw 요약 사용
-    llm_summary = _call_llm_summary(
+    #    성공 시 indicator + consumption_trend 모두 LLM 텍스트로 교체
+    #    실패 시 raw 요약 사용
+    llm_result = _call_llm_summary(
         industry=industry,
         region=region,
         industry_key=industry_key,
@@ -500,14 +679,18 @@ def economic_node(state: AgentState) -> dict:
         kosis_values=kosis_values,
         active_scenarios=active_scenarios,
         corr_cfg=corr_cfg,
+        region_info=region_info,
+        ecos_trends=ecos_trends,
+        kosis_trends=kosis_trends,
     )
-    indicator_summary = llm_summary if llm_summary else raw_indicator
+    indicator_summary = llm_result["indicator"] if llm_result else raw_indicator
+    consumption_summary = llm_result["consumption_trend"] if llm_result else raw_consumption
 
     return {
         "economic_result": {
             # synthesize_node + crisis_node 가 직접 참조하는 핵심 필드
             "indicator": indicator_summary,
-            "consumption_trend": raw_consumption,
+            "consumption_trend": consumption_summary,
             # 분석 메타
             "industry_key": industry_key,
             "active_scenarios": active_scenarios,
@@ -517,10 +700,14 @@ def economic_node(state: AgentState) -> dict:
             "raw": {
                 "ecos": ecos_values,
                 "kosis": kosis_values,
+                "ecos_trends": ecos_trends,
+                "kosis_trends": kosis_trends,
                 "rate_direction": rate_direction,
                 "raw_indicator": raw_indicator,
+                "raw_consumption": raw_consumption,
                 "agent_signal": corr_cfg.get("agent_signal", ""),
                 "industry_summary": corr_cfg.get("summary", ""),
+                "region_info": region_info,
             },
         }
     }

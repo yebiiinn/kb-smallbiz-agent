@@ -7,7 +7,7 @@
     "base": 3.44,
     "quarter": "2026년2분기"
   },
-  "loan_limit": "최대 30만원",
+  "loan_limit": "최대 7천만원",
   "event": {
     "period_start": "2026-07-06",
     "period_end": "2026-07-31",
@@ -15,6 +15,6 @@
     "benefit": "1인당 최대 30만원"
   },
   "repayment": "2년 거치 3년 원금균등분할상환",
-  "fetched_at": "2026-07-22T20:15:41.768417+09:00",
+  "fetched_at": "2026-07-27T20:48:44.782765+09:00",
   "source": "crawled"
 }

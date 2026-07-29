@@ -1,0 +1,87 @@
+{
+  "products": [
+    {
+      "product_name": "KB사장님+ 마이너스통장",
+      "target": "개인사업자",
+      "loan_limit": "최대 1억원",
+      "min_rate": 3.62,
+      "prcode": "LN25001536",
+      "url": "https://obiz.kbstar.com/quics?page=C016282&cc=b035264:b035393&isNew=N&prcode=LN25001536",
+      "description": "필요한만큼 사용하고 언제든 상환",
+      "category": "일반대출"
+    },
+    {
+      "product_name": "KB소상공인 보증서대출(온택트)",
+      "target": "개인사업자",
+      "loan_limit": "최대 3천만원",
+      "min_rate": 5.63,
+      "prcode": "LN25001383",
+      "url": "https://obiz.kbstar.com/quics?page=C016282&cc=b035264:b035393&isNew=N&prcode=LN25001383",
+      "description": "사업장에서 모바일로 간편하게 신청하는 보증서 기반 대출",
+      "category": "보증서대출"
+    },
+    {
+      "product_name": "KB소상공인 신용대출",
+      "target": "개인사업자",
+      "loan_limit": "최대 2억원",
+      "min_rate": 3.63,
+      "prcode": "LN25001287",
+      "url": "https://obiz.kbstar.com/quics?page=C016282&cc=b035264:b035393&isNew=N&prcode=LN25001287",
+      "description": "바쁜 개인사업자를 위한 비대면 신용대출",
+      "category": "신용대출"
+    },
+    {
+      "product_name": "KB 소상공인 119plus 장기분할상환 대출",
+      "target": "개인사업자&법인",
+      "loan_limit": null,
+      "min_rate": null,
+      "prcode": "LN25001614",
+      "url": "https://obiz.kbstar.com/quics?page=C016282&cc=b035264:b035393&isNew=N&prcode=LN25001614",
+      "description": "일시적 자금사정 악화 소상공인 채무조정 지원",
+      "category": "채무조정"
+    },
+    {
+      "product_name": "KB 소상공인 119plus 만기연장 대출",
+      "target": "개인사업자&법인",
+      "loan_limit": null,
+      "min_rate": null,
+      "prcode": "LN25001621",
+      "url": "https://obiz.kbstar.com/quics?page=C016282&cc=b035264:b035393&isNew=N&prcode=LN25001621",
+      "description": "일시적 자금사정 악화 소상공인 만기연장 채무조정 지원",
+      "category": "채무조정"
+    },
+    {
+      "product_name": "KB소상공인보증서대출(모바일우대보증)",
+      "target": "개인사업자",
+      "loan_limit": "최대 5천만원",
+      "min_rate": 5.43,
+      "prcode": "LN25001564",
+      "url": "https://obiz.kbstar.com/quics?page=C016282&cc=b035264:b035393&isNew=N&prcode=LN25001564",
+      "description": "경기도 소재 소상공인을 위한 비대면 전용 보증서대출",
+      "category": "보증서대출",
+      "region": "경기도"
+    },
+    {
+      "product_name": "소상공인 저금리 대환대출(수탁보증)",
+      "target": "개인사업자&법인",
+      "loan_limit": "개인 최대 1억원, 법인 최대 2억원",
+      "min_rate": null,
+      "prcode": "LN25001435",
+      "url": "https://obiz.kbstar.com/quics?page=C016282&cc=b035264:b035393&isNew=N&prcode=LN25001435",
+      "description": "고금리(연 7% 이상) 기업대출을 저금리 보증서대출로 대환",
+      "category": "대환대출"
+    },
+    {
+      "product_name": "KB 프랜차이즈 대출",
+      "target": "개인사업자",
+      "loan_limit": "동일인최대10억이내",
+      "min_rate": null,
+      "prcode": "LN25000001",
+      "url": "https://obiz.kbstar.com/quics?page=C016282&cc=b035264:b035393&isNew=N&prcode=LN25000001",
+      "description": "프랜차이즈 가맹점주를 위한 사업자 대출",
+      "category": "일반대출"
+    }
+  ],
+  "fetched_at": "2026-07-27T22:16:17.758066+09:00",
+  "source": "crawled"
+}
