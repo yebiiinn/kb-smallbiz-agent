@@ -3,28 +3,8 @@
 import { useRouter } from "next/navigation";
 import { useState } from "react";
 
+import { buildRegion, REGION_GROUPS } from "@/data/regions";
 import type { BusinessContext, BusinessStage } from "@/types/business";
-
-const REGIONS = [
-  "서울 강남구",
-  "서울 마포구",
-  "서울 종로구",
-  "서울 송파구",
-  "서울 홍대·합정",
-  "서울 이태원·용산",
-  "서울 성수·건대",
-  "부산 해운대구",
-  "부산 서면",
-  "부산 남포동",
-  "대구 동성로",
-  "인천 부평",
-  "인천 송도",
-  "광주 충장로",
-  "대전 둔산",
-  "수원 팔달",
-  "성남 분당",
-  "고양 일산",
-];
 
 const INDUSTRIES = [
   "카페·커피전문점",
@@ -59,6 +39,27 @@ export default function OnboardingPage() {
     revenue: null,
   });
   const [step, setStep] = useState<1 | 2 | 3>(1);
+  const [selectedSido, setSelectedSido] = useState("");
+  const [selectedSigungu, setSelectedSigungu] = useState("");
+
+  const currentRegionGroup = REGION_GROUPS.find((group) => group.sido === selectedSido);
+  const sigunguOptions = currentRegionGroup?.sigungu ?? [];
+
+  function handleSidoChange(sido: string) {
+    setSelectedSido(sido);
+    setSelectedSigungu("");
+    setContext({ ...context, region: "" });
+  }
+
+  function handleSigunguChange(sigungu: string) {
+    setSelectedSigungu(sigungu);
+    const group = REGION_GROUPS.find((item) => item.sido === selectedSido);
+    if (!group || !sigungu) {
+      setContext({ ...context, region: "" });
+      return;
+    }
+    setContext({ ...context, region: buildRegion(group.label, sigungu) });
+  }
 
   function handleSubmit(e: React.FormEvent) {
     e.preventDefault();
@@ -124,27 +125,52 @@ export default function OnboardingPage() {
                 </p>
               </div>
 
-              <div>
+              <div className="space-y-3">
                 <label className="mb-2 block text-sm font-medium" style={{ color: "rgba(255,255,255,0.65)" }}>
                   지역
                 </label>
                 <select
-                  value={context.region}
-                  onChange={(e) => setContext({ ...context, region: e.target.value })}
+                  value={selectedSido}
+                  onChange={(e) => handleSidoChange(e.target.value)}
                   className="w-full rounded-xl px-4 py-2.5 text-sm outline-none transition-all"
                   style={{
                     background: "rgba(255,255,255,0.07)",
                     border: "1px solid rgba(255,255,255,0.12)",
-                    color: context.region ? "white" : "rgba(255,255,255,0.35)",
+                    color: selectedSido ? "white" : "rgba(255,255,255,0.35)",
                   }}
                 >
-                  <option value="" style={{ background: "#1a2236" }}>지역을 선택하세요</option>
-                  {REGIONS.map((r) => (
-                    <option key={r} value={r} style={{ background: "#1a2236" }}>
-                      {r}
+                  <option value="" style={{ background: "#1a2236" }}>시·도를 선택하세요</option>
+                  {REGION_GROUPS.map((group) => (
+                    <option key={group.sido} value={group.sido} style={{ background: "#1a2236" }}>
+                      {group.label}
                     </option>
                   ))}
                 </select>
+                <select
+                  value={selectedSigungu}
+                  onChange={(e) => handleSigunguChange(e.target.value)}
+                  disabled={!selectedSido}
+                  className="w-full rounded-xl px-4 py-2.5 text-sm outline-none transition-all disabled:cursor-not-allowed disabled:opacity-50"
+                  style={{
+                    background: "rgba(255,255,255,0.07)",
+                    border: "1px solid rgba(255,255,255,0.12)",
+                    color: selectedSigungu ? "white" : "rgba(255,255,255,0.35)",
+                  }}
+                >
+                  <option value="" style={{ background: "#1a2236" }}>
+                    {selectedSido ? "시·군·구를 선택하세요" : "먼저 시·도를 선택하세요"}
+                  </option>
+                  {sigunguOptions.map((sigungu) => (
+                    <option key={sigungu} value={sigungu} style={{ background: "#1a2236" }}>
+                      {sigungu}
+                    </option>
+                  ))}
+                </select>
+                {context.region && (
+                  <p className="text-xs" style={{ color: "rgba(255,184,28,0.8)" }}>
+                    선택: {context.region}
+                  </p>
+                )}
               </div>
 
               <div>
