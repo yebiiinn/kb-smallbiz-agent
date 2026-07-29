@@ -25,10 +25,12 @@ async function fetchJson<T>(path: string, init?: RequestInit): Promise<T> {
 export async function postChat(
   message: string,
   context: BusinessContext,
+  sessionId?: string,
 ): Promise<ChatResponse> {
   return fetchJson<ChatResponse>("/api/v1/agent/chat", {
     method: "POST",
     body: JSON.stringify({ message, context }),
+    headers: sessionId ? { "X-Session-Id": sessionId } : {},
   });
 }
 

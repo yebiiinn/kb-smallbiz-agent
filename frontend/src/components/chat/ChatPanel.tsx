@@ -1,6 +1,6 @@
 "use client";
 
-import { useEffect, useRef, useState } from "react";
+import { useCallback, useEffect, useRef, useState } from "react";
 
 import { MessageBubble } from "@/components/chat/MessageBubble";
 import { postChat } from "@/lib/api-client";
@@ -12,6 +12,12 @@ interface ChatPanelProps {
   onResponse: (response: ChatResponse) => void;
   onLoadingStart?: () => void;
 }
+
+const INITIAL_MESSAGE: ChatMessage = {
+  role: "assistant",
+  content:
+    "안녕하세요! **KB 소상공인 금융 지원 에이전트**입니다. 🏦\n\n상권 분석, 경기지표, 정책자금, KB 금융상품 추천까지 도와드릴게요.\n\n어떤 것이 궁금하신가요?",
+};
 
 function TypingIndicator() {
   return (
@@ -60,42 +66,55 @@ const PLACEHOLDER_EXAMPLES = [
   "소상공인 지원 사업 중 지금 신청 가능한 거 뭐야?",
 ];
 
+function newSessionId() {
+  return typeof crypto !== "undefined"
+    ? crypto.randomUUID()
+    : Math.random().toString(36).slice(2);
+}
+
 export function ChatPanel({ context, onResponse, onLoadingStart }: ChatPanelProps) {
-  const [messages, setMessages] = useState<ChatMessage[]>([
-    {
-      role: "assistant",
-      content:
-        "안녕하세요! **KB 소상공인 금융 지원 에이전트**입니다. 🏦\n\n상권 분석, 경기지표, 정책자금, KB 금융상품 추천까지 도와드릴게요.\n\n어떤 것이 궁금하신가요?",
-    },
-  ]);
+  const [messages, setMessages] = useState<ChatMessage[]>([INITIAL_MESSAGE]);
   const [input, setInput] = useState("");
   const [loading, setLoading] = useState(false);
   const [followUps, setFollowUps] = useState<string[]>([]);
+  const [lastFailedText, setLastFailedText] = useState<string | null>(null);
   const bottomRef = useRef<HTMLDivElement>(null);
   const inputRef = useRef<HTMLInputElement>(null);
   const [placeholderIdx] = useState(() => Math.floor(Math.random() * PLACEHOLDER_EXAMPLES.length));
+  const sessionIdRef = useRef<string>(newSessionId());
 
   useEffect(() => {
     bottomRef.current?.scrollIntoView({ behavior: "smooth" });
   }, [messages, loading]);
+
+  const resetChat = useCallback(() => {
+    setMessages([INITIAL_MESSAGE]);
+    setFollowUps([]);
+    setInput("");
+    setLastFailedText(null);
+    sessionIdRef.current = newSessionId();
+    inputRef.current?.focus();
+  }, []);
 
   async function sendMessage(text: string) {
     if (!text.trim() || loading) return;
 
     setInput("");
     setFollowUps([]);
+    setLastFailedText(null);
     setMessages((prev) => [...prev, { role: "user", content: text }]);
     setLoading(true);
     onLoadingStart?.();
 
     try {
-      const response = await postChat(text, context);
+      const response = await postChat(text, context, sessionIdRef.current);
       setMessages((prev) => [...prev, { role: "assistant", content: response.answer }]);
       onResponse(response);
       if (response.follow_up_questions?.length) {
         setFollowUps(response.follow_up_questions.slice(0, 3));
       }
     } catch {
+      setLastFailedText(text);
       setMessages((prev) => [
         ...prev,
         {
@@ -146,6 +165,27 @@ export function ChatPanel({ context, onResponse, onLoadingStart }: ChatPanelProp
           <span className="h-1.5 w-1.5 rounded-full bg-green-400" />
           Online
         </span>
+        <button
+          type="button"
+          onClick={resetChat}
+          title="새 대화 시작"
+          className="ml-2 rounded-lg px-2.5 py-1 text-xs transition-all hover:scale-105"
+          style={{
+            background: "rgba(255,255,255,0.06)",
+            border: "1px solid rgba(255,255,255,0.1)",
+            color: "rgba(255,255,255,0.45)",
+          }}
+          onMouseEnter={(e) => {
+            (e.currentTarget as HTMLButtonElement).style.color = "rgba(255,255,255,0.8)";
+            (e.currentTarget as HTMLButtonElement).style.borderColor = "rgba(255,255,255,0.25)";
+          }}
+          onMouseLeave={(e) => {
+            (e.currentTarget as HTMLButtonElement).style.color = "rgba(255,255,255,0.45)";
+            (e.currentTarget as HTMLButtonElement).style.borderColor = "rgba(255,255,255,0.1)";
+          }}
+        >
+          새 대화
+        </button>
       </div>
 
       {/* Messages */}
@@ -154,6 +194,25 @@ export function ChatPanel({ context, onResponse, onLoadingStart }: ChatPanelProp
           <MessageBubble key={i} message={msg} />
         ))}
         {loading && <TypingIndicator />}
+
+        {/* 에러 재시도 버튼 */}
+        {lastFailedText && !loading && (
+          <div className="flex justify-center">
+            <button
+              type="button"
+              onClick={() => sendMessage(lastFailedText)}
+              className="flex items-center gap-1.5 rounded-full px-4 py-2 text-xs font-medium transition-all hover:scale-105"
+              style={{
+                background: "rgba(255,184,28,0.1)",
+                border: "1px solid rgba(255,184,28,0.3)",
+                color: "#FFB81C",
+              }}
+            >
+              ↺ 다시 시도
+            </button>
+          </div>
+        )}
+
         <div ref={bottomRef} />
       </div>
 
