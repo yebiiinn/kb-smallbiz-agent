@@ -1,0 +1,75 @@
+{
+  "source": "data.go.kr/15143727",
+  "year": "2023년",
+  "count": 17,
+  "items": [
+    {
+      "region": "강원",
+      "market_count": 129
+    },
+    {
+      "region": "경기",
+      "market_count": 636
+    },
+    {
+      "region": "경남",
+      "market_count": 198
+    },
+    {
+      "region": "경북",
+      "market_count": 282
+    },
+    {
+      "region": "광주",
+      "market_count": 148
+    },
+    {
+      "region": "대구",
+      "market_count": 247
+    },
+    {
+      "region": "대전",
+      "market_count": 80
+    },
+    {
+      "region": "부산",
+      "market_count": 228
+    },
+    {
+      "region": "서울",
+      "market_count": 849
+    },
+    {
+      "region": "세종",
+      "market_count": 6
+    },
+    {
+      "region": "울산",
+      "market_count": 60
+    },
+    {
+      "region": "인천",
+      "market_count": 120
+    },
+    {
+      "region": "전남",
+      "market_count": 143
+    },
+    {
+      "region": "전북",
+      "market_count": 125
+    },
+    {
+      "region": "제주",
+      "market_count": 42
+    },
+    {
+      "region": "충남",
+      "market_count": 115
+    },
+    {
+      "region": "충북",
+      "market_count": 83
+    }
+  ]
+}

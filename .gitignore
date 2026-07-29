@@ -41,3 +41,8 @@ backend/analysis/commercial/data/*.csv
 backend/analysis/commercial/charts/*.png
 backend/analysis/finance/data/*.csv
 backend/analysis/finance/charts/*.png
+backend/analysis/crisis/data/*.csv
+backend/analysis/crisis/charts/*.png
+
+# 위기진단 raw (용량 큼 — collect.py로 재생성)
+backend/project/data/crisis/raw/

@@ -177,6 +177,69 @@ def _extract_items(data: dict[str, Any]) -> list[dict[str, Any]]:
 # ---------------------------------------------------------------------------
 # 의도 기반 검색 함수
 # ---------------------------------------------------------------------------
+def _parse_region_tokens(region: str | None) -> tuple[str | None, str | None]:
+    """지역 문자열에서 시·도 약칭과 시·군·구를 추출한다."""
+    if not region:
+        return None, None
+    parts = [part for part in region.strip().split() if part]
+    if not parts:
+        return None, None
+    if len(parts) >= 2:
+        return parts[0], parts[-1]
+    token = parts[0]
+    if token.endswith(("구", "군", "시")):
+        return None, token
+    return token, None
+
+
+def _region_match_score(program: dict[str, Any], sido: str | None, signgu: str | None) -> int:
+    """지역 일치 점수. 다른 시·도 공고는 -1, 전국 공고는 낮은 양수."""
+    title = program.get("title", "") or ""
+    text = " ".join(
+        [
+            title,
+            program.get("summary", "") or "",
+            " ".join(program.get("hashtags", []) or []),
+        ]
+    )
+
+    bracket = re.search(r"\[([^\]]+)\]", title)
+    bracket_region = bracket.group(1) if bracket else None
+    mentioned_signgu = re.findall(r"[가-힣]+(?:구|군|시)", title)
+
+    if signgu and signgu in text:
+        return 100
+    if signgu and any(gu != signgu for gu in mentioned_signgu):
+        return -1
+    if bracket_region and sido and bracket_region != sido:
+        return -1
+    if bracket_region and sido and bracket_region == sido:
+        return 60
+    if sido and sido in text:
+        return 50
+    if bracket_region:
+        return -1
+    return 20
+
+
+def _filter_programs_by_region(
+    programs: list[dict[str, Any]],
+    region: str | None,
+) -> list[dict[str, Any]]:
+    """사용자 지역과 맞는 공고를 우선하고, 다른 지역 공고는 제외한다."""
+    sido, signgu = _parse_region_tokens(region)
+    if not sido and not signgu:
+        return programs
+
+    scored = [(program, _region_match_score(program, sido, signgu)) for program in programs]
+    matched = [program for program, score in scored if score >= 0]
+    if not matched:
+        return programs
+
+    matched.sort(key=lambda program: _region_match_score(program, sido, signgu), reverse=True)
+    return matched
+
+
 def search_support_programs(
     intent: str,
     region: str | None = None,
@@ -212,7 +275,11 @@ def search_support_programs(
     if base_hashtag:
         hashtags.append(base_hashtag)
     if region:
-        hashtags.append(region)
+        sido, signgu = _parse_region_tokens(region)
+        if sido:
+            hashtags.append(sido)
+        if signgu:
+            hashtags.append(signgu)
 
     result = get_support_programs(
         search_lclas_id=search_lclas_id,
@@ -225,7 +292,8 @@ def search_support_programs(
         p for p in programs
         if "소상공인" in p.get("target", "") or "소상공인" in p.get("summary", "")
     ]
-    return filtered if filtered else programs
+    filtered = filtered if filtered else programs
+    return _filter_programs_by_region(filtered, region)
 
 
 # ---------------------------------------------------------------------------
