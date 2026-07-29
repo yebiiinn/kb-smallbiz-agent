@@ -75,34 +75,41 @@ def _build_summary(
     if competition_text:
         market_sentence += f"이며, {competition_text.rstrip('.')}."
 
+    bullets: list[str] = []
+
+    if store_count:
+        bullets.append(f"- **점포 수** · {store_count:,}개 (전체 대비 {ratio_text})")
+    if competition_text:
+        bullets.append(f"- **업종 밀집** · {competition_text.rstrip('.')}")
+
     quarter = seoul_sales.get("quarter", "")
     sales_trend = seoul_sales.get("sales_trend", "")
     industry_name = seoul_sales.get("industry_name", industry)
     if per_store_sales:
-        sales_sentence = (
-            f"{quarter + ' ' if quarter else ''}{industry_name} 업종 "
-            f"점포당 월 추정매출은 {per_store_sales}"
+        quarter_label = f"{quarter} " if quarter else ""
+        bullets.append(
+            f"- **추정 매출** · {quarter_label}{industry_name} 점포당 월 {per_store_sales}"
         )
-        if sales_trend:
-            sales_sentence += f"이며, {sales_trend.rstrip('.')}."
-        else:
-            sales_sentence += "."
-    else:
-        sales_sentence = seoul_sales.get("summary", "")
+    elif seoul_sales.get("summary"):
+        bullets.append(f"- **매출** · {seoul_sales.get('summary', '').rstrip('.')}")
+
+    if sales_trend:
+        bullets.append(f"- **매출 추세** · {sales_trend.rstrip('.')}")
 
     poi_count = kakao_map.get("poi_count")
     level = kakao_map.get("competition_level", "")
     level_label = COMPETITION_LEVEL_LABEL.get(level, level or "보통")
     if poi_count is not None:
-        competition_sentence = (
-            f"카카오맵 기준 인근 {industry} {poi_count}곳이 확인되어 "
-            f"주변 경쟁 강도는 {level_label}입니다."
+        bullets.append(
+            f"- **주변 경쟁** · 카카오맵 기준 인근 {industry} {poi_count}곳 ({level_label})"
         )
-    else:
-        competition_sentence = kakao_map.get("summary", "")
+    elif kakao_map.get("summary"):
+        bullets.append(f"- **주변 경쟁** · {kakao_map.get('summary', '').rstrip('.')}")
 
-    parts = [part for part in (market_sentence, sales_sentence, competition_sentence) if part]
-    return " ".join(parts)
+    if bullets:
+        return "\n".join(bullets)
+
+    return market_sentence
 
 
 def commercial_node(state: AgentState) -> dict:

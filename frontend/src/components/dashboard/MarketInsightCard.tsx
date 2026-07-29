@@ -1,3 +1,6 @@
+import ReactMarkdown from "react-markdown";
+import remarkGfm from "remark-gfm";
+
 import type { MarketInsight } from "@/types/market";
 
 interface MarketInsightCardProps {
@@ -31,6 +34,23 @@ const INSIGHT_ITEMS = [
     border: "rgba(168,85,247,0.2)",
   },
 ];
+
+const markdownComponents = {
+  p: ({ children }: { children?: React.ReactNode }) => (
+    <p className="mb-1.5 last:mb-0">{children}</p>
+  ),
+  ul: ({ children }: { children?: React.ReactNode }) => (
+    <ul className="space-y-1.5">{children}</ul>
+  ),
+  li: ({ children }: { children?: React.ReactNode }) => (
+    <li className="leading-relaxed" style={{ color: "rgba(255,255,255,0.72)" }}>
+      {children}
+    </li>
+  ),
+  strong: ({ children }: { children?: React.ReactNode }) => (
+    <strong className="font-semibold text-white">{children}</strong>
+  ),
+};
 
 function SkeletonRow() {
   return (
@@ -99,15 +119,17 @@ export function MarketInsightCard({ insights, loading }: MarketInsightCardProps)
                 className="rounded-xl p-3"
                 style={{ background: item.glow, border: `1px solid ${item.border}` }}
               >
-                <div className="mb-1.5 flex items-center gap-1.5">
+                <div className="mb-2 flex items-center gap-1.5">
                   <span className="text-sm">{item.icon}</span>
                   <span className="text-xs font-semibold" style={{ color: item.accent }}>
                     {item.label}
                   </span>
                 </div>
-                <p className="text-xs leading-relaxed" style={{ color: "rgba(255,255,255,0.6)" }}>
-                  {text}
-                </p>
+                <div className="text-[13px] leading-relaxed">
+                  <ReactMarkdown remarkPlugins={[remarkGfm]} components={markdownComponents}>
+                    {text}
+                  </ReactMarkdown>
+                </div>
               </div>
             );
           })}
