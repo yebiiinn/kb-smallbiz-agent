@@ -130,8 +130,12 @@ def _parse_economic_context(economic: dict[str, Any]) -> dict[str, Any]:
 
     base_rate = ecos.get("기준금리")
     csi = economic.get("consumer_sentiment")
-    rate_direction = raw.get("rate_direction", "stable")
+    rate_direction_raw = raw.get("rate_direction", "동결")
     active_scenarios: list[str] = economic.get("active_scenarios", [])
+
+    # economic 에이전트는 "인상"/"인하"/"동결" 로 저장 → 영문으로 정규화
+    _DIR_MAP = {"인상": "rising", "인하": "falling", "동결": "stable"}
+    rate_direction = _DIR_MAP.get(rate_direction_raw, rate_direction_raw)
 
     return {
         "rate_direction":     rate_direction,
@@ -225,7 +229,8 @@ def finance_node(state: AgentState) -> dict:
     user_query: str = state.get("user_query", "")
     region: str = ctx.region or "서울"
     industry: str = ctx.industry or "소상공인"
-    stage: str = ctx.stage.value  # "startup" | "operation" | "expansion"
+    stage: str = ctx.stage.value
+    revenue: int | None = ctx.revenue
 
     # ── 1. stage + user_query → intent 키워드 결정 ──────────────────────────
     intent = _stage_intent(stage, user_query)
@@ -234,6 +239,18 @@ def finance_node(state: AgentState) -> dict:
     economic = state.get("economic_result") or {}
     commercial = state.get("commercial_result") or {}
     econ_ctx = _parse_economic_context(economic)
+
+    # ── 1-c. crisis_result 기반 intent 보정 ──────────────────────────────────
+    # crisis가 finance보다 먼저 실행되므로 위기 등급을 반영할 수 있다.
+    crisis = state.get("crisis_result") or {}
+    crisis_level = crisis.get("level", "normal")
+    crisis_signals: list[str] = crisis.get("signals", [])
+
+    if crisis_level == "critical" and intent not in {"상환연장", "여유자금", "주택"}:
+        intent = "상환연장"
+        logger.info("위기등급 critical → intent 강제 보정: 상환연장")
+    elif crisis_level == "warning" and econ_ctx["sentiment_weak"] and intent == _STAGE_INTENT.get(stage, "창업자금"):
+        logger.info("위기등급 warning + CSI 위축 → 정책자금 우선 강조")
 
     # ── 2. 4개 데이터 소스 호출 ──────────────────────────────────────────────
     # 2-a. 소진공(SEMAS) — 정책자금 프로그램 (seed + 실시간)
@@ -359,6 +376,10 @@ def finance_node(state: AgentState) -> dict:
     # ── 4. 추천 결과 정렬 (금융상품: 낮은 금리 우선, KB 우선) ──────────────
     recommendations = _sort_recommendations(recommendations, intent)
 
+    # ── 4-b. revenue 기반 대출한도 적합도 필터 ───────────────────────────────
+    if revenue is not None and intent in _LOAN_INTENTS:
+        recommendations = _filter_by_revenue(recommendations, revenue)
+
     # ── 5. 요약 문구 ─────────────────────────────────────────────────────────
     n_policy = len(semas_results) + len(bizinfo_results)
     kb_included = kb_policy.get("product_name") and intent in _LOAN_INTENTS
@@ -392,13 +413,15 @@ def finance_node(state: AgentState) -> dict:
         economic=economic,
         commercial=commercial,
         econ_ctx=econ_ctx,
+        crisis_level=crisis_level,
+        crisis_signals=crisis_signals,
     )
 
     return {
         "finance_result": {
             "summary": summary,
             "recommendations": recommendations,
-            "follow_up_questions": _FOLLOW_UP.get(stage, _FOLLOW_UP[BusinessStage.STARTUP.value]),
+            "follow_up_questions": _dynamic_follow_up(stage, region, industry, commercial, economic),
             "raw": {
                 "semas":   semas_results,
                 "bizinfo": bizinfo_results,
@@ -589,21 +612,16 @@ def _enrich_with_llm(
     economic: dict[str, Any],
     commercial: dict[str, Any],
     econ_ctx: dict[str, Any] | None = None,
+    crisis_level: str = "normal",
+    crisis_signals: list[str] | None = None,
 ) -> list[RecommendationItem]:
-    """LLM 으로 각 추천 항목의 reason 을 개인화한다.
-
-    OpenAI 호출에 실패하거나 API 키가 없으면 기존 정적 문구를 그대로 반환.
-
-    Args:
-        econ_ctx: _parse_economic_context() 결과. 없으면 자동 파싱.
-    """
+    """LLM 으로 각 추천 항목의 reason 을 개인화한다."""
     if not settings.openai_api_key or not recommendations:
         return recommendations
 
     if econ_ctx is None:
         econ_ctx = _parse_economic_context(economic)
 
-    # ── 컨텍스트 요약 조립 ────────────────────────────────────────────────
     stage_ko = _STAGE_KO.get(stage, stage)
     comm_summary = commercial.get("summary", "")
 
@@ -612,7 +630,6 @@ def _enrich_with_llm(
         f"- 원본 질문: {user_query}",
     ]
 
-    # 경제지표 — 구체적 수치 먼저, 그 다음 LLM 텍스트
     base_rate = econ_ctx.get("base_rate")
     csi = econ_ctx.get("csi")
     rate_dir = econ_ctx.get("rate_direction", "stable")
@@ -634,6 +651,11 @@ def _enrich_with_llm(
         context_lines.append(f"- 소비 트렌드: {consumption_trend[:100]}")
     if comm_summary:
         context_lines.append(f"- 상권 분석: {comm_summary[:100]}")
+
+    if crisis_level != "normal":
+        context_lines.append(f"- 위기 등급: {crisis_level}")
+    if crisis_signals:
+        context_lines.append(f"- 위기 신호: {'; '.join(crisis_signals[:2])}")
 
     context_block = "\n".join(context_lines)
 
@@ -694,3 +716,88 @@ def _enrich_with_llm(
     except Exception as exc:
         logger.warning("finance LLM enrichment 실패 (정적 문구 유지): %s", exc)
         return recommendations
+
+
+# ---------------------------------------------------------------------------
+# 내부 헬퍼 — revenue 기반 대출한도 필터
+# ---------------------------------------------------------------------------
+_REVENUE_TIER: list[tuple[int, str]] = [
+    (1_000, "소규모"),    # 1000만원 미만
+    (3_000, "중소규모"),  # 3000만원 미만
+    (10_000, "중규모"),   # 1억원 미만
+]
+
+
+def _revenue_tier(revenue: int) -> str:
+    for threshold, label in _REVENUE_TIER:
+        if revenue < threshold:
+            return label
+    return "대규모"
+
+
+def _filter_by_revenue(
+    recommendations: list[RecommendationItem],
+    revenue: int,
+) -> list[RecommendationItem]:
+    """월 매출(revenue, 만원 단위)을 고려해 대출한도 적합도 안내를 reason에 추가한다.
+
+    상품을 제거하지 않고 reason에 안내를 append해 사용자가 판단하도록 한다.
+    """
+    tier = _revenue_tier(revenue)
+    revenue_fmt = f"{revenue:,}만 원"
+
+    annotated: list[RecommendationItem] = []
+    for rec in recommendations:
+        reason = rec.reason or ""
+        # reason에서 억원 단위 한도 추출 (예: "최대 7천만원", "최대 2억원")
+        m = re.search(r"(\d+)\s*억\s*원", reason)
+        if m:
+            limit_eok = int(m.group(1))
+            limit_man = limit_eok * 10_000  # 억원 → 만원
+            if limit_man > revenue * 18:  # 월매출 18개월치 초과 한도
+                reason = reason + f" (월매출 {revenue_fmt} 기준, 한도 여유 충분)"
+        if tier == "소규모":
+            reason = reason + f" ※ 월매출 {revenue_fmt} — 소규모 맞춤 한도 확인 권장"
+        annotated.append(rec.model_copy(update={"reason": reason}))
+    return annotated
+
+
+# ---------------------------------------------------------------------------
+# 내부 헬퍼 — 동적 follow-up 질문 생성
+# ---------------------------------------------------------------------------
+def _dynamic_follow_up(
+    stage: str,
+    region: str,
+    industry: str,
+    commercial: dict[str, Any],
+    economic: dict[str, Any],
+) -> list[str]:
+    """상권·경기 분석 결과를 반영해 개인화된 후속 질문 3개를 생성한다."""
+    questions: list[str] = []
+
+    competition_level = commercial.get("competition_level", "")
+    sales_trend = commercial.get("sales_trend", "")
+    csi = economic.get("consumer_sentiment")
+    active_scenarios: list[str] = economic.get("active_scenarios", [])
+
+    if competition_level == "high":
+        questions.append(f"{region} {industry} 업종 경쟁이 치열한데, 차별화 전략이 있으신가요?")
+    elif competition_level == "low":
+        questions.append(f"{region} {industry} 상권 경쟁이 낮습니다. 수요 확보 방안은 검토하셨나요?")
+
+    if sales_trend and "-" in sales_trend and "%" in sales_trend:
+        questions.append("매출 하락세가 감지됩니다. 운전자금·경영안정 자금 필요 규모는 얼마인가요?")
+    elif sales_trend and "+" in sales_trend:
+        questions.append("매출 성장세가 보입니다. 시설 확장이나 추가 투자 계획이 있으신가요?")
+
+    if csi is not None and csi < 95:
+        questions.append("소비 심리 위축 국면입니다. 단기 유동성 확보를 위한 대출 규모를 생각해 두셨나요?")
+    elif any("금리" in s for s in active_scenarios):
+        questions.append("금리 변동 국면입니다. 고정금리·변동금리 중 어떤 방식을 선호하시나요?")
+
+    base = _FOLLOW_UP.get(stage, _FOLLOW_UP[BusinessStage.STARTUP.value])
+    for q in base:
+        if q not in questions:
+            questions.append(q)
+
+    return questions[:3]

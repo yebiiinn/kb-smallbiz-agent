@@ -320,7 +320,7 @@ export default function OnboardingPage() {
                     onChange={(e) =>
                       setContext({
                         ...context,
-                        revenue: e.target.value === "" ? null : Number(e.target.value),
+                        revenue: e.target.value === "" ? null : Math.floor(Number(e.target.value)),
                       })
                     }
                     className="w-full rounded-xl px-4 py-2.5 pr-12 text-sm outline-none transition-all"

@@ -47,7 +47,7 @@ export function MessageBubble({ message }: MessageBubbleProps) {
         <ReactMarkdown
           remarkPlugins={[remarkGfm]}
           components={{
-            p: ({ children }) => <p className="mb-2 last:mb-0">{children}</p>,
+            p: ({ children }) => <p className="mb-2.5 last:mb-0 leading-relaxed">{children}</p>,
             ul: ({ children }) => (
               <ul className="mb-2 list-disc space-y-1 pl-4">{children}</ul>
             ),
@@ -87,7 +87,7 @@ export function MessageBubble({ message }: MessageBubbleProps) {
             ),
           }}
         >
-          {message.content}
+          {message.content.replace(/\n/g, "\n\n")}
         </ReactMarkdown>
       </div>
     </div>
