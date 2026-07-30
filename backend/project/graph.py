@@ -87,6 +87,10 @@ def _llm_synthesize(
     return _template_answer(region, industry, stage, commercial, economic, finance, crisis)
 
 
+def _crisis_level_label(level: str) -> str:
+    return {"normal": "양호", "warning": "주의", "critical": "위험"}.get(level, level)
+
+
 def _template_answer(
     region: str,
     industry: str,
@@ -103,13 +107,21 @@ def _template_answer(
     crisis_level = crisis.get("level", "normal") if "crisis" in active else "normal"
 
     if active == ["finance"]:
-        intro = f"{region} {industry} ({stage}) 기준으로 금융상품을 분석했습니다."
+        target = finance.get("target_loan_manwon")
+        if target:
+            intro = f"{region} {industry} ({stage}) 기준 **{target:,}만 원** 규모 금융상품을 분석했습니다."
+        else:
+            intro = f"{region} {industry} ({stage}) 기준으로 금융상품을 분석했습니다."
     elif active == ["commercial"]:
         intro = f"{region} {industry} ({stage}) 상권을 분석했습니다."
     elif active == ["economic"]:
         intro = f"{industry} 업종 기준으로 경기·소비 환경을 분석했습니다."
     elif active == ["commercial", "economic", "crisis"]:
-        intro = f"{region} {industry} ({stage}) 기준으로 위기진단을 분석했습니다."
+        score = crisis.get("score", 0)
+        intro = (
+            f"{region} {industry} ({stage}) **위기진단** 결과 "
+            f"**{_crisis_level_label(crisis_level)}** ({score}점)입니다."
+        )
     else:
         intro = f"{region or '해당 지역'} {industry or '업종'} ({stage}) 기준으로 분석했습니다."
 
@@ -126,7 +138,13 @@ def _template_answer(
         parts.append(_format_section("🛒 소비", economic.get("consumption_trend", "")))
     if "crisis" in active:
         if crisis_level != "normal":
-            parts.append(f"\n\n### ⚠️ 위기진단\n- {crisis.get('summary', '')}")
+            parts.append(
+                f"\n\n### ⚠️ 위기진단 ({_crisis_level_label(crisis_level)} · {crisis.get('score', 0)}점)"
+                f"\n- {crisis.get('summary', '')}"
+            )
+            actions = (crisis.get("recommended_actions") or [])[:2]
+            for action in actions:
+                parts.append(f"\n- {action}")
         elif active == ["commercial", "economic", "crisis"]:
             parts.append(f"\n\n### ✅ 위기진단\n- {crisis.get('summary', '현재 특별한 위기 신호 없음')}")
     if recommendations:
@@ -149,6 +167,7 @@ def _capital_planning_answer(
     stage: str,
     commercial: dict,
     economic: dict,
+    revenue: int | None = None,
 ) -> str:
     """창업·운영 초기 자금 규모 추정 답변."""
     per_store_amount = commercial.get("per_store_sales_amount")
@@ -159,16 +178,20 @@ def _capital_planning_answer(
         f"{region} {industry} ({stage_ko}) 기준으로 **필요 자금 규모**를 상권·경기 데이터로 추정했습니다.\n",
     ]
 
+    if revenue is not None:
+        lines.append(f"- **입력 월 매출** · **{revenue:,}만 원** (온보딩/대화 입력)")
+        lines.append(f"- **운전자금(4개월)** · **약 {revenue * 4:,}만 원** 권장")
+
     if stage == "startup":
         lines.append("### 💡 초기 자금 구성 (참고)")
         lines.append("- **보증금·권리금** · 입지·평수에 따라 **3,000~1억 원+** (현장 확인 필요)")
         lines.append("- **인테리어·설비** · 업종·규모에 따라 **2,000~8,000만 원**")
-        if per_store_amount:
+        if per_store_amount and revenue is None:
             working = per_store_amount * 4
             lines.append(
                 f"- **운전자금(3~6개월)** · 점포당 월 매출 {monthly_sales} 기준 **{_format_won(working)}** 권장"
             )
-        else:
+        elif revenue is None:
             lines.append("- **운전자금(3~6개월)** · 업종·매출에 따라 **1,000~5,000만 원**")
         lines.append("- **초기 합계(대략)** · **5,000만~2억 원** (규모·지역 편차 큼)")
     elif stage == "operation":
@@ -292,6 +315,7 @@ def synthesize_node(state: AgentState) -> dict:
             stage_label,
             commercial,
             economic,
+            revenue=ctx.revenue,
         )
     elif active_agents == list(ALL_AGENTS):
         final_answer = _llm_synthesize(

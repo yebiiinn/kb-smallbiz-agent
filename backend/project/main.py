@@ -75,14 +75,25 @@ _CONTEXT_EXTRACT_SYSTEM = """\
 """
 
 
-def _extract_context_from_message(message: str, existing: BusinessContext) -> BusinessContext:
-    """region 또는 industry가 비어있을 때만 LLM으로 메시지에서 추출한다."""
-    needs_region = not existing.region
-    needs_industry = not existing.industry
+def _enrich_context_from_message(message: str, existing: BusinessContext) -> BusinessContext:
+    """메시지에서 금액·사업 정보를 보강한다."""
+    from project.agents.finance import parse_amount_manwon
+
+    amount = parse_amount_manwon(message)
+    updated = existing
+    if amount is not None and existing.revenue is None:
+        is_loan_query = any(
+            kw in message for kw in ("대출", "융자", "한도", "규모", "추천", "자금", "금융")
+        )
+        if not is_loan_query:
+            updated = existing.model_copy(update={"revenue": amount})
+
+    needs_region = not updated.region
+    needs_industry = not updated.industry
     if not (needs_region or needs_industry):
-        return existing
+        return updated
     if not settings.openai_api_key:
-        return existing
+        return updated
 
     try:
         client = OpenAI(api_key=settings.openai_api_key)
@@ -98,19 +109,24 @@ def _extract_context_from_message(message: str, existing: BusinessContext) -> Bu
         )
         parsed: dict = json.loads(resp.choices[0].message.content or "{}")
 
-        region = existing.region or parsed.get("region", "")
-        industry = existing.industry or parsed.get("industry", "")
-        stage_raw = parsed.get("stage", existing.stage.value)
+        region = updated.region or parsed.get("region", "")
+        industry = updated.industry or parsed.get("industry", "")
+        stage_raw = parsed.get("stage", updated.stage.value)
         try:
             stage = BusinessStage(stage_raw)
         except ValueError:
-            stage = existing.stage
-        revenue = existing.revenue if existing.revenue is not None else parsed.get("revenue")
+            stage = updated.stage
+        revenue = updated.revenue if updated.revenue is not None else parsed.get("revenue")
 
         return BusinessContext(region=region, industry=industry, stage=stage, revenue=revenue)
     except Exception as exc:
         logger.debug("context 자동 추출 실패 (기존 값 유지): %s", exc)
-        return existing
+        return updated
+
+
+def _extract_context_from_message(message: str, existing: BusinessContext) -> BusinessContext:
+    """region/industry/revenue 등 컨텍스트 보강 (LLM + 규칙)."""
+    return _enrich_context_from_message(message, existing)
 
 
 @app.get("/health")

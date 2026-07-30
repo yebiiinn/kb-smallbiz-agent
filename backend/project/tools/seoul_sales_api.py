@@ -20,6 +20,20 @@ MOCK_PATH = Path(__file__).resolve().parent.parent / "data" / "mock" / "seoul_sa
 SEOUL_NAMES_PATH = Path(__file__).resolve().parent.parent / "data" / "seoul_industry_names.json"
 CROSSWALK_PATH = Path(__file__).resolve().parent.parent / "data" / "industry_crosswalk.json"
 
+# 소진공 대분류(lcls) → 서울시 추정매출 대표 업종명
+_LCLS_SEOUL_NAMES: dict[str, tuple[str, ...]] = {
+    "음식점업": ("한식음식점", "커피-음료", "치킨전문점"),
+    "소매업": ("편의점", "슈퍼마켓", "일반의류"),
+    "수리 및 개인 서비스업": ("미용실", "세탁소", "피부관리실"),
+    "교육 서비스업": ("일반교습학원", "외국어학원", "예술학원"),
+    "예술, 스포츠 및 여가관련 서비스업": ("PC방", "노래방", "당구장"),
+    "숙박업": ("여관", "고시원"),
+    "보건의료업": ("일반의원", "치과의원", "의약품"),
+    "부동산업": ("부동산중개업",),
+    "전문, 과학 및 기술 서비스업": ("컴퓨터및주변장치판매",),
+    "사업시설 관리, 사업 지원 및 임대 서비스업": ("세탁소",),
+}
+
 SIGNGU_CODES: dict[str, str] = {
     "종로구": "11110",
     "중구": "11140",
@@ -72,6 +86,12 @@ def _resolve_seoul_industry_names(industry: str) -> list[str]:
     normalized = _normalize_industry(industry)
     if not normalized:
         return [industry]
+
+    if industry.strip() in _LCLS_SEOUL_NAMES:
+        return list(_LCLS_SEOUL_NAMES[industry.strip()])
+    for lcls_name, seoul_names in _LCLS_SEOUL_NAMES.items():
+        if _normalize_industry(lcls_name) == normalized or normalized in _normalize_industry(lcls_name):
+            return list(seoul_names)
 
     for item in _load_crosswalk_items():
         terms = {_normalize_industry(term) for term in item.get("search_terms", [])}
