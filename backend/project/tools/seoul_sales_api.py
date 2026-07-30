@@ -20,6 +20,20 @@ MOCK_PATH = Path(__file__).resolve().parent.parent / "data" / "mock" / "seoul_sa
 SEOUL_NAMES_PATH = Path(__file__).resolve().parent.parent / "data" / "seoul_industry_names.json"
 CROSSWALK_PATH = Path(__file__).resolve().parent.parent / "data" / "industry_crosswalk.json"
 
+# 소진공 대분류(lcls) → 서울시 추정매출 대표 업종명
+_LCLS_SEOUL_NAMES: dict[str, tuple[str, ...]] = {
+    "음식점업": ("한식음식점", "커피-음료", "치킨전문점"),
+    "소매업": ("편의점", "슈퍼마켓", "일반의류"),
+    "수리 및 개인 서비스업": ("미용실", "세탁소", "피부관리실"),
+    "교육 서비스업": ("일반교습학원", "외국어학원", "예술학원"),
+    "예술, 스포츠 및 여가관련 서비스업": ("PC방", "노래방", "당구장"),
+    "숙박업": ("여관", "고시원"),
+    "보건의료업": ("일반의원", "치과의원", "의약품"),
+    "부동산업": ("부동산중개업",),
+    "전문, 과학 및 기술 서비스업": ("컴퓨터및주변장치판매",),
+    "사업시설 관리, 사업 지원 및 임대 서비스업": ("세탁소",),
+}
+
 SIGNGU_CODES: dict[str, str] = {
     "종로구": "11110",
     "중구": "11140",
@@ -72,6 +86,12 @@ def _resolve_seoul_industry_names(industry: str) -> list[str]:
     normalized = _normalize_industry(industry)
     if not normalized:
         return [industry]
+
+    if industry.strip() in _LCLS_SEOUL_NAMES:
+        return list(_LCLS_SEOUL_NAMES[industry.strip()])
+    for lcls_name, seoul_names in _LCLS_SEOUL_NAMES.items():
+        if _normalize_industry(lcls_name) == normalized or normalized in _normalize_industry(lcls_name):
+            return list(seoul_names)
 
     for item in _load_crosswalk_items():
         terms = {_normalize_industry(term) for term in item.get("search_terms", [])}
@@ -194,6 +214,16 @@ def _fetch_rows(signgu_code: str) -> tuple[list[dict], dict | None]:
     return _normalize_rows(data), None
 
 
+def _matches_single_keyword(industry_name: str, keyword: str) -> bool:
+    normalized_name = _normalize_industry(industry_name)
+    normalized_keyword = _normalize_industry(keyword)
+    return (
+        normalized_keyword == normalized_name
+        or normalized_keyword in normalized_name
+        or normalized_name in normalized_keyword
+    )
+
+
 def _pick_industry_rows(rows: list[dict], industry: str, signgu_code: str) -> list[dict]:
     matched = [
         row
@@ -202,6 +232,50 @@ def _pick_industry_rows(rows: list[dict], industry: str, signgu_code: str) -> li
         and _matches_industry(str(row.get("SVC_INDUTY_CD_NM", "")), industry)
     ]
     return sorted(matched, key=lambda row: str(row.get("STDR_YYQU_CD", "")), reverse=True)
+
+
+def _aggregate_quarterly_sales(
+    rows: list[dict], industry: str, signgu_code: str
+) -> tuple[int | None, int | None, str, str] | None:
+    """lcls 등 복수 업종 키워드일 때 분기별 평균 매출을 집계한다."""
+    keywords = _resolve_seoul_industry_names(industry)
+    by_quarter: dict[str, list[int]] = {}
+    industry_names: set[str] = set()
+
+    for row in rows:
+        if str(row.get("SIGNGU_CD", "")) != str(signgu_code):
+            continue
+        row_name = str(row.get("SVC_INDUTY_CD_NM", ""))
+        if not any(_matches_single_keyword(row_name, keyword) for keyword in keywords):
+            continue
+        quarter = str(row.get("STDR_YYQU_CD", ""))
+        amount = _parse_amount(row.get("THSMON_SELNG_AMT"))
+        if amount is None or not quarter:
+            continue
+        by_quarter.setdefault(quarter, []).append(amount)
+        industry_names.add(row_name)
+
+    if not by_quarter:
+        return None
+
+    quarters = sorted(by_quarter.keys(), reverse=True)
+    latest_quarter = quarters[0]
+    previous_quarter = quarters[1] if len(quarters) > 1 else None
+
+    latest_avg = sum(by_quarter[latest_quarter]) // len(by_quarter[latest_quarter])
+    previous_avg = None
+    if previous_quarter:
+        previous_avg = sum(by_quarter[previous_quarter]) // len(by_quarter[previous_quarter])
+
+    if len(keywords) > 1:
+        sample = ", ".join(sorted(industry_names)[:2])
+        display_name = f"{industry}({sample} 등)"
+    elif industry_names:
+        display_name = next(iter(industry_names))
+    else:
+        display_name = industry
+
+    return latest_avg, previous_avg, _format_quarter(latest_quarter), display_name
 
 
 def _format_quarter(code: str) -> str:
@@ -240,22 +314,25 @@ def fetch_estimated_sales(region: str, industry: str) -> dict:
                 mock["api_error"] = error
             return mock
 
-        matched_rows = _pick_industry_rows(rows, industry, signgu_code)
-        if not matched_rows:
-            return _load_mock(region, industry)
+        aggregated = _aggregate_quarterly_sales(rows, industry, signgu_code)
+        if aggregated:
+            latest_amount, previous_amount, quarter_label, industry_name = aggregated
+        else:
+            matched_rows = _pick_industry_rows(rows, industry, signgu_code)
+            if not matched_rows:
+                return _load_mock(region, industry)
 
-        latest_row = matched_rows[0]
-        previous_row = matched_rows[1] if len(matched_rows) > 1 else None
-
-        latest_amount = _parse_amount(latest_row.get("THSMON_SELNG_AMT"))
-        previous_amount = (
-            _parse_amount(previous_row.get("THSMON_SELNG_AMT")) if previous_row else None
-        )
+            latest_row = matched_rows[0]
+            previous_row = matched_rows[1] if len(matched_rows) > 1 else None
+            latest_amount = _parse_amount(latest_row.get("THSMON_SELNG_AMT"))
+            previous_amount = (
+                _parse_amount(previous_row.get("THSMON_SELNG_AMT")) if previous_row else None
+            )
+            quarter_label = _format_quarter(str(latest_row.get("STDR_YYQU_CD", "")))
+            industry_name = str(latest_row.get("SVC_INDUTY_CD_NM", industry))
 
         monthly_sales = _format_amount(latest_amount)
         sales_trend = _calc_trend(latest_amount, previous_amount)
-        quarter_label = _format_quarter(str(latest_row.get("STDR_YYQU_CD", "")))
-        industry_name = latest_row.get("SVC_INDUTY_CD_NM", industry)
         signgu_name = _parse_signgu_name(region)
 
         summary = (
@@ -271,7 +348,7 @@ def fetch_estimated_sales(region: str, industry: str) -> dict:
             "quarter": quarter_label,
             "industry_name": industry_name,
             "source": "seoul_sales_api",
-            "raw": latest_row,
+            "raw": {"aggregated": aggregated is not None},
         }
     except (httpx.HTTPError, json.JSONDecodeError, KeyError, TypeError, ValueError):
         return _load_mock(region, industry)

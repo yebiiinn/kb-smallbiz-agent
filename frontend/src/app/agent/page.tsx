@@ -4,6 +4,7 @@ import Link from "next/link";
 import { useEffect, useState } from "react";
 
 import { ChatPanel } from "@/components/chat/ChatPanel";
+import { CrisisInsightCard } from "@/components/dashboard/CrisisInsightCard";
 import { MarketInsightCard } from "@/components/dashboard/MarketInsightCard";
 import { ProductRecommendList } from "@/components/recommendation/ProductRecommendList";
 import type { BusinessContext } from "@/types/business";
@@ -45,12 +46,10 @@ export default function AgentPage() {
 
   return (
     <div
-      className="min-h-screen px-6 py-5"
+      className="flex h-[calc(100dvh-3.5rem)] flex-col gap-4 overflow-hidden px-6 py-4"
       style={{ background: "linear-gradient(160deg, #0A0F1E 0%, #111827 100%)" }}
     >
-      <div className="mx-auto flex max-w-7xl flex-col gap-4">
-        {/* Context bar */}
-        <div className="flex flex-wrap items-center gap-2">
+      <div className="flex shrink-0 flex-wrap items-center gap-2">
           {context.region ? (
             <>
               {[
@@ -109,21 +108,20 @@ export default function AgentPage() {
           )}
         </div>
 
-        {/* Main layout */}
-        <div className="grid h-[calc(100vh-140px)] gap-4 lg:grid-cols-5">
-          <div className="lg:col-span-3">
+        <div className="mx-auto grid min-h-0 w-full max-w-7xl flex-1 gap-4 lg:grid-cols-5">
+          <div className="min-h-0 lg:col-span-3">
             <ChatPanel
               context={context}
               onResponse={handleResponse}
               onLoadingStart={handleLoadingStart}
             />
           </div>
-          <div className="flex flex-col gap-4 overflow-y-auto lg:col-span-2">
+          <div className="flex min-h-0 flex-col gap-4 overflow-y-auto lg:col-span-2">
             <MarketInsightCard insights={insights} loading={sideLoading} />
+            <CrisisInsightCard crisis={insights?.crisis} loading={sideLoading} />
             <ProductRecommendList items={recommendations} loading={sideLoading} />
           </div>
         </div>
-      </div>
     </div>
   );
 }

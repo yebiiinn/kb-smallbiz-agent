@@ -16,14 +16,14 @@ from project.schemas import (
     BusinessStage,
     ChatRequest,
     ChatResponse,
+    CrisisInsight,
     MarketInsight,
     MarketInsightResponse,
     PolicyFundsResponse,
     ProductRecommendRequest,
     ProductRecommendResponse,
 )
-from project.tools import bizinfo_api, ecos_api, finlife_api, sangkwon_api
-from project.tools import kosis_api
+from project.tools import bizinfo_api, finlife_api
 
 logger = logging.getLogger(__name__)
 
@@ -74,14 +74,25 @@ _CONTEXT_EXTRACT_SYSTEM = """\
 """
 
 
-def _extract_context_from_message(message: str, existing: BusinessContext) -> BusinessContext:
-    """region 또는 industry가 비어있을 때만 LLM으로 메시지에서 추출한다."""
-    needs_region = not existing.region
-    needs_industry = not existing.industry
+def _enrich_context_from_message(message: str, existing: BusinessContext) -> BusinessContext:
+    """메시지에서 금액·사업 정보를 보강한다."""
+    from project.agents.finance import parse_amount_manwon
+
+    amount = parse_amount_manwon(message)
+    updated = existing
+    if amount is not None and existing.revenue is None:
+        is_loan_query = any(
+            kw in message for kw in ("대출", "융자", "한도", "규모", "추천", "자금", "금융")
+        )
+        if not is_loan_query:
+            updated = existing.model_copy(update={"revenue": amount})
+
+    needs_region = not updated.region
+    needs_industry = not updated.industry
     if not (needs_region or needs_industry):
-        return existing
+        return updated
     if not settings.openai_api_key:
-        return existing
+        return updated
 
     try:
         client = OpenAI(api_key=settings.openai_api_key)
@@ -97,19 +108,24 @@ def _extract_context_from_message(message: str, existing: BusinessContext) -> Bu
         )
         parsed: dict = json.loads(resp.choices[0].message.content or "{}")
 
-        region = existing.region or parsed.get("region", "")
-        industry = existing.industry or parsed.get("industry", "")
-        stage_raw = parsed.get("stage", existing.stage.value)
+        region = updated.region or parsed.get("region", "")
+        industry = updated.industry or parsed.get("industry", "")
+        stage_raw = parsed.get("stage", updated.stage.value)
         try:
             stage = BusinessStage(stage_raw)
         except ValueError:
-            stage = existing.stage
-        revenue = existing.revenue if existing.revenue is not None else parsed.get("revenue")
+            stage = updated.stage
+        revenue = updated.revenue if updated.revenue is not None else parsed.get("revenue")
 
         return BusinessContext(region=region, industry=industry, stage=stage, revenue=revenue)
     except Exception as exc:
         logger.debug("context 자동 추출 실패 (기존 값 유지): %s", exc)
-        return existing
+        return updated
+
+
+def _extract_context_from_message(message: str, existing: BusinessContext) -> BusinessContext:
+    """region/industry/revenue 등 컨텍스트 보강 (LLM + 규칙)."""
+    return _enrich_context_from_message(message, existing)
 
 
 @app.get("/health")
@@ -125,7 +141,7 @@ async def agent_chat(
     _trim_sessions()
     context = _extract_context_from_message(request.message, request.context)
     augmented = _build_augmented_message(x_session_id, request.message)
-    result = await run_graph(augmented, context)
+    result = await run_graph(augmented, context, user_query=request.message)
     insights_data = result.get("insights") or {}
 
     answer = result.get("final_answer", "")
@@ -135,15 +151,29 @@ async def agent_chat(
         _SESSIONS[x_session_id].append({"role": "user", "content": request.message, "ts": ts})
         _SESSIONS[x_session_id].append({"role": "assistant", "content": answer, "ts": ts})
 
+    crisis_data = insights_data.get("crisis")
+    crisis_insight = None
+    if isinstance(crisis_data, dict) and crisis_data.get("summary"):
+        crisis_insight = CrisisInsight(
+            level=crisis_data.get("level", "normal"),
+            score=float(crisis_data.get("score", 0)),
+            summary=crisis_data.get("summary", ""),
+            recommended_actions=crisis_data.get("recommended_actions", []),
+            growth_market_names=crisis_data.get("growth_market_names", []),
+        )
+
     return ChatResponse(
         answer=answer,
         insights=MarketInsight(
             market_summary=insights_data.get("market_summary", ""),
             economic_indicator=insights_data.get("economic_indicator", ""),
             consumption_trend=insights_data.get("consumption_trend", ""),
+            crisis=crisis_insight,
+            sales_data_note=insights_data.get("sales_data_note", ""),
         ),
         recommendations=result.get("recommendations", []),
         follow_up_questions=result.get("follow_up_questions", []),
+        active_agents=result.get("active_agents", []),
     )
 
 
@@ -152,30 +182,37 @@ async def market_insights(
     region: str = Query(default="서울 강남구"),
     industry: str = Query(default="카페"),
 ):
-    data = sangkwon_api.fetch_commercial_district(region=region, industry=industry)
+    from project.agents.commercial import commercial_node
+    from project.agents.economic import economic_node
+    from project.state import AgentState
 
-    ecos_data = ecos_api.fetch_economic_indicators()
-    kosis_data = kosis_api.fetch_consumption_trend(region=region, industry=industry)
-
-    csi = ecos_data.get("consumer_sentiment")
-    base_rate = ecos_data.get("base_rate")
-    econ_parts = []
-    if base_rate is not None:
-        econ_parts.append(f"기준금리 {base_rate:.2f}%")
-    if csi is not None:
-        sentiment = "위축" if csi < 95 else ("보통" if csi < 105 else "양호")
-        econ_parts.append(f"CSI {csi:.0f}({sentiment})")
-    economic_indicator = " / ".join(econ_parts) if econ_parts else ecos_data.get("summary", "경기지표 조회 완료")
-
-    consumption_trend = kosis_data.get("summary", kosis_data.get("consumption_trend", "소비 트렌드 조회 완료"))
+    ctx = BusinessContext(region=region, industry=industry, stage=BusinessStage.STARTUP)
+    base_state: AgentState = {
+        "messages": [],
+        "context": ctx,
+        "user_query": "",
+        "active_agents": ["commercial", "economic"],
+        "commercial_result": {},
+        "economic_result": {},
+        "finance_result": {},
+        "crisis_result": {},
+        "insights": {},
+        "recommendations": [],
+        "follow_up_questions": [],
+        "final_answer": "",
+    }
+    commercial_out = commercial_node(base_state)
+    economic_out = economic_node({**base_state, **commercial_out})
+    commercial = commercial_out.get("commercial_result") or {}
+    economic = economic_out.get("economic_result") or {}
 
     return MarketInsightResponse(
         region=region,
         industry=industry,
-        market_summary=data.get("summary", ""),
-        economic_indicator=economic_indicator,
-        consumption_trend=consumption_trend,
-        score=float(data.get("score", 0)),
+        market_summary=commercial.get("summary", ""),
+        economic_indicator=economic.get("indicator", "경기지표 분석 결과 없음"),
+        consumption_trend=economic.get("consumption_trend", "소비 트렌드 분석 결과 없음"),
+        score=float(commercial.get("score") or 0),
     )
 
 

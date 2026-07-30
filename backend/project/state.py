@@ -13,6 +13,7 @@ class AgentState(TypedDict):
     messages: Annotated[list, add_messages]
     context: BusinessContext
     user_query: str
+    active_agents: list[str]
 
     # 에이전트별 결과 (담당자 A/B가 채움)
     commercial_result: dict

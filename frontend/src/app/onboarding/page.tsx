@@ -3,26 +3,9 @@
 import { useRouter } from "next/navigation";
 import { useState } from "react";
 
+import { INDUSTRY_CATEGORIES } from "@/data/industries";
 import { buildRegion, REGION_GROUPS } from "@/data/regions";
 import type { BusinessContext, BusinessStage } from "@/types/business";
-
-const INDUSTRIES = [
-  "카페·커피전문점",
-  "한식 음식점",
-  "양식·패밀리레스토랑",
-  "치킨·피자·패스트푸드",
-  "술집·포차",
-  "편의점·슈퍼마켓",
-  "소매(의류·잡화)",
-  "미용실·네일샵",
-  "학원·교습소",
-  "PC방·오락",
-  "헬스장·필라테스",
-  "세탁소·수선",
-  "의원·약국",
-  "숙박·게스트하우스",
-  "인테리어·수리",
-];
 
 const STAGES: { value: BusinessStage; label: string; desc: string }[] = [
   { value: "startup", label: "창업 준비", desc: "아직 개업 전" },
@@ -178,14 +161,14 @@ export default function OnboardingPage() {
                   업종
                 </label>
                 <div className="grid grid-cols-2 gap-2">
-                  {INDUSTRIES.map((ind) => (
+                  {INDUSTRY_CATEGORIES.map((category) => (
                     <button
-                      key={ind}
+                      key={category.lcls_cd}
                       type="button"
-                      onClick={() => setContext({ ...context, industry: ind })}
-                      className="rounded-xl px-3 py-2 text-left text-xs transition-all hover:scale-[1.01]"
+                      onClick={() => setContext({ ...context, industry: category.name })}
+                      className="rounded-xl px-3 py-2 text-left transition-all hover:scale-[1.01]"
                       style={
-                        context.industry === ind
+                        context.industry === category.name
                           ? {
                               background: "rgba(255,184,28,0.15)",
                               border: "1px solid rgba(255,184,28,0.4)",
@@ -199,10 +182,28 @@ export default function OnboardingPage() {
                             }
                       }
                     >
-                      {ind}
+                      <span className="block text-xs">{category.label}</span>
+                      {category.examples && (
+                        <span
+                          className="mt-0.5 block text-[10px] leading-snug"
+                          style={{
+                            color:
+                              context.industry === category.name
+                                ? "rgba(255,184,28,0.75)"
+                                : "rgba(255,255,255,0.35)",
+                          }}
+                        >
+                          {category.examples}
+                        </span>
+                      )}
                     </button>
                   ))}
                 </div>
+                {context.industry && (
+                  <p className="mt-2 text-xs" style={{ color: "rgba(255,184,28,0.8)" }}>
+                    선택: {context.industry}
+                  </p>
+                )}
               </div>
 
               <button

@@ -253,6 +253,7 @@ def crisis_node(state: AgentState) -> dict:
             "major_market_count": regional.get("major_market_count"),
             "molit_market_count": regional.get("molit_market_count"),
             "growth_market_count": regional.get("growth_market_count"),
+            "growth_market_names": regional.get("growth_market_names") or [],
             "education_count": regional.get("education_count"),
             "raw": {
                 "regional": regional,

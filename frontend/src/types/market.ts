@@ -1,7 +1,17 @@
+export interface CrisisInsight {
+  level: "normal" | "warning" | "critical";
+  score: number;
+  summary: string;
+  recommended_actions: string[];
+  growth_market_names?: string[];
+}
+
 export interface MarketInsight {
   market_summary: string;
   economic_indicator: string;
   consumption_trend: string;
+  crisis?: CrisisInsight | null;
+  sales_data_note?: string;
 }
 
 export interface MarketInsightResponse extends MarketInsight {
@@ -32,4 +42,5 @@ export interface ChatResponse {
   insights: MarketInsight | null;
   recommendations: RecommendationItem[];
   follow_up_questions: string[];
+  active_agents?: string[];
 }

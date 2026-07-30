@@ -1,3 +1,6 @@
+import ReactMarkdown from "react-markdown";
+import remarkGfm from "remark-gfm";
+
 import type { MarketInsight } from "@/types/market";
 
 interface MarketInsightCardProps {
@@ -32,6 +35,23 @@ const INSIGHT_ITEMS = [
   },
 ];
 
+const markdownComponents = {
+  p: ({ children }: { children?: React.ReactNode }) => (
+    <p className="mb-1.5 last:mb-0">{children}</p>
+  ),
+  ul: ({ children }: { children?: React.ReactNode }) => (
+    <ul className="space-y-1.5">{children}</ul>
+  ),
+  li: ({ children }: { children?: React.ReactNode }) => (
+    <li className="leading-relaxed" style={{ color: "rgba(255,255,255,0.72)" }}>
+      {children}
+    </li>
+  ),
+  strong: ({ children }: { children?: React.ReactNode }) => (
+    <strong className="font-semibold text-white">{children}</strong>
+  ),
+};
+
 function SkeletonRow() {
   return (
     <div className="space-y-1.5">
@@ -61,6 +81,19 @@ export function MarketInsightCard({ insights, loading }: MarketInsightCardProps)
           </span>
         )}
       </div>
+
+      {insights?.sales_data_note && (
+        <div
+          className="mb-4 rounded-xl px-3 py-2.5 text-xs leading-relaxed"
+          style={{
+            background: "rgba(255,184,28,0.08)",
+            border: "1px solid rgba(255,184,28,0.25)",
+            color: "rgba(255,255,255,0.75)",
+          }}
+        >
+          ℹ️ {insights.sales_data_note}
+        </div>
+      )}
 
       {!insights && !loading && (
         <p className="text-sm" style={{ color: "rgba(255,255,255,0.3)" }}>
@@ -99,15 +132,17 @@ export function MarketInsightCard({ insights, loading }: MarketInsightCardProps)
                 className="rounded-xl p-3"
                 style={{ background: item.glow, border: `1px solid ${item.border}` }}
               >
-                <div className="mb-1.5 flex items-center gap-1.5">
+                <div className="mb-2 flex items-center gap-1.5">
                   <span className="text-sm">{item.icon}</span>
                   <span className="text-xs font-semibold" style={{ color: item.accent }}>
                     {item.label}
                   </span>
                 </div>
-                <p className="text-xs leading-relaxed" style={{ color: "rgba(255,255,255,0.6)" }}>
-                  {text}
-                </p>
+                <div className="text-[13px] leading-relaxed">
+                  <ReactMarkdown remarkPlugins={[remarkGfm]} components={markdownComponents}>
+                    {text}
+                  </ReactMarkdown>
+                </div>
               </div>
             );
           })}

@@ -40,6 +40,21 @@ _MAPPING: dict = _load_mapping()
 
 # ── 헬퍼: 업종 키워드 감지 ────────────────────────────────────────────────────
 
+# 소진공 대분류(lcls) → 경기지표 분류키
+_LCLS_INDUSTRY_MAP: dict[str, str] = {
+    "음식점업": "음식점주점",
+    "소매업": "전문소매점",
+    "수리 및 개인 서비스업": "개인서비스",
+    "교육 서비스업": "교육서비스",
+    "예술, 스포츠 및 여가관련 서비스업": "개인서비스",
+    "숙박업": "숙박",
+    "보건의료업": "개인서비스",
+    "부동산업": "개인서비스",
+    "전문, 과학 및 기술 서비스업": "개인서비스",
+    "사업시설 관리, 사업 지원 및 임대 서비스업": "개인서비스",
+}
+
+
 def _detect_industry_key(industry: str) -> str:
     """사용자 업종 텍스트 → indicator_mapping 분류키 변환.
 
@@ -47,6 +62,13 @@ def _detect_industry_key(industry: str) -> str:
     예: "스마트스토어"가 "마트"에 먼저 걸리는 현상 차단.
     매칭 실패 시 기본값 '음식점주점' 반환.
     """
+    normalized = (industry or "").strip()
+    if normalized in _LCLS_INDUSTRY_MAP:
+        return _LCLS_INDUSTRY_MAP[normalized]
+    for lcls_name, key in _LCLS_INDUSTRY_MAP.items():
+        if lcls_name in normalized or normalized in lcls_name:
+            return key
+
     keyword_map: dict[str, str] = _MAPPING.get("industry_keyword_map", {})
     for keyword, key in sorted(keyword_map.items(), key=lambda x: len(x[0]), reverse=True):
         if keyword in industry:

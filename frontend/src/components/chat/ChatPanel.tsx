@@ -72,11 +72,19 @@ function newSessionId() {
     : Math.random().toString(36).slice(2);
 }
 
+const AGENT_LABELS: Record<string, string> = {
+  commercial: "상권",
+  economic: "경기",
+  finance: "금융",
+  crisis: "위기",
+};
+
 export function ChatPanel({ context, onResponse, onLoadingStart }: ChatPanelProps) {
   const [messages, setMessages] = useState<ChatMessage[]>([INITIAL_MESSAGE]);
   const [input, setInput] = useState("");
   const [loading, setLoading] = useState(false);
   const [followUps, setFollowUps] = useState<string[]>([]);
+  const [activeAgents, setActiveAgents] = useState<string[]>([]);
   const [lastFailedText, setLastFailedText] = useState<string | null>(null);
   const bottomRef = useRef<HTMLDivElement>(null);
   const inputRef = useRef<HTMLInputElement>(null);
@@ -90,6 +98,7 @@ export function ChatPanel({ context, onResponse, onLoadingStart }: ChatPanelProp
   const resetChat = useCallback(() => {
     setMessages([INITIAL_MESSAGE]);
     setFollowUps([]);
+    setActiveAgents([]);
     setInput("");
     setLastFailedText(null);
     sessionIdRef.current = newSessionId();
@@ -101,6 +110,7 @@ export function ChatPanel({ context, onResponse, onLoadingStart }: ChatPanelProp
 
     setInput("");
     setFollowUps([]);
+    setActiveAgents([]);
     setLastFailedText(null);
     setMessages((prev) => [...prev, { role: "user", content: text }]);
     setLoading(true);
@@ -110,6 +120,9 @@ export function ChatPanel({ context, onResponse, onLoadingStart }: ChatPanelProp
       const response = await postChat(text, context, sessionIdRef.current);
       setMessages((prev) => [...prev, { role: "assistant", content: response.answer }]);
       onResponse(response);
+      if (response.active_agents?.length) {
+        setActiveAgents(response.active_agents);
+      }
       if (response.follow_up_questions?.length) {
         setFollowUps(response.follow_up_questions.slice(0, 3));
       }
@@ -189,7 +202,7 @@ export function ChatPanel({ context, onResponse, onLoadingStart }: ChatPanelProp
       </div>
 
       {/* Messages */}
-      <div className="flex-1 space-y-4 overflow-y-auto p-4">
+      <div className="min-h-0 flex-1 space-y-4 overflow-y-auto p-4">
         {messages.map((msg, i) => (
           <MessageBubble key={i} message={msg} />
         ))}
@@ -215,6 +228,31 @@ export function ChatPanel({ context, onResponse, onLoadingStart }: ChatPanelProp
 
         <div ref={bottomRef} />
       </div>
+
+      {/* Active agents */}
+      {activeAgents.length > 0 && !loading && (
+        <div
+          className="flex flex-wrap items-center gap-1.5 px-4 py-2"
+          style={{ borderTop: "1px solid rgba(255,255,255,0.06)" }}
+        >
+          <span className="text-[10px]" style={{ color: "rgba(255,255,255,0.35)" }}>
+            실행
+          </span>
+          {activeAgents.map((agent) => (
+            <span
+              key={agent}
+              className="rounded-full px-2 py-0.5 text-[10px] font-medium"
+              style={{
+                background: "rgba(255,255,255,0.06)",
+                border: "1px solid rgba(255,255,255,0.12)",
+                color: "rgba(255,255,255,0.55)",
+              }}
+            >
+              {AGENT_LABELS[agent] ?? agent}
+            </span>
+          ))}
+        </div>
+      )}
 
       {/* Follow-up chips */}
       {followUps.length > 0 && !loading && (

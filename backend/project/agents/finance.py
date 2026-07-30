@@ -35,19 +35,19 @@ _STAGE_INTENT: dict[str, str] = {
 # stage별 맞춤 follow-up 질문
 _FOLLOW_UP: dict[str, list[str]] = {
     BusinessStage.STARTUP.value: [
-        "예상 창업 자금은 얼마나 필요하신가요?",
-        "사업자등록 예정이신가요, 아니면 이미 하셨나요?",
-        "담보로 활용 가능한 자산(부동산·보증서 등)이 있으신가요?",
+        "창업에 필요한 초기 자금 규모 알려줘",
+        "이 조건으로 정책자금 추천해줘",
+        "KB 소상공인 대출 상품 알려줘",
     ],
     BusinessStage.OPERATION.value: [
-        "현재 월 매출 규모는 어느 정도인가요?",
-        "운영 자금이 필요한 구체적인 이유가 있으신가요? (임대료·재료비·인건비 등)",
-        "기존에 이용 중인 대출이 있으신가요?",
+        "운전자금 대출 상품 추천해줘",
+        "현재 상권·경기 상황 다시 분석해줘",
+        "경영안정 자금 필요 규모 알려줘",
     ],
     BusinessStage.EXPANSION.value: [
-        "확장 방향이 어떻게 되시나요? (매장 추가 / 리모델링 / 설비 투자)",
-        "현재 담보로 활용 가능한 자산이 있으신가요?",
-        "사업 기간과 연 매출 규모를 알 수 있을까요?",
+        "확장 투자용 대출 상품 추천해줘",
+        "추가 점포 상권 분석해줘",
+        "시설자금·정책자금 알려줘",
     ],
 }
 
@@ -232,6 +232,15 @@ def finance_node(state: AgentState) -> dict:
     stage: str = ctx.stage.value
     revenue: int | None = ctx.revenue
 
+    parsed_amount = parse_amount_manwon(user_query)
+    target_loan_manwon: int | None = None
+    if parsed_amount and any(
+        kw in user_query for kw in ("대출", "융자", "한도", "규모", "추천", "자금", "금융")
+    ):
+        target_loan_manwon = parsed_amount
+    elif parsed_amount and revenue is None:
+        revenue = parsed_amount
+
     # ── 1. stage + user_query → intent 키워드 결정 ──────────────────────────
     intent = _stage_intent(stage, user_query)
 
@@ -247,8 +256,9 @@ def finance_node(state: AgentState) -> dict:
     crisis_signals: list[str] = crisis.get("signals", [])
 
     if crisis_level == "critical" and intent not in {"상환연장", "여유자금", "주택"}:
-        intent = "상환연장"
-        logger.info("위기등급 critical → intent 강제 보정: 상환연장")
+        if stage != BusinessStage.STARTUP.value:
+            intent = "상환연장"
+            logger.info("위기등급 critical → intent 강제 보정: 상환연장")
     elif crisis_level == "warning" and econ_ctx["sentiment_weak"] and intent == _STAGE_INTENT.get(stage, "창업자금"):
         logger.info("위기등급 warning + CSI 위축 → 정책자금 우선 강조")
 
@@ -376,8 +386,10 @@ def finance_node(state: AgentState) -> dict:
     # ── 4. 추천 결과 정렬 (금융상품: 낮은 금리 우선, KB 우선) ──────────────
     recommendations = _sort_recommendations(recommendations, intent)
 
-    # ── 4-b. revenue 기반 대출한도 적합도 필터 ───────────────────────────────
-    if revenue is not None and intent in _LOAN_INTENTS:
+    # ── 4-b. revenue / 목표 대출금액 기반 적합도 안내 ───────────────────────
+    if target_loan_manwon is not None:
+        recommendations = _annotate_by_target_loan(recommendations, target_loan_manwon)
+    elif revenue is not None and intent in _LOAN_INTENTS:
         recommendations = _filter_by_revenue(recommendations, revenue)
 
     # ── 5. 요약 문구 ─────────────────────────────────────────────────────────
@@ -402,6 +414,8 @@ def finance_node(state: AgentState) -> dict:
         econ_note = " 소비 심리 위축 국면으로 저금리 정책자금 활용을 권장드립니다."
 
     summary = f"{base_summary} 정책자금 {n_policy}건, 금융상품 {n_product}건을 확인했습니다.{econ_note}"
+    if target_loan_manwon is not None:
+        summary = f"**{target_loan_manwon:,}만 원** 규모 기준으로 {summary}"
 
     # ── 6. LLM 추천 이유 개인화 ──────────────────────────────────────────────
     recommendations = _enrich_with_llm(
@@ -421,6 +435,7 @@ def finance_node(state: AgentState) -> dict:
         "finance_result": {
             "summary": summary,
             "recommendations": recommendations,
+            "target_loan_manwon": target_loan_manwon,
             "follow_up_questions": _dynamic_follow_up(stage, region, industry, commercial, economic),
             "raw": {
                 "semas":   semas_results,
@@ -719,6 +734,48 @@ def _enrich_with_llm(
 
 
 # ---------------------------------------------------------------------------
+# 내부 헬퍼 — 금액 파싱·대출 규모 안내
+# ---------------------------------------------------------------------------
+def parse_amount_manwon(text: str) -> int | None:
+    """문장에서 금액(만 원 단위)을 추출한다. 예: '3,000만 원', '1억', '3천만'."""
+    if not text:
+        return None
+    compact = text.replace(",", "").replace(" ", "")
+    match = re.search(r"(\d+)억", compact)
+    if match:
+        return int(match.group(1)) * 10_000
+    match = re.search(r"(\d+)천만", compact)
+    if match:
+        return int(match.group(1)) * 1_000
+    match = re.search(r"(\d+)만", compact)
+    if match:
+        return int(match.group(1))
+    return None
+
+
+def _annotate_by_target_loan(
+    recommendations: list[RecommendationItem],
+    target_manwon: int,
+) -> list[RecommendationItem]:
+    """목표 대출/자금 규모(만 원)를 reason에 반영한다."""
+    target_fmt = f"{target_manwon:,}만 원"
+    annotated: list[RecommendationItem] = []
+    for rec in recommendations:
+        reason = rec.reason or ""
+        match = re.search(r"(\d+)\s*억\s*원", reason)
+        if match:
+            limit_man = int(match.group(1)) * 10_000
+            if limit_man >= target_manwon:
+                reason = f"{reason} (희망 {target_fmt} 대비 한도 충분)"
+            else:
+                reason = f"{reason} (희망 {target_fmt} 대비 한도 확인 필요)"
+        else:
+            reason = f"{reason} (희망 {target_fmt} 기준 추천)"
+        annotated.append(rec.model_copy(update={"reason": reason.strip()}))
+    return annotated
+
+
+# ---------------------------------------------------------------------------
 # 내부 헬퍼 — revenue 기반 대출한도 필터
 # ---------------------------------------------------------------------------
 _REVENUE_TIER: list[tuple[int, str]] = [
@@ -781,19 +838,19 @@ def _dynamic_follow_up(
     active_scenarios: list[str] = economic.get("active_scenarios", [])
 
     if competition_level == "high":
-        questions.append(f"{region} {industry} 업종 경쟁이 치열한데, 차별화 전략이 있으신가요?")
+        questions.append(f"{region} {industry} 업종 차별화 전략 추천해줘")
     elif competition_level == "low":
-        questions.append(f"{region} {industry} 상권 경쟁이 낮습니다. 수요 확보 방안은 검토하셨나요?")
+        questions.append(f"{region} {industry} 상권 수요 확보 방안 알려줘")
 
     if sales_trend and "-" in sales_trend and "%" in sales_trend:
-        questions.append("매출 하락세가 감지됩니다. 운전자금·경영안정 자금 필요 규모는 얼마인가요?")
+        questions.append("경영안정 자금 필요 규모 알려줘")
     elif sales_trend and "+" in sales_trend:
-        questions.append("매출 성장세가 보입니다. 시설 확장이나 추가 투자 계획이 있으신가요?")
+        questions.append("시설 확장·추가 투자 대출 상품 추천해줘")
 
     if csi is not None and csi < 95:
-        questions.append("소비 심리 위축 국면입니다. 단기 유동성 확보를 위한 대출 규모를 생각해 두셨나요?")
+        questions.append("단기 유동성 확보 대출 상품 추천해줘")
     elif any("금리" in s for s in active_scenarios):
-        questions.append("금리 변동 국면입니다. 고정금리·변동금리 중 어떤 방식을 선호하시나요?")
+        questions.append("고정금리·변동금리 대출 비교해줘")
 
     base = _FOLLOW_UP.get(stage, _FOLLOW_UP[BusinessStage.STARTUP.value])
     for q in base:
