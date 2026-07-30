@@ -90,6 +90,11 @@ export function CrisisInsightCard({ crisis, loading }: CrisisInsightCardProps) {
               ))}
             </ul>
           )}
+          {crisis.growth_market_names && crisis.growth_market_names.length > 0 && (
+            <p className="mt-3 text-xs leading-relaxed" style={{ color: "rgba(255,255,255,0.55)" }}>
+              📍 인근 성장상권 · {crisis.growth_market_names.join(", ")}
+            </p>
+          )}
         </div>
       )}
     </div>

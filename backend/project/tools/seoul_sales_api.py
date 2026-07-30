@@ -214,6 +214,16 @@ def _fetch_rows(signgu_code: str) -> tuple[list[dict], dict | None]:
     return _normalize_rows(data), None
 
 
+def _matches_single_keyword(industry_name: str, keyword: str) -> bool:
+    normalized_name = _normalize_industry(industry_name)
+    normalized_keyword = _normalize_industry(keyword)
+    return (
+        normalized_keyword == normalized_name
+        or normalized_keyword in normalized_name
+        or normalized_name in normalized_keyword
+    )
+
+
 def _pick_industry_rows(rows: list[dict], industry: str, signgu_code: str) -> list[dict]:
     matched = [
         row
@@ -222,6 +232,50 @@ def _pick_industry_rows(rows: list[dict], industry: str, signgu_code: str) -> li
         and _matches_industry(str(row.get("SVC_INDUTY_CD_NM", "")), industry)
     ]
     return sorted(matched, key=lambda row: str(row.get("STDR_YYQU_CD", "")), reverse=True)
+
+
+def _aggregate_quarterly_sales(
+    rows: list[dict], industry: str, signgu_code: str
+) -> tuple[int | None, int | None, str, str] | None:
+    """lcls 등 복수 업종 키워드일 때 분기별 평균 매출을 집계한다."""
+    keywords = _resolve_seoul_industry_names(industry)
+    by_quarter: dict[str, list[int]] = {}
+    industry_names: set[str] = set()
+
+    for row in rows:
+        if str(row.get("SIGNGU_CD", "")) != str(signgu_code):
+            continue
+        row_name = str(row.get("SVC_INDUTY_CD_NM", ""))
+        if not any(_matches_single_keyword(row_name, keyword) for keyword in keywords):
+            continue
+        quarter = str(row.get("STDR_YYQU_CD", ""))
+        amount = _parse_amount(row.get("THSMON_SELNG_AMT"))
+        if amount is None or not quarter:
+            continue
+        by_quarter.setdefault(quarter, []).append(amount)
+        industry_names.add(row_name)
+
+    if not by_quarter:
+        return None
+
+    quarters = sorted(by_quarter.keys(), reverse=True)
+    latest_quarter = quarters[0]
+    previous_quarter = quarters[1] if len(quarters) > 1 else None
+
+    latest_avg = sum(by_quarter[latest_quarter]) // len(by_quarter[latest_quarter])
+    previous_avg = None
+    if previous_quarter:
+        previous_avg = sum(by_quarter[previous_quarter]) // len(by_quarter[previous_quarter])
+
+    if len(keywords) > 1:
+        sample = ", ".join(sorted(industry_names)[:2])
+        display_name = f"{industry}({sample} 등)"
+    elif industry_names:
+        display_name = next(iter(industry_names))
+    else:
+        display_name = industry
+
+    return latest_avg, previous_avg, _format_quarter(latest_quarter), display_name
 
 
 def _format_quarter(code: str) -> str:
@@ -260,22 +314,25 @@ def fetch_estimated_sales(region: str, industry: str) -> dict:
                 mock["api_error"] = error
             return mock
 
-        matched_rows = _pick_industry_rows(rows, industry, signgu_code)
-        if not matched_rows:
-            return _load_mock(region, industry)
+        aggregated = _aggregate_quarterly_sales(rows, industry, signgu_code)
+        if aggregated:
+            latest_amount, previous_amount, quarter_label, industry_name = aggregated
+        else:
+            matched_rows = _pick_industry_rows(rows, industry, signgu_code)
+            if not matched_rows:
+                return _load_mock(region, industry)
 
-        latest_row = matched_rows[0]
-        previous_row = matched_rows[1] if len(matched_rows) > 1 else None
-
-        latest_amount = _parse_amount(latest_row.get("THSMON_SELNG_AMT"))
-        previous_amount = (
-            _parse_amount(previous_row.get("THSMON_SELNG_AMT")) if previous_row else None
-        )
+            latest_row = matched_rows[0]
+            previous_row = matched_rows[1] if len(matched_rows) > 1 else None
+            latest_amount = _parse_amount(latest_row.get("THSMON_SELNG_AMT"))
+            previous_amount = (
+                _parse_amount(previous_row.get("THSMON_SELNG_AMT")) if previous_row else None
+            )
+            quarter_label = _format_quarter(str(latest_row.get("STDR_YYQU_CD", "")))
+            industry_name = str(latest_row.get("SVC_INDUTY_CD_NM", industry))
 
         monthly_sales = _format_amount(latest_amount)
         sales_trend = _calc_trend(latest_amount, previous_amount)
-        quarter_label = _format_quarter(str(latest_row.get("STDR_YYQU_CD", "")))
-        industry_name = latest_row.get("SVC_INDUTY_CD_NM", industry)
         signgu_name = _parse_signgu_name(region)
 
         summary = (
@@ -291,7 +348,7 @@ def fetch_estimated_sales(region: str, industry: str) -> dict:
             "quarter": quarter_label,
             "industry_name": industry_name,
             "source": "seoul_sales_api",
-            "raw": latest_row,
+            "raw": {"aggregated": aggregated is not None},
         }
     except (httpx.HTTPError, json.JSONDecodeError, KeyError, TypeError, ValueError):
         return _load_mock(region, industry)

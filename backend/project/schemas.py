@@ -26,6 +26,7 @@ class CrisisInsight(BaseModel):
     score: float = Field(default=0, ge=0, le=100)
     summary: str = ""
     recommended_actions: list[str] = Field(default_factory=list)
+    growth_market_names: list[str] = Field(default_factory=list)
 
 
 class MarketInsight(BaseModel):
@@ -48,6 +49,7 @@ class ChatResponse(BaseModel):
     insights: MarketInsight | None = None
     recommendations: list[RecommendationItem] = Field(default_factory=list)
     follow_up_questions: list[str] = Field(default_factory=list)
+    active_agents: list[str] = Field(default_factory=list)
 
 
 class MarketInsightResponse(BaseModel):

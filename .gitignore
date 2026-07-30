@@ -46,3 +46,6 @@ backend/analysis/crisis/charts/*.png
 
 # 위기진단 raw (용량 큼 — collect.py로 재생성)
 backend/project/data/crisis/raw/
+
+# 런타임 API 캐시
+backend/project/data/cache/

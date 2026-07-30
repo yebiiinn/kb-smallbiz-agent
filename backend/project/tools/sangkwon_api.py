@@ -26,6 +26,8 @@ INDUSTRY_ALIASES: dict[str, dict[str, str | tuple[str, ...]]] = {
     "음식": {"label": "음식", "lcls_cd": "I2"},
     "소매": {"label": "소매", "lcls_cd": "G2"},
     "편의점": {"label": "편의점", "scls_cds": ("G20405",)},
+    "헬스장": {"label": "헬스장", "scls_cds": ("R10307",)},
+    "헬스": {"label": "헬스장", "scls_cds": ("R10307",)},
 }
 
 

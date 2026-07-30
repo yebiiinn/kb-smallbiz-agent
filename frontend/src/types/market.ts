@@ -3,6 +3,7 @@ export interface CrisisInsight {
   score: number;
   summary: string;
   recommended_actions: string[];
+  growth_market_names?: string[];
 }
 
 export interface MarketInsight {
@@ -41,4 +42,5 @@ export interface ChatResponse {
   insights: MarketInsight | null;
   recommendations: RecommendationItem[];
   follow_up_questions: string[];
+  active_agents?: string[];
 }

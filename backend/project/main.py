@@ -23,8 +23,7 @@ from project.schemas import (
     ProductRecommendRequest,
     ProductRecommendResponse,
 )
-from project.tools import bizinfo_api, ecos_api, finlife_api, sangkwon_api
-from project.tools import kosis_api
+from project.tools import bizinfo_api, finlife_api
 
 logger = logging.getLogger(__name__)
 
@@ -160,6 +159,7 @@ async def agent_chat(
             score=float(crisis_data.get("score", 0)),
             summary=crisis_data.get("summary", ""),
             recommended_actions=crisis_data.get("recommended_actions", []),
+            growth_market_names=crisis_data.get("growth_market_names", []),
         )
 
     return ChatResponse(
@@ -173,6 +173,7 @@ async def agent_chat(
         ),
         recommendations=result.get("recommendations", []),
         follow_up_questions=result.get("follow_up_questions", []),
+        active_agents=result.get("active_agents", []),
     )
 
 
@@ -181,30 +182,37 @@ async def market_insights(
     region: str = Query(default="서울 강남구"),
     industry: str = Query(default="카페"),
 ):
-    data = sangkwon_api.fetch_commercial_district(region=region, industry=industry)
+    from project.agents.commercial import commercial_node
+    from project.agents.economic import economic_node
+    from project.state import AgentState
 
-    ecos_data = ecos_api.fetch_economic_indicators()
-    kosis_data = kosis_api.fetch_consumption_trend(region=region, industry=industry)
-
-    csi = ecos_data.get("consumer_sentiment")
-    base_rate = ecos_data.get("base_rate")
-    econ_parts = []
-    if base_rate is not None:
-        econ_parts.append(f"기준금리 {base_rate:.2f}%")
-    if csi is not None:
-        sentiment = "위축" if csi < 95 else ("보통" if csi < 105 else "양호")
-        econ_parts.append(f"CSI {csi:.0f}({sentiment})")
-    economic_indicator = " / ".join(econ_parts) if econ_parts else ecos_data.get("summary", "경기지표 조회 완료")
-
-    consumption_trend = kosis_data.get("summary", kosis_data.get("consumption_trend", "소비 트렌드 조회 완료"))
+    ctx = BusinessContext(region=region, industry=industry, stage=BusinessStage.STARTUP)
+    base_state: AgentState = {
+        "messages": [],
+        "context": ctx,
+        "user_query": "",
+        "active_agents": ["commercial", "economic"],
+        "commercial_result": {},
+        "economic_result": {},
+        "finance_result": {},
+        "crisis_result": {},
+        "insights": {},
+        "recommendations": [],
+        "follow_up_questions": [],
+        "final_answer": "",
+    }
+    commercial_out = commercial_node(base_state)
+    economic_out = economic_node({**base_state, **commercial_out})
+    commercial = commercial_out.get("commercial_result") or {}
+    economic = economic_out.get("economic_result") or {}
 
     return MarketInsightResponse(
         region=region,
         industry=industry,
-        market_summary=data.get("summary", ""),
-        economic_indicator=economic_indicator,
-        consumption_trend=consumption_trend,
-        score=float(data.get("score", 0)),
+        market_summary=commercial.get("summary", ""),
+        economic_indicator=economic.get("indicator", "경기지표 분석 결과 없음"),
+        consumption_trend=economic.get("consumption_trend", "소비 트렌드 분석 결과 없음"),
+        score=float(commercial.get("score") or 0),
     )
 
 

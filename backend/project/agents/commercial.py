@@ -12,6 +12,32 @@ from project.tools import kakao_map_api, sangkwon_api, seoul_sales_api
 COMPETITION_LEVEL_SCORE = {"low": 85, "medium": 65, "high": 45}
 COMPETITION_LEVEL_LABEL = {"low": "낮음", "medium": "보통", "high": "높음"}
 
+_QUERY_INDUSTRY_TERMS = (
+    "헬스장",
+    "카페",
+    "커피",
+    "치킨",
+    "편의점",
+    "미용실",
+    "학원",
+    "PC방",
+    "노래방",
+    "슈퍼마켓",
+    "음식점",
+    "한식",
+    "베이커리",
+    "약국",
+    "세탁소",
+)
+
+
+def _resolve_analysis_industry(ctx_industry: str, user_query: str) -> str:
+    """질문에 구체 업종(헬스장 등)이 있으면 온보딩 대분류보다 우선."""
+    for term in _QUERY_INDUSTRY_TERMS:
+        if term in (user_query or ""):
+            return term
+    return ctx_industry
+
 
 def _format_amount(amount: int | None) -> str:
     if amount is None:
@@ -100,9 +126,15 @@ def _build_summary(
     level = kakao_map.get("competition_level", "")
     level_label = COMPETITION_LEVEL_LABEL.get(level, level or "보통")
     if poi_count is not None:
-        bullets.append(
-            f"- **주변 경쟁** · 카카오맵 기준 인근 {industry} {poi_count}곳 ({level_label})"
-        )
+        if poi_count == 0:
+            bullets.append(
+                f"- **주변 검색** · 카카오맵 '{industry}' 검색 0건 "
+                f"(소진공 점포 수와 검색 기준이 다를 수 있음)"
+            )
+        else:
+            bullets.append(
+                f"- **주변 경쟁** · 카카오맵 기준 인근 {industry} {poi_count}곳 ({level_label})"
+            )
     elif kakao_map.get("summary"):
         bullets.append(f"- **주변 경쟁** · {kakao_map.get('summary', '').rstrip('.')}")
 
@@ -115,11 +147,19 @@ def _build_summary(
 def commercial_node(state: AgentState) -> dict:
     ctx = state["context"]
     region = ctx.region or "서울 강남구"
-    industry = ctx.industry or "카페"
+    industry = _resolve_analysis_industry(ctx.industry or "카페", state.get("user_query", ""))
 
     sangkwon = sangkwon_api.fetch_commercial_district(region=region, industry=industry)
     store_count = sangkwon.get("store_count")
-    seoul_sales = seoul_sales_api.fetch_estimated_sales(region=region, industry=industry)
+    if "서울" in region:
+        seoul_sales = seoul_sales_api.fetch_estimated_sales(region=region, industry=industry)
+    else:
+        seoul_sales = {
+            "source": "skipped",
+            "sales_trend": "",
+            "summary": "",
+            "monthly_sales": "",
+        }
     kakao_map = kakao_map_api.search_nearby_competition(region=region, industry=industry)
 
     is_sales_mock = seoul_sales.get("source") == "mock"
@@ -127,9 +167,6 @@ def commercial_node(state: AgentState) -> dict:
     summary = _build_summary(
         region, industry, sangkwon, seoul_sales, kakao_map, per_store_sales
     )
-    if is_sales_mock and "서울" not in region:
-        summary += f" (추정매출은 서울 외 지역 참고치이며, 실제 수치는 소진공 상권정보에서 확인하세요.)"
-
     score = _compute_combined_score(sangkwon, seoul_sales, kakao_map)
 
     return {

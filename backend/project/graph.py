@@ -31,6 +31,57 @@ _SYNTHESIZE_SYSTEM = """\
 """
 
 
+_PARTIAL_SYNTHESIZE_SYSTEM = """\
+당신은 KB 소상공인 금융 지원 전문 컨설턴트입니다.
+아래 분석 결과(활성화된 에이전트만)를 종합해 소상공인에게 실질적인 답변을 작성하세요.
+
+규칙:
+- 제공된 분석 항목만 자연스럽게 연결 (없는 항목은 언급하지 말 것)
+- 지역·업종·사업 단계를 구체적으로 언급
+- 2~4문장, 실용적이고 간결하게
+- 이모지 1~2개로 가독성 높게
+- 금융 추천이 있으면 오른쪽 패널 확인 안내
+- 소진공 점포 수와 카카오 POI가 다르면 점포 수·업종 밀집도를 우선하고, "경쟁 없음" 등 모순 결론 금지
+- "소상공인 여러분", "좋은 기회" 같은 홍보·강연체 금지, 질문에 맞게 답변
+- 활성 에이전트에 finance가 없으면 금융·대출·패널 안내 금지
+"""
+
+
+def _build_synthesize_context(
+    region: str,
+    industry: str,
+    stage: str,
+    commercial: dict,
+    economic: dict,
+    finance: dict,
+    crisis: dict,
+    active_agents: list[str],
+) -> dict:
+    context: dict = {
+        "지역": region,
+        "업종": industry,
+        "사업단계": stage,
+        "활성에이전트": active_agents,
+    }
+    if "commercial" in active_agents:
+        context["상권요약"] = commercial.get("summary", "")
+        context["상권점수"] = commercial.get("score")
+    if "economic" in active_agents:
+        context["경기지표"] = economic.get("indicator", "")
+        context["소비트렌드"] = economic.get("consumption_trend", "")
+    if "crisis" in active_agents:
+        context["위기등급"] = crisis.get("level", "normal")
+        context["위기요약"] = crisis.get("summary", "")
+        context["위기권고행동"] = (crisis.get("recommended_actions") or [])[:3]
+    if "finance" in active_agents:
+        recommendations = finance.get("recommendations", [])
+        context["금융추천건수"] = len(recommendations)
+        context["금융요약"] = finance.get("summary", "")
+        if finance.get("target_loan_manwon"):
+            context["목표대출만원"] = finance.get("target_loan_manwon")
+    return context
+
+
 def _llm_synthesize(
     region: str,
     industry: str,
@@ -39,43 +90,36 @@ def _llm_synthesize(
     economic: dict,
     finance: dict,
     crisis: dict,
+    active_agents: list[str] | None = None,
 ) -> str:
-    """4-agent 결과를 LLM으로 종합해 자연어 컨설팅 답변을 생성한다."""
+    """에이전트 결과를 LLM으로 종합해 자연어 컨설팅 답변을 생성한다."""
+    active = active_agents or list(ALL_AGENTS)
     if not settings.openai_api_key:
-        return _template_answer(region, industry, stage, commercial, economic, finance, crisis)
-
-    crisis_level = crisis.get("level", "normal")
-    recommendations = finance.get("recommendations", [])
+        return _template_answer(
+            region, industry, stage, commercial, economic, finance, crisis, active_agents=active
+        )
 
     context_block = json.dumps(
-        {
-            "지역": region,
-            "업종": industry,
-            "사업단계": stage,
-            "상권요약": commercial.get("summary", ""),
-            "상권점수": commercial.get("score"),
-            "경기지표": economic.get("indicator", ""),
-            "소비트렌드": economic.get("consumption_trend", ""),
-            "위기등급": crisis_level,
-            "위기요약": crisis.get("summary", ""),
-            "위기권고행동": (crisis.get("recommended_actions") or [])[:3],
-            "금융추천건수": len(recommendations),
-            "추천상품유형": list({r.type for r in recommendations}) if recommendations else [],
-            "금융요약": finance.get("summary", ""),
-        },
+        _build_synthesize_context(
+            region, industry, stage, commercial, economic, finance, crisis, active
+        ),
         ensure_ascii=False,
         indent=2,
     )
+    system_prompt = (
+        _SYNTHESIZE_SYSTEM if active == list(ALL_AGENTS) else _PARTIAL_SYNTHESIZE_SYSTEM
+    )
+    max_tokens = 400 if active == list(ALL_AGENTS) else 250
 
     try:
         client = OpenAI(api_key=settings.openai_api_key)
         resp = client.chat.completions.create(
             model=settings.llm_model,
             messages=[
-                {"role": "system", "content": _SYNTHESIZE_SYSTEM},
+                {"role": "system", "content": system_prompt},
                 {"role": "user", "content": f"[분석 데이터]\n{context_block}"},
             ],
-            max_tokens=400,
+            max_tokens=max_tokens,
             temperature=0.5,
         )
         answer = (resp.choices[0].message.content or "").strip()
@@ -84,7 +128,9 @@ def _llm_synthesize(
     except Exception as exc:
         logger.warning("synthesize LLM 실패 (템플릿 fallback): %s", exc)
 
-    return _template_answer(region, industry, stage, commercial, economic, finance, crisis)
+    return _template_answer(
+        region, industry, stage, commercial, economic, finance, crisis, active_agents=active
+    )
 
 
 def _crisis_level_label(level: str) -> str:
@@ -113,7 +159,8 @@ def _template_answer(
         else:
             intro = f"{region} {industry} ({stage}) 기준으로 금융상품을 분석했습니다."
     elif active == ["commercial"]:
-        intro = f"{region} {industry} ({stage}) 상권을 분석했습니다."
+        analyzed = commercial.get("industry") or industry
+        intro = f"{region} **{analyzed}** 상권을 분석했습니다."
     elif active == ["economic"]:
         intro = f"{industry} 업종 기준으로 경기·소비 환경을 분석했습니다."
     elif active == ["commercial", "economic", "crisis"]:
@@ -128,10 +175,7 @@ def _template_answer(
     parts = [intro]
 
     if "commercial" in active and commercial.get("summary"):
-        if active == ["commercial"]:
-            parts.append("\n\n상세 분석은 오른쪽 **시장 인사이트** 패널에서 확인해 주세요.")
-        else:
-            parts.append(_format_section("📊 상권", commercial.get("summary", "")))
+        parts.append(_format_section("📊 상권", commercial.get("summary", "")))
     if "economic" in active and economic.get("indicator"):
         parts.append(_format_section("📈 경기", economic.get("indicator", "")))
     if "economic" in active and economic.get("consumption_trend"):
@@ -292,6 +336,7 @@ def synthesize_node(state: AgentState) -> dict:
             "score": crisis.get("score", 0),
             "summary": crisis.get("summary", ""),
             "recommended_actions": (crisis.get("recommended_actions") or [])[:3],
+            "growth_market_names": (crisis.get("growth_market_names") or [])[:3],
         }
 
     if commercial.get("is_sales_estimated") and "서울" not in (ctx.region or ""):
@@ -304,7 +349,7 @@ def synthesize_node(state: AgentState) -> dict:
     recommendations = finance.get("recommendations", []) if "finance" in active_agents else []
 
     region_label = ctx.region or "해당 지역"
-    industry_label = ctx.industry or "업종"
+    industry_label = commercial.get("industry") or ctx.industry or "업종"
     stage_label = ctx.stage.value
     user_query = state.get("user_query", "")
 
@@ -317,7 +362,7 @@ def synthesize_node(state: AgentState) -> dict:
             economic,
             revenue=ctx.revenue,
         )
-    elif active_agents == list(ALL_AGENTS):
+    elif len(active_agents) >= 2:
         final_answer = _llm_synthesize(
             region=region_label,
             industry=industry_label,
@@ -326,6 +371,7 @@ def synthesize_node(state: AgentState) -> dict:
             economic=economic,
             finance=finance,
             crisis=crisis,
+            active_agents=active_agents,
         )
     else:
         final_answer = _template_answer(
@@ -346,6 +392,12 @@ def synthesize_node(state: AgentState) -> dict:
             "5,000만 원 규모 대출 한도 알려줘",
             "정책자금으로 가능한지 알려줘",
         ]
+    elif active_agents == ["commercial"]:
+        follow_up = [
+            "이 지역 창업 초기 자금 규모 알려줘",
+            "위기진단 해줘",
+            "종합 분석해줘",
+        ]
     elif not follow_up:
         follow_up = [
             "창업에 필요한 초기 자금 규모 알려줘",
@@ -357,6 +409,7 @@ def synthesize_node(state: AgentState) -> dict:
         "recommendations": recommendations,
         "follow_up_questions": follow_up,
         "final_answer": final_answer,
+        "active_agents": active_agents,
     }
 
 
