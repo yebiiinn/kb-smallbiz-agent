@@ -16,6 +16,7 @@ from project.schemas import (
     BusinessStage,
     ChatRequest,
     ChatResponse,
+    CrisisInsight,
     MarketInsight,
     MarketInsightResponse,
     PolicyFundsResponse,
@@ -125,7 +126,7 @@ async def agent_chat(
     _trim_sessions()
     context = _extract_context_from_message(request.message, request.context)
     augmented = _build_augmented_message(x_session_id, request.message)
-    result = await run_graph(augmented, context)
+    result = await run_graph(augmented, context, user_query=request.message)
     insights_data = result.get("insights") or {}
 
     answer = result.get("final_answer", "")
@@ -135,12 +136,24 @@ async def agent_chat(
         _SESSIONS[x_session_id].append({"role": "user", "content": request.message, "ts": ts})
         _SESSIONS[x_session_id].append({"role": "assistant", "content": answer, "ts": ts})
 
+    crisis_data = insights_data.get("crisis")
+    crisis_insight = None
+    if isinstance(crisis_data, dict) and crisis_data.get("summary"):
+        crisis_insight = CrisisInsight(
+            level=crisis_data.get("level", "normal"),
+            score=float(crisis_data.get("score", 0)),
+            summary=crisis_data.get("summary", ""),
+            recommended_actions=crisis_data.get("recommended_actions", []),
+        )
+
     return ChatResponse(
         answer=answer,
         insights=MarketInsight(
             market_summary=insights_data.get("market_summary", ""),
             economic_indicator=insights_data.get("economic_indicator", ""),
             consumption_trend=insights_data.get("consumption_trend", ""),
+            crisis=crisis_insight,
+            sales_data_note=insights_data.get("sales_data_note", ""),
         ),
         recommendations=result.get("recommendations", []),
         follow_up_questions=result.get("follow_up_questions", []),

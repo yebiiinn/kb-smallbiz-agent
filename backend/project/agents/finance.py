@@ -35,19 +35,19 @@ _STAGE_INTENT: dict[str, str] = {
 # stage별 맞춤 follow-up 질문
 _FOLLOW_UP: dict[str, list[str]] = {
     BusinessStage.STARTUP.value: [
-        "예상 창업 자금은 얼마나 필요하신가요?",
-        "사업자등록 예정이신가요, 아니면 이미 하셨나요?",
-        "담보로 활용 가능한 자산(부동산·보증서 등)이 있으신가요?",
+        "창업에 필요한 초기 자금 규모 알려줘",
+        "이 조건으로 정책자금 추천해줘",
+        "KB 소상공인 대출 상품 알려줘",
     ],
     BusinessStage.OPERATION.value: [
-        "현재 월 매출 규모는 어느 정도인가요?",
-        "운영 자금이 필요한 구체적인 이유가 있으신가요? (임대료·재료비·인건비 등)",
-        "기존에 이용 중인 대출이 있으신가요?",
+        "운전자금 대출 상품 추천해줘",
+        "현재 상권·경기 상황 다시 분석해줘",
+        "경영안정 자금 필요 규모 알려줘",
     ],
     BusinessStage.EXPANSION.value: [
-        "확장 방향이 어떻게 되시나요? (매장 추가 / 리모델링 / 설비 투자)",
-        "현재 담보로 활용 가능한 자산이 있으신가요?",
-        "사업 기간과 연 매출 규모를 알 수 있을까요?",
+        "확장 투자용 대출 상품 추천해줘",
+        "추가 점포 상권 분석해줘",
+        "시설자금·정책자금 알려줘",
     ],
 }
 
@@ -781,19 +781,19 @@ def _dynamic_follow_up(
     active_scenarios: list[str] = economic.get("active_scenarios", [])
 
     if competition_level == "high":
-        questions.append(f"{region} {industry} 업종 경쟁이 치열한데, 차별화 전략이 있으신가요?")
+        questions.append(f"{region} {industry} 업종 차별화 전략 추천해줘")
     elif competition_level == "low":
-        questions.append(f"{region} {industry} 상권 경쟁이 낮습니다. 수요 확보 방안은 검토하셨나요?")
+        questions.append(f"{region} {industry} 상권 수요 확보 방안 알려줘")
 
     if sales_trend and "-" in sales_trend and "%" in sales_trend:
-        questions.append("매출 하락세가 감지됩니다. 운전자금·경영안정 자금 필요 규모는 얼마인가요?")
+        questions.append("경영안정 자금 필요 규모 알려줘")
     elif sales_trend and "+" in sales_trend:
-        questions.append("매출 성장세가 보입니다. 시설 확장이나 추가 투자 계획이 있으신가요?")
+        questions.append("시설 확장·추가 투자 대출 상품 추천해줘")
 
     if csi is not None and csi < 95:
-        questions.append("소비 심리 위축 국면입니다. 단기 유동성 확보를 위한 대출 규모를 생각해 두셨나요?")
+        questions.append("단기 유동성 확보 대출 상품 추천해줘")
     elif any("금리" in s for s in active_scenarios):
-        questions.append("금리 변동 국면입니다. 고정금리·변동금리 중 어떤 방식을 선호하시나요?")
+        questions.append("고정금리·변동금리 대출 비교해줘")
 
     base = _FOLLOW_UP.get(stage, _FOLLOW_UP[BusinessStage.STARTUP.value])
     for q in base:

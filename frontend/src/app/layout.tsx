@@ -25,7 +25,7 @@ export default function RootLayout({
 }>) {
   return (
     <html lang="ko" className={`${geistSans.variable} ${geistMono.variable} h-full antialiased`}>
-      <body className="min-h-full flex flex-col bg-zinc-50 text-zinc-900">
+      <body className="flex min-h-full flex-col bg-[#0A0F1E] text-white">
         <header
           className="sticky top-0 z-50 border-b"
           style={{

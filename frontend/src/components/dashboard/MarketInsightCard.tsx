@@ -82,6 +82,19 @@ export function MarketInsightCard({ insights, loading }: MarketInsightCardProps)
         )}
       </div>
 
+      {insights?.sales_data_note && (
+        <div
+          className="mb-4 rounded-xl px-3 py-2.5 text-xs leading-relaxed"
+          style={{
+            background: "rgba(255,184,28,0.08)",
+            border: "1px solid rgba(255,184,28,0.25)",
+            color: "rgba(255,255,255,0.75)",
+          }}
+        >
+          ℹ️ {insights.sales_data_note}
+        </div>
+      )}
+
       {!insights && !loading && (
         <p className="text-sm" style={{ color: "rgba(255,255,255,0.3)" }}>
           대화를 시작하면 상권·경기·소비 분석이 여기에 표시됩니다.

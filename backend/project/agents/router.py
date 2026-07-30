@@ -68,12 +68,46 @@ _FULL_ANALYSIS_KEYWORDS = (
     "모두",
 )
 
+_CAPITAL_PLANNING_KEYWORDS = (
+    "자본금",
+    "창업 자금",
+    "초기 자금",
+    "개업 비용",
+    "창업 비용",
+    "필요한 자금",
+    "얼마나 필요",
+    "얼마 필요",
+    "초기 비용",
+    "소요 자금",
+    "자금 규모",
+    "초기자금",
+    "창업비",
+)
+
+
+def extract_current_query(user_query: str) -> str:
+    """멀티턴 augmented 메시지에서 현재 질문만 추출한다."""
+    text = (user_query or "").strip()
+    marker = "[현재 질문]:"
+    if marker in text:
+        return text.split(marker, 1)[1].strip()
+    return text
+
+
+def is_capital_planning_query(user_query: str) -> bool:
+    """창업·운영에 필요한 자금 규모를 묻는 질문인지 판별한다."""
+    query = extract_current_query(user_query)
+    return any(keyword in query for keyword in _CAPITAL_PLANNING_KEYWORDS)
+
 
 def classify_active_agents(user_query: str) -> list[str]:
     """질문에서 필요한 에이전트 목록을 반환한다."""
-    query = (user_query or "").strip()
+    query = extract_current_query(user_query)
     if not query:
         return list(ALL_AGENTS)
+
+    if is_capital_planning_query(query):
+        return ["commercial", "economic"]
 
     if any(keyword in query for keyword in _FULL_ANALYSIS_KEYWORDS):
         return list(ALL_AGENTS)

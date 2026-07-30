@@ -21,10 +21,19 @@ class ChatRequest(BaseModel):
     context: BusinessContext = Field(default_factory=BusinessContext)
 
 
+class CrisisInsight(BaseModel):
+    level: str = "normal"
+    score: float = Field(default=0, ge=0, le=100)
+    summary: str = ""
+    recommended_actions: list[str] = Field(default_factory=list)
+
+
 class MarketInsight(BaseModel):
-    market_summary: str
-    economic_indicator: str
-    consumption_trend: str
+    market_summary: str = ""
+    economic_indicator: str = ""
+    consumption_trend: str = ""
+    crisis: CrisisInsight | None = None
+    sales_data_note: str = ""
 
 
 class RecommendationItem(BaseModel):
