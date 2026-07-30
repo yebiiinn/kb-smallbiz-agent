@@ -84,6 +84,25 @@ _CAPITAL_PLANNING_KEYWORDS = (
     "창업비",
 )
 
+_STARTUP_TIMING_KEYWORDS = (
+    "창업해도 될까",
+    "창업 타이밍",
+    "지금 창업",
+    "창업하는게 좋을까",
+    "창업하는 게 좋을까",
+    "창업 적합",
+    "창업 추천",
+    "창업할까",
+    "지금 시작해도",
+    "요즘 창업",
+    "창업 시기",
+    "창업 적기",
+    "창업해도 되나",
+    "창업 괜찮을까",
+    "창업 지금 해도",
+    "창업 가능할까",
+)
+
 
 def extract_current_query(user_query: str) -> str:
     """멀티턴 augmented 메시지에서 현재 질문만 추출한다."""
@@ -100,6 +119,12 @@ def is_capital_planning_query(user_query: str) -> bool:
     return any(keyword in query for keyword in _CAPITAL_PLANNING_KEYWORDS)
 
 
+def is_startup_timing_query(user_query: str) -> bool:
+    """지금 창업해도 될지 타이밍·적합성을 묻는 질문인지 판별한다."""
+    query = extract_current_query(user_query)
+    return any(keyword in query for keyword in _STARTUP_TIMING_KEYWORDS)
+
+
 def classify_active_agents(user_query: str) -> list[str]:
     """질문에서 필요한 에이전트 목록을 반환한다."""
     query = extract_current_query(user_query)
@@ -108,6 +133,9 @@ def classify_active_agents(user_query: str) -> list[str]:
 
     if is_capital_planning_query(query):
         return ["commercial", "economic"]
+
+    if is_startup_timing_query(query):
+        return list(ALL_AGENTS)
 
     if any(keyword in query for keyword in _FULL_ANALYSIS_KEYWORDS):
         return list(ALL_AGENTS)

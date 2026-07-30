@@ -10,7 +10,7 @@ from project.agents.commercial import commercial_node
 from project.agents.crisis import crisis_node
 from project.agents.economic import economic_node
 from project.agents.finance import finance_node
-from project.agents.router import ALL_AGENTS, is_capital_planning_query, router_node
+from project.agents.router import ALL_AGENTS, is_capital_planning_query, is_startup_timing_query, router_node
 from project.config import settings
 from project.state import AgentState
 
@@ -197,6 +197,192 @@ def _template_answer(
     return "".join(parts)
 
 
+_STARTUP_TIMING_SYSTEM = """\
+당신은 KB 소상공인 금융 지원 전문 컨설턴트입니다.
+아래 분석 데이터를 바탕으로 "지금 창업해도 될까?" 질문에 대한 종합 판단을 작성하세요.
+
+규칙:
+- 첫 줄: **종합 판단: ✅ 창업 추천 / ⚠️ 신중 검토 / ❌ 시기 재검토** 중 하나를 반드시 명시
+- 긍정 요인과 리스크 요인을 각각 bullet로 구분
+- 창업 추천 시: 맞춤 금융상품·정책자금 안내 (오른쪽 패널 유도)
+- 신중 검토 시: 준비 조건·개선 포인트 2~3가지 제시
+- 시기 재검토 시: 대안(업종 변경·지역 재검토·시기 조정) 제안
+- 3~5문장, 이모지로 가독성 높게
+- 폐업률·생존율 수치가 있으면 구체적으로 언급
+"""
+
+
+def _startup_timing_score(
+    commercial: dict,
+    economic: dict,
+    crisis: dict,
+) -> tuple[int, list[str], list[str]]:
+    """창업 타이밍 판단을 위한 점수와 신호 목록을 반환한다.
+
+    Returns
+    -------
+    score           : 종합 점수 (양수 = 우호적)
+    positive_signals: 긍정 요인 목록
+    risk_signals    : 리스크 요인 목록
+    """
+    score = 0
+    positive: list[str] = []
+    risks: list[str] = []
+
+    commercial_score = commercial.get("score", 50)
+    if commercial_score >= 70:
+        score += 2
+        positive.append(f"상권 점수 {commercial_score}점 (우수)")
+    elif commercial_score >= 55:
+        score += 1
+        positive.append(f"상권 점수 {commercial_score}점 (양호)")
+    elif commercial_score < 40:
+        score -= 2
+        risks.append(f"상권 점수 {commercial_score}점 (낮음 — 입지 재검토 권장)")
+    elif commercial_score < 55:
+        score -= 1
+        risks.append(f"상권 점수 {commercial_score}점 (보통 이하)")
+
+    crisis_level = crisis.get("level", "normal")
+    if crisis_level == "normal":
+        score += 1
+        positive.append("현재 경영 위기 신호 없음")
+    elif crisis_level == "warning":
+        score -= 1
+        risks.append("경영 위기 주의 신호 감지")
+    elif crisis_level == "critical":
+        score -= 3
+        risks.append("경영 위기 위험 신호 — 창업 강력 비추천")
+
+    csi = economic.get("consumer_sentiment")
+    if csi is not None:
+        if csi >= 105:
+            score += 1
+            positive.append(f"소비자심리지수 {csi:.0f} (활성)")
+        elif csi >= 100:
+            positive.append(f"소비자심리지수 {csi:.0f} (정상)")
+        elif csi >= 90:
+            score -= 1
+            risks.append(f"소비자심리지수 {csi:.0f} (위축 — 소비 둔화)")
+        else:
+            score -= 2
+            risks.append(f"소비자심리지수 {csi:.0f} (심각 위축)")
+
+    closure_rate = crisis.get("closure_rate") or {}
+    survival = closure_rate.get("survival_1y")
+    if survival is not None:
+        if survival >= 0.70:
+            score += 1
+            positive.append(f"업종 1년 생존율 {survival*100:.0f}% (안정적)")
+        elif survival >= 0.60:
+            positive.append(f"업종 1년 생존율 {survival*100:.0f}% (평균)")
+        elif survival >= 0.52:
+            score -= 2
+            risks.append(f"업종 1년 생존율 {survival*100:.0f}% (폐업 위험 높음)")
+        else:
+            score -= 3
+            risks.append(f"업종 1년 생존율 {survival*100:.0f}% (매우 위험)")
+
+    raw_eco = economic.get("raw") or {}
+    rate_direction_raw = raw_eco.get("rate_direction", "동결")
+    if rate_direction_raw in {"인상", "rising"}:
+        score -= 1
+        risks.append("금리 상승 기조 — 초기 자금 조달 비용 증가")
+    elif rate_direction_raw in {"인하", "falling"}:
+        score += 1
+        positive.append("금리 인하 기조 — 자금 조달 환경 유리")
+
+    growth_market_count = crisis.get("growth_market_count") or 0
+    if growth_market_count > 0:
+        names = (crisis.get("growth_market_names") or [])[:2]
+        name_str = f"({', '.join(names)})" if names else ""
+        score += 1
+        positive.append(f"인근 성장상권 {growth_market_count}개 {name_str}")
+
+    competition_level = commercial.get("competition_level", "")
+    if competition_level == "low":
+        score += 1
+        positive.append("주변 경쟁 업체 낮음 — 선점 기회")
+    elif competition_level == "high":
+        score -= 1
+        risks.append("주변 경쟁 업체 밀집 — 차별화 전략 필수")
+
+    return score, positive, risks
+
+
+def _startup_timing_answer(
+    region: str,
+    industry: str,
+    stage: str,
+    commercial: dict,
+    economic: dict,
+    crisis: dict,
+    finance: dict,
+    active_agents: list[str],
+) -> str:
+    """'지금 창업해도 될까?' 종합 판단 답변을 생성한다."""
+    score, positive, risks = _startup_timing_score(commercial, economic, crisis)
+
+    if score >= 2:
+        verdict = "✅ 창업 추천"
+    elif score <= -2:
+        verdict = "❌ 시기 재검토 권장"
+    else:
+        verdict = "⚠️ 신중 검토 필요"
+
+    n_recommendations = len(finance.get("recommendations", []))
+
+    context_block = json.dumps(
+        {
+            "지역": region,
+            "업종": industry,
+            "사업단계": stage,
+            "종합판단": verdict,
+            "점수": score,
+            "긍정요인": positive,
+            "리스크요인": risks,
+            "금융추천건수": n_recommendations,
+            "위기등급": crisis.get("level", "normal"),
+            "위기요약": crisis.get("summary", ""),
+            "상권점수": commercial.get("score"),
+        },
+        ensure_ascii=False,
+        indent=2,
+    )
+
+    if settings.openai_api_key:
+        try:
+            client = OpenAI(api_key=settings.openai_api_key)
+            resp = client.chat.completions.create(
+                model=settings.llm_model,
+                messages=[
+                    {"role": "system", "content": _STARTUP_TIMING_SYSTEM},
+                    {"role": "user", "content": f"[분석 데이터]\n{context_block}"},
+                ],
+                max_tokens=400,
+                temperature=0.5,
+            )
+            answer = (resp.choices[0].message.content or "").strip()
+            if answer:
+                return answer
+        except Exception as exc:
+            logger.warning("startup_timing LLM 실패 (템플릿 fallback): %s", exc)
+
+    # 템플릿 fallback
+    lines = [f"**종합 판단: {verdict}**\n"]
+    if positive:
+        lines.append("**긍정 요인**")
+        lines.extend(f"- {p}" for p in positive)
+    if risks:
+        lines.append("\n**리스크 요인**")
+        lines.extend(f"- {r}" for r in risks)
+    if verdict == "✅ 창업 추천" and n_recommendations > 0:
+        lines.append(f"\n💰 맞춤 금융상품 {n_recommendations}건 — 오른쪽 패널을 확인해 주세요.")
+    elif verdict == "❌ 시기 재검토 권장":
+        lines.append("\n📋 업종·지역·시기를 재검토하거나, 창업 준비 교육을 먼저 이수하는 것을 권장드립니다.")
+    return "\n".join(lines)
+
+
 def _format_won(amount: int) -> str:
     if amount >= 100_000_000:
         return f"약 {amount / 100_000_000:.1f}억 원"
@@ -353,7 +539,18 @@ def synthesize_node(state: AgentState) -> dict:
     stage_label = ctx.stage.value
     user_query = state.get("user_query", "")
 
-    if is_capital_planning_query(user_query):
+    if is_startup_timing_query(user_query):
+        final_answer = _startup_timing_answer(
+            region_label,
+            industry_label,
+            stage_label,
+            commercial,
+            economic,
+            crisis,
+            finance,
+            active_agents,
+        )
+    elif is_capital_planning_query(user_query):
         final_answer = _capital_planning_answer(
             region_label,
             industry_label,
@@ -386,7 +583,13 @@ def synthesize_node(state: AgentState) -> dict:
         )
 
     follow_up = finance.get("follow_up_questions")
-    if is_capital_planning_query(user_query):
+    if is_startup_timing_query(user_query):
+        follow_up = [
+            "창업 초기 자금 규모 알려줘",
+            "이 지역 맞춤 금융상품 추천해줘",
+            "정책자금 지원 받을 수 있어?",
+        ]
+    elif is_capital_planning_query(user_query):
         follow_up = [
             "3,000만 원 규모로 맞춤 금융상품 추천해줘",
             "5,000만 원 규모 대출 한도 알려줘",

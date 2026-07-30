@@ -34,6 +34,10 @@ export default function AgentPage() {
     if (saved) setContext(JSON.parse(saved) as BusinessContext);
   }, []);
 
+  function handleLoadingEnd() {
+    setSideLoading(false);
+  }
+
   function handleResponse(response: ChatResponse) {
     setSideLoading(false);
     setInsights(response.insights);
@@ -114,6 +118,7 @@ export default function AgentPage() {
               context={context}
               onResponse={handleResponse}
               onLoadingStart={handleLoadingStart}
+              onLoadingEnd={handleLoadingEnd}
             />
           </div>
           <div className="flex min-h-0 flex-col gap-4 overflow-y-auto lg:col-span-2">

@@ -162,7 +162,7 @@ def commercial_node(state: AgentState) -> dict:
         }
     kakao_map = kakao_map_api.search_nearby_competition(region=region, industry=industry)
 
-    is_sales_mock = seoul_sales.get("source") == "mock"
+    is_sales_mock = seoul_sales.get("source") in {"mock", "skipped"}
     per_store_sales, per_store_amount = _derive_per_store_sales(seoul_sales, store_count)
     summary = _build_summary(
         region, industry, sangkwon, seoul_sales, kakao_map, per_store_sales

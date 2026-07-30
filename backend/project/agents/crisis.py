@@ -1,7 +1,7 @@
 """위기진단 에이전트 — 상권·경기·공공데이터 기반 위기 신호 분석."""
 
 from project.state import AgentState
-from project.tools import crisis_data
+from project.tools import crisis_data, kosis_api
 
 LEVEL_ORDER = {"normal": 0, "warning": 1, "critical": 2}
 COMMERCIAL_WARNING_SCORE = 45
@@ -13,6 +13,8 @@ STORE_COUNT_WARNING = 3_000
 CSI_WARNING_THRESHOLD = 100
 CSI_CRITICAL_THRESHOLD = 90
 SMALL_MARKET_AREA_RATIO = 0.7
+CLOSURE_RISK_WARNING_THRESHOLD = 0.60   # 1년 생존율 60% 미만 → warning
+CLOSURE_RISK_CRITICAL_THRESHOLD = 0.52  # 1년 생존율 52% 미만 → critical
 
 
 def _max_level(current: str, new: str) -> str:
@@ -169,6 +171,10 @@ def crisis_node(state: AgentState) -> dict:
     competition_ratio = sangkwon.get("competition_ratio")
     consumer_sentiment = _parse_consumer_sentiment(economic.get("consumer_sentiment"))
 
+    # 폐업률(생존율) 데이터 조회
+    closure_data = kosis_api.fetch_closure_rate(industry)
+    survival_1y: float = closure_data.get("survival_1y", 0.65)
+
     level = "normal"
     signals: list[str] = []
 
@@ -227,6 +233,20 @@ def crisis_node(state: AgentState) -> dict:
         level = _max_level(level, "warning")
         signals.append("경기·소비 지표에서 둔화 신호가 감지됩니다.")
 
+    # 폐업률(생존율) 기반 신호
+    if survival_1y < CLOSURE_RISK_CRITICAL_THRESHOLD:
+        level = _max_level(level, "critical")
+        signals.append(
+            f"{industry} 업종 1년 생존율이 약 {survival_1y * 100:.0f}%로 "
+            "폐업 위험이 매우 높은 업종입니다."
+        )
+    elif survival_1y < CLOSURE_RISK_WARNING_THRESHOLD:
+        level = _max_level(level, "warning")
+        signals.append(
+            f"{industry} 업종 1년 생존율이 약 {survival_1y * 100:.0f}%로 "
+            "동종 업계 폐업률이 높으니 사전 준비가 필요합니다."
+        )
+
     growth_signal = _build_growth_signal(regional)
     if growth_signal:
         level = _max_level(level, "warning")
@@ -255,6 +275,12 @@ def crisis_node(state: AgentState) -> dict:
             "growth_market_count": regional.get("growth_market_count"),
             "growth_market_names": regional.get("growth_market_names") or [],
             "education_count": regional.get("education_count"),
+            "closure_rate": {
+                "survival_1y":  survival_1y,
+                "closure_risk": closure_data.get("closure_risk", "medium"),
+                "industry_key": closure_data.get("industry_key", "기타"),
+                "source":       closure_data.get("source", "baseline"),
+            },
             "raw": {
                 "regional": regional,
                 "commercial_score": commercial_score,

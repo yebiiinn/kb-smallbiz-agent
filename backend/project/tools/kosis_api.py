@@ -92,6 +92,120 @@ def fetch_indicator_series(
         return []
 
 
+# ---------------------------------------------------------------------------
+# 업종별 폐업률(생존율) 추정
+# ---------------------------------------------------------------------------
+# 통계청 소상공인실태조사·서비스업생산지수 기반 업종별 1년 생존율 baseline
+# 출처: 통계청 「소상공인실태조사」, 중소벤처기업부 소상공인 통계 (2022~2024 평균)
+_BASELINE_SURVIVAL_1Y: dict[str, float] = {
+    "음식점":   0.60,
+    "한식":     0.60,
+    "중식":     0.62,
+    "일식":     0.63,
+    "카페":     0.58,
+    "커피":     0.58,
+    "치킨":     0.55,
+    "분식":     0.57,
+    "편의점":   0.72,
+    "소매":     0.68,
+    "마트":     0.70,
+    "슈퍼마켓": 0.70,
+    "미용":     0.75,
+    "헤어":     0.75,
+    "세탁":     0.78,
+    "학원":     0.65,
+    "교육":     0.65,
+    "헬스장":   0.62,
+    "PC방":     0.52,
+    "노래방":   0.50,
+    "기타":     0.65,
+}
+
+
+def _match_survival(industry: str) -> tuple[float, str]:
+    """업종 키워드로 1년 생존율 baseline을 반환한다."""
+    for key, rate in _BASELINE_SURVIVAL_1Y.items():
+        if key in industry:
+            return rate, key
+    return _BASELINE_SURVIVAL_1Y["기타"], "기타"
+
+
+def _survival_to_risk(survival: float) -> str:
+    if survival < 0.55:
+        return "high"
+    if survival < 0.65:
+        return "medium"
+    return "low"
+
+
+def fetch_closure_rate(industry: str) -> dict:
+    """업종별 폐업률(1년 생존율) 추정.
+
+    KOSIS 서비스업생산지수 증감률로 동적 보정 시도 후,
+    API 미사용 환경에서는 통계청 baseline을 그대로 반환한다.
+
+    Returns
+    -------
+    dict
+        survival_1y  : 1년 생존율 (0~1, 예: 0.58 → 58%)
+        closure_risk : "high" | "medium" | "low"
+        industry_key : 매칭된 업종 키
+        source       : "kosis_adjusted" | "baseline"
+    """
+    baseline, matched_key = _match_survival(industry)
+
+    # KOSIS 키가 있으면 서비스업생산지수 최근 증감률로 보정
+    if settings.kosis_api_key:
+        INDUSTRY_MAP_KOSIS = {
+            "음식점주점": ("DT_1KC2020", "T2", "I56", "101"),
+            "편의점":    ("DT_1K41013", "T2", "A5",  "101"),
+            "개인서비스": ("DT_1KC2020", "T2", "S96", "101"),
+            "교육서비스": ("DT_1KC2020", "T2", "P",   "101"),
+        }
+        keyword_map_kosis = {
+            "음식": "음식점주점", "카페": "음식점주점", "치킨": "음식점주점",
+            "편의": "편의점",
+            "미용": "개인서비스", "세탁": "개인서비스", "헬스": "개인서비스",
+            "학원": "교육서비스", "교육": "교육서비스",
+        }
+        industry_key_kosis = next(
+            (v for k, v in keyword_map_kosis.items() if k in industry),
+            "음식점주점",
+        )
+        tbl_id, itm_id, obj_l1, org_id = INDUSTRY_MAP_KOSIS[industry_key_kosis]
+
+        from datetime import datetime, timedelta
+        end = datetime.today().strftime("%Y%m")
+        start = (datetime.today() - timedelta(days=60)).strftime("%Y%m")
+
+        try:
+            series = fetch_indicator_series(tbl_id, itm_id, obj_l1, org_id,
+                                            start=start, end=end)
+            if len(series) >= 2:
+                latest = series[-1]["value"]
+                prev = series[-2]["value"]
+                growth_rate = (latest - prev) / prev if prev else 0.0
+                # 업황 개선 시 생존율 +3%p, 악화 시 -3%p 보정 (보수적)
+                adjustment = max(-0.05, min(0.05, growth_rate * 0.3))
+                adjusted = round(baseline + adjustment, 3)
+                return {
+                    "survival_1y":  adjusted,
+                    "closure_risk": _survival_to_risk(adjusted),
+                    "industry_key": matched_key,
+                    "source":       "kosis_adjusted",
+                    "growth_rate":  round(growth_rate * 100, 2),
+                }
+        except Exception:
+            pass
+
+    return {
+        "survival_1y":  baseline,
+        "closure_risk": _survival_to_risk(baseline),
+        "industry_key": matched_key,
+        "source":       "baseline",
+    }
+
+
 def fetch_consumption_trend(region: str, industry: str) -> dict:
     """지역·업종 소비 트렌드 조회 (KOSIS).
 

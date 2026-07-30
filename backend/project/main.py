@@ -141,7 +141,7 @@ async def agent_chat(
     _trim_sessions()
     context = _extract_context_from_message(request.message, request.context)
     augmented = _build_augmented_message(x_session_id, request.message)
-    result = await run_graph(augmented, context, user_query=request.message)
+    result = await run_graph(augmented, context, user_query=augmented)
     insights_data = result.get("insights") or {}
 
     answer = result.get("final_answer", "")

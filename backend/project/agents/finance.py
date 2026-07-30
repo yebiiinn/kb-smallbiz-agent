@@ -386,11 +386,8 @@ def finance_node(state: AgentState) -> dict:
     # ── 4. 추천 결과 정렬 (금융상품: 낮은 금리 우선, KB 우선) ──────────────
     recommendations = _sort_recommendations(recommendations, intent)
 
-    # ── 4-b. revenue / 목표 대출금액 기반 적합도 안내 ───────────────────────
-    if target_loan_manwon is not None:
-        recommendations = _annotate_by_target_loan(recommendations, target_loan_manwon)
-    elif revenue is not None and intent in _LOAN_INTENTS:
-        recommendations = _filter_by_revenue(recommendations, revenue)
+    # ── 4-b. revenue / 목표 대출금액 기반 적합도 안내는 LLM 이후에 처리 ─────────
+    # (Step 6 이후로 이동됨 — LLM이 어노테이션을 덮어쓰는 것을 방지)
 
     # ── 5. 요약 문구 ─────────────────────────────────────────────────────────
     n_policy = len(semas_results) + len(bizinfo_results)
@@ -430,6 +427,12 @@ def finance_node(state: AgentState) -> dict:
         crisis_level=crisis_level,
         crisis_signals=crisis_signals,
     )
+
+    # ── 7. revenue / 목표 대출금액 기반 적합도 안내 (LLM 이후 — 덮어쓰기 방지) ─
+    if target_loan_manwon is not None:
+        recommendations = _annotate_by_target_loan(recommendations, target_loan_manwon)
+    elif revenue is not None and intent in _LOAN_INTENTS:
+        recommendations = _filter_by_revenue(recommendations, revenue)
 
     return {
         "finance_result": {
@@ -611,7 +614,7 @@ _SYSTEM_PROMPT = """\
 규칙:
 - 각 항목당 1~2문장, 최대 80자
 - 사용자의 업종·지역·사업 단계를 구체적으로 언급할 것
-- 숫자(금리·한도·신청기간)가 있으면 반드시 포함할 것
+- current_reason에 금리·한도·신청기간 숫자가 있으면 반드시 그 수치를 포함할 것
 - 경기지표(금리 방향, 소비심리)를 추천 이유에 자연스럽게 녹일 것
 - 과장 표현·광고 문구 금지. 실용적이고 간결하게
 - 반드시 JSON 객체만 반환. 키는 "items", 값은 배열
@@ -676,7 +679,7 @@ def _enrich_with_llm(
 
     # ── 상품 목록 조립 (current_reason 제외 — LLM 이 베끼지 않도록) ──────
     items_for_llm = [
-        {"index": i, "type": r.type, "name": r.name}
+        {"index": i, "type": r.type, "name": r.name, "current_reason": r.reason or ""}
         for i, r in enumerate(recommendations)
     ]
     items_block = json.dumps(items_for_llm, ensure_ascii=False, indent=2)
@@ -811,8 +814,8 @@ def _filter_by_revenue(
         if m:
             limit_eok = int(m.group(1))
             limit_man = limit_eok * 10_000  # 억원 → 만원
-            if limit_man > revenue * 18:  # 월매출 18개월치 초과 한도
-                reason = reason + f" (월매출 {revenue_fmt} 기준, 한도 여유 충분)"
+            if limit_man > revenue * 18:  # 월매출 18개월치 초과 → 과다 한도, 상환 계획 필요
+                reason = reason + f" (월매출 {revenue_fmt} 기준, 실제 필요 금액 확인 후 신청 권장)"
         if tier == "소규모":
             reason = reason + f" ※ 월매출 {revenue_fmt} — 소규모 맞춤 한도 확인 권장"
         annotated.append(rec.model_copy(update={"reason": reason}))

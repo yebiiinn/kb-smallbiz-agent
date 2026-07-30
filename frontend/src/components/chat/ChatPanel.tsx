@@ -11,6 +11,7 @@ interface ChatPanelProps {
   context: BusinessContext;
   onResponse: (response: ChatResponse) => void;
   onLoadingStart?: () => void;
+  onLoadingEnd?: () => void;
 }
 
 const INITIAL_MESSAGE: ChatMessage = {
@@ -79,7 +80,7 @@ const AGENT_LABELS: Record<string, string> = {
   crisis: "위기",
 };
 
-export function ChatPanel({ context, onResponse, onLoadingStart }: ChatPanelProps) {
+export function ChatPanel({ context, onResponse, onLoadingStart, onLoadingEnd }: ChatPanelProps) {
   const [messages, setMessages] = useState<ChatMessage[]>([INITIAL_MESSAGE]);
   const [input, setInput] = useState("");
   const [loading, setLoading] = useState(false);
@@ -127,6 +128,7 @@ export function ChatPanel({ context, onResponse, onLoadingStart }: ChatPanelProp
         setFollowUps(response.follow_up_questions.slice(0, 3));
       }
     } catch {
+      onLoadingEnd?.();
       setLastFailedText(text);
       setMessages((prev) => [
         ...prev,
